@@ -39,8 +39,9 @@
             Case 1
                 Me.TabControl2_Selecting(Me.TabControl2, New TabControlCancelEventArgs(TabPage3, 0, False, TabControlAction.Selecting))
             Case 2
-                Me.TabControl3_Selecting(Me.TabControl2, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
-
+                Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
+            Case 3
+                Me.TabControl4_Selecting(Me.TabControl4, New TabControlCancelEventArgs(TabPage15, 0, False, TabControlAction.Selecting))
 
         End Select
 
@@ -63,6 +64,17 @@
         Me.DataGridView5.DataSource = Nothing
         Me.DataGridView6.Columns.Clear()
         Me.DataGridView6.DataSource = Nothing
+        Me.DataGridView7.Columns.Clear()
+        Me.DataGridView7.DataSource = Nothing
+        Me.DataGridView8.Columns.Clear()
+        Me.DataGridView8.DataSource = Nothing
+        Me.ComboBox7.SelectedText = ""
+        Me.ComboBox6.SelectedText = ""
+        Me.ComboBox5.SelectedText = ""
+        Me.ComboBox4.SelectedText = ""
+        Me.ComboBox3.SelectedText = ""
+        Me.ComboBox2.SelectedText = ""
+        Me.ComboBox1.SelectedText = ""
 
     End Sub
 
@@ -124,11 +136,57 @@
                 cmb.DisplayMember = "ProcName"
                 cmb.DataPropertyName = Central.CurrentDataSet.Tables(0).Columns("ProcID").ToString
                 ctl.columns.add(cmb)
-                cmb.DisplayIndex = 2
+                cmb.DisplayIndex = 1
                 ctl.columns(2).headertext = "Hours"
                 ctl.columns(3).headertext = "Minutes"
                 ctl.columns(5).headertext = "Set Time"
+                Dim cmb2 As New DataGridViewComboBoxColumn
+                cmb2.HeaderText = "Timepoint"
+                cmb2.DataSource = Central.TempDataSet("SELECT * FROM (SELECT StudyTimepointID & 'A' As ID, TimepointName & ': Approx' As Display " & _
+                                                     " FROM StudyTimepoint WHERE StudyID=" & Me.ComboBox4.SelectedValue.ToString & _
+                                                     " UNION ALL " & _
+                                                     " SELECT StudyTimepointID & 'T' As ID, TimepointName & ': Timed' As Display " & _
+                                                     " FROM StudyTimepoint WHERE StudyID=" & Me.ComboBox4.SelectedValue.ToString & _
+                                                     " UNION ALL " & _
+                                                     " SELECT '0S' AS ID, 'Set Time' AS Display FROM StudyTimepoint" & _
+                                                     " GROUP BY '0S', 'Set Time') ORDER BY Display ASC").Tables(0)
+                cmb2.ValueMember = "ID"
+                cmb2.DisplayMember = "Display"
+                cmb2.DataPropertyName = Central.CurrentDataSet.Tables(0).Columns("Approx").ToString
+                ctl.columns.add(cmb2)
+                ctl.columns("SetTime").DefaultCellStyle.Format = "hh:mm"
+                ctl.columns("Approx").visible = False
+                cmb2.DisplayIndex = 2
 
+            Case "DataGridView7"
+                SQLCode = "SELECT CohortID, CohortName, VolGap, NumVols" & _
+                    " FROM Cohort WHERE StudyID=" & Me.ComboBox5.SelectedValue.ToString & _
+                    " ORDER BY CohortName ASC"
+                Central.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+                ctl.Columns("CohortID").visible = False
+                ctl.columns("NumVols").HeaderText = "Number of volunteers"
+                ctl.columns("CohortName").HeaderText = "Cohort Name"
+                ctl.columns("VolGap").HeaderText = "Interval (Minutes)"
+
+            Case "DataGridView8"
+                SQLCode = "SELECT CohortTimePointID, StudyTimepointID, TimepointDateTime" & _
+                    " FROM CohortTimepoint " & _
+                    " WHERE CohortID=" & Me.ComboBox7.SelectedValue.ToString & _
+                    " ORDER BY TimepointDateTime ASC"
+                Central.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+                ctl.Columns("CohortTimePointID").visible = False
+                ctl.Columns("StudyTimePointID").visible = False
+                ctl.columns("TimepointDateTime").HeaderText = "Date/Time"
+                Dim cmb As New DataGridViewComboBoxColumn
+                cmb.HeaderText = "Timepoint"
+                cmb.DataSource = Central.TempDataSet("SELECT StudyTimepointID, TimepointName " & _
+                                                    "FROM StudyTimepoint " & _
+                                                    "WHERE StudyID=" & Me.ComboBox6.SelectedValue.ToString).Tables(0)
+                cmb.ValueMember = "StudyTimepointID"
+                cmb.DisplayMember = "TimepointName"
+                cmb.DataPropertyName = Central.CurrentDataSet.Tables(0).Columns("StudyTimepointID").ToString
+                ctl.columns.add(cmb)
+                cmb.DisplayIndex = 0
         End Select
 
     End Sub
@@ -227,8 +285,10 @@
                 Me.ComboBox2.DisplayMember = "StudyCode"
             Case 3
                 ctl = Me.DataGridView6
-                Me.ComboBox4.DataSource = Central.TempDataSet("SELECT StudyID, " & _
-                                                              "StudyCode FROM Study ORDER BY StudyCode ASC").Tables(0)
+                Me.ComboBox4.DataSource = Central.TempDataSet("SELECT DISTINCT a.StudyID, " & _
+                                                              "StudyCode FROM Study a INNER JOIN StudyDay b" & _
+                                                              " ON a.StudyID=b.StudyID " & _
+                                                              "ORDER BY StudyCode ASC").Tables(0)
                 Me.ComboBox4.ValueMember = "StudyID"
                 Me.ComboBox4.DisplayMember = "StudyCode"
                 Me.ComboBox3.DataSource = Central.TempDataSet("SELECT DayID, " & _
@@ -237,6 +297,13 @@
                                                               " ORDER BY DayNumber ASC").Tables(0)
                 Me.ComboBox3.ValueMember = "DayID"
                 Me.ComboBox3.DisplayMember = "DayNumber"
+            Case 4
+                ctl = Me.DataGridView7
+                Me.ComboBox5.DataSource = Central.TempDataSet("SELECT StudyID, " & _
+                                                              "StudyCode FROM Study ORDER BY StudyCode ASC").Tables(0)
+                Me.ComboBox5.ValueMember = "StudyID"
+                Me.ComboBox5.DisplayMember = "StudyCode"
+
         End Select
 
 
@@ -360,5 +427,110 @@
     Private Sub DataGridView6_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellEnter
         Call Central.SingleClick(sender, e)
     End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Call Saver(Me.DataGridView7)
+    End Sub
+
+    Private Sub ComboBox5_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBox5.KeyDown
+        e.SuppressKeyPress = True
+    End Sub
+
+    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
+        If Me.ComboBox5.SelectedValue.ToString <> "System.Data.DataRowView" Then
+
+            If Central.UnloadData() = True Then Exit Sub
+            Call ResetDataGrid()
+            Call Specifics(Me.DataGridView7)
+
+        End If
+    End Sub
+
+    Private Sub DataGridView7_DataError(sender As Object, e As DataGridViewDataErrorEventArgs)
+        e.Cancel = False
+        Call Central.ErrorHandler(sender, e)
+    End Sub
+
+    Private Sub DataGridView8_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles DataGridView8.DataError
+        e.Cancel = False
+        Call Central.ErrorHandler(sender, e)
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Call Saver(Me.DataGridView8)
+    End Sub
+
+    Private Sub ComboBox6_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBox6.KeyDown
+        e.SuppressKeyPress = True
+    End Sub
+
+    Private Sub ComboBox7_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBox7.KeyDown
+        e.SuppressKeyPress = True
+    End Sub
+
+    Private Sub TabControl4_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles TabControl4.Selecting
+
+        Dim SQLCode As String = vbNullString
+        Dim Bind As BindingSource = BindingSource1
+        Dim ctl As Object = Nothing
+
+        If Central.UnloadData() = True Then
+            e.Cancel = True
+            Exit Sub
+        End If
+
+        Call ResetDataGrid()
+
+        Select Case e.TabPageIndex
+
+            Case 0
+                ctl = Me.DataGridView8
+                Me.ComboBox6.DataSource = Central.TempDataSet("SELECT DISTINCT a.StudyID, " & _
+                                                              "StudyCode FROM (Study a INNER JOIN StudyTimePoint b " & _
+                                                              "ON a.StudyID=b.StudyID) " & _
+                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " & _
+                                                              "ORDER BY StudyCode ASC").Tables(0)
+                Me.ComboBox6.ValueMember = "StudyID"
+                Me.ComboBox6.DisplayMember = "StudyCode"
+                Me.ComboBox7.DataSource = Central.TempDataSet("SELECT CohortID, " & _
+                                                              "CohortName FROM Cohort WHERE StudyID=" _
+                                                              & Me.ComboBox6.SelectedValue.ToString & _
+                                                              " ORDER BY CohortName ASC").Tables(0)
+                Me.ComboBox7.ValueMember = "CohortID"
+                Me.ComboBox7.DisplayMember = "CohortName"
+
+        End Select
+
+
+        Call Specifics(ctl)
+
+    End Sub
+
+    Private Sub ComboBox7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox7.SelectedIndexChanged
+        If Me.ComboBox7.SelectedValue.ToString <> "System.Data.DataRowView" Then
+            If Me.ComboBox7.SelectedValue.ToString = vbNullString Then
+                If Central.UnloadData() = True Then Exit Sub
+                Call Specifics(Me.DataGridView8)
+                MsgBox(1 & Me.ComboBox7.SelectedValue.ToString)
+            End If
+        End If
+    End Sub
+
+    Private Sub ComboBox6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox6.SelectedIndexChanged
+
+        If Me.ComboBox6.SelectedValue.ToString <> "System.Data.DataRowView" Then
+            If Me.ComboBox6.SelectedValue.ToString = vbNullString Then
+                If Central.UnloadData() = True Then Exit Sub
+                Me.ComboBox7.DataSource = Central.TempDataSet("SELECT CohortID, " & _
+                                                                            "CohortName FROM Cohort WHERE StudyID=" _
+                                                                            & Me.ComboBox6.SelectedValue.ToString & _
+                                                                            " ORDER BY CohortName ASC").Tables(0)
+                Call Specifics(Me.DataGridView8)
+                MsgBox(2 & Me.ComboBox6.SelectedValue.ToString)
+            End If
+        End If
+
+    End Sub
+
 
 End Class

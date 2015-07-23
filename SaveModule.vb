@@ -62,7 +62,45 @@
                     .Add("@P2", OleDb.OleDbType.Integer, 255, "HoursPost")
                     .Add("@P3", OleDb.OleDbType.Integer, 255, "MinsPost")
                     .Add("@P4", OleDb.OleDbType.VarChar, 255, "Approx")
-                    .Add("@P5", OleDb.OleDbType.DBTime, 255, "SetTime")
+                    .Add("@P5", OleDb.OleDbType.DBTimeStamp, 255, "SetTime")
+                End With
+
+            Case "DataGridView7"
+
+                Dim PKey As Double = Form1.ComboBox5.SelectedValue.ToString
+
+                Central.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO Cohort " & _
+                                                                          "(StudyID, CohortName, VolGap, NumVols) " & _
+                                                                          "VALUES (" & PKey & ", @P1, @P2, @P3)")
+
+
+                With Central.CurrentDataAdapter.InsertCommand.Parameters
+                    .Add("@P1", OleDb.OleDbType.VarChar, 255, "CohortName")
+                    .Add("@P2", OleDb.OleDbType.Integer, 255, "VolGap")
+                    .Add("@P3", OleDb.OleDbType.Integer, 255, "NumVols")
+                End With
+
+            Case "DataGridView8"
+
+                Dim PKey As Double = Form1.ComboBox7.SelectedValue.ToString
+
+                Central.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO CohortTimepoint " & _
+                                                                          "(CohortID, StudyTimepointID, TimepointDateTime) " & _
+                                                                          "VALUES (" & PKey & ", @P1, @P2)")
+
+                With Central.CurrentDataAdapter.InsertCommand.Parameters
+                    .Add("@P1", OleDb.OleDbType.Double, 255, "StudyTimePointID")
+                    .Add("@P2", OleDb.OleDbType.DBTimeStamp, 255, "TimepointDateTime")
+                End With
+
+                Central.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE CohortTimepoint " & _
+                                                                          "SET TimepointDateTime=@P1, StudyTimepointID=@P2 " & _
+                                                                        "WHERE CohortTimepointID=@P3")
+
+                With Central.CurrentDataAdapter.UpdateCommand.Parameters
+                    .Add("@P1", OleDb.OleDbType.Double, 255, "CohortTimepointID")
+                    .Add("@P1", OleDb.OleDbType.Double, 255, "StudyTimePointID")
+                    .Add("@P3", OleDb.OleDbType.DBTimeStamp, 255, "TimepointDateTime")
                 End With
 
 

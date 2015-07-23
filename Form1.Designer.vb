@@ -67,9 +67,21 @@ Partial Class Form1
         Me.Button7 = New System.Windows.Forms.Button()
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer7 = New System.Windows.Forms.SplitContainer()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.DataGridView7 = New System.Windows.Forms.DataGridView()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TabControl4 = New System.Windows.Forms.TabControl()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer8 = New System.Windows.Forms.SplitContainer()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.DataGridView8 = New System.Windows.Forms.DataGridView()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
@@ -118,9 +130,25 @@ Partial Class Form1
         Me.SplitContainer6.Panel2.SuspendLayout()
         Me.SplitContainer6.SuspendLayout()
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage14.SuspendLayout()
+        CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer7.Panel1.SuspendLayout()
+        Me.SplitContainer7.Panel2.SuspendLayout()
+        Me.SplitContainer7.SuspendLayout()
+        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage6.SuspendLayout()
         Me.TabControl4.SuspendLayout()
+        Me.TabPage15.SuspendLayout()
+        CType(Me.SplitContainer8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer8.Panel1.SuspendLayout()
+        Me.SplitContainer8.Panel2.SuspendLayout()
+        Me.SplitContainer8.SuspendLayout()
+        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.AllowNew = True
         '
         'Button2
         '
@@ -178,7 +206,6 @@ Partial Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -685,6 +712,7 @@ Partial Class Form1
         '
         'TabPage14
         '
+        Me.TabPage14.Controls.Add(Me.SplitContainer7)
         Me.TabPage14.Location = New System.Drawing.Point(4, 22)
         Me.TabPage14.Name = "TabPage14"
         Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
@@ -692,6 +720,78 @@ Partial Class Form1
         Me.TabPage14.TabIndex = 4
         Me.TabPage14.Text = "Cohorts"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'SplitContainer7
+        '
+        Me.SplitContainer7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer7.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer7.Name = "SplitContainer7"
+        Me.SplitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer7.Panel1
+        '
+        Me.SplitContainer7.Panel1.Controls.Add(Me.Label5)
+        Me.SplitContainer7.Panel1.Controls.Add(Me.ComboBox5)
+        Me.SplitContainer7.Panel1.Controls.Add(Me.Button8)
+        '
+        'SplitContainer7.Panel2
+        '
+        Me.SplitContainer7.Panel2.Controls.Add(Me.DataGridView7)
+        Me.SplitContainer7.Size = New System.Drawing.Size(433, 354)
+        Me.SplitContainer7.SplitterDistance = 27
+        Me.SplitContainer7.TabIndex = 10
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(218, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(54, 20)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Study:"
+        '
+        'ComboBox5
+        '
+        Me.ComboBox5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Location = New System.Drawing.Point(272, 0)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ComboBox5.Size = New System.Drawing.Size(161, 21)
+        Me.ComboBox5.TabIndex = 12
+        '
+        'Button8
+        '
+        Me.Button8.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.Location = New System.Drawing.Point(0, 0)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(130, 27)
+        Me.Button8.TabIndex = 11
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'DataGridView7
+        '
+        Me.DataGridView7.AllowUserToDeleteRows = False
+        Me.DataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView7.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DataGridView7.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView7.Name = "DataGridView7"
+        Me.DataGridView7.RowHeadersVisible = False
+        Me.DataGridView7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView7.Size = New System.Drawing.Size(433, 323)
+        Me.DataGridView7.TabIndex = 3
         '
         'TabPage6
         '
@@ -708,6 +808,7 @@ Partial Class Form1
         '
         Me.TabControl4.Controls.Add(Me.TabPage15)
         Me.TabControl4.Controls.Add(Me.TabPage16)
+        Me.TabControl4.Controls.Add(Me.TabPage7)
         Me.TabControl4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl4.Location = New System.Drawing.Point(3, 3)
         Me.TabControl4.Name = "TabControl4"
@@ -717,13 +818,111 @@ Partial Class Form1
         '
         'TabPage15
         '
+        Me.TabPage15.Controls.Add(Me.SplitContainer8)
         Me.TabPage15.Location = New System.Drawing.Point(4, 22)
         Me.TabPage15.Name = "TabPage15"
         Me.TabPage15.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage15.Size = New System.Drawing.Size(439, 360)
         Me.TabPage15.TabIndex = 0
-        Me.TabPage15.Text = "Timepoints"
+        Me.TabPage15.Text = "Cohort Timepoints"
         Me.TabPage15.UseVisualStyleBackColor = True
+        '
+        'SplitContainer8
+        '
+        Me.SplitContainer8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer8.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer8.Name = "SplitContainer8"
+        Me.SplitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer8.Panel1
+        '
+        Me.SplitContainer8.Panel1.Controls.Add(Me.Label6)
+        Me.SplitContainer8.Panel1.Controls.Add(Me.ComboBox6)
+        Me.SplitContainer8.Panel1.Controls.Add(Me.Label7)
+        Me.SplitContainer8.Panel1.Controls.Add(Me.ComboBox7)
+        Me.SplitContainer8.Panel1.Controls.Add(Me.Button9)
+        '
+        'SplitContainer8.Panel2
+        '
+        Me.SplitContainer8.Panel2.Controls.Add(Me.DataGridView8)
+        Me.SplitContainer8.Size = New System.Drawing.Size(433, 354)
+        Me.SplitContainer8.SplitterDistance = 27
+        Me.SplitContainer8.TabIndex = 11
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(58, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(54, 20)
+        Me.Label6.TabIndex = 15
+        Me.Label6.Text = "Study:"
+        '
+        'ComboBox6
+        '
+        Me.ComboBox6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox6.FormattingEnabled = True
+        Me.ComboBox6.Location = New System.Drawing.Point(112, 0)
+        Me.ComboBox6.Name = "ComboBox6"
+        Me.ComboBox6.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ComboBox6.Size = New System.Drawing.Size(161, 21)
+        Me.ComboBox6.TabIndex = 14
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(273, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(61, 20)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Cohort:"
+        '
+        'ComboBox7
+        '
+        Me.ComboBox7.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox7.FormattingEnabled = True
+        Me.ComboBox7.Location = New System.Drawing.Point(334, 0)
+        Me.ComboBox7.Name = "ComboBox7"
+        Me.ComboBox7.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ComboBox7.Size = New System.Drawing.Size(99, 21)
+        Me.ComboBox7.TabIndex = 12
+        '
+        'Button9
+        '
+        Me.Button9.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button9.FlatAppearance.BorderSize = 0
+        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button9.Location = New System.Drawing.Point(0, 0)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(130, 27)
+        Me.Button9.TabIndex = 11
+        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'DataGridView8
+        '
+        Me.DataGridView8.AllowUserToDeleteRows = False
+        Me.DataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView8.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DataGridView8.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView8.Name = "DataGridView8"
+        Me.DataGridView8.RowHeadersVisible = False
+        Me.DataGridView8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView8.Size = New System.Drawing.Size(433, 323)
+        Me.DataGridView8.TabIndex = 2
         '
         'TabPage16
         '
@@ -740,8 +939,8 @@ Partial Class Form1
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(453, 392)
-        Me.TabPage7.TabIndex = 4
+        Me.TabPage7.Size = New System.Drawing.Size(439, 360)
+        Me.TabPage7.TabIndex = 2
         Me.TabPage7.Text = "Volunteer Timepoints"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
@@ -822,8 +1021,22 @@ Partial Class Form1
         CType(Me.SplitContainer6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer6.ResumeLayout(False)
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage14.ResumeLayout(False)
+        Me.SplitContainer7.Panel1.ResumeLayout(False)
+        Me.SplitContainer7.Panel1.PerformLayout()
+        Me.SplitContainer7.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer7.ResumeLayout(False)
+        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage6.ResumeLayout(False)
         Me.TabControl4.ResumeLayout(False)
+        Me.TabPage15.ResumeLayout(False)
+        Me.SplitContainer8.Panel1.ResumeLayout(False)
+        Me.SplitContainer8.Panel1.PerformLayout()
+        Me.SplitContainer8.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer8.ResumeLayout(False)
+        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -854,7 +1067,6 @@ Partial Class Form1
     Friend WithEvents TabControl4 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage15 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage16 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage9 As System.Windows.Forms.TabPage
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
@@ -877,5 +1089,18 @@ Partial Class Form1
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents DataGridView6 As System.Windows.Forms.DataGridView
+    Friend WithEvents SplitContainer7 As System.Windows.Forms.SplitContainer
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView7 As System.Windows.Forms.DataGridView
+    Friend WithEvents SplitContainer8 As System.Windows.Forms.SplitContainer
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button9 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView8 As System.Windows.Forms.DataGridView
+    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
 
 End Class
