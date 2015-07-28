@@ -1,7 +1,7 @@
 ﻿Imports TemplateDB
 Module Variables
-    Public Central As TemplateDB.Template
-    Private Const TablePath As String = "M:\VOLUNTEER SCREENING SERVICES\DavidBurnside\\Scheduler\Backend2.accdb"
+    Public OverClass As OverClass
+    Private Const TablePath As String = "C:\OK\Databases\Backend2.accdb"
     Private Const PWord As String = "Crypto*Dave02"
     Private Const Connect2 As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & TablePath & ";Jet OLEDB:Database Password=" & PWord
     Private Const UserTable As String = "[Users]"
@@ -12,14 +12,35 @@ Module Variables
     Public Const SolutionName As String = "Volunteer Scheduling Assistant"
 
 
-    Public Sub StartUpCentral()
+    Public Sub StartUp()
 
-        Central = New TemplateDB.Template
-        Central.SetPrivate(UserTable, _
+        OverClass = New TemplateDB.OverClass
+        OverClass.SetPrivate(UserTable, _
                            UserField, _
                            LockTable, _
                            Contact, _
                            Connect2,
                            ActiveUsersTable)
+
+        OverClass.LockCheck()
+
+        OverClass.LoginCheck()
+
+        OverClass.AddAllDataItem(Form1)
+
+        For Each ctl In OverClass.DataItemCollection
+            If (TypeOf ctl Is ComboBox) Then
+                Dim Com As ComboBox = ctl
+                AddHandler Com.SelectionChangeCommitted, AddressOf GenericCombo
+            End If
+        Next
+        For Each ctl In OverClass.DataItemCollection
+            If (TypeOf ctl Is Button) Then
+                Dim But As Button = ctl
+                AddHandler But.Click, AddressOf ButtonSpecifics
+            End If
+        Next
+
     End Sub
+
 End Module

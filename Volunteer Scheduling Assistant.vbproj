@@ -96,6 +96,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonModule.vb" />
+    <Compile Include="ComboModule.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +121,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SaveModule.vb" />
+    <Compile Include="ScheduleGenerator.vb" />
     <Compile Include="Variables.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hvivo_logo1_8dY_icon.ico" />
+    <None Include="Resources\calendar.png" />
     <None Include="Resources\SAVER.png" />
     <None Include="Resources\hVIVO_screensaver_two.jpg" />
   </ItemGroup>
