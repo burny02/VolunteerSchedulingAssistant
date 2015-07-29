@@ -1,4 +1,6 @@
-﻿Module ButtonModule
+﻿Imports Microsoft.Reporting.WinForms
+
+Module ButtonModule
 
     Public Sub ButtonSpecifics(sender As Object, e As EventArgs)
 
@@ -32,6 +34,27 @@
                 Call Saver(Form1.DataGridView4)
             Case "Button14"
                 Call Saver(Form1.DataGridView4)
+            Case "Button15"
+                'If CheckCohort() = True Then
+                Dim OK As New ReportDisplay
+                OK.Visible = True
+                OK.ReportViewer1.Visible = True
+                OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
+                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.VolunteerReport.rdlc"
+                OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
+                                                            OverClass.TempDataTable("SELECT * FROM VolReport")))
+
+                OK.ReportViewer1.RefreshReport()
+
+
+            Case "Button16"
+                'If CheckDates() = True Then
+            Case "Button17"
+                'If CheckDates() = True Then
+            Case "Button18"
+                'If CheckDates() = True Then
+            Case "Button19"
+                'If CheckStudy() = True Then
 
         End Select
 
@@ -39,5 +62,22 @@
 
     End Sub
 
+    Private Function CheckDates() As Boolean
+
+
+
+    End Function
+
+    Private Function CheckCohort() As Boolean
+
+
+
+    End Function
+
+    Private Function CheckStudy() As Boolean
+
+
+
+    End Function
 
 End Module

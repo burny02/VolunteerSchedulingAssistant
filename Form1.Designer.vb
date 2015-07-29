@@ -24,8 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -111,8 +109,6 @@ Partial Class Form1
         Me.Button13 = New System.Windows.Forms.Button()
         Me.DataGridView11 = New System.Windows.Forms.DataGridView()
         Me.TabPage19 = New System.Windows.Forms.TabPage()
-        Me.TabPage20 = New System.Windows.Forms.TabPage()
-        Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.SplitContainer4 = New System.Windows.Forms.SplitContainer()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -120,10 +116,27 @@ Partial Class Form1
         Me.ComboBox16 = New System.Windows.Forms.ComboBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView12 = New System.Windows.Forms.DataGridView()
-        Me.Button14 = New System.Windows.Forms.Button()
+        Me.TabPage20 = New System.Windows.Forms.TabPage()
         Me.SplitContainer13 = New System.Windows.Forms.SplitContainer()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.DataGridView12 = New System.Windows.Forms.DataGridView()
+        Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer14 = New System.Windows.Forms.SplitContainer()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.ComboBox18 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox17 = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Button18 = New System.Windows.Forms.Button()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -201,36 +214,24 @@ Partial Class Form1
         Me.SplitContainer12.SuspendLayout()
         CType(Me.DataGridView11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage19.SuspendLayout()
-        Me.TabPage20.SuspendLayout()
         CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer4.Panel1.SuspendLayout()
         Me.SplitContainer4.Panel2.SuspendLayout()
         Me.SplitContainer4.SuspendLayout()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView12, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage20.SuspendLayout()
         CType(Me.SplitContainer13, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer13.Panel1.SuspendLayout()
         Me.SplitContainer13.Panel2.SuspendLayout()
         Me.SplitContainer13.SuspendLayout()
+        CType(Me.DataGridView12, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage9.SuspendLayout()
+        CType(Me.SplitContainer14, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer14.Panel1.SuspendLayout()
+        Me.SplitContainer14.Panel2.SuspendLayout()
+        Me.SplitContainer14.SuspendLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.AllowNew = True
-        '
-        'Button2
-        '
-        Me.Button2.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(0, 0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(130, 30)
-        Me.Button2.TabIndex = 10
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'TabPage1
         '
@@ -1371,27 +1372,6 @@ Partial Class Form1
         Me.TabPage19.Text = "Volunteer Reassign"
         Me.TabPage19.UseVisualStyleBackColor = True
         '
-        'TabPage20
-        '
-        Me.TabPage20.Controls.Add(Me.SplitContainer13)
-        Me.TabPage20.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage20.Name = "TabPage20"
-        Me.TabPage20.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage20.Size = New System.Drawing.Size(836, 360)
-        Me.TabPage20.TabIndex = 2
-        Me.TabPage20.Text = "Staff Procedures"
-        Me.TabPage20.UseVisualStyleBackColor = True
-        '
-        'TabPage9
-        '
-        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(850, 392)
-        Me.TabPage9.TabIndex = 6
-        Me.TabPage9.Text = "Reports"
-        Me.TabPage9.UseVisualStyleBackColor = True
-        '
         'SplitContainer4
         '
         Me.SplitContainer4.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1489,34 +1469,16 @@ Partial Class Form1
         Me.DataGridView4.Size = New System.Drawing.Size(830, 323)
         Me.DataGridView4.TabIndex = 2
         '
-        'DataGridView12
+        'TabPage20
         '
-        Me.DataGridView12.AllowUserToDeleteRows = False
-        Me.DataGridView12.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView12.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
-        Me.DataGridView12.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView12.Name = "DataGridView12"
-        Me.DataGridView12.RowHeadersVisible = False
-        Me.DataGridView12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView12.Size = New System.Drawing.Size(830, 323)
-        Me.DataGridView12.TabIndex = 2
-        '
-        'Button14
-        '
-        Me.Button14.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.Location = New System.Drawing.Point(0, 0)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(130, 27)
-        Me.Button14.TabIndex = 11
-        Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.UseVisualStyleBackColor = True
+        Me.TabPage20.Controls.Add(Me.SplitContainer13)
+        Me.TabPage20.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage20.Name = "TabPage20"
+        Me.TabPage20.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage20.Size = New System.Drawing.Size(836, 360)
+        Me.TabPage20.TabIndex = 2
+        Me.TabPage20.Text = "Staff Procedures"
+        Me.TabPage20.UseVisualStyleBackColor = True
         '
         'SplitContainer13
         '
@@ -1536,6 +1498,216 @@ Partial Class Form1
         Me.SplitContainer13.SplitterDistance = 27
         Me.SplitContainer13.TabIndex = 13
         '
+        'Button14
+        '
+        Me.Button14.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button14.FlatAppearance.BorderSize = 0
+        Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button14.Location = New System.Drawing.Point(0, 0)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(130, 27)
+        Me.Button14.TabIndex = 11
+        Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'DataGridView12
+        '
+        Me.DataGridView12.AllowUserToDeleteRows = False
+        Me.DataGridView12.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView12.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DataGridView12.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView12.Name = "DataGridView12"
+        Me.DataGridView12.RowHeadersVisible = False
+        Me.DataGridView12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView12.Size = New System.Drawing.Size(830, 323)
+        Me.DataGridView12.TabIndex = 2
+        '
+        'TabPage9
+        '
+        Me.TabPage9.Controls.Add(Me.SplitContainer14)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage9.Name = "TabPage9"
+        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage9.Size = New System.Drawing.Size(850, 392)
+        Me.TabPage9.TabIndex = 6
+        Me.TabPage9.Text = "Reports"
+        Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'SplitContainer14
+        '
+        Me.SplitContainer14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer14.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer14.Name = "SplitContainer14"
+        '
+        'SplitContainer14.Panel1
+        '
+        Me.SplitContainer14.Panel1.Controls.Add(Me.Label22)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.Label21)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.ComboBox18)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.ComboBox17)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.Label20)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.Label19)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.TextBox2)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.TextBox1)
+        '
+        'SplitContainer14.Panel2
+        '
+        Me.SplitContainer14.Panel2.Controls.Add(Me.Button19)
+        Me.SplitContainer14.Panel2.Controls.Add(Me.Button18)
+        Me.SplitContainer14.Panel2.Controls.Add(Me.Button17)
+        Me.SplitContainer14.Panel2.Controls.Add(Me.Button16)
+        Me.SplitContainer14.Panel2.Controls.Add(Me.Button15)
+        Me.SplitContainer14.Size = New System.Drawing.Size(844, 386)
+        Me.SplitContainer14.SplitterDistance = 317
+        Me.SplitContainer14.TabIndex = 0
+        '
+        'Label22
+        '
+        Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(31, 276)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(41, 13)
+        Me.Label22.TabIndex = 7
+        Me.Label22.Text = "Cohort:"
+        '
+        'Label21
+        '
+        Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(31, 231)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(37, 13)
+        Me.Label21.TabIndex = 6
+        Me.Label21.Text = "Study:"
+        '
+        'ComboBox18
+        '
+        Me.ComboBox18.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ComboBox18.FormattingEnabled = True
+        Me.ComboBox18.Location = New System.Drawing.Point(100, 276)
+        Me.ComboBox18.Name = "ComboBox18"
+        Me.ComboBox18.Size = New System.Drawing.Size(152, 21)
+        Me.ComboBox18.TabIndex = 5
+        '
+        'ComboBox17
+        '
+        Me.ComboBox17.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ComboBox17.FormattingEnabled = True
+        Me.ComboBox17.Location = New System.Drawing.Point(100, 231)
+        Me.ComboBox17.Name = "ComboBox17"
+        Me.ComboBox17.Size = New System.Drawing.Size(152, 21)
+        Me.ComboBox17.TabIndex = 4
+        '
+        'Label20
+        '
+        Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(31, 189)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(49, 13)
+        Me.Label20.TabIndex = 3
+        Me.Label20.Text = "Date To:"
+        '
+        'Label19
+        '
+        Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(31, 141)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(59, 13)
+        Me.Label19.TabIndex = 2
+        Me.Label19.Text = "Date From:"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TextBox2.Location = New System.Drawing.Point(100, 186)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(152, 20)
+        Me.TextBox2.TabIndex = 1
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TextBox1.Location = New System.Drawing.Point(100, 141)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(152, 20)
+        Me.TextBox1.TabIndex = 0
+        '
+        'Button19
+        '
+        Me.Button19.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button19.Location = New System.Drawing.Point(182, 114)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(178, 23)
+        Me.Button19.TabIndex = 4
+        Me.Button19.Text = "Schedule Sign-Off"
+        Me.Button19.UseVisualStyleBackColor = True
+        '
+        'Button18
+        '
+        Me.Button18.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button18.Location = New System.Drawing.Point(182, 285)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(178, 23)
+        Me.Button18.TabIndex = 3
+        Me.Button18.Text = "SOA Report"
+        Me.Button18.UseVisualStyleBackColor = True
+        '
+        'Button17
+        '
+        Me.Button17.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button17.Location = New System.Drawing.Point(182, 241)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(178, 23)
+        Me.Button17.TabIndex = 2
+        Me.Button17.Text = "Master Report"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Button16
+        '
+        Me.Button16.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button16.Location = New System.Drawing.Point(182, 198)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(178, 23)
+        Me.Button16.TabIndex = 1
+        Me.Button16.Text = "Staff Report"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'Button15
+        '
+        Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button15.Location = New System.Drawing.Point(182, 155)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(178, 23)
+        Me.Button15.TabIndex = 0
+        Me.Button15.Text = "Volunteer Report"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.AllowNew = True
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(0, 0)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(130, 30)
+        Me.Button2.TabIndex = 10
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1546,7 +1718,6 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1633,18 +1804,25 @@ Partial Class Form1
         Me.SplitContainer12.ResumeLayout(False)
         CType(Me.DataGridView11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage19.ResumeLayout(False)
-        Me.TabPage20.ResumeLayout(False)
         Me.SplitContainer4.Panel1.ResumeLayout(False)
         Me.SplitContainer4.Panel1.PerformLayout()
         Me.SplitContainer4.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer4.ResumeLayout(False)
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView12, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage20.ResumeLayout(False)
         Me.SplitContainer13.Panel1.ResumeLayout(False)
         Me.SplitContainer13.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer13, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer13.ResumeLayout(False)
+        CType(Me.DataGridView12, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage9.ResumeLayout(False)
+        Me.SplitContainer14.Panel1.ResumeLayout(False)
+        Me.SplitContainer14.Panel1.PerformLayout()
+        Me.SplitContainer14.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer14, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer14.ResumeLayout(False)
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1747,5 +1925,19 @@ Partial Class Form1
     Friend WithEvents SplitContainer13 As System.Windows.Forms.SplitContainer
     Friend WithEvents Button14 As System.Windows.Forms.Button
     Friend WithEvents DataGridView12 As System.Windows.Forms.DataGridView
+    Friend WithEvents SplitContainer14 As System.Windows.Forms.SplitContainer
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Button19 As System.Windows.Forms.Button
+    Friend WithEvents Button18 As System.Windows.Forms.Button
+    Friend WithEvents Button17 As System.Windows.Forms.Button
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox18 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox17 As System.Windows.Forms.ComboBox
 
 End Class

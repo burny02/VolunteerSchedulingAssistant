@@ -11,6 +11,10 @@ Module Variables
     Private Contact As String = "Michael Gray"
     Public Const SolutionName As String = "Volunteer Scheduling Assistant"
 
+    Public Function GetTheConnection() As String
+        GetTheConnection = Connect2
+    End Function
+
 
     Public Sub StartUp()
 
@@ -40,6 +44,7 @@ Module Variables
                 AddHandler But.Click, AddressOf ButtonSpecifics
             End If
         Next
+
 
     End Sub
 

@@ -97,12 +97,13 @@
 
 
                 OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE VolunteerTimepoint " & _
-                                                                          "SET TimepointDateTime=@P1 " & _
-                                                                        "WHERE VolunteerTimepointID=@P2")
+                                                                          "SET TimepointDateTime=@P1, DayNumber=@P2 " & _
+                                                                        "WHERE VolunteerTimepointID=@P3")
 
                 With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
                     .Add("@P1", OleDb.OleDbType.DBTimeStamp, 255, "TimepointDateTime")
-                    .Add("@P2", OleDb.OleDbType.Double, 255, "VolunteerTimepointID")
+                    .Add("@P2", OleDb.OleDbType.Integer, 255, "DayNumber")
+                    .Add("@P3", OleDb.OleDbType.Double, 255, "VolunteerTimepointID")
 
 
                 End With

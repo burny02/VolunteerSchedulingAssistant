@@ -171,7 +171,7 @@
                 ctl.columns("RoomNo").HeaderText = "Room Number"
 
             Case "DataGridView10"
-                SQLCode = "SELECT VolunteerTimepointID, TimepointName, TimepointDateTime " & _
+                SQLCode = "SELECT VolunteerTimepointID, TimepointName, TimepointDateTime, DayNumber " & _
                     "FROM VolunteerTimepoint a INNER JOIN StudyTimepoint b " & _
                     "ON a.StudyTimepointID=b.StudyTimepointID " & _
                     "WHERE VolID=" & Me.ComboBox13.SelectedValue.ToString & _
@@ -181,25 +181,12 @@
                 ctl.columns("VolunteerTimepointID").visible = False
                 ctl.columns("TimepointName").Readonly = True
                 ctl.columns("TimepointName").HeaderText = "Timepoint Name"
+                ctl.columns("DayNumber").HeaderText = "Day Number"
                 ctl.columns("TimepointDateTime").HeaderText = "Date/Time"
                 ctl.columns("TimepointDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
 
             Case "DataGridView11"
-                SQLCode = "SELECT VolunteerScheduleID, 'Vol: ' & RVLNo & ' - ' & Initials & ' - Room (' & RoomNo & ')' AS VOL, " & _
-                "StaffID, Approx, ProcName, " & _
-                    "iif(Approx='Set Time',dateadd('d',DaysPost, TimepointDateTime), dateadd('n',Minspost, " & _
-                    "dateadd('h',HoursPost,dateadd('d',DaysPost, TimepointDateTime)))) AS CalcDate " & _
-                    "FROM (((StudySchedule a " & _
-                    "INNER JOIN VolunteerSchedule c ON a.StudyScheduleID=c.StudyScheduleID) " & _
-                    "INNER JOIN Volunteer d ON c.VolID=d.VolID) " & _
-                    "INNER JOIN ProcTask e ON a.ProcID=e.ProcID) " & _
-                    "INNER JOIN VolunteerTimepoint f ON d.VolID=f.VolID " & _
-                    "AND a.StudyTimepointID=f.StudyTimepointID " & _
-                    "WHERE IsNull(StaffID) " & _
-                    "AND iif(Approx='Set Time',dateadd('d',DaysPost, TimepointDateTime), dateadd('n',Minspost, " & _
-                    "dateadd('h',HoursPost,dateadd('d',DaysPost, TimepointDateTime)))) > Now() " & _
-                    "ORDER BY iif(Approx='Set Time',dateadd('d',DaysPost, TimepointDateTime), dateadd('n',Minspost, " & _
-                    "dateadd('h',HoursPost,dateadd('d',DaysPost, TimepointDateTime)))) ASC, RVLNo ASC"
+                SQLCode = "SELECT * FROM Assign"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolunteerScheduleID").visible = False
@@ -223,21 +210,7 @@
                 cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
 
             Case "DataGridView4"
-                SQLCode = "SELECT VolunteerScheduleID, 'Vol: ' & RVLNo & ' - ' & Initials & ' - Room(' & RoomNo & ')' AS VOL, " & _
-                "StaffID, Approx, ProcName, " & _
-                    "iif(Approx='Set Time',dateadd('d',DaysPost, TimepointDateTime), dateadd('n',Minspost, " & _
-                    "dateadd('h',HoursPost,dateadd('d',DaysPost, TimepointDateTime)))) AS CalcDate " & _
-                    "FROM (((StudySchedule a " & _
-                    "INNER JOIN VolunteerSchedule c ON a.StudyScheduleID=c.StudyScheduleID) " & _
-                    "INNER JOIN Volunteer d ON c.VolID=d.VolID) " & _
-                    "INNER JOIN ProcTask e ON a.ProcID=e.ProcID) " & _
-                    "INNER JOIN VolunteerTimepoint f ON d.VolID=f.VolID " & _
-                    "AND a.StudyTimepointID=f.StudyTimepointID " & _
-                    "WHERE NOT IsNull(StaffID) " & _
-                    "AND iif(Approx='Set Time',dateadd('d',DaysPost, TimepointDateTime), dateadd('n',Minspost, " & _
-                    "dateadd('h',HoursPost,dateadd('d',DaysPost, TimepointDateTime)))) > Now() " & _
-                    "ORDER BY iif(Approx='Set Time',dateadd('d',DaysPost, TimepointDateTime), dateadd('n',Minspost, " & _
-                    "dateadd('h',HoursPost,dateadd('d',DaysPost, TimepointDateTime)))) ASC, RVLNo ASC"
+                SQLCode = "SELECT * FROM Reassign"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolunteerScheduleID").visible = False

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\OK\Databases\Backend2.accdb;Jet OLEDB:Database Password=Crypto*Dave02" IsAppSettingsProperty="false" Modifier="Assembly" Name="Backend2.accdb" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VolReportTableAdapter" GeneratorDataComponentClassName="VolReportTableAdapter" Name="VolReport" UserDataComponentName="VolReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Backend2.accdb" DbObjectName="VolReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM VolReport</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RVLNo" DataSetColumn="RVLNo" />
+              <Mapping SourceColumn="Initials" DataSetColumn="Initials" />
+              <Mapping SourceColumn="RoomNo" DataSetColumn="RoomNo" />
+              <Mapping SourceColumn="StudyCohort" DataSetColumn="StudyCohort" />
+              <Mapping SourceColumn="DisplayDate" DataSetColumn="DisplayDate" />
+              <Mapping SourceColumn="DisplayTime" DataSetColumn="DisplayTime" />
+              <Mapping SourceColumn="SInitials" DataSetColumn="SInitials" />
+              <Mapping SourceColumn="ProcName" DataSetColumn="ProcName" />
+              <Mapping SourceColumn="StudyDay" DataSetColumn="StudyDay" />
+              <Mapping SourceColumn="VolID" DataSetColumn="VolID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VolReport" msprop:Generator_TableClassName="VolReportDataTable" msprop:Generator_TableVarName="tableVolReport" msprop:Generator_TablePropName="VolReport" msprop:Generator_RowDeletingName="VolReportRowDeleting" msprop:Generator_RowChangingName="VolReportRowChanging" msprop:Generator_RowEvHandlerName="VolReportRowChangeEventHandler" msprop:Generator_RowDeletedName="VolReportRowDeleted" msprop:Generator_UserTableName="VolReport" msprop:Generator_RowChangedName="VolReportRowChanged" msprop:Generator_RowEvArgName="VolReportRowChangeEvent" msprop:Generator_RowClassName="VolReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RVLNo" msprop:Generator_ColumnVarNameInTable="columnRVLNo" msprop:Generator_ColumnPropNameInRow="RVLNo" msprop:Generator_ColumnPropNameInTable="RVLNoColumn" msprop:Generator_UserColumnName="RVLNo" type="xs:int" minOccurs="0" />
+              <xs:element name="Initials" msprop:Generator_ColumnVarNameInTable="columnInitials" msprop:Generator_ColumnPropNameInRow="Initials" msprop:Generator_ColumnPropNameInTable="InitialsColumn" msprop:Generator_UserColumnName="Initials" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RoomNo" msprop:Generator_ColumnVarNameInTable="columnRoomNo" msprop:Generator_ColumnPropNameInRow="RoomNo" msprop:Generator_ColumnPropNameInTable="RoomNoColumn" msprop:Generator_UserColumnName="RoomNo" type="xs:short" minOccurs="0" />
+              <xs:element name="StudyCohort" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudyCohort" msprop:Generator_ColumnPropNameInRow="StudyCohort" msprop:Generator_ColumnPropNameInTable="StudyCohortColumn" msprop:Generator_UserColumnName="StudyCohort" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayDate" msprop:Generator_ColumnPropNameInRow="DisplayDate" msprop:Generator_ColumnPropNameInTable="DisplayDateColumn" msprop:Generator_UserColumnName="DisplayDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayTime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayTime" msprop:Generator_ColumnPropNameInRow="DisplayTime" msprop:Generator_ColumnPropNameInTable="DisplayTimeColumn" msprop:Generator_UserColumnName="DisplayTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SInitials" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSInitials" msprop:Generator_ColumnPropNameInRow="SInitials" msprop:Generator_ColumnPropNameInTable="SInitialsColumn" msprop:Generator_UserColumnName="SInitials" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProcName" msprop:Generator_ColumnVarNameInTable="columnProcName" msprop:Generator_ColumnPropNameInRow="ProcName" msprop:Generator_ColumnPropNameInTable="ProcNameColumn" msprop:Generator_UserColumnName="ProcName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudyDay" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudyDay" msprop:Generator_ColumnPropNameInRow="StudyDay" msprop:Generator_ColumnPropNameInTable="StudyDayColumn" msprop:Generator_UserColumnName="StudyDay" type="xs:double" minOccurs="0" />
+              <xs:element name="VolID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVolID" msprop:Generator_ColumnPropNameInRow="VolID" msprop:Generator_ColumnPropNameInTable="VolIDColumn" msprop:Generator_UserColumnName="VolID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
