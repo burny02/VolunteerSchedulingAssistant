@@ -154,6 +154,7 @@
     <EmbeddedResource Include="ReportDisplay.resx">
       <DependentUpon>ReportDisplay.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffReport.rdlc" />
     <EmbeddedResource Include="VolunteerReport.rdlc" />
   </ItemGroup>
   <ItemGroup>

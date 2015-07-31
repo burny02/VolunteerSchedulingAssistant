@@ -49,6 +49,16 @@ Module ButtonModule
 
             Case "Button16"
                 'If CheckDates() = True Then
+                Dim OK As New ReportDisplay
+                OK.Visible = True
+                OK.ReportViewer1.Visible = True
+                OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
+                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.StaffReport.rdlc"
+                OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
+                                                            OverClass.TempDataTable("SELECT * FROM StaffReport")))
+
+                OK.ReportViewer1.RefreshReport()
+
             Case "Button17"
                 'If CheckDates() = True Then
             Case "Button18"

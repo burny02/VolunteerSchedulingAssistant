@@ -351,7 +351,7 @@
            e.RowIndex >= 0 Then
             Dim cDialog As New ColorDialog()
             If (cDialog.ShowDialog() = DialogResult.OK) Then
-                Me.DataGridView3.Rows(e.RowIndex).Cells("Colour").Value = cDialog.Color.ToArgb
+                Me.DataGridView3.Rows(e.RowIndex).Cells("Colour").Value = ColorTranslator.ToHtml(cDialog.Color)
                 Me.DataGridView3.Rows(e.RowIndex).Cells("Colour").Style.BackColor = cDialog.Color
             End If
         End If
@@ -361,8 +361,8 @@
     Private Sub DataGridView3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridView3.RowPrePaint
         For Each row In Me.DataGridView3.Rows
             If Not IsNothing(row.Cells("Colour").value) And Not IsDBNull(row.Cells("Colour").value) Then
-                Dim colourlong As Long = row.Cells("Colour").value
-                row.Cells("Colour").Style.BackColor = Color.FromArgb(row.Cells("Colour").value)
+                Dim colourString As String = row.Cells("Colour").value
+                row.Cells("Colour").Style.BackColor = ColorTranslator.FromHtml(colourString)
             End If
         Next
     End Sub

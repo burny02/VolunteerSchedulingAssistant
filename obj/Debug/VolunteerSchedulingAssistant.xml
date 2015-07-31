@@ -10,11 +10,23 @@ VolunteerSchedulingAssistant
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:VolunteerSchedulingAssistant.DataSet1.StaffReportDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:VolunteerSchedulingAssistant.DataSet1.VolReportRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:VolunteerSchedulingAssistant.DataSet1.StaffReportRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:VolunteerSchedulingAssistant.DataSet1.VolReportRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:VolunteerSchedulingAssistant.DataSet1.StaffReportRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -23,6 +35,10 @@ Row event argument class
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member><member name="T:VolunteerSchedulingAssistant.DataSet1TableAdapters.VolReportTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:VolunteerSchedulingAssistant.DataSet1TableAdapters.StaffReportTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

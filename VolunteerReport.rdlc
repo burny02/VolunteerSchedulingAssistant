@@ -1059,6 +1059,9 @@
                     <SortExpression>
                       <Value>=Fields!DisplayTime.Value</Value>
                     </SortExpression>
+                    <SortExpression>
+                      <Value>=Fields!ProcOrd.Value</Value>
+                    </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
                     <TablixMember />
@@ -1073,7 +1076,7 @@
         <KeepTogether>true</KeepTogether>
         <DataSetName>ReportDataSet</DataSetName>
         <Height>4.8cm</Height>
-        <Width>19.78228cm</Width>
+        <Width>19.78229cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1150,6 +1153,10 @@
         </Field>
         <Field Name="VolID">
           <DataField>VolID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProcOrd">
+          <DataField>ProcOrd</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
