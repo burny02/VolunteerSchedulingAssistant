@@ -33,38 +33,54 @@ Module ButtonModule
             Case "Button5"
                 Call Saver(Form1.DataGridView4)
             Case "Button14"
-                Call Saver(Form1.DataGridView4)
+                Call Saver(Form1.DataGridView12)
             Case "Button15"
-                'If CheckCohort() = True Then
                 Dim OK As New ReportDisplay
                 OK.Visible = True
                 OK.ReportViewer1.Visible = True
                 OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
                 OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.VolunteerReport.rdlc"
                 OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                            OverClass.TempDataTable("SELECT * FROM VolReport")))
+                                                            OverClass.TempDataTable("SELECT * FROM VolReport " & _
+                                                                                    "WHERE CohortID=" & Form1.ComboBox18.SelectedValue)))
 
                 OK.ReportViewer1.RefreshReport()
+
 
 
             Case "Button16"
-                'If CheckDates() = True Then
-                Dim OK As New ReportDisplay
-                OK.Visible = True
-                OK.ReportViewer1.Visible = True
-                OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.StaffReport.rdlc"
-                OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                            OverClass.TempDataTable("SELECT * FROM StaffReport")))
-
-                OK.ReportViewer1.RefreshReport()
+                If CheckDates() = True Then
+                    Dim OK As New ReportDisplay
+                    OK.Visible = True
+                    OK.ReportViewer1.Visible = True
+                    OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
+                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.StaffReport.rdlc"
+                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
+                                                                OverClass.TempDataTable("SELECT * FROM StaffReport " & _
+                                                                                        "WHERE CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
+                                                                                        " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
+                    OK.ReportViewer1.RefreshReport()
+                End If
 
             Case "Button17"
-                'If CheckDates() = True Then
+                If CheckDates() = True Then
+                    Dim OK As New ReportDisplay
+                    OK.Visible = True
+                    OK.ReportViewer1.Visible = True
+                    OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
+                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.MasterReport.rdlc"
+                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
+                                                                OverClass.TempDataTable("SELECT * FROM StaffReport " & _
+                                                                                        "WHERE CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
+                                                                                        " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
+
+                    OK.ReportViewer1.RefreshReport()
+                End If
+
             Case "Button18"
-                'If CheckDates() = True Then
+
             Case "Button19"
-                'If CheckStudy() = True Then
+
 
         End Select
 
@@ -74,19 +90,16 @@ Module ButtonModule
 
     Private Function CheckDates() As Boolean
 
+        Dim dater1, dater2 As Date
+        dater1 = Form1.DateTimePicker1.Value
+        dater2 = Form1.DateTimePicker2.Value
 
-
-    End Function
-
-    Private Function CheckCohort() As Boolean
-
-
-
-    End Function
-
-    Private Function CheckStudy() As Boolean
-
-
+        If dater1 >= dater2 Then
+            MsgBox("'Date To' must be greater than 'Date From'")
+            CheckDates = False
+        Else
+            CheckDates = True
+        End If
 
     End Function
 

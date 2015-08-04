@@ -26,29 +26,24 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
         Me.SplitContainer5 = New System.Windows.Forms.SplitContainer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.SplitContainer6 = New System.Windows.Forms.SplitContainer()
@@ -56,13 +51,11 @@ Partial Class Form1
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.SplitContainer7 = New System.Windows.Forms.SplitContainer()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.DataGridView7 = New System.Windows.Forms.DataGridView()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TabControl4 = New System.Windows.Forms.TabControl()
@@ -72,11 +65,9 @@ Partial Class Form1
         Me.ComboBox6 = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.Button9 = New System.Windows.Forms.Button()
         Me.DataGridView8 = New System.Windows.Forms.DataGridView()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.SplitContainer9 = New System.Windows.Forms.SplitContainer()
-        Me.Button10 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBox8 = New System.Windows.Forms.ComboBox()
@@ -86,7 +77,6 @@ Partial Class Form1
         Me.ComboBox9 = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ComboBox10 = New System.Windows.Forms.ComboBox()
-        Me.Button11 = New System.Windows.Forms.Button()
         Me.DataGridView9 = New System.Windows.Forms.DataGridView()
         Me.TabPage17 = New System.Windows.Forms.TabPage()
         Me.SplitContainer11 = New System.Windows.Forms.SplitContainer()
@@ -96,7 +86,6 @@ Partial Class Form1
         Me.ComboBox12 = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.ComboBox13 = New System.Windows.Forms.ComboBox()
-        Me.Button12 = New System.Windows.Forms.Button()
         Me.DataGridView10 = New System.Windows.Forms.DataGridView()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.TabControl5 = New System.Windows.Forms.TabControl()
@@ -106,7 +95,6 @@ Partial Class Form1
         Me.ComboBox14 = New System.Windows.Forms.ComboBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.ComboBox15 = New System.Windows.Forms.ComboBox()
-        Me.Button13 = New System.Windows.Forms.Button()
         Me.DataGridView11 = New System.Windows.Forms.DataGridView()
         Me.TabPage19 = New System.Windows.Forms.TabPage()
         Me.SplitContainer4 = New System.Windows.Forms.SplitContainer()
@@ -114,31 +102,42 @@ Partial Class Form1
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.ComboBox16 = New System.Windows.Forms.ComboBox()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.TabPage20 = New System.Windows.Forms.TabPage()
         Me.SplitContainer13 = New System.Windows.Forms.SplitContainer()
-        Me.Button14 = New System.Windows.Forms.Button()
         Me.DataGridView12 = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.SplitContainer14 = New System.Windows.Forms.SplitContainer()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.ComboBox18 = New System.Windows.Forms.ComboBox()
         Me.ComboBox17 = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button19 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage1.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -230,6 +229,7 @@ Partial Class Form1
         Me.SplitContainer14.Panel1.SuspendLayout()
         Me.SplitContainer14.Panel2.SuspendLayout()
         Me.SplitContainer14.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -256,18 +256,6 @@ Partial Class Form1
         Me.Label2.Size = New System.Drawing.Size(48, 15)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Version"
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox4.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.hVIVO_screensaver_two
-        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox4.Location = New System.Drawing.Point(211, 8)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(437, 378)
-        Me.PictureBox4.TabIndex = 12
-        Me.PictureBox4.TabStop = False
         '
         'TabControl1
         '
@@ -335,20 +323,6 @@ Partial Class Form1
         Me.SplitContainer1.SplitterDistance = 27
         Me.SplitContainer1.TabIndex = 6
         '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(130, 27)
-        Me.Button1.TabIndex = 11
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToDeleteRows = False
@@ -392,20 +366,6 @@ Partial Class Form1
         Me.SplitContainer2.Size = New System.Drawing.Size(830, 354)
         Me.SplitContainer2.SplitterDistance = 27
         Me.SplitContainer2.TabIndex = 7
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(0, 0)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(130, 27)
-        Me.Button3.TabIndex = 11
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'DataGridView2
         '
@@ -475,20 +435,6 @@ Partial Class Form1
         Me.SplitContainer3.SplitterDistance = 27
         Me.SplitContainer3.TabIndex = 7
         '
-        'Button4
-        '
-        Me.Button4.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(0, 0)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(130, 27)
-        Me.Button4.TabIndex = 11
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'DataGridView3
         '
         Me.DataGridView3.AllowUserToDeleteRows = False
@@ -557,20 +503,6 @@ Partial Class Form1
         Me.ComboBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox2.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox2.TabIndex = 12
-        '
-        'Button6
-        '
-        Me.Button6.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button6.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(0, 0)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(130, 27)
-        Me.Button6.TabIndex = 11
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'DataGridView5
         '
@@ -666,20 +598,6 @@ Partial Class Form1
         Me.ComboBox3.Size = New System.Drawing.Size(128, 21)
         Me.ComboBox3.TabIndex = 12
         '
-        'Button7
-        '
-        Me.Button7.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.Location = New System.Drawing.Point(0, 0)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(130, 27)
-        Me.Button7.TabIndex = 11
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.UseVisualStyleBackColor = True
-        '
         'DataGridView6
         '
         Me.DataGridView6.AllowUserToDeleteRows = False
@@ -748,20 +666,6 @@ Partial Class Form1
         Me.ComboBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox5.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox5.TabIndex = 12
-        '
-        'Button8
-        '
-        Me.Button8.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button8.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button8.FlatAppearance.BorderSize = 0
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(0, 0)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(130, 27)
-        Me.Button8.TabIndex = 11
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.UseVisualStyleBackColor = True
         '
         'DataGridView7
         '
@@ -881,20 +785,6 @@ Partial Class Form1
         Me.ComboBox7.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox7.TabIndex = 12
         '
-        'Button9
-        '
-        Me.Button9.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.Location = New System.Drawing.Point(0, 0)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(130, 27)
-        Me.Button9.TabIndex = 11
-        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.UseVisualStyleBackColor = True
-        '
         'DataGridView8
         '
         Me.DataGridView8.AllowUserToDeleteRows = False
@@ -940,20 +830,6 @@ Partial Class Form1
         Me.SplitContainer9.Size = New System.Drawing.Size(830, 354)
         Me.SplitContainer9.SplitterDistance = 27
         Me.SplitContainer9.TabIndex = 12
-        '
-        'Button10
-        '
-        Me.Button10.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.calendar
-        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.Location = New System.Drawing.Point(0, 0)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(130, 27)
-        Me.Button10.TabIndex = 11
-        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -1067,20 +943,6 @@ Partial Class Form1
         Me.ComboBox10.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.ComboBox10.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox10.TabIndex = 12
-        '
-        'Button11
-        '
-        Me.Button11.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button11.Location = New System.Drawing.Point(0, 0)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(130, 27)
-        Me.Button11.TabIndex = 11
-        Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button11.UseVisualStyleBackColor = True
         '
         'DataGridView9
         '
@@ -1201,20 +1063,6 @@ Partial Class Form1
         Me.ComboBox13.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox13.TabIndex = 16
         '
-        'Button12
-        '
-        Me.Button12.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button12.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button12.FlatAppearance.BorderSize = 0
-        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button12.Location = New System.Drawing.Point(0, 0)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(130, 27)
-        Me.Button12.TabIndex = 11
-        Me.Button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button12.UseVisualStyleBackColor = True
-        '
         'DataGridView10
         '
         Me.DataGridView10.AllowUserToDeleteRows = False
@@ -1332,20 +1180,6 @@ Partial Class Form1
         Me.ComboBox15.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox15.TabIndex = 20
         '
-        'Button13
-        '
-        Me.Button13.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button13.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button13.FlatAppearance.BorderSize = 0
-        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button13.Location = New System.Drawing.Point(0, 0)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(130, 27)
-        Me.Button13.TabIndex = 11
-        Me.Button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button13.UseVisualStyleBackColor = True
-        '
         'DataGridView11
         '
         Me.DataGridView11.AllowUserToDeleteRows = False
@@ -1440,20 +1274,6 @@ Partial Class Form1
         Me.ComboBox16.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox16.TabIndex = 20
         '
-        'Button5
-        '
-        Me.Button5.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(0, 0)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(130, 27)
-        Me.Button5.TabIndex = 11
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.UseVisualStyleBackColor = True
-        '
         'DataGridView4
         '
         Me.DataGridView4.AllowUserToDeleteRows = False
@@ -1498,20 +1318,6 @@ Partial Class Form1
         Me.SplitContainer13.SplitterDistance = 27
         Me.SplitContainer13.TabIndex = 13
         '
-        'Button14
-        '
-        Me.Button14.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
-        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.Location = New System.Drawing.Point(0, 0)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(130, 27)
-        Me.Button14.TabIndex = 11
-        Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.UseVisualStyleBackColor = True
-        '
         'DataGridView12
         '
         Me.DataGridView12.AllowUserToDeleteRows = False
@@ -1546,14 +1352,14 @@ Partial Class Form1
         '
         'SplitContainer14.Panel1
         '
+        Me.SplitContainer14.Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.SplitContainer14.Panel1.Controls.Add(Me.DateTimePicker1)
         Me.SplitContainer14.Panel1.Controls.Add(Me.Label22)
         Me.SplitContainer14.Panel1.Controls.Add(Me.Label21)
         Me.SplitContainer14.Panel1.Controls.Add(Me.ComboBox18)
         Me.SplitContainer14.Panel1.Controls.Add(Me.ComboBox17)
         Me.SplitContainer14.Panel1.Controls.Add(Me.Label20)
         Me.SplitContainer14.Panel1.Controls.Add(Me.Label19)
-        Me.SplitContainer14.Panel1.Controls.Add(Me.TextBox2)
-        Me.SplitContainer14.Panel1.Controls.Add(Me.TextBox1)
         '
         'SplitContainer14.Panel2
         '
@@ -1563,14 +1369,36 @@ Partial Class Form1
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button16)
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button15)
         Me.SplitContainer14.Size = New System.Drawing.Size(844, 386)
-        Me.SplitContainer14.SplitterDistance = 317
+        Me.SplitContainer14.SplitterDistance = 466
         Me.SplitContainer14.TabIndex = 0
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.DateTimePicker2.CustomFormat = "dd-MMM-yyyy HH:mm"
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(98, 183)
+        Me.DateTimePicker2.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(152, 20)
+        Me.DateTimePicker2.TabIndex = 9
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.DateTimePicker1.CustomFormat = "dd-MMM-yyyy HH:mm"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(98, 138)
+        Me.DateTimePicker1.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 20)
+        Me.DateTimePicker1.TabIndex = 8
         '
         'Label22
         '
         Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(31, 276)
+        Me.Label22.Location = New System.Drawing.Point(29, 273)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(41, 13)
         Me.Label22.TabIndex = 7
@@ -1580,7 +1408,7 @@ Partial Class Form1
         '
         Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(31, 231)
+        Me.Label21.Location = New System.Drawing.Point(29, 228)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(37, 13)
         Me.Label21.TabIndex = 6
@@ -1590,7 +1418,7 @@ Partial Class Form1
         '
         Me.ComboBox18.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBox18.FormattingEnabled = True
-        Me.ComboBox18.Location = New System.Drawing.Point(100, 276)
+        Me.ComboBox18.Location = New System.Drawing.Point(98, 273)
         Me.ComboBox18.Name = "ComboBox18"
         Me.ComboBox18.Size = New System.Drawing.Size(152, 21)
         Me.ComboBox18.TabIndex = 5
@@ -1599,7 +1427,7 @@ Partial Class Form1
         '
         Me.ComboBox17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBox17.FormattingEnabled = True
-        Me.ComboBox17.Location = New System.Drawing.Point(100, 231)
+        Me.ComboBox17.Location = New System.Drawing.Point(98, 228)
         Me.ComboBox17.Name = "ComboBox17"
         Me.ComboBox17.Size = New System.Drawing.Size(152, 21)
         Me.ComboBox17.TabIndex = 4
@@ -1608,7 +1436,7 @@ Partial Class Form1
         '
         Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(31, 189)
+        Me.Label20.Location = New System.Drawing.Point(29, 186)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(49, 13)
         Me.Label20.TabIndex = 3
@@ -1618,32 +1446,16 @@ Partial Class Form1
         '
         Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(31, 141)
+        Me.Label19.Location = New System.Drawing.Point(29, 138)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(59, 13)
         Me.Label19.TabIndex = 2
         Me.Label19.Text = "Date From:"
         '
-        'TextBox2
-        '
-        Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox2.Location = New System.Drawing.Point(100, 186)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(152, 20)
-        Me.TextBox2.TabIndex = 1
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox1.Location = New System.Drawing.Point(100, 141)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(152, 20)
-        Me.TextBox1.TabIndex = 0
-        '
         'Button19
         '
         Me.Button19.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button19.Location = New System.Drawing.Point(182, 114)
+        Me.Button19.Location = New System.Drawing.Point(108, 114)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(178, 23)
         Me.Button19.TabIndex = 4
@@ -1653,7 +1465,7 @@ Partial Class Form1
         'Button18
         '
         Me.Button18.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button18.Location = New System.Drawing.Point(182, 285)
+        Me.Button18.Location = New System.Drawing.Point(108, 285)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(178, 23)
         Me.Button18.TabIndex = 3
@@ -1663,7 +1475,7 @@ Partial Class Form1
         'Button17
         '
         Me.Button17.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button17.Location = New System.Drawing.Point(182, 241)
+        Me.Button17.Location = New System.Drawing.Point(108, 241)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(178, 23)
         Me.Button17.TabIndex = 2
@@ -1673,7 +1485,7 @@ Partial Class Form1
         'Button16
         '
         Me.Button16.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button16.Location = New System.Drawing.Point(182, 198)
+        Me.Button16.Location = New System.Drawing.Point(108, 198)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(178, 23)
         Me.Button16.TabIndex = 1
@@ -1683,12 +1495,206 @@ Partial Class Form1
         'Button15
         '
         Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button15.Location = New System.Drawing.Point(182, 155)
+        Me.Button15.Location = New System.Drawing.Point(108, 155)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(178, 23)
         Me.Button15.TabIndex = 0
         Me.Button15.Text = "Volunteer Report"
         Me.Button15.UseVisualStyleBackColor = True
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox4.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.hVIVO_screensaver_two
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox4.Location = New System.Drawing.Point(211, 8)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(437, 378)
+        Me.PictureBox4.TabIndex = 12
+        Me.PictureBox4.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(0, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(130, 27)
+        Me.Button1.TabIndex = 11
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(0, 0)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(130, 27)
+        Me.Button3.TabIndex = 11
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.Location = New System.Drawing.Point(0, 0)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(130, 27)
+        Me.Button4.TabIndex = 11
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(0, 0)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(130, 27)
+        Me.Button6.TabIndex = 11
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.Location = New System.Drawing.Point(0, 0)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(130, 27)
+        Me.Button7.TabIndex = 11
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.Location = New System.Drawing.Point(0, 0)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(130, 27)
+        Me.Button8.TabIndex = 11
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button9.FlatAppearance.BorderSize = 0
+        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button9.Location = New System.Drawing.Point(0, 0)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(130, 27)
+        Me.Button9.TabIndex = 11
+        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.calendar
+        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button10.FlatAppearance.BorderSize = 0
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.Location = New System.Drawing.Point(0, 0)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(130, 27)
+        Me.Button10.TabIndex = 11
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button11.FlatAppearance.BorderSize = 0
+        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button11.Location = New System.Drawing.Point(0, 0)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(130, 27)
+        Me.Button11.TabIndex = 11
+        Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button12.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button12.FlatAppearance.BorderSize = 0
+        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button12.Location = New System.Drawing.Point(0, 0)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(130, 27)
+        Me.Button12.TabIndex = 11
+        Me.Button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button13.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button13.FlatAppearance.BorderSize = 0
+        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button13.Location = New System.Drawing.Point(0, 0)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(130, 27)
+        Me.Button13.TabIndex = 11
+        Me.Button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(0, 0)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(130, 27)
+        Me.Button5.TabIndex = 11
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button14.FlatAppearance.BorderSize = 0
+        Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button14.Location = New System.Drawing.Point(0, 0)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(130, 27)
+        Me.Button14.TabIndex = 11
+        Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button14.UseVisualStyleBackColor = True
         '
         'BindingSource1
         '
@@ -1720,7 +1726,6 @@ Partial Class Form1
         Me.Text = "Form1"
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
@@ -1822,6 +1827,7 @@ Partial Class Form1
         Me.SplitContainer14.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer14.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1928,8 +1934,6 @@ Partial Class Form1
     Friend WithEvents SplitContainer14 As System.Windows.Forms.SplitContainer
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Button19 As System.Windows.Forms.Button
     Friend WithEvents Button18 As System.Windows.Forms.Button
     Friend WithEvents Button17 As System.Windows.Forms.Button
@@ -1939,5 +1943,7 @@ Partial Class Form1
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents ComboBox18 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox17 As System.Windows.Forms.ComboBox
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
 
 End Class
