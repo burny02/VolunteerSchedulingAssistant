@@ -326,10 +326,6 @@ Partial Public Class DataSet1
 
         Private columnStudyCohort As Global.System.Data.DataColumn
 
-        Private columnDisplayDate As Global.System.Data.DataColumn
-
-        Private columnDisplayTime As Global.System.Data.DataColumn
-
         Private columnSInitials As Global.System.Data.DataColumn
 
         Private columnProcName As Global.System.Data.DataColumn
@@ -339,6 +335,18 @@ Partial Public Class DataSet1
         Private columnVolID As Global.System.Data.DataColumn
 
         Private columnProcOrd As Global.System.Data.DataColumn
+
+        Private columnCohortID As Global.System.Data.DataColumn
+
+        Private columnCalcDate As Global.System.Data.DataColumn
+
+        Private columnApprox As Global.System.Data.DataColumn
+
+        Private columnTimepointDateTime As Global.System.Data.DataColumn
+
+        Private columnStudyTimepointID As Global.System.Data.DataColumn
+
+        Private columnVolunteerScheduleID As Global.System.Data.DataColumn
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -409,22 +417,6 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property DisplayDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDisplayDate
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property DisplayTimeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDisplayTime
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property SInitialsColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnSInitials
@@ -460,6 +452,54 @@ Partial Public Class DataSet1
         Public ReadOnly Property ProcOrdColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnProcOrd
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CohortIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCohortID
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CalcDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCalcDate
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property ApproxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnApprox
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property TimepointDateTimeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTimepointDateTime
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property StudyTimepointIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStudyTimepointID
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property VolunteerScheduleIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVolunteerScheduleID
             End Get
         End Property
 
@@ -500,9 +540,9 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddVolReportRow(ByVal RVLNo As Integer, ByVal Initials As String, ByVal RoomNo As Short, ByVal StudyCohort As String, ByVal DisplayDate As String, ByVal DisplayTime As String, ByVal SInitials As String, ByVal ProcName As String, ByVal StudyDay As Double, ByVal ProcOrd As Integer) As VolReportRow
+        Public Overloads Function AddVolReportRow(ByVal RVLNo As Integer, ByVal Initials As String, ByVal RoomNo As Short, ByVal StudyCohort As String, ByVal SInitials As String, ByVal ProcName As String, ByVal StudyDay As Double, ByVal ProcOrd As Integer, ByVal CalcDate As Date, ByVal Approx As String, ByVal TimepointDateTime As Date, ByVal StudyTimepointID As Integer) As VolReportRow
             Dim rowVolReportRow As VolReportRow = CType(Me.NewRow, VolReportRow)
-            Dim columnValuesArray() As Object = New Object() {RVLNo, Initials, RoomNo, StudyCohort, DisplayDate, DisplayTime, SInitials, ProcName, StudyDay, Nothing, ProcOrd}
+            Dim columnValuesArray() As Object = New Object() {RVLNo, Initials, RoomNo, StudyCohort, SInitials, ProcName, StudyDay, Nothing, ProcOrd, Nothing, CalcDate, Approx, TimepointDateTime, StudyTimepointID, Nothing}
             rowVolReportRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVolReportRow)
             Return rowVolReportRow
@@ -529,13 +569,17 @@ Partial Public Class DataSet1
             Me.columnInitials = MyBase.Columns("Initials")
             Me.columnRoomNo = MyBase.Columns("RoomNo")
             Me.columnStudyCohort = MyBase.Columns("StudyCohort")
-            Me.columnDisplayDate = MyBase.Columns("DisplayDate")
-            Me.columnDisplayTime = MyBase.Columns("DisplayTime")
             Me.columnSInitials = MyBase.Columns("SInitials")
             Me.columnProcName = MyBase.Columns("ProcName")
             Me.columnStudyDay = MyBase.Columns("StudyDay")
             Me.columnVolID = MyBase.Columns("VolID")
             Me.columnProcOrd = MyBase.Columns("ProcOrd")
+            Me.columnCohortID = MyBase.Columns("CohortID")
+            Me.columnCalcDate = MyBase.Columns("CalcDate")
+            Me.columnApprox = MyBase.Columns("Approx")
+            Me.columnTimepointDateTime = MyBase.Columns("TimepointDateTime")
+            Me.columnStudyTimepointID = MyBase.Columns("StudyTimepointID")
+            Me.columnVolunteerScheduleID = MyBase.Columns("VolunteerScheduleID")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -549,10 +593,6 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnRoomNo)
             Me.columnStudyCohort = New Global.System.Data.DataColumn("StudyCohort", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStudyCohort)
-            Me.columnDisplayDate = New Global.System.Data.DataColumn("DisplayDate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDisplayDate)
-            Me.columnDisplayTime = New Global.System.Data.DataColumn("DisplayTime", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDisplayTime)
             Me.columnSInitials = New Global.System.Data.DataColumn("SInitials", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSInitials)
             Me.columnProcName = New Global.System.Data.DataColumn("ProcName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -563,13 +603,21 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnVolID)
             Me.columnProcOrd = New Global.System.Data.DataColumn("ProcOrd", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProcOrd)
+            Me.columnCohortID = New Global.System.Data.DataColumn("CohortID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCohortID)
+            Me.columnCalcDate = New Global.System.Data.DataColumn("CalcDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCalcDate)
+            Me.columnApprox = New Global.System.Data.DataColumn("Approx", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnApprox)
+            Me.columnTimepointDateTime = New Global.System.Data.DataColumn("TimepointDateTime", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTimepointDateTime)
+            Me.columnStudyTimepointID = New Global.System.Data.DataColumn("StudyTimepointID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStudyTimepointID)
+            Me.columnVolunteerScheduleID = New Global.System.Data.DataColumn("VolunteerScheduleID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVolunteerScheduleID)
             Me.columnInitials.MaxLength = 3
             Me.columnStudyCohort.ReadOnly = True
             Me.columnStudyCohort.MaxLength = 536870910
-            Me.columnDisplayDate.ReadOnly = True
-            Me.columnDisplayDate.MaxLength = 536870910
-            Me.columnDisplayTime.ReadOnly = True
-            Me.columnDisplayTime.MaxLength = 536870910
             Me.columnSInitials.ReadOnly = True
             Me.columnSInitials.MaxLength = 536870910
             Me.columnProcName.MaxLength = 255
@@ -577,6 +625,14 @@ Partial Public Class DataSet1
             Me.columnVolID.AutoIncrement = True
             Me.columnVolID.AutoIncrementSeed = -1
             Me.columnVolID.AutoIncrementStep = -1
+            Me.columnCohortID.AutoIncrement = True
+            Me.columnCohortID.AutoIncrementSeed = -1
+            Me.columnCohortID.AutoIncrementStep = -1
+            Me.columnCalcDate.ReadOnly = True
+            Me.columnApprox.MaxLength = 100
+            Me.columnVolunteerScheduleID.AutoIncrement = True
+            Me.columnVolunteerScheduleID.AutoIncrementSeed = -1
+            Me.columnVolunteerScheduleID.AutoIncrementStep = -1
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -1176,36 +1232,6 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property DisplayDate() As String
-            Get
-                Try
-                    Return CType(Me(Me.tableVolReport.DisplayDateColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DisplayDate' in table 'VolReport' is DBNull.", e)
-                End Try
-            End Get
-            Set(value As String)
-                Me(Me.tableVolReport.DisplayDateColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property DisplayTime() As String
-            Get
-                Try
-                    Return CType(Me(Me.tableVolReport.DisplayTimeColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DisplayTime' in table 'VolReport' is DBNull.", e)
-                End Try
-            End Get
-            Set(value As String)
-                Me(Me.tableVolReport.DisplayTimeColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property SInitials() As String
             Get
                 Try
@@ -1281,6 +1307,96 @@ Partial Public Class DataSet1
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CohortID() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableVolReport.CohortIDColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CohortID' in table 'VolReport' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableVolReport.CohortIDColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CalcDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableVolReport.CalcDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CalcDate' in table 'VolReport' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableVolReport.CalcDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Approx() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableVolReport.ApproxColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Approx' in table 'VolReport' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableVolReport.ApproxColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property TimepointDateTime() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableVolReport.TimepointDateTimeColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TimepointDateTime' in table 'VolReport' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableVolReport.TimepointDateTimeColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property StudyTimepointID() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableVolReport.StudyTimepointIDColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'StudyTimepointID' in table 'VolReport' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableVolReport.StudyTimepointIDColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property VolunteerScheduleID() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableVolReport.VolunteerScheduleIDColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VolunteerScheduleID' in table 'VolReport' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableVolReport.VolunteerScheduleIDColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsRVLNoNull() As Boolean
             Return Me.IsNull(Me.tableVolReport.RVLNoColumn)
         End Function
@@ -1325,30 +1441,6 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetStudyCohortNull()
             Me(Me.tableVolReport.StudyCohortColumn) = Global.System.Convert.DBNull
-        End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsDisplayDateNull() As Boolean
-            Return Me.IsNull(Me.tableVolReport.DisplayDateColumn)
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetDisplayDateNull()
-            Me(Me.tableVolReport.DisplayDateColumn) = Global.System.Convert.DBNull
-        End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsDisplayTimeNull() As Boolean
-            Return Me.IsNull(Me.tableVolReport.DisplayTimeColumn)
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetDisplayTimeNull()
-            Me(Me.tableVolReport.DisplayTimeColumn) = Global.System.Convert.DBNull
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -1409,6 +1501,78 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetProcOrdNull()
             Me(Me.tableVolReport.ProcOrdColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCohortIDNull() As Boolean
+            Return Me.IsNull(Me.tableVolReport.CohortIDColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCohortIDNull()
+            Me(Me.tableVolReport.CohortIDColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCalcDateNull() As Boolean
+            Return Me.IsNull(Me.tableVolReport.CalcDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCalcDateNull()
+            Me(Me.tableVolReport.CalcDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsApproxNull() As Boolean
+            Return Me.IsNull(Me.tableVolReport.ApproxColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetApproxNull()
+            Me(Me.tableVolReport.ApproxColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsTimepointDateTimeNull() As Boolean
+            Return Me.IsNull(Me.tableVolReport.TimepointDateTimeColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetTimepointDateTimeNull()
+            Me(Me.tableVolReport.TimepointDateTimeColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsStudyTimepointIDNull() As Boolean
+            Return Me.IsNull(Me.tableVolReport.StudyTimepointIDColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetStudyTimepointIDNull()
+            Me(Me.tableVolReport.StudyTimepointIDColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsVolunteerScheduleIDNull() As Boolean
+            Return Me.IsNull(Me.tableVolReport.VolunteerScheduleIDColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetVolunteerScheduleIDNull()
+            Me(Me.tableVolReport.VolunteerScheduleIDColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
 
@@ -1931,13 +2095,17 @@ Namespace DataSet1TableAdapters
             tableMapping.ColumnMappings.Add("Initials", "Initials")
             tableMapping.ColumnMappings.Add("RoomNo", "RoomNo")
             tableMapping.ColumnMappings.Add("StudyCohort", "StudyCohort")
-            tableMapping.ColumnMappings.Add("DisplayDate", "DisplayDate")
-            tableMapping.ColumnMappings.Add("DisplayTime", "DisplayTime")
             tableMapping.ColumnMappings.Add("SInitials", "SInitials")
             tableMapping.ColumnMappings.Add("ProcName", "ProcName")
             tableMapping.ColumnMappings.Add("StudyDay", "StudyDay")
             tableMapping.ColumnMappings.Add("VolID", "VolID")
             tableMapping.ColumnMappings.Add("ProcOrd", "ProcOrd")
+            tableMapping.ColumnMappings.Add("CohortID", "CohortID")
+            tableMapping.ColumnMappings.Add("CalcDate", "CalcDate")
+            tableMapping.ColumnMappings.Add("Approx", "Approx")
+            tableMapping.ColumnMappings.Add("TimepointDateTime", "TimepointDateTime")
+            tableMapping.ColumnMappings.Add("StudyTimepointID", "StudyTimepointID")
+            tableMapping.ColumnMappings.Add("VolunteerScheduleID", "VolunteerScheduleID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 
@@ -1955,7 +2123,9 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT * FROM VolReport"
+            Me._commandCollection(0).CommandText = "SELECT CohortID, ProcOrd, VolID, RVLNo, Initials, RoomNo, StudyCohort, CalcDate, " & _
+                "SInitials, Approx, ProcName, StudyDay, TimepointDateTime, StudyTimepointID, Volu" & _
+                "nteerScheduleID FROM VolReport"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
 

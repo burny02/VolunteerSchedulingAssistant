@@ -1,6 +1,8 @@
 ﻿Module SaveModule
     Public Sub Saver(ctl As Object)
 
+        Dim DisplayNotDirtyMessage As Boolean = True
+
         'Get a generic command list first - Ignore errors (Multi table)
         Dim cb As New OleDb.OleDbCommandBuilder(OverClass.CurrentDataAdapter)
 
@@ -38,20 +40,99 @@
             Case "DataGridView6"
 
                 Dim PKey As Double = Form1.ComboBox3.SelectedValue.ToString
+                DisplayNotDirtyMessage = False
 
-                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO StudySchedule " & _
-                                                                          "(StudyTimepointID, ProcID, DaysPost, HoursPost, MinsPost, Approx, SetTime) " & _
-                                                                          "VALUES (" & PKey & ", @P1, @P2, @P3, @P4, @P5, @P6)")
+                Dim ProcID, DaysPost, HoursPost, MinsPost As Object
+                Dim Approx As String
+                Dim SetTime As Object
+                Dim Combine As String = vbNullString
+
+                For Each row In OverClass.CurrentDataSet.Tables(0).Rows
+
+                    If row.RowState = DataRowState.Added Then
+
+                        If IsDBNull(row.item("ProcID")) Then
+                            MsgBox("Procedure missing")
+                            Exit Sub
+                        End If
+
+                        If IsDBNull(row.item("DaysPost")) Then
+                            MsgBox("Days missing")
+                            Exit Sub
+                        End If
+
+                        If IsDBNull(row.item("Approx")) Then
+                            MsgBox("Timepoint missing")
+                            Exit Sub
+                        End If
+
+                        If (IsDBNull(row.item("SetTime")) And row.item("Approx") = "Set Time") _
+                            Or (Not IsDBNull(row.item("SetTime")) And row.item("Approx") <> "Set Time") Then
+                            MsgBox("Set Time OR Hours/Mins - Not Both")
+                            Exit Sub
+                        End If
+
+                        If (Not IsDBNull(row.item("SetTime")) And (Not IsDBNull(row.item("MinsPost")) Or Not IsDBNull(row.item("HoursPost")))) _
+                            Or (IsDBNull(row.item("SetTime")) And (IsDBNull(row.item("MinsPost")) Or IsDBNull(row.item("HoursPost")))) Then
+                            MsgBox("Set Time OR Hours/Mins - Not Both")
+                            Exit Sub
+                        End If
 
 
-                With OverClass.CurrentDataAdapter.InsertCommand.Parameters
-                    .Add("@P1", OleDb.OleDbType.Double, 255, "ProcID")
-                    .Add("@P2", OleDb.OleDbType.Integer, 255, "DaysPost")
-                    .Add("@P3", OleDb.OleDbType.Integer, 255, "HoursPost")
-                    .Add("@P4", OleDb.OleDbType.Integer, 255, "MinsPost")
-                    .Add("@P5", OleDb.OleDbType.VarChar, 255, "Approx")
-                    .Add("@P6", OleDb.OleDbType.DBTimeStamp, 255, "SetTime")
-                End With
+                        ProcID = CDbl(row.item("ProcID"))
+                        DaysPost = CDbl(row.item("DaysPost"))
+                        Approx = "'" & row.item("Approx") & "'"
+
+                        If IsDBNull(row.item("HoursPost")) Then
+                            HoursPost = "Null"
+                        Else
+                            HoursPost = CDbl(row.item("HoursPost"))
+                        End If
+
+                        If IsDBNull(row.item("MinsPost")) Then
+                            MinsPost = "Null"
+                        Else
+                            MinsPost = CDbl(row.item("MinsPost"))
+                        End If
+
+                        If IsDBNull(row.item("SetTime")) Then
+                            SetTime = "Null"
+                        Else
+                            SetTime = OverClass.SQLDate(CDate(row.item("SetTime")))
+                        End If
+
+                        Dim cmdInsert As OleDb.OleDbCommand = Nothing
+                        Dim SchedID As Double = Nothing
+
+                        'INSERT TO SCHEDULE TABLE
+                        Combine = "INSERT INTO StudySchedule " & _
+                                     "(StudyTimepointID, ProcID, DaysPost, HoursPost, MinsPost, Approx, SetTime) " & _
+                                 "VALUES (" & PKey & ", " & ProcID & ", " & DaysPost & ", " & HoursPost & _
+                            ", " & MinsPost & ", " & Approx & ", " & SetTime & ")"
+
+
+                        cmdInsert = New OleDb.OleDbCommand(Combine)
+
+                        SchedID = OverClass.ExecuteSQL(cmdInsert, True)
+
+
+                        'INSERT TO VOL SCHEDULE TABLE
+                        Combine = "INSERT INTO VolunteerSchedule " & _
+                                     "(StudyScheduleID, VolID) " & _
+                                 "SELECT " & SchedID & ", VolID " & _
+                            "FROM VolUnteerTimepoint WHERE StudyTimepointID=" & PKey
+
+
+                        cmdInsert = New OleDb.OleDbCommand(Combine)
+
+                        SchedID = OverClass.ExecuteSQL(cmdInsert, True)
+
+                        row.acceptchanges()
+
+                    End If
+
+
+                Next
 
             Case "DataGridView7"
 
@@ -141,8 +222,7 @@
 
 
         Call OverClass.SetCommandConnection()
-        Call OverClass.UpdateBackend(ctl)
-
+        Call OverClass.UpdateBackend(ctl, DisplayNotDirtyMessage)
 
     End Sub
 

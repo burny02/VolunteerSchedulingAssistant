@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports Microsoft.Reporting.WinForms
+
+Public Class Form1
     Private LastValue As Object
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -53,7 +55,7 @@
         End Select
 
 
-        Call Specifics(ctl)
+        If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
 
@@ -97,6 +99,7 @@
             Case "DataGridView6"
                 If IsNothing(Me.ComboBox3.SelectedValue) Then Exit Sub
                 If IsNothing(Me.ComboBox4.SelectedValue) Then Exit Sub
+                ctl.autogeneratecolumns = True
                 SQLCode = "SELECT StudyScheduleID, ProcID, DaysPost, HoursPost, MinsPost, Approx, SetTime" & _
                     " FROM StudySchedule WHERE StudyTimepointID=" & Me.ComboBox3.SelectedValue.ToString & _
                     " ORDER BY DaysPost ASC, HoursPost ASC, MinsPost ASC"
@@ -145,6 +148,15 @@
                 cmb3.Name = "MinsTaken"
                 ctl.columns.add(cmb3)
                 cmb3.Visible = False
+                Dim cmb4 As New DataGridViewImageColumn
+                ctl.autogeneratecolumns = False
+                cmb4.DisplayIndex = 10
+                cmb4.HeaderText = "Delete Procedure"
+                cmb4.Image = My.Resources.Remove
+                cmb4.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb4)
+                cmb4.Name = "DeleteButton"
+
 
 
             Case "DataGridView7"
@@ -206,6 +218,7 @@
                 cmb.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb)
                 cmb.Name = "DeleteButton"
+                
 
             Case "DataGridView10"
                 If IsNothing(Me.ComboBox13.SelectedValue) Then Exit Sub
@@ -245,7 +258,7 @@
                 ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
                 cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF")
+                                                         "FROM STAFF ORDER BY SName ASC")
                 ctl.columns.add(cmb)
                 cmb.HeaderText = "Staff Member"
                 cmb.ValueMember = "StaffID"
@@ -318,6 +331,31 @@
                 ctl.columns("ProcDateTime").name = "CalcDate"
                 cmb3.Visible = False
 
+            Case "DataGridView13"
+                If IsNothing(Me.ComboBox21.SelectedValue) Then Exit Sub
+                If IsNothing(Me.ComboBox22.SelectedValue) Then Exit Sub
+                SQLCode = "SELECT CalcDate, StudyDay FROM VolDays WHERE VolID=" & Me.ComboBox21.SelectedValue.ToString & _
+                " AND StudyTimepointID=" & Me.ComboBox22.SelectedValue.ToString & _
+                " ORDER BY CalcDate ASC"
+                OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+                ctl.AllowUserToAddRows = False
+                ctl.readonly = True
+                Dim cmb2 As New DataGridViewImageColumn
+                cmb2.HeaderText = "Preview Procedures"
+                cmb2.Image = My.Resources.Preview
+                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb2)
+                cmb2.Name = "PreviewButton"
+                Dim cmb As New DataGridViewImageColumn
+                cmb.HeaderText = "Delete Day"
+                cmb.Image = My.Resources.Remove
+                cmb.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb)
+                cmb.Name = "DeleteButton"
+
+
+
+
         End Select
 
     End Sub
@@ -350,7 +388,7 @@
         End Select
 
 
-        Call Specifics(ctl)
+        If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
 
@@ -375,22 +413,20 @@
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
             Case 1
-                ctl = Me.DataGridView5
                 StartCombo(Me.ComboBox2)
 
             Case 2
-                ctl = Me.DataGridView6
                 StartCombo(Me.ComboBox4)
                 StartCombo(Me.ComboBox3)
-                
+
             Case 3
-                ctl = Me.DataGridView7
                 StartCombo(Me.ComboBox5)
 
         End Select
 
 
-        Call Specifics(ctl)
+        If Not IsNothing(ctl) Then Call Specifics(ctl)
+
     End Sub
 
     Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
@@ -432,28 +468,31 @@
         Select Case e.TabPageIndex
 
             Case 0
-                ctl = Me.DataGridView8
                 StartCombo(Me.ComboBox6)
                 StartCombo(Me.ComboBox7)
 
             Case 1
                 StartCombo(Me.ComboBox8)
-                
+
             Case 2
-                ctl = Me.DataGridView9
                 StartCombo(Me.ComboBox9)
                 StartCombo(Me.ComboBox10)
-                
+
             Case 3
-                ctl = Me.DataGridView10
                 StartCombo(Me.ComboBox11)
                 StartCombo(Me.ComboBox12)
                 StartCombo(Me.ComboBox13)
 
+            Case 4
+                StartCombo(Me.ComboBox19)
+                StartCombo(Me.ComboBox20)
+                StartCombo(Me.ComboBox21)
+                StartCombo(Me.ComboBox22)
+
         End Select
 
 
-        Call Specifics(ctl)
+        If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
 
@@ -474,12 +513,10 @@
         Select Case e.TabPageIndex
 
             Case 0
-                ctl = Me.DataGridView11
                 StartCombo(Me.ComboBox14)
                 StartCombo(Me.ComboBox15)
-                
+
             Case 1
-                ctl = Me.DataGridView4
                 StartCombo(Me.ComboBox1)
                 StartCombo(Me.ComboBox16)
 
@@ -493,7 +530,7 @@
 
         End Select
 
-        Call Specifics(ctl)
+        If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
 
@@ -636,6 +673,58 @@
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
         If IsDBNull(sender.item("VolID", e.RowIndex).value) Then Exit Sub
+
+        Dim row As DataGridViewRow
+        row = sender.rows(e.RowIndex)
+        sender.rows.remove(row)
+
+    End Sub
+
+    Private Sub DataGridView13_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView13.CellContentClick
+
+        If e.ColumnIndex = sender.columns("DeleteButton").index Then
+            If MsgBox("This will delete the following day procedures and bring forward all subsequent days..." & vbNewLine & vbNewLine & _
+                      "Day: " & sender.item("StudyDay", e.RowIndex).value & " " & Me.ComboBox22.Text & " procedures" _
+                      & vbNewLine & "For volunteer: " & Me.ComboBox21.Text _
+                      & vbNewLine & vbNewLine & "This cannot be undone. Do you want to continue?", MsgBoxStyle.YesNo) = vbYes Then
+
+                OverClass.ExecuteSQL("DELETE a.* FROM VolunteerSchedule a INNER JOIN VolReport b ON a.VolunteerScheduleID=b.VolunteerScheduleID " & _
+                                     "WHERE b.StudyDay = " & sender.item("StudyDay", e.RowIndex).value & _
+                                     " AND b.VolID=" & Me.ComboBox21.SelectedValue & _
+                                     " AND b.StudyTimepointID=" & Me.ComboBox22.SelectedValue)
+
+
+                OverClass.ExecuteSQL("UPDATE VolunteerSchedule a INNER JOIN VolReport b ON a.VolunteerScheduleID=b.VolunteerScheduleID " & _
+                                     "SET a.DayOffSet=a.DayOffSet-1 " & _
+                                     "WHERE b.StudyDay > " & sender.item("StudyDay", e.RowIndex).value & _
+                                     " AND b.VolID=" & Me.ComboBox21.SelectedValue & _
+                                     " AND b.StudyTimepointID=" & Me.ComboBox22.SelectedValue)
+
+                MsgBox("Day deleted")
+                OverClass.Refresher(sender)
+            End If
+
+        ElseIf e.ColumnIndex = sender.columns("PreviewButton").index Then
+            Dim OK As New ReportDisplay
+            OK.Visible = True
+            OK.ReportViewer1.Visible = True
+            OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
+            OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.VolunteerReport.rdlc"
+            OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
+                                                        OverClass.TempDataTable("SELECT * FROM VolReport " & _
+                                                                                "WHERE VolID=" & Me.ComboBox21.SelectedValue & _
+                                                                                " AND StudyDay=" & sender.item("StudyDay", e.RowIndex).value & _
+                                                                                " AND StudyTimepointID=" & Me.ComboBox22.SelectedValue)))
+
+            OK.ReportViewer1.RefreshReport()
+        End If
+
+    End Sub
+
+    Private Sub DataGridView6_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
+
+        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
+        If IsDBNull(sender.item("StudyScheduleID", e.RowIndex).value) Then Exit Sub
 
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)

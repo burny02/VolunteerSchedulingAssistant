@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="Backend2.accdb" DbObjectName="VolReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT * FROM VolReport</CommandText>
+                    <CommandText>SELECT CohortID, ProcOrd, VolID, RVLNo, Initials, RoomNo, StudyCohort, CalcDate, SInitials, Approx, ProcName, StudyDay, TimepointDateTime, StudyTimepointID, VolunteerScheduleID FROM VolReport</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,13 +23,17 @@
               <Mapping SourceColumn="Initials" DataSetColumn="Initials" />
               <Mapping SourceColumn="RoomNo" DataSetColumn="RoomNo" />
               <Mapping SourceColumn="StudyCohort" DataSetColumn="StudyCohort" />
-              <Mapping SourceColumn="DisplayDate" DataSetColumn="DisplayDate" />
-              <Mapping SourceColumn="DisplayTime" DataSetColumn="DisplayTime" />
               <Mapping SourceColumn="SInitials" DataSetColumn="SInitials" />
               <Mapping SourceColumn="ProcName" DataSetColumn="ProcName" />
               <Mapping SourceColumn="StudyDay" DataSetColumn="StudyDay" />
               <Mapping SourceColumn="VolID" DataSetColumn="VolID" />
               <Mapping SourceColumn="ProcOrd" DataSetColumn="ProcOrd" />
+              <Mapping SourceColumn="CohortID" DataSetColumn="CohortID" />
+              <Mapping SourceColumn="CalcDate" DataSetColumn="CalcDate" />
+              <Mapping SourceColumn="Approx" DataSetColumn="Approx" />
+              <Mapping SourceColumn="TimepointDateTime" DataSetColumn="TimepointDateTime" />
+              <Mapping SourceColumn="StudyTimepointID" DataSetColumn="StudyTimepointID" />
+              <Mapping SourceColumn="VolunteerScheduleID" DataSetColumn="VolunteerScheduleID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -67,7 +71,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="VolReport" msprop:Generator_TableClassName="VolReportDataTable" msprop:Generator_TableVarName="tableVolReport" msprop:Generator_RowChangedName="VolReportRowChanged" msprop:Generator_TablePropName="VolReport" msprop:Generator_RowDeletingName="VolReportRowDeleting" msprop:Generator_RowChangingName="VolReportRowChanging" msprop:Generator_RowEvHandlerName="VolReportRowChangeEventHandler" msprop:Generator_RowDeletedName="VolReportRowDeleted" msprop:Generator_RowClassName="VolReportRow" msprop:Generator_UserTableName="VolReport" msprop:Generator_RowEvArgName="VolReportRowChangeEvent">
+        <xs:element name="VolReport" msprop:Generator_TableClassName="VolReportDataTable" msprop:Generator_TableVarName="tableVolReport" msprop:Generator_TablePropName="VolReport" msprop:Generator_RowDeletingName="VolReportRowDeleting" msprop:Generator_RowChangingName="VolReportRowChanging" msprop:Generator_RowEvHandlerName="VolReportRowChangeEventHandler" msprop:Generator_RowDeletedName="VolReportRowDeleted" msprop:Generator_UserTableName="VolReport" msprop:Generator_RowChangedName="VolReportRowChanged" msprop:Generator_RowEvArgName="VolReportRowChangeEvent" msprop:Generator_RowClassName="VolReportRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RVLNo" msprop:Generator_ColumnVarNameInTable="columnRVLNo" msprop:Generator_ColumnPropNameInRow="RVLNo" msprop:Generator_ColumnPropNameInTable="RVLNoColumn" msprop:Generator_UserColumnName="RVLNo" type="xs:int" minOccurs="0" />
@@ -80,20 +84,6 @@
               </xs:element>
               <xs:element name="RoomNo" msprop:Generator_ColumnVarNameInTable="columnRoomNo" msprop:Generator_ColumnPropNameInRow="RoomNo" msprop:Generator_ColumnPropNameInTable="RoomNoColumn" msprop:Generator_UserColumnName="RoomNo" type="xs:short" minOccurs="0" />
               <xs:element name="StudyCohort" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudyCohort" msprop:Generator_ColumnPropNameInRow="StudyCohort" msprop:Generator_ColumnPropNameInTable="StudyCohortColumn" msprop:Generator_UserColumnName="StudyCohort" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="536870910" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DisplayDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayDate" msprop:Generator_ColumnPropNameInRow="DisplayDate" msprop:Generator_ColumnPropNameInTable="DisplayDateColumn" msprop:Generator_UserColumnName="DisplayDate" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="536870910" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DisplayTime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayTime" msprop:Generator_ColumnPropNameInRow="DisplayTime" msprop:Generator_ColumnPropNameInTable="DisplayTimeColumn" msprop:Generator_UserColumnName="DisplayTime" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
@@ -117,10 +107,22 @@
               <xs:element name="StudyDay" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudyDay" msprop:Generator_ColumnPropNameInRow="StudyDay" msprop:Generator_ColumnPropNameInTable="StudyDayColumn" msprop:Generator_UserColumnName="StudyDay" type="xs:double" minOccurs="0" />
               <xs:element name="VolID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVolID" msprop:Generator_ColumnPropNameInRow="VolID" msprop:Generator_ColumnPropNameInTable="VolIDColumn" msprop:Generator_UserColumnName="VolID" type="xs:int" minOccurs="0" />
               <xs:element name="ProcOrd" msprop:Generator_ColumnVarNameInTable="columnProcOrd" msprop:Generator_ColumnPropNameInRow="ProcOrd" msprop:Generator_ColumnPropNameInTable="ProcOrdColumn" msprop:Generator_UserColumnName="ProcOrd" type="xs:int" minOccurs="0" />
+              <xs:element name="CohortID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCohortID" msprop:Generator_ColumnPropNameInRow="CohortID" msprop:Generator_ColumnPropNameInTable="CohortIDColumn" msprop:Generator_UserColumnName="CohortID" type="xs:int" minOccurs="0" />
+              <xs:element name="CalcDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCalcDate" msprop:Generator_ColumnPropNameInRow="CalcDate" msprop:Generator_ColumnPropNameInTable="CalcDateColumn" msprop:Generator_UserColumnName="CalcDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Approx" msprop:Generator_ColumnVarNameInTable="columnApprox" msprop:Generator_ColumnPropNameInRow="Approx" msprop:Generator_ColumnPropNameInTable="ApproxColumn" msprop:Generator_UserColumnName="Approx" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TimepointDateTime" msprop:Generator_ColumnVarNameInTable="columnTimepointDateTime" msprop:Generator_ColumnPropNameInRow="TimepointDateTime" msprop:Generator_ColumnPropNameInTable="TimepointDateTimeColumn" msprop:Generator_UserColumnName="TimepointDateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="StudyTimepointID" msprop:Generator_ColumnVarNameInTable="columnStudyTimepointID" msprop:Generator_ColumnPropNameInRow="StudyTimepointID" msprop:Generator_ColumnPropNameInTable="StudyTimepointIDColumn" msprop:Generator_UserColumnName="StudyTimepointID" type="xs:int" minOccurs="0" />
+              <xs:element name="VolunteerScheduleID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVolunteerScheduleID" msprop:Generator_ColumnPropNameInRow="VolunteerScheduleID" msprop:Generator_ColumnPropNameInTable="VolunteerScheduleIDColumn" msprop:Generator_UserColumnName="VolunteerScheduleID" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StaffReport" msprop:Generator_TableClassName="StaffReportDataTable" msprop:Generator_TableVarName="tableStaffReport" msprop:Generator_TablePropName="StaffReport" msprop:Generator_RowDeletingName="StaffReportRowDeleting" msprop:Generator_RowChangingName="StaffReportRowChanging" msprop:Generator_RowEvHandlerName="StaffReportRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffReportRowDeleted" msprop:Generator_UserTableName="StaffReport" msprop:Generator_RowChangedName="StaffReportRowChanged" msprop:Generator_RowEvArgName="StaffReportRowChangeEvent" msprop:Generator_RowClassName="StaffReportRow">
+        <xs:element name="StaffReport" msprop:Generator_TableClassName="StaffReportDataTable" msprop:Generator_TableVarName="tableStaffReport" msprop:Generator_RowChangedName="StaffReportRowChanged" msprop:Generator_TablePropName="StaffReport" msprop:Generator_RowDeletingName="StaffReportRowDeleting" msprop:Generator_RowChangingName="StaffReportRowChanging" msprop:Generator_RowEvHandlerName="StaffReportRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffReportRowDeleted" msprop:Generator_RowClassName="StaffReportRow" msprop:Generator_UserTableName="StaffReport" msprop:Generator_RowEvArgName="StaffReportRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProcOrd" msprop:Generator_ColumnVarNameInTable="columnProcOrd" msprop:Generator_ColumnPropNameInRow="ProcOrd" msprop:Generator_ColumnPropNameInTable="ProcOrdColumn" msprop:Generator_UserColumnName="ProcOrd" type="xs:int" minOccurs="0" />

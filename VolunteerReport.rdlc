@@ -540,7 +540,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!DisplayDate.Value</Value>
+                              <Value>=format(Fields!CalcDate.Value,"dd-MMM-yyyy")</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -874,7 +874,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DisplayTime.Value</Value>
+                              <Value>=format(Fields!CalcDate.Value,"HH:mm")</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -1057,7 +1057,7 @@
                   <Group Name="Details" />
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!DisplayTime.Value</Value>
+                      <Value>=format(Fields!CalcDate.Value,"HH:mm")</Value>
                     </SortExpression>
                     <SortExpression>
                       <Value>=Fields!ProcOrd.Value</Value>
@@ -1131,14 +1131,6 @@
           <DataField>StudyCohort</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DisplayDate">
-          <DataField>DisplayDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DisplayTime">
-          <DataField>DisplayTime</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="SInitials">
           <DataField>SInitials</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1157,6 +1149,30 @@
         </Field>
         <Field Name="ProcOrd">
           <DataField>ProcOrd</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CohortID">
+          <DataField>CohortID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CalcDate">
+          <DataField>CalcDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Approx">
+          <DataField>Approx</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TimepointDateTime">
+          <DataField>TimepointDateTime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="StudyTimepointID">
+          <DataField>StudyTimepointID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VolunteerScheduleID">
+          <DataField>VolunteerScheduleID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
