@@ -265,6 +265,12 @@ Public Class Form1
                 cmb.DisplayMember = "Fullname"
                 cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
                 cmb.Name = "PICK"
+                Dim cmb2 As New DataGridViewImageColumn
+                cmb2.HeaderText = "Delete Procedure"
+                cmb2.Image = My.Resources.Remove
+                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb2)
+                cmb2.Name = "DeleteButton"
 
             Case "DataGridView4"
                 If IsNothing(Me.ComboBox16.SelectedValue) Then Exit Sub
@@ -295,6 +301,12 @@ Public Class Form1
                 cmb.DisplayMember = "Fullname"
                 cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
                 cmb.Name = "PICK"
+                Dim cmb2 As New DataGridViewImageColumn
+                cmb2.HeaderText = "Delete Procedure"
+                cmb2.Image = My.Resources.Remove
+                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb2)
+                cmb2.Name = "DeleteButton"
 
             Case "DataGridView12"
                 ctl.columns("StaffProcID").visible = False
@@ -330,6 +342,12 @@ Public Class Form1
                 ctl.columns.add(cmb3)
                 ctl.columns("ProcDateTime").name = "CalcDate"
                 cmb3.Visible = False
+                Dim cmb4 As New DataGridViewImageColumn
+                cmb4.HeaderText = "Delete Procedure"
+                cmb4.Image = My.Resources.Remove
+                cmb4.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb4)
+                cmb4.Name = "DeleteButton"
 
             Case "DataGridView13"
                 If IsNothing(Me.ComboBox21.SelectedValue) Then Exit Sub
@@ -731,4 +749,38 @@ Public Class Form1
         sender.rows.remove(row)
 
     End Sub
+
+    Private Sub DataGridView11_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView11.CellContentClick
+
+        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
+        If IsDBNull(sender.item("VolunteerScheduleID", e.RowIndex).value) Then Exit Sub
+
+        Dim row As DataGridViewRow
+        row = sender.rows(e.RowIndex)
+        sender.rows.remove(row)
+
+    End Sub
+
+    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
+
+        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
+        If IsDBNull(sender.item("VolunteerScheduleID", e.RowIndex).value) Then Exit Sub
+
+        Dim row As DataGridViewRow
+        row = sender.rows(e.RowIndex)
+        sender.rows.remove(row)
+
+    End Sub
+
+    Private Sub DataGridView12_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView12.CellContentClick
+
+        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
+        If IsDBNull(sender.item("StaffProcID", e.RowIndex).value) Then Exit Sub
+
+        Dim row As DataGridViewRow
+        row = sender.rows(e.RowIndex)
+        sender.rows.remove(row)
+
+    End Sub
 End Class
+

@@ -80,14 +80,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VolunteerSchedulingAssistant.exe" size="773608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VolunteerSchedulingAssistant.exe" size="775656">
       <assemblyIdentity name="VolunteerSchedulingAssistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LeN5sSSA2OBYu9RWF7Z6Skup91uqCxDNDJkgPcpUnoo=</dsig:DigestValue>
+        <dsig:DigestValue>CqFAShrr/N7BV+MvitDVCgKaRpxrO1o/BVfON4Jl0dQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
