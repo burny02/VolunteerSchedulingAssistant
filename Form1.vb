@@ -171,11 +171,17 @@ Public Class Form1
                 ctl.columns("NumVols").HeaderText = "Number of volunteers"
                 ctl.columns("CohortName").HeaderText = "Cohort Name"
                 Dim cmb As New DataGridViewImageColumn
-                cmb.HeaderText = "Delete Cohort"
-                cmb.Image = My.Resources.Remove
+                cmb.HeaderText = "Add Volunteer"
+                cmb.Image = My.Resources.Plus
                 cmb.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb)
-                cmb.Name = "DeleteButton"
+                cmb.Name = "AddVolButton"
+                Dim cmb2 As New DataGridViewImageColumn
+                cmb2.HeaderText = "Delete Cohort"
+                cmb2.Image = My.Resources.Remove
+                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb2)
+                cmb2.Name = "DeleteButton"
 
 
             Case "DataGridView8"
@@ -349,31 +355,6 @@ Public Class Form1
                 ctl.columns.add(cmb4)
                 cmb4.Name = "DeleteButton"
 
-            Case "DataGridView13"
-                If IsNothing(Me.ComboBox21.SelectedValue) Then Exit Sub
-                If IsNothing(Me.ComboBox22.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT CalcDate, StudyDay FROM VolDays WHERE VolID=" & Me.ComboBox21.SelectedValue.ToString & _
-                " AND StudyTimepointID=" & Me.ComboBox22.SelectedValue.ToString & _
-                " ORDER BY CalcDate ASC"
-                OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
-                ctl.AllowUserToAddRows = False
-                ctl.readonly = True
-                Dim cmb2 As New DataGridViewImageColumn
-                cmb2.HeaderText = "Preview Procedures"
-                cmb2.Image = My.Resources.Preview
-                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
-                ctl.columns.add(cmb2)
-                cmb2.Name = "PreviewButton"
-                Dim cmb As New DataGridViewImageColumn
-                cmb.HeaderText = "Delete Day"
-                cmb.Image = My.Resources.Remove
-                cmb.ImageLayout = DataGridViewImageCellLayout.Zoom
-                ctl.columns.add(cmb)
-                cmb.Name = "DeleteButton"
-
-
-
-
         End Select
 
     End Sub
@@ -500,12 +481,6 @@ Public Class Form1
                 StartCombo(Me.ComboBox11)
                 StartCombo(Me.ComboBox12)
                 StartCombo(Me.ComboBox13)
-
-            Case 4
-                StartCombo(Me.ComboBox19)
-                StartCombo(Me.ComboBox20)
-                StartCombo(Me.ComboBox21)
-                StartCombo(Me.ComboBox22)
 
         End Select
 
@@ -678,12 +653,205 @@ Public Class Form1
 
     Private Sub DataGridView7_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView7.CellContentClick
 
-        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
         If IsDBNull(sender.item("CohortID", e.RowIndex).value) Then Exit Sub
 
-        Dim row As DataGridViewRow
-        row = sender.rows(e.RowIndex)
-        sender.rows.remove(row)
+        If e.ColumnIndex = sender.columns("DeleteButton").index Then
+            Dim row As DataGridViewRow
+            row = sender.rows(e.RowIndex)
+            sender.rows.remove(row)
+        End If
+
+
+        If e.ColumnIndex = sender.columns("AddVolButton").index Then
+
+            Me.ValidateChildren()
+            If OverClass.UnloadData() = True Then Exit Sub
+
+            Dim Response As Integer = MsgBox("Do you want to transfer the volunteer from another study?" _
+                                             & vbNewLine & vbNewLine _
+                                             & "Timepoints of EXACTLY the same name will be transfered across", MsgBoxStyle.YesNoCancel)
+            If Response = vbCancel Then Exit Sub
+
+
+
+            'EXISTING VOLUNTEER
+            If Response = vbYes Then
+
+                PickCohort = sender.item("CohortID", e.RowIndex).value
+                Dim PickVol As New AddVol
+
+                PickVol.ShowDialog()
+
+                'ON RETURN
+                Me.TabControl3.SelectedIndex = 3
+                Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
+                Call Me.Specifics(Me.DataGridView7)
+
+
+
+            End If
+
+
+            'NEW VOLUNTEER
+            If Response = vbNo Then
+
+                Dim RVLNo, RoomNo, VolID, CohortID As Long
+                Dim Initials = vbNullString
+                Dim Temp As String = vbNullString
+                Dim Accepted As Boolean
+
+                CohortID = sender.item("CohortID", e.RowIndex).value
+
+                'GET NEW VOL INFO
+                Do While Accepted = False
+                    Initials = InputBox("Input Volunteer Initials", "Volunteer Initials", "AAA")
+                    If Initials = "" Then Exit Sub
+                    If Len(Initials) <> 3 Then
+                        MsgBox("Initials must be 3 characters long")
+                        Continue Do
+                    End If
+                    If Not Initials Like "[A-Z][A-Z][A-Z]" Then
+                        MsgBox("Initials must be 3 text characters such as 'AAA'")
+                        Continue Do
+                    End If
+                    Accepted = True
+                Loop
+
+                Accepted = False
+                Do While Accepted = False
+                    Temp = InputBox("Input Volunteer RVL Number", "Volunteer RVL No", "123456")
+                    If Temp = "" Then Exit Sub
+                    Try
+                        RVLNo = CLng(Temp)
+                    Catch ex As Exception
+                        MsgBox("RVL Number must be a number")
+                        Continue Do
+                    End Try
+                    Accepted = True
+                Loop
+
+                Accepted = False
+                Do While Accepted = False
+                    Temp = InputBox("Input Volunteer Room Number", "Volunteer Room No", "10")
+                    If Temp = "" Then Exit Sub
+                    Try
+                        RoomNo = CLng(Temp)
+                    Catch ex As Exception
+                        MsgBox("Room Number must be a number")
+                        Continue Do
+                    End Try
+                    Accepted = True
+                Loop
+
+
+                'GET A NEW VOL ID
+                VolID = (OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0)) + 1
+
+
+                'TRY AND INSERT VOLUNTEER
+                Try
+                    Dim InsertString As String
+                    Dim cmdInsert As OleDb.OleDbCommand
+
+                    InsertString = "INSERT INTO Volunteer " & _
+                                         "(VolID, RVLNo, Initials, CohortID, RoomNo) " & _
+                                     "VALUES (" & VolID & ", " & RVLNo & ", '" & Initials & "', " & CohortID & ", " & RoomNo & ")"
+
+
+                    cmdInsert = New OleDb.OleDbCommand(InsertString)
+
+                    OverClass.ExecuteSQL(cmdInsert)
+
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    Exit Sub
+
+                End Try
+
+
+
+                For Each row In OverClass.TempDataTable("SELECT TimepointName, StudyTimepointID FROM ((StudyTimepoint a " & _
+                                                        "INNER JOIN Study b ON a.StudyID=b.StudyID) " & _
+                                                        "INNER JOIN Cohort c ON b.StudyID=C.StudyID) " & _
+                                                        "WHERE CohortID=" & CohortID & _
+                                                        " GROUP BY TimepointName, StudyTimepointID").Rows
+                    Accepted = False
+                    Dim TempDate As Date
+                    Dim InsertString, TimepointName As String
+                    Dim cmdInsert As OleDb.OleDbCommand
+                    Dim StudyTimepointID As Long
+
+                    TimepointName = row.item("TimepointName")
+                    StudyTimepointID = row.item("StudyTimepointID")
+
+                    'INSERT INTO VOLUNTEER TIMEPOINT
+                    Do While Accepted = False
+
+                        Temp = InputBox("Input " & Initials & "(" & RVLNo & ") " & TimepointName & " Date/Time", _
+                                        TimepointName & " Date", "01-Jan-2010 10:00")
+
+                        Try
+                            TempDate = CDate(Temp)
+                            If Format(TempDate, "HH:mm") = "00:00" Then Throw New System.Exception
+                            InsertString = "INSERT INTO VolunteerTimepoint " & _
+                                         "(VolID, TimepointDateTime, StudyTimepointID) " & _
+                                     "VALUES (" & VolID & ", " & OverClass.SQLDate(TempDate) & ", " & StudyTimepointID & ")"
+
+
+                            cmdInsert = New OleDb.OleDbCommand(InsertString)
+
+                            OverClass.ExecuteSQL(cmdInsert)
+
+
+                        Catch ex As Exception
+                            MsgBox("Must enter a valid Date/Time to continue")
+                            Continue Do
+
+                        End Try
+
+                        'INSERT ALL PROCEDURES
+                        For Each row2 In OverClass.TempDataTable("SELECT StudyScheduleID FROM StudySchedule " & _
+                                                                "WHERE StudyTimepointID=" & StudyTimepointID).Rows
+
+                            Dim CmdInsert2 As New OleDb.OleDbCommand("INSERT INTO VolunteerSchedule (StudyScheduleID,VolID) " & _
+                                                                     "VALUES (" & row2.item(0) & ", " & VolID & ")")
+
+                            OverClass.ExecuteSQL(CmdInsert2)
+
+                        Next
+
+
+                        Accepted = True
+                        Continue For
+                    Loop
+
+                Next
+
+
+                
+
+                    'UPDATE COHORT TO GENERATED
+                    Dim UpdateString As String
+                    Dim cmdUpdate As OleDb.OleDbCommand
+
+                    UpdateString = "UPDATE Cohort SET Generated=TRUE, NumVols=NumVols+1 " & _
+                        "WHERE CohortID=" & CohortID
+
+                    cmdUpdate = New OleDb.OleDbCommand(UpdateString)
+
+                    OverClass.ExecuteSQL(cmdUpdate)
+
+                    MsgBox("Volunteer Added")
+
+                    'REFRESH SCREEN
+                    Me.TabControl3.SelectedIndex = 3
+                    Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
+                    Call Specifics(Me.DataGridView7)
+
+            End If
+        End If
+
+
 
     End Sub
 
@@ -695,47 +863,6 @@ Public Class Form1
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
         sender.rows.remove(row)
-
-    End Sub
-
-    Private Sub DataGridView13_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView13.CellContentClick
-
-        If e.ColumnIndex = sender.columns("DeleteButton").index Then
-            If MsgBox("This will delete the following day procedures and bring forward all subsequent days..." & vbNewLine & vbNewLine & _
-                      "Day: " & sender.item("StudyDay", e.RowIndex).value & " " & Me.ComboBox22.Text & " procedures" _
-                      & vbNewLine & "For volunteer: " & Me.ComboBox21.Text _
-                      & vbNewLine & vbNewLine & "This cannot be undone. Do you want to continue?", MsgBoxStyle.YesNo) = vbYes Then
-
-                OverClass.ExecuteSQL("DELETE a.* FROM VolunteerSchedule a INNER JOIN VolReport b ON a.VolunteerScheduleID=b.VolunteerScheduleID " & _
-                                     "WHERE b.StudyDay = " & sender.item("StudyDay", e.RowIndex).value & _
-                                     " AND b.VolID=" & Me.ComboBox21.SelectedValue & _
-                                     " AND b.StudyTimepointID=" & Me.ComboBox22.SelectedValue)
-
-
-                OverClass.ExecuteSQL("UPDATE VolunteerSchedule a INNER JOIN VolReport b ON a.VolunteerScheduleID=b.VolunteerScheduleID " & _
-                                     "SET a.DayOffSet=a.DayOffSet-1 " & _
-                                     "WHERE b.StudyDay > " & sender.item("StudyDay", e.RowIndex).value & _
-                                     " AND b.VolID=" & Me.ComboBox21.SelectedValue & _
-                                     " AND b.StudyTimepointID=" & Me.ComboBox22.SelectedValue)
-
-                MsgBox("Day deleted")
-                OverClass.Refresher(sender)
-            End If
-
-        ElseIf e.ColumnIndex = sender.columns("PreviewButton").index Then
-            Dim OK As New ReportDisplay
-            OK.Visible = True
-            OK.ReportViewer1.Visible = True
-            OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-            OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.VolunteerReport.rdlc"
-            OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                        OverClass.TempDataTable("SELECT * FROM VolReport " & _
-                                                                                "WHERE VolID=" & Me.ComboBox21.SelectedValue & _
-                                                                                " AND StudyDay=" & sender.item("StudyDay", e.RowIndex).value & _
-                                                                                " AND StudyTimepointID=" & Me.ComboBox22.SelectedValue)))
-
-            OK.ReportViewer1.RefreshReport()
-        End If
 
     End Sub
 

@@ -42,7 +42,9 @@ Module ButtonModule
                 OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.VolunteerReport.rdlc"
                 OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
                                                             OverClass.TempDataTable("SELECT * FROM VolReport " & _
-                                                                                    "WHERE CohortID=" & Form1.ComboBox18.SelectedValue)))
+                                                                                    "WHERE CohortID=" & Form1.ComboBox18.SelectedValue & _
+                                                                                    " AND CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
+                                                                                        " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
 
                 OK.ReportViewer1.RefreshReport()
 

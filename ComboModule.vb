@@ -40,18 +40,6 @@
             Case "ComboBox17"
                 StartCombo(Form1.ComboBox18)
 
-            Case "ComboBox19"
-                StartCombo(Form1.ComboBox20)
-                StartCombo(Form1.ComboBox21)
-                StartCombo(Form1.ComboBox22)
-
-            Case "ComboBox20"
-                StartCombo(Form1.ComboBox21)
-                StartCombo(Form1.ComboBox22)
-
-            Case "ComboBox21"
-                StartCombo(Form1.ComboBox22)
-
             Case Else
                 ComboRefreshData(sender)
 
@@ -238,44 +226,6 @@
                 ctl.ValueMember = "CohortID"
                 ctl.DisplayMember = "CohortName"
 
-            Case "ComboBox19"
-                ctl.DataSource = OverClass.TempDataTable("SELECT DISTINCT a.StudyID, " & _
-                                                              "StudyCode FROM (Study a INNER JOIN StudyTimePoint b " & _
-                                                              "ON a.StudyID=b.StudyID) " & _
-                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " & _
-                                                              "WHERE Generated=True " & _
-                                                              "ORDER BY StudyCode ASC")
-                ctl.ValueMember = "StudyID"
-                ctl.DisplayMember = "StudyCode"
-
-            Case "ComboBox20"
-                If IsNothing(Form1.ComboBox19.SelectedValue) Then Exit Sub
-                ctl.DataSource = OverClass.TempDataTable("SELECT CohortID, " & _
-                                                              "CohortName FROM Cohort WHERE StudyID=" _
-                                                              & Form1.ComboBox19.SelectedValue.ToString & _
-                                                                " AND Generated=True" & _
-                                                                " ORDER BY CohortName ASC")
-                ctl.ValueMember = "CohortID"
-                ctl.DisplayMember = "CohortName"
-
-            Case "ComboBox21"
-                If IsNothing(Form1.ComboBox20.SelectedValue) Then Exit Sub
-                ctl.DataSource = OverClass.TempDataTable("SELECT RVLNo & ' - ' & Initials AS Display, VolID " & _
-                                                              "FROM Volunteer WHERE CohortID=" _
-                                                              & Form1.ComboBox20.SelectedValue.ToString & _
-                                                                " ORDER BY Initials ASC")
-                ctl.ValueMember = "VolID"
-                ctl.DisplayMember = "Display"
-
-            Case "ComboBox22"
-                If IsNothing(Form1.ComboBox21.SelectedValue) Then Exit Sub
-                ctl.DataSource = OverClass.TempDataTable("SELECT TimepointName, a.StudyTimepointID " & _
-                                                              "FROM StudyTimepoint a INNER JOIN VolunteerTimepoint b " & _
-                                                              "ON a.StudyTimepointID=b.StudyTimepointID " & _
-                                                              "WHERE VolID=" & Form1.ComboBox21.SelectedValue.ToString & _
-                                                                " ORDER BY TimepointName ASC")
-                ctl.ValueMember = "StudyTimepointID"
-                ctl.DisplayMember = "TimepointName"
 
         End Select
 
@@ -288,9 +238,6 @@
         Dim Grid As DataGridView = Nothing
 
         Select Case sender.Name.ToString()
-
-            Case "ComboBox22"
-                Grid = Form1.DataGridView13
 
             Case "ComboBox16"
                 Grid = Form1.DataGridView4

@@ -1,7 +1,7 @@
 ﻿Module SaveModule
     Public Sub Saver(ctl As Object)
 
-        Dim DisplayNotDirtyMessage As Boolean = True
+        Dim DisplayMessage As Boolean = True
 
         'Get a generic command list first - Ignore errors (Multi table)
         Dim cb As New OleDb.OleDbCommandBuilder(OverClass.CurrentDataAdapter)
@@ -40,7 +40,7 @@
             Case "DataGridView6"
 
                 Dim PKey As Double = Form1.ComboBox3.SelectedValue.ToString
-                DisplayNotDirtyMessage = False
+                DisplayMessage = False
 
                 Dim ProcID, DaysPost, HoursPost, MinsPost As Object
                 Dim Approx As String
@@ -102,32 +102,45 @@
                         End If
 
                         Dim cmdInsert As OleDb.OleDbCommand = Nothing
-                        Dim SchedID As Double = Nothing
+                        Dim SchedID As Long = 0
 
-                        'INSERT TO SCHEDULE TABLE
-                        Combine = "INSERT INTO StudySchedule " & _
-                                     "(StudyTimepointID, ProcID, DaysPost, HoursPost, MinsPost, Approx, SetTime) " & _
-                                 "VALUES (" & PKey & ", " & ProcID & ", " & DaysPost & ", " & HoursPost & _
-                            ", " & MinsPost & ", " & Approx & ", " & SetTime & ")"
+                        SchedID = (OverClass.TempDataTable("SELECT Max(StudyScheduleID) FROM StudySchedule").Rows(0).Item(0)) + 1
 
 
-                        cmdInsert = New OleDb.OleDbCommand(Combine)
+                        Try
+                            'INSERT TO SCHEDULE TABLE
+                            Combine = "INSERT INTO StudySchedule " & _
+                                         "(StudyScheduleID, StudyTimepointID, ProcID, DaysPost, HoursPost, MinsPost, Approx, SetTime) " & _
+                                     "VALUES (" & SchedID & ", " & PKey & ", " & ProcID & ", " & DaysPost & ", " & HoursPost & _
+                                ", " & MinsPost & ", " & Approx & ", " & SetTime & ")"
 
-                        SchedID = OverClass.ExecuteSQL(cmdInsert, True)
+
+                            cmdInsert = New OleDb.OleDbCommand(Combine)
+
+                            OverClass.ExecuteSQL(cmdInsert)
+
+                        Catch ex As Exception
+                            MsgBox(ex.Message)
+                            Exit Sub
+
+                        End Try
 
 
                         'INSERT TO VOL SCHEDULE TABLE
                         Combine = "INSERT INTO VolunteerSchedule " & _
                                      "(StudyScheduleID, VolID) " & _
                                  "SELECT " & SchedID & ", VolID " & _
-                            "FROM VolUnteerTimepoint WHERE StudyTimepointID=" & PKey
+                            "FROM VolunteerTimepoint WHERE StudyTimepointID=" & PKey
 
 
                         cmdInsert = New OleDb.OleDbCommand(Combine)
 
-                        SchedID = OverClass.ExecuteSQL(cmdInsert, True)
+                        OverClass.ExecuteSQL(cmdInsert)
 
                         row.acceptchanges()
+
+
+
 
                     End If
 
@@ -222,7 +235,9 @@
 
 
         Call OverClass.SetCommandConnection()
-        Call OverClass.UpdateBackend(ctl, DisplayNotDirtyMessage)
+        Call OverClass.UpdateBackend(ctl, DisplayMessage)
+        If DisplayMessage = False Then MsgBox("Table Updated")
+
 
     End Sub
 

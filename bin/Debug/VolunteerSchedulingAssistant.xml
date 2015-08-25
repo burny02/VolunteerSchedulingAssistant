@@ -23,6 +23,10 @@ VolunteerSchedulingAssistant
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:VolunteerSchedulingAssistant.My.Resources.Resources.Plus">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:VolunteerSchedulingAssistant.My.Resources.Resources.Preview">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

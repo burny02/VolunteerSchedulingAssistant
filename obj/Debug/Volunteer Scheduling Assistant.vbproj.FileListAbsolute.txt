@@ -19,3 +19,4 @@ C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assis
 C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\bin\Debug\VolunteerSchedulingAssistant.application
 C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\obj\Debug\VolunteerSchedulingAssistant.exe.manifest
 C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\obj\Debug\VolunteerSchedulingAssistant.application
+C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\obj\Debug\VolunteerSchedulingAssistant.AddVol.resources

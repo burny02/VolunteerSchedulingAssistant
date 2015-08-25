@@ -11,6 +11,7 @@ Module Variables
     Private Const ActiveUsersTable As String = "[ActiveUsers]"
     Private Contact As String = "Michael Gray"
     Public Const SolutionName As String = "Volunteer Scheduling Assistant"
+    Public PickCohort As Long
 
     Public Function GetTheConnection() As String
         GetTheConnection = Connect2

@@ -410,7 +410,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.79542cm</Height>
+              <Height>0.76897cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -589,7 +589,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox28</rd:DefaultName>
@@ -601,68 +603,13 @@
                         <BackgroundColor>=iif((fields!StudyCohort.Value&lt;&gt;previous(fields!StudyCohort.Value)) OR (format(fields!CalcDate.Value,"dd-MMM-yyyy")&lt;&gt;format(previous(fields!CalcDate.Value),"dd-MMM-yyyy")),fields!Colour.Value,"")</BackgroundColor>
                       </Style>
                     </Textbox>
-                    <ColSpan>3</ColSpan>
-                    <rd:Selected>true</rd:Selected>
+                    <ColSpan>5</ColSpan>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
                 <TablixCell />
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox10">
-                      <CanShrink>true</CanShrink>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox31">
-                      <CanShrink>true</CanShrink>
-                      <HideDuplicates>ReportDataSet</HideDuplicates>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox31</rd:DefaultName>
-                      <Visibility>
-                        <Hidden>true</Hidden>
-                      </Visibility>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
+                <TablixCell />
+                <TablixCell />
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -691,6 +638,7 @@
                         <Border>
                           <Color>LightGrey</Color>
                         </Border>
+                        <BackgroundColor>=iif(RowNumber(Nothing) Mod 2, "LightGrey", "White")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -722,6 +670,7 @@
                         <Border>
                           <Color>LightGrey</Color>
                         </Border>
+                        <BackgroundColor>=iif(RowNumber(Nothing) Mod 2, "LightGrey", "White")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -753,6 +702,7 @@
                         <Border>
                           <Color>LightGrey</Color>
                         </Border>
+                        <BackgroundColor>=iif(RowNumber(Nothing) Mod 2, "LightGrey", "White")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -772,7 +722,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!RVLNo.Value &amp; " (" &amp; Fields!Initials.Value &amp; ") Room: " &amp; Fields!RoomNo.Value</Value>
+                              <Value>=iif(Fields!StudyCohort.Value="Non Study Function","",Fields!RVLNo.Value &amp; " (" &amp; Fields!Initials.Value &amp; ") Room: " &amp; Fields!RoomNo.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -786,6 +736,7 @@
                         <Border>
                           <Color>LightGrey</Color>
                         </Border>
+                        <BackgroundColor>=iif(RowNumber(Nothing) Mod 2, "LightGrey", "White")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -858,231 +809,23 @@
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
                 <TablixMember>
-                  <TablixHeader>
-                    <Size>0.07938cm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox13">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value />
-                                <Style>
-                                  <FontSize>14pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox13</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                            <Width>1.5pt</Width>
-                          </Border>
-                          <TopBorder>
-                            <Style>Solid</Style>
-                          </TopBorder>
-                          <LeftBorder>
-                            <Style>Solid</Style>
-                          </LeftBorder>
-                          <BackgroundColor>LightBlue</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>0.07938cm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox14">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value />
-                                <Style>
-                                  <FontSize>14pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox14</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                            <Width>1.5pt</Width>
-                          </Border>
-                          <BottomBorder>
-                            <Style>Solid</Style>
-                          </BottomBorder>
-                          <LeftBorder>
-                            <Style>Solid</Style>
-                          </LeftBorder>
-                          <BackgroundColor>LightBlue</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>0.07938cm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox15">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value />
-                                <Style />
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox15</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>0.07938cm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox16">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value />
-                                <Style />
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox16</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="StudyCohort">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!StudyCohort.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
+                  <Group Name="Details" />
                   <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!StudyCohort.Value</Value>
-                    </SortExpression>
                     <SortExpression>
                       <Value>=Fields!CalcDate.Value</Value>
                     </SortExpression>
+                    <SortExpression>
+                      <Value>=Fields!ProcOrd.Value</Value>
+                    </SortExpression>
                   </SortExpressions>
-                  <TablixHeader>
-                    <Size>0.07938cm</Size>
-                    <CellContents>
-                      <Textbox Name="StudyCohort">
-                        <CanShrink>true</CanShrink>
-                        <HideDuplicates>ReportDataSet</HideDuplicates>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!StudyCohort.Value</Value>
-                                <Style>
-                                  <FontWeight>SemiBold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>StudyCohort</rd:DefaultName>
-                        <Visibility>
-                          <Hidden>true</Hidden>
-                        </Visibility>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
                   <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Details" />
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!CalcDate.Value</Value>
-                        </SortExpression>
-                        <SortExpression>
-                          <Value>=Fields!ProcOrd.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                      <TablixMembers>
-                        <TablixMember />
-                        <TablixMember />
-                      </TablixMembers>
-                    </TablixMember>
+                    <TablixMember />
+                    <TablixMember />
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
@@ -1093,8 +836,8 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <KeepTogether>true</KeepTogether>
         <DataSetName>ReportDataSet</DataSetName>
-        <Height>3.8748cm</Height>
-        <Width>19.81478cm</Width>
+        <Height>3.84835cm</Height>
+        <Width>19.7354cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1102,10 +845,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.52551in</Height>
+    <Height>1.5151in</Height>
     <Style />
   </Body>
-  <Width>7.80109in</Width>
+  <Width>7.76984in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
