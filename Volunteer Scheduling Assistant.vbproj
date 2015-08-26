@@ -192,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hvivo_logo1_8dY_icon.ico" />
+    <None Include="Resources\Previewer.png" />
     <None Include="Resources\Plus.gif" />
     <None Include="Resources\Preview.png" />
     <None Include="Resources\Remove.png" />

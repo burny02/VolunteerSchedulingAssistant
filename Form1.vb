@@ -50,6 +50,8 @@ Public Class Form1
             Case 5
                 StartCombo(Me.ComboBox17)
                 StartCombo(Me.ComboBox18)
+            Case 6
+                ctl = Me.DataGridView13
 
 
         End Select
@@ -354,6 +356,20 @@ Public Class Form1
                 cmb4.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb4)
                 cmb4.Name = "DeleteButton"
+
+            Case "DataGridView13"
+                SQLCode = "SELECT * FROM ReportArchive ORDER BY ArchiveID DESC, ArchiveDate DESC"
+                OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+                ctl.columns("ArchiveID").Visible = False
+                ctl.columns("ArchivePath").visible = False
+                ctl.Columns("ArchiveType").displayindex = 0
+                ctl.columns("ArchiveType").HeaderText = "Report Type"
+                ctl.columns("ArchiveDate").HeaderText = "Date Ran"
+                ctl.columns("ArchiveUser").HeaderText = "User Ran"
+                ctl.columns("ArchiveCriteria").HeaderText = "Report Criteria"
+                ctl.Columns("ArchiveCriteria").DefaultCellStyle.WrapMode = DataGridViewTriState.True
+                ctl.Columns("ArchiveType").DefaultCellStyle.Font = New Font("Arial", 10, FontStyle.Underline)
+                ctl.Columns("ArchiveType").DefaultCellStyle.ForeColor = Color.Blue
 
         End Select
 
@@ -907,6 +923,24 @@ Public Class Form1
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
         sender.rows.remove(row)
+
+    End Sub
+
+    Private Sub DataGridView13_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView13.CellContentClick
+
+        If e.ColumnIndex = sender.columns("ArchiveType").index Then
+
+            Dim FilePath As String = sender.item("ArchivePath", e.RowIndex).value
+
+            Try
+                Process.Start(FilePath)
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+
+            End Try
+
+        End If
 
     End Sub
 End Class

@@ -115,14 +115,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VolunteerSchedulingAssistant.exe" size="800232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VolunteerSchedulingAssistant.exe" size="826344">
       <assemblyIdentity name="VolunteerSchedulingAssistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8nyNsWHtsNGaivb5sXIfbemJDXEnWVoe9Pp965GQXfQ=</dsig:DigestValue>
+        <dsig:DigestValue>kdoLoXOeW8KOKjYJEYAzcRNzitdPfcuplO+pIHa9SDQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

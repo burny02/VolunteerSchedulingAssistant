@@ -2,6 +2,7 @@
 
 Module Variables
     Public OverClass As OverClass
+    Public Const ReportPath As String = "M:\VOLUNTEER SCREENING SERVICES\DavidBurnside\Scheduler\Reports\"
     Private Const TablePath As String = "M:\VOLUNTEER SCREENING SERVICES\DavidBurnside\Scheduler\Backend2.accdb"
     Private Const PWord As String = "Crypto*Dave02"
     Private Const Connect2 As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & TablePath & ";Jet OLEDB:Database Password=" & PWord
