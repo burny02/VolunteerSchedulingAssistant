@@ -261,7 +261,11 @@ Partial Class AddVol
                 
 
                 'GET A NEW VOL ID
-                NEWVolID = (OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0)) + 1
+                Try
+                    NewVolID = (OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0)) + 1
+                Catch ex As Exception
+                    NewVolID = 1
+                End Try
 
 
                 'TRY AND INSERT VOLUNTEER (WITH NEW VOLID AND COHORTID)
@@ -310,7 +314,7 @@ Partial Class AddVol
                         Accepted = True
                         Continue For
 
-                    loop
+                    Loop
 
                 Else
                     'If is same timepoint name in old study
@@ -368,7 +372,14 @@ Partial Class AddVol
             Dim cmdUpdate As OleDb.OleDbCommand
 
             UpdateString = "UPDATE Cohort SET Generated=TRUE, NumVols=NumVols+1 " & _
-                "WHERE CohortID=" & PickCohort
+                    "WHERE CohortID=" & PickCohort & " AND Generated=TRUE"
+
+            cmdUpdate = New OleDb.OleDbCommand(UpdateString)
+
+            OverClass.ExecuteSQL(cmdUpdate)
+
+            UpdateString = "UPDATE Cohort SET Generated=TRUE, NumVols=1 " & _
+                "WHERE CohortID=" & PickCohort & " AND Generated=False"
 
             cmdUpdate = New OleDb.OleDbCommand(UpdateString)
 

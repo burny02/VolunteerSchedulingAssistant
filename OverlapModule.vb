@@ -15,13 +15,14 @@
 
         If OnlyFrontEnd <> True Then
             'Vol Procedures
+
             Returner = OverClass.CreateCSVString("SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " & _
             "& ' - ' & ProcName as Overlap " & _
-            "FROM [CheckStaffOverlap] WHERE ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull] > " & CDateStart & " AND [StartFull] < " & CDateEnd & ") " & _
-            "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [EndFull] > " & CDateStart & " AND [EndFull] < " & CDateEnd & ") " & _
-            "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<=" & CDateStart & " AND [EndFull]>=" & CDateEnd & ") " & _
-            "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]=" & CDateStart & ") " & _
-            "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [EndFull]=" & CDateEnd & ")")
+            "FROM [CheckStaffOverlap] WHERE " & _
+            "(([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd & ")" & _
+            " AND ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND " & CDateStart & "<[EndFull]))" & _
+            " OR (([StartFull]=" & CDateStart & ") AND ([EndFull]=" & CDateEnd & "))")
+
         End If
 
         For Each row In Grid.Rows
@@ -35,11 +36,10 @@
             RowEndFull = row.cells("EndFull").value
             RowStartFull = row.cells("CalcDate").value
 
-            If (RowStartFull > StartFull And RowStartFull < EndFull) _
-                Or (RowEndFull > StartFull And RowEndFull < EndFull) _
-                Or (RowStartFull <= StartFull And RowEndFull >= EndFull) _
-                Or (RowStartFull = StartFull) _
-                Or (RowEndFull = EndFull) Then
+            If ((RowStartFull < EndFull) _
+                And (StartFull < RowEndFull)) _
+                Or ((RowStartFull = StartFull) _
+                And (RowEndFull = EndFull)) Then
 
                 chk = chk & "Vol Procedure (" & Format(RowStartFull, "HH:mm") & "-" & _
                 Format(RowEndFull, "HH:mm") & ")" & " - " & row.cells("ProcName").value & ","
@@ -70,14 +70,13 @@
         CDateEnd = OverClass.SQLDate(EndFull)
 
         'Vol Procedures
+
         Returner = OverClass.CreateCSVString("SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " & _
-        "& ' - ' & ProcName as Overlap " & _
-        "FROM [CheckStaffOverlap] WHERE ProcType = 'Vol Procedure' AND " & _
-        "([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull] > " & CDateStart & " AND [StartFull] < " & CDateEnd & ") " & _
-        "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [EndFull] > " & CDateStart & " AND [EndFull] < " & CDateEnd & ") " & _
-        "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<=" & CDateStart & " AND [EndFull]>=" & CDateEnd & ") " & _
-        "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]=" & CDateStart & ") " & _
-        "OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [EndFull]=" & CDateEnd & ")")
+            "& ' - ' & ProcName as Overlap " & _
+            "FROM [CheckStaffOverlap] WHERE " & _
+            "(([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd & ")" & _
+            " AND ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND " & CDateStart & "<[EndFull]))" & _
+            " OR (([StartFull]=" & CDateStart & ") AND ([EndFull]=" & CDateEnd & "))")
 
 
         For Each Row In Grid.Rows
@@ -99,11 +98,10 @@
             RowEndFull = DateAdd(DateInterval.Minute, Row.Cells("MinsTaken").FormattedValue, Row.Cells("CalcDate").Value)
             RowStartFull = Row.Cells("CalcDate").Value
 
-            If (RowStartFull > StartFull And RowStartFull < EndFull) _
-                Or (RowEndFull > StartFull And RowEndFull < EndFull) _
-                Or (RowStartFull <= StartFull And RowEndFull >= EndFull) _
-                Or (RowStartFull = StartFull) _
-                Or (RowEndFull = EndFull) Then
+            If ((RowStartFull < EndFull) _
+                And (StartFull < RowEndFull)) _
+                Or ((RowStartFull = StartFull) _
+                And (RowEndFull = EndFull)) Then
 
                 chk = chk & "Staff Procedure (" & Format(RowStartFull, "HH:mm") & "-" & _
                 Format(RowEndFull, "HH:mm") & ")" & " - " & Row.Cells("ProcPick").FormattedValue & ","
@@ -163,11 +161,10 @@
             RowEndFull = DateAdd(DateInterval.Minute, MinsTaken, RowStartFull)
 
 
-            If (RowStartFull > StartFull And RowStartFull < EndFull) _
-                Or (RowEndFull > StartFull And RowEndFull < EndFull) _
-                Or (RowStartFull <= StartFull And RowEndFull >= EndFull) _
-                Or (RowStartFull = StartFull) _
-                Or (RowEndFull = EndFull) Then
+            If ((RowStartFull < EndFull) _
+                And (StartFull < RowEndFull)) _
+                Or ((RowStartFull = StartFull) _
+                And (RowEndFull = EndFull)) Then
 
                 chk = chk & Row.Cells("PickProc").FormattedValue & ","
 

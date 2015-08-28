@@ -761,7 +761,13 @@ Public Class Form1
 
 
                 'GET A NEW VOL ID
-                VolID = (OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0)) + 1
+                Try
+                    VolID = OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0) + 1
+
+                Catch ex As Exception
+                    VolID = 1
+
+                End Try
 
 
                 'TRY AND INSERT VOLUNTEER
@@ -844,25 +850,32 @@ Public Class Form1
                 Next
 
 
-                
 
-                    'UPDATE COHORT TO GENERATED
-                    Dim UpdateString As String
-                    Dim cmdUpdate As OleDb.OleDbCommand
 
-                    UpdateString = "UPDATE Cohort SET Generated=TRUE, NumVols=NumVols+1 " & _
-                        "WHERE CohortID=" & CohortID
+                'UPDATE COHORT TO GENERATED
+                Dim UpdateString As String
+                Dim cmdUpdate As OleDb.OleDbCommand
 
-                    cmdUpdate = New OleDb.OleDbCommand(UpdateString)
+                UpdateString = "UPDATE Cohort SET Generated=TRUE, NumVols=NumVols+1 " & _
+                    "WHERE CohortID=" & CohortID & " AND Generated=TRUE"
 
-                    OverClass.ExecuteSQL(cmdUpdate)
+                cmdUpdate = New OleDb.OleDbCommand(UpdateString)
 
-                    MsgBox("Volunteer Added")
+                OverClass.ExecuteSQL(cmdUpdate)
 
-                    'REFRESH SCREEN
-                    Me.TabControl3.SelectedIndex = 3
-                    Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
-                    Call Specifics(Me.DataGridView7)
+                UpdateString = "UPDATE Cohort SET Generated=TRUE, NumVols=1 " & _
+                    "WHERE CohortID=" & CohortID & " AND Generated=False"
+
+                cmdUpdate = New OleDb.OleDbCommand(UpdateString)
+
+                OverClass.ExecuteSQL(cmdUpdate)
+
+                MsgBox("Volunteer Added")
+
+                'REFRESH SCREEN
+                Me.TabControl3.SelectedIndex = 3
+                Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
+                Call Specifics(Me.DataGridView7)
 
             End If
         End If

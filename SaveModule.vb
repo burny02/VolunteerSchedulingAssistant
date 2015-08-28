@@ -104,8 +104,13 @@
                         Dim cmdInsert As OleDb.OleDbCommand = Nothing
                         Dim SchedID As Long = 0
 
-                        SchedID = (OverClass.TempDataTable("SELECT Max(StudyScheduleID) FROM StudySchedule").Rows(0).Item(0)) + 1
+                        Try
+                            SchedID = (OverClass.TempDataTable("SELECT Max(StudyScheduleID) FROM StudySchedule").Rows(0).Item(0)) + 1
 
+                        Catch ex As Exception
+                            SchedID = 1
+
+                        End Try
 
                         Try
                             'INSERT TO SCHEDULE TABLE

@@ -47,7 +47,14 @@ Module ButtonModule
 
                     OK.ReportViewer1.RefreshReport()
 
-                    Dim NextID As Long = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+
+                    Dim NextID As Long
+                    Try
+                        NextID = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+
+                    Catch ex As Exception
+                        NextID = 1
+                    End Try
                     Dim ArchiveType As String = "VolunteerReport"
                     Dim Criteria As String = "Dates: " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HH:mm") _
                                              & " -> " & Format(Form1.DateTimePicker2.Value, "dd-MMM-yyyy HH:mm") _
@@ -84,7 +91,14 @@ Module ButtonModule
                     OK.ReportViewer1.RefreshReport()
 
                     'Create PDF file on disk
-                    Dim NextID As Long = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+
+                    Dim NextID As Long
+                    Try
+                        NextID = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+                    Catch ex As Exception
+                        NextID = 1
+                    End Try
+
                     Dim ArchiveType As String = "StaffReport"
                     Dim Criteria As String = "Dates: " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HH:mm") & " -> " _
                                              & Format(Form1.DateTimePicker2.Value, "dd-MMM-yyyy HH:mm")
@@ -121,7 +135,13 @@ Module ButtonModule
 
                     OK.ReportViewer1.RefreshReport()
 
-                    Dim NextID As Long = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+                    Dim NextID As Long
+                    Try
+                        NextID = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+                    Catch ex As Exception
+                        NextID = 1
+                    End Try
+
                     Dim ArchiveType As String = "MasterReport"
                     Dim Criteria As String = "Dates: " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HH:mm") _
                                              & " -> " & Format(Form1.DateTimePicker2.Value, "dd-MMM-yyyy HH:mm")
@@ -146,6 +166,8 @@ Module ButtonModule
             Case "Button18"
 
             Case "Button19"
+
+            Case "Button20"
 
 
         End Select
