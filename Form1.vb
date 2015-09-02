@@ -365,6 +365,7 @@ Public Class Form1
                 ctl.Columns("ArchiveType").displayindex = 0
                 ctl.columns("ArchiveType").HeaderText = "Report Type"
                 ctl.columns("ArchiveDate").HeaderText = "Date Ran"
+                ctl.columns("ArchiveDate").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 ctl.columns("ArchiveUser").HeaderText = "User Ran"
                 ctl.columns("ArchiveCriteria").HeaderText = "Report Criteria"
                 ctl.Columns("ArchiveCriteria").DefaultCellStyle.WrapMode = DataGridViewTriState.True
@@ -845,6 +846,7 @@ Public Class Form1
 
                         Accepted = True
                         Continue For
+
                     Loop
 
                 Next
