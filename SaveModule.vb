@@ -140,7 +140,7 @@
 
                         cmdInsert = New OleDb.OleDbCommand(Combine)
 
-                        OverClass.ExecuteSQL(cmdInsert)
+                        OverClass.AddToMassSQL(cmdInsert)
 
                         row.acceptchanges()
 
@@ -151,6 +151,8 @@
 
 
                 Next
+
+                OverClass.ExecuteMassSQL()
 
             Case "DataGridView7"
 

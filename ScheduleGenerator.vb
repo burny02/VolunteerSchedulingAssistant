@@ -19,9 +19,10 @@
         DtNumVolunteers = Nothing
 
         Do While i < NumVols
-            OverClass.ExecuteSQL("INSERT INTO Volunteer (CohortID) VALUES (" & Form1.ComboBox8.SelectedValue.ToString & ")")
+            OverClass.AddToMassSQL("INSERT INTO Volunteer (CohortID) VALUES (" & Form1.ComboBox8.SelectedValue.ToString & ")")
             i = i + 1
         Loop
+        OverClass.ExecuteMassSQL()
         i = 0
 
        
@@ -34,7 +35,7 @@
 
         Do While i < NumVols
             Do While j < DtCohortTimepoint.Rows.Count
-                OverClass.ExecuteSQL("INSERT INTO VolunteerTimepoint (StudyTimepointID, VolID, TimepointDateTime) " & _
+                OverClass.AddToMassSQL("INSERT INTO VolunteerTimepoint (StudyTimepointID, VolID, TimepointDateTime) " & _
                                      "VALUES (" & DtCohortTimepoint.Rows(j).Item(0) & _
                                      ", " & DtVolunteers.Rows(i).Item(0) & _
                                      ", '" & DateAdd(DateInterval.Minute, (i * DtCohortTimepoint.Rows(j).Item(2)), CDate(DtCohortTimepoint.Rows(j).Item(1))) & "')")
@@ -43,6 +44,7 @@
             j = 0
             i = i + 1
         Loop
+        OverClass.ExecuteMassSQL()
         i = 0
         DtCohortTimepoint = Nothing
 
@@ -58,7 +60,7 @@
 
         Do While j < NumVols
             Do While i < NumSchedule
-                OverClass.ExecuteSQL("INSERT INTO VolunteerSchedule (StudyScheduleID, VolID) " & _
+                OverClass.AddToMassSQL("INSERT INTO VolunteerSchedule (StudyScheduleID, VolID) " & _
                                      "VALUES " & _
                                      "(" & DtSchedule.Rows(i).Item(0) & ", " & DtVolunteers.Rows(j).Item(0) & ")")
                 i = i + 1
@@ -66,6 +68,8 @@
             i = 0
             j = j + 1
         Loop
+
+        OverClass.ExecuteMassSQL()
 
         'Update to say Cohort Generated
         OverClass.ExecuteSQL("UPDATE Cohort SET Generated=true WHERE CohortID=" & Form1.ComboBox8.SelectedValue.ToString)

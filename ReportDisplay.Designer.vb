@@ -25,10 +25,14 @@ Partial Class ReportDisplay
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ReportDisplay))
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ReportDisplayBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.ReportDisplayBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ReportDisplayBindingSource
+        '
+        Me.ReportDisplayBindingSource.DataSource = GetType(VolunteerSchedulingAssistant.ReportDisplay)
         '
         'ReportViewer1
         '
@@ -42,10 +46,6 @@ Partial Class ReportDisplay
         Me.ReportViewer1.Size = New System.Drawing.Size(284, 261)
         Me.ReportViewer1.TabIndex = 0
         '
-        'ReportDisplayBindingSource
-        '
-        Me.ReportDisplayBindingSource.DataSource = GetType(VolunteerSchedulingAssistant.ReportDisplay)
-        '
         'ReportDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -53,9 +53,9 @@ Partial Class ReportDisplay
         Me.ClientSize = New System.Drawing.Size(284, 261)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
         Me.Name = "ReportDisplay"
         Me.Text = "ReportDisplay"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ReportDisplayBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

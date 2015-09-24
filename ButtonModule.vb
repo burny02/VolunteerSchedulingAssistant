@@ -204,10 +204,8 @@ Module ButtonModule
                 Next
 
                 Dim dt2 As DataTable
-                dt2 = OverClass.TempDataTable("SELECT a.*, ProcName, StudyCode FROM (((StudySchedule a INNER JOIN StudyTimepoint b " & _
-                                              " ON a.StudyTimepointID=b.StudyTimepointID) INNER JOIN ProcTask c " & _
-                                              " ON a.ProcID=c.ProcID) INNER JOIN Study d ON b.StudyID=D.StudyID) " & _
-                                              "WHERE b.StudyID=" & Form1.ComboBox17.SelectedValue.ToString)
+                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " & _
+                                              "WHERE StudyID=" & Form1.ComboBox17.SelectedValue.ToString)
 
 
                 Dim ReportData =
@@ -215,7 +213,8 @@ Module ButtonModule
                     Join b In dt2.AsEnumerable()
                     On
                        a.Field(Of Int32)("StudyTimepointID") Equals b.Field(Of Int32)("StudyTimepointID")
-                    Select TimepointName = a.Field(Of String)("TimepointName"), TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
+                    Select Order = b.Field(Of Int32)("ProcOrd"), TimepointName = a.Field(Of String)("TimepointName"),
+                    TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
                     StudyCode = b.Field(Of String)("StudyCode"), ProcName = b.Field(Of String)("ProcName"),
                     CalcDate = If(b.Field(Of String)("Approx") = "Set Time",
                 CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("SetTime"))),
@@ -296,10 +295,8 @@ Module ButtonModule
                 Next
 
                 Dim dt2 As DataTable
-                dt2 = OverClass.TempDataTable("SELECT a.*, ProcName, StudyCode FROM (((StudySchedule a INNER JOIN StudyTimepoint b " & _
-                                              " ON a.StudyTimepointID=b.StudyTimepointID) INNER JOIN ProcTask c " & _
-                                              " ON a.ProcID=c.ProcID) INNER JOIN Study d ON b.StudyID=D.StudyID) " & _
-                                              "WHERE b.StudyID=" & Form1.ComboBox4.SelectedValue.ToString)
+                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " & _
+                                              "WHERE StudyID=" & Form1.ComboBox4.SelectedValue.ToString)
 
 
                 Dim ReportData =
@@ -307,7 +304,8 @@ Module ButtonModule
                     Join b In dt2.AsEnumerable()
                     On
                        a.Field(Of Int32)("StudyTimepointID") Equals b.Field(Of Int32)("StudyTimepointID")
-                    Select TimepointName = a.Field(Of String)("TimepointName"), TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
+                    Select Order = b.Field(Of Int32)("ProcOrd"), TimepointName = a.Field(Of String)("TimepointName"),
+                    TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
                     StudyCode = b.Field(Of String)("StudyCode"), ProcName = b.Field(Of String)("ProcName"),
                     CalcDate = If(b.Field(Of String)("Approx") = "Set Time",
                 CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("SetTime"))),

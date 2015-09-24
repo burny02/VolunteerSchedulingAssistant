@@ -335,7 +335,7 @@ Partial Class AddVol
 
                 cmdInsert = New OleDb.OleDbCommand(InsertString)
 
-                OverClass.ExecuteSQL(cmdInsert)
+                OverClass.AddToMassSQL(cmdInsert)
 
 
                 'INSERT ALL PROCEDURES
@@ -345,7 +345,7 @@ Partial Class AddVol
                     Dim CmdInsert2 As New OleDb.OleDbCommand("INSERT INTO VolunteerSchedule (StudyScheduleID,VolID) " & _
                                                              "VALUES (" & row2.item(0) & ", " & NewVolID & ")")
 
-                    OverClass.ExecuteSQL(CmdInsert2)
+                    OverClass.AddToMassSQL(CmdInsert2)
 
                 Next
 
@@ -356,14 +356,13 @@ Partial Class AddVol
             Next
 
 
+            OverClass.ExecuteMassSQL()
+
 
             'DELETE PROCEDURES FROM OLD STUDY
             OverClass.ExecuteSQL("DELETE a.* FROM VolunteerSchedule a INNER JOIN (SELECT VolunteerScheduleID FROM CleanUP " & _
                                  "WHERE VolID=" & VolID & ") b ON a.VolunteerScheduleID=b.VolunteerScheduleID")
 
-
-
-            'INSERT ALL PROCEDURES
 
 
 

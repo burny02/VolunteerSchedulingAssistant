@@ -266,7 +266,7 @@ Public Class Form1
                 ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
                 cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF ORDER BY SName ASC")
+                                                         "FROM STAFF ORDER BY FName ASC")
                 ctl.columns.add(cmb)
                 cmb.HeaderText = "Staff Member"
                 cmb.ValueMember = "StaffID"
@@ -302,7 +302,7 @@ Public Class Form1
                 ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
                 cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF ORDER BY SName ASC")
+                                                         "FROM STAFF ORDER BY FName ASC")
                 ctl.columns.add(cmb)
                 cmb.HeaderText = "Staff Member"
                 cmb.ValueMember = "StaffID"
@@ -324,7 +324,7 @@ Public Class Form1
                 ctl.columns("ProcDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
                 cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF ORDER BY SName ASC")
+                                                         "FROM STAFF ORDER BY FName ASC")
                 ctl.columns.add(cmb)
                 cmb.Name = "Pick"
                 cmb.HeaderText = "Staff Member"
@@ -398,7 +398,7 @@ Public Class Form1
 
             Case 1
                 ctl = Me.DataGridView2
-                SQLCode = "SELECT StaffID, FName, SName FROM Staff ORDER BY SName ASC"
+                SQLCode = "SELECT StaffID, FName, SName FROM Staff ORDER BY FName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
@@ -823,7 +823,7 @@ Public Class Form1
 
                             cmdInsert = New OleDb.OleDbCommand(InsertString)
 
-                            OverClass.ExecuteSQL(cmdInsert)
+                            OverClass.AddToMassSQL(cmdInsert)
 
 
                         Catch ex As Exception
@@ -839,7 +839,7 @@ Public Class Form1
                             Dim CmdInsert2 As New OleDb.OleDbCommand("INSERT INTO VolunteerSchedule (StudyScheduleID,VolID) " & _
                                                                      "VALUES (" & row2.item(0) & ", " & VolID & ")")
 
-                            OverClass.ExecuteSQL(CmdInsert2)
+                            OverClass.AddToMassSQL(CmdInsert2)
 
                         Next
 
@@ -850,6 +850,8 @@ Public Class Form1
                     Loop
 
                 Next
+
+                OverClass.ExecuteMassSQL()
 
 
 
@@ -889,7 +891,6 @@ Public Class Form1
     Private Sub DataGridView9_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView9.CellContentClick
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-        If IsDBNull(sender.item("VolID", e.RowIndex).value) Then Exit Sub
 
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
@@ -900,7 +901,6 @@ Public Class Form1
     Private Sub DataGridView6_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-        If IsDBNull(sender.item("StudyScheduleID", e.RowIndex).value) Then Exit Sub
 
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
@@ -911,7 +911,6 @@ Public Class Form1
     Private Sub DataGridView11_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView11.CellContentClick
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-        If IsDBNull(sender.item("VolunteerScheduleID", e.RowIndex).value) Then Exit Sub
 
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
@@ -922,7 +921,6 @@ Public Class Form1
     Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-        If IsDBNull(sender.item("VolunteerScheduleID", e.RowIndex).value) Then Exit Sub
 
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
@@ -933,7 +931,6 @@ Public Class Form1
     Private Sub DataGridView12_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView12.CellContentClick
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-        If IsDBNull(sender.item("StaffProcID", e.RowIndex).value) Then Exit Sub
 
         Dim row As DataGridViewRow
         row = sender.rows(e.RowIndex)
