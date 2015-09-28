@@ -223,20 +223,6 @@
 
                 End With
 
-            Case "DataGridView4"
-
-
-                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE VolunteerSchedule " & _
-                                                                          "SET StaffID=@P1 " & _
-                                                                        "WHERE VolunteerScheduleID=@P2")
-
-                With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
-                    .Add("@P1", OleDb.OleDbType.Double, 255, "StaffID")
-                    .Add("@P2", OleDb.OleDbType.Double, 255, "VolunteerScheduleID")
-
-
-                End With
-
 
         End Select
 

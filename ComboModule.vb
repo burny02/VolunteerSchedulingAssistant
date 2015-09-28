@@ -2,8 +2,6 @@
 
     Public Sub GenericCombo(sender As Object, e As EventArgs)
 
-        If sender.SelectedValue.ToString = vbNullString Then Exit Sub
-
         If OverClass.UnloadData() = True Then Exit Sub
         OverClass.ResetCollection()
         Call SubCombo(sender)
@@ -11,7 +9,7 @@
 
     End Sub
 
-    Private Sub SubCombo(sender As ComboBox)
+    Public Sub SubCombo(sender As ComboBox)
 
         Select Case sender.Name.ToString
 
@@ -31,14 +29,18 @@
             Case "ComboBox12"
                 StartCombo(Form1.ComboBox13)
 
-            Case "ComboBox14"
-                StartCombo(Form1.ComboBox15)
-
-            Case "ComboBox1"
-                StartCombo(Form1.ComboBox16)
-
             Case "ComboBox17"
                 StartCombo(Form1.ComboBox18)
+
+            Case "ComboBox19", "ComboBox20", "ComboBox14", "ComboBox15", "ComboBox23", "ComboBox24"
+                Form1.Specifics(Form1.DataGridView11)
+                StartCombo(Form1.ComboBox19)
+                StartCombo(Form1.ComboBox20)
+                StartCombo(Form1.ComboBox14)
+                StartCombo(Form1.ComboBox15)
+                StartCombo(Form1.ComboBox23)
+                StartCombo(Form1.ComboBox24)
+
 
             Case Else
                 ComboRefreshData(sender)
@@ -187,44 +189,148 @@
                 ctl.DisplayMember = "Display"
 
             Case "ComboBox14"
-                ctl.DataSource = OverClass.TempDataTable("SELECT DISTINCT a.StudyID, " & _
-                                                              "StudyCode FROM (Study a INNER JOIN StudyTimePoint b " & _
-                                                              "ON a.StudyID=b.StudyID) " & _
-                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " & _
-                                                              "WHERE Generated=True " & _
-                                                              "ORDER BY StudyCode ASC")
-                ctl.ValueMember = "StudyID"
-                ctl.DisplayMember = "StudyCode"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+                Dim Fielder As String = "StudyCode"
+
+                Dim dt As DataTable = OverClass.CurrentDataSet.Tables(0)
+
+                Dim QueryResult = (From a In dt.AsEnumerable() _
+                                    Select "").Union _
+                                    (From a In dt.AsEnumerable()
+                                     Order By a.Field(Of String)(Fielder) Ascending
+                                    Select a.Field(Of String)(Fielder)).Distinct()
+
+                Dim dt2 As New DataTable
+                dt2.Columns.Add(Fielder)
+                For Each row In QueryResult
+                    dt2.Rows.Add(row)
+                Next
+
+                ctl.DataSource = dt2
+                ctl.DisplayMember = Fielder
+                ctl.ValueMember = Fielder
+
 
             Case "ComboBox15"
-                If IsNothing(Form1.ComboBox14.SelectedValue) Then Exit Sub
-                ctl.DataSource = OverClass.TempDataTable("SELECT CohortID, " & _
-                                                              "CohortName FROM Cohort WHERE StudyID=" _
-                                                              & Form1.ComboBox14.SelectedValue.ToString & _
-                                                              " AND Generated=True " & _
-                                                              " ORDER BY CohortName ASC")
-                ctl.ValueMember = "CohortID"
-                ctl.DisplayMember = "CohortName"
 
-            Case "ComboBox1"
-                ctl.DataSource = OverClass.TempDataTable("SELECT DISTINCT a.StudyID, " & _
-                                                              "StudyCode FROM (Study a INNER JOIN StudyTimePoint b " & _
-                                                              "ON a.StudyID=b.StudyID) " & _
-                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " & _
-                                                              "WHERE Generated=True " & _
-                                                              "ORDER BY StudyCode ASC")
-                ctl.ValueMember = "StudyID"
-                ctl.DisplayMember = "StudyCode"
+                If ctl.SelectedValue <> "" Then Exit Sub
+                Dim Fielder As String = "CohortName"
 
-            Case "ComboBox16"
-                If IsNothing(Form1.ComboBox1.SelectedValue) Then Exit Sub
-                ctl.DataSource = OverClass.TempDataTable("SELECT CohortID, " & _
-                                                              "CohortName FROM Cohort WHERE StudyID=" _
-                                                              & Form1.ComboBox1.SelectedValue.ToString & _
-                                                              " AND Generated=True " & _
-                                                              " ORDER BY CohortName ASC")
-                ctl.ValueMember = "CohortID"
-                ctl.DisplayMember = "CohortName"
+                Dim dt As DataTable = OverClass.CurrentDataSet.Tables(0)
+
+                Dim QueryResult = (From a In dt.AsEnumerable() _
+                                    Select "").Union _
+                                    (From a In dt.AsEnumerable()
+                                     Order By a.Field(Of String)(Fielder) Ascending
+                                    Select a.Field(Of String)(Fielder)).Distinct()
+
+                Dim dt2 As New DataTable
+                dt2.Columns.Add(Fielder)
+                For Each row In QueryResult
+                    dt2.Rows.Add(row)
+                Next
+
+                ctl.DataSource = dt2
+                ctl.DisplayMember = Fielder
+                ctl.ValueMember = Fielder
+
+            Case "ComboBox19"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+                Dim Fielder As String = "ProcName"
+
+                Dim dt As DataTable = OverClass.CurrentDataSet.Tables(0)
+
+                Dim QueryResult = (From a In dt.AsEnumerable() _
+                                    Select "").Union _
+                                    (From a In dt.AsEnumerable()
+                                     Order By a.Field(Of String)(Fielder) Ascending
+                                    Select a.Field(Of String)(Fielder)).Distinct()
+
+                Dim dt2 As New DataTable
+                dt2.Columns.Add(Fielder)
+                For Each row In QueryResult
+                    dt2.Rows.Add(row)
+                Next
+
+                ctl.DataSource = dt2
+                ctl.DisplayMember = Fielder
+                ctl.ValueMember = Fielder
+
+            Case "ComboBox20"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+                Dim Fielder As String = "Vol"
+
+                Dim dt As DataTable = OverClass.CurrentDataSet.Tables(0)
+
+                Dim QueryResult = (From a In dt.AsEnumerable() _
+                                    Select "").Union _
+                                    (From a In dt.AsEnumerable()
+                                     Order By a.Field(Of String)(Fielder) Ascending
+                                    Select a.Field(Of String)(Fielder)).Distinct()
+
+                Dim dt2 As New DataTable
+                dt2.Columns.Add(Fielder)
+                For Each row In QueryResult
+                    dt2.Rows.Add(row)
+                Next
+
+                ctl.DataSource = dt2
+                ctl.DisplayMember = Fielder
+                ctl.ValueMember = Fielder
+
+            Case "ComboBox23"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+                Dim Fielder As String = "CalcDate"
+
+                Dim dt As DataTable = OverClass.CurrentDataSet.Tables(0)
+
+                Dim QueryResult = (From a In dt.AsEnumerable() _
+                                    Select "").Union _
+                                    (From a In dt.AsEnumerable()
+                                     Order By a.Field(Of DateTime)(Fielder) Ascending
+                                    Select Format(a.Field(Of DateTime)(Fielder), "dd-MMM-yyyy")).Distinct()
+
+                Dim dt2 As New DataTable
+                dt2.Columns.Add(Fielder)
+                For Each row In QueryResult
+                    dt2.Rows.Add(row)
+                Next
+
+                ctl.DataSource = dt2
+                ctl.DisplayMember = Fielder
+                ctl.ValueMember = Fielder
+
+            Case "ComboBox24"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+                Dim Fielder As String = "FullName"
+
+                Dim dt As DataTable = OverClass.CurrentDataSet.Tables(0)
+
+                Dim QueryResult = ((From a In dt.AsEnumerable() _
+                                    Select "").Union _
+                                    (From a In dt.AsEnumerable() _
+                                    Select "UnAssigned").Union _
+                                    (From a In dt.AsEnumerable()
+                                     Where a.Field(Of String)(Fielder) <> ""
+                                     Where a.Field(Of String)(Fielder) <> Nothing
+                                        Where a.Field(Of String)(Fielder) <> " "
+                                     Order By a.Field(Of String)(Fielder) Ascending
+                                    Select a.Field(Of String)(Fielder))).Distinct()
+
+                Dim dt2 As New DataTable
+                dt2.Columns.Add(Fielder)
+                For Each row In QueryResult
+                    dt2.Rows.Add(row)
+                Next
+
+                ctl.DataSource = dt2
+                ctl.DisplayMember = Fielder
+                ctl.ValueMember = Fielder
 
 
         End Select
@@ -238,12 +344,6 @@
         Dim Grid As DataGridView = Nothing
 
         Select Case sender.Name.ToString()
-
-            Case "ComboBox16"
-                Grid = Form1.DataGridView4
-
-            Case "ComboBox15"
-                Grid = Form1.DataGridView11
 
             Case "ComboBox13"
                 Grid = Form1.DataGridView10

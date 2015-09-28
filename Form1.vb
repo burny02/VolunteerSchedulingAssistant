@@ -211,21 +211,30 @@ Public Class Form1
 
             Case "DataGridView9"
                 If IsNothing(Me.ComboBox10.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT VolID, RVLNo, Initials, RoomNo " & _
-                    "FROM Volunteer " & _
+                SQLCode = "SELECT a.VolID, RVLNo, Initials, RoomNo, min(TimepointDateTime) as FirstDate " & _
+                    "FROM Volunteer a INNER JOIN VolunteerTimepoint b ON a.VolID=b.VolID " & _
                     "WHERE CohortID=" & Me.ComboBox10.SelectedValue.ToString & _
-                    " ORDER BY Initials ASC"
+                    " GROUP BY a.VolID, RVLNo, Initials, RoomNo " & _
+                    "ORDER BY min(TimepointDateTime) ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolID").visible = False
+                ctl.columns("FirstDate").visible = False
                 ctl.columns("RVLNo").HeaderText = "RVL Number"
                 ctl.columns("RoomNo").HeaderText = "Room Number"
+                Dim cmb2 As New DataGridViewImageColumn
+                cmb2.HeaderText = "View Timepoints"
+                cmb2.Image = My.Resources.Preview
+                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb2)
+                cmb2.Name = "Timepoints"
                 Dim cmb As New DataGridViewImageColumn
                 cmb.HeaderText = "Delete Volunteer"
                 cmb.Image = My.Resources.Remove
                 cmb.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb)
                 cmb.Name = "DeleteButton"
+                
                 
 
             Case "DataGridView10"
@@ -245,14 +254,50 @@ Public Class Form1
                 ctl.columns("TimepointDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
 
             Case "DataGridView11"
-                If IsNothing(Me.ComboBox15.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT * FROM Assign WHERE CohortID=" & Me.ComboBox15.SelectedValue.ToString & _
-                    " ORDER BY CalcDate ASC"
+
+                Dim DayCrit As String = "%"
+                Dim VolCrit As String = "%"
+                Dim ProCrit As String = "%"
+                Dim StuCrit As String = "%"
+                Dim CohCrit As String = "%"
+                Dim StaCrit As String = "LIKE '%'"
+
+                If Me.ComboBox19.SelectedValue <> "" Then ProCrit = Me.ComboBox19.SelectedValue
+                If Me.ComboBox20.SelectedValue <> "" Then VolCrit = Me.ComboBox20.SelectedValue
+                If Me.ComboBox14.SelectedValue <> "" Then StuCrit = Me.ComboBox14.SelectedValue
+                If Me.ComboBox15.SelectedValue <> "" Then CohCrit = Me.ComboBox15.SelectedValue
+                If Me.ComboBox23.SelectedValue <> "" Then DayCrit = Me.ComboBox23.SelectedValue
+                If Me.ComboBox24.SelectedValue = "UnAssigned" Then StaCrit = "=''"
+                If Me.ComboBox24.SelectedValue <> "" And Me.ComboBox24.SelectedValue <> "UnAssigned" Then _
+                    StaCrit = "LIKE '" & Me.ComboBox24.SelectedValue & "'"
+
+                SQLCode = "SELECT * FROM Assign " & _
+                            "WHERE format(CalcDate,'dd-MMM-yyyy') LIKE '" & DayCrit & "' AND " & _
+                            "VOL LIKE '" & VolCrit & "' AND " & _
+                            "ProcName LIKE '" & ProCrit & "' AND " & _
+                            "StudyCode LIKE '" & StuCrit & "' AND " & _
+                            "FullName " & StaCrit & " AND " & _
+                            "CohortName LIKE '" & CohCrit & "' " & _
+                            "ORDER BY CalcDate ASC, ProcOrd ASC"
+
+                If Me.CheckBox1.Checked = True Then
+                    SQLCode = "SELECT * FROM Assign WHERE VolunteerScheduleID IN " & _
+                        "(SELECT ID FROM " & _
+                        "(SELECT First(VolunteerScheduleID) AS ID,  Min(CalcDate) " & _
+                        "FROM(" & SQLCode & ")" & _
+                        "GROUP BY ProcName, VOL)) " & _
+                        "ORDER BY CalcDate ASC, ProcOrd ASC"
+                End If
+
+
+
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolunteerScheduleID").visible = False
                 ctl.columns("StaffID").visible = False
                 ctl.columns("CohortID").visible = False
+                ctl.columns("ProcOrd").visible = False
+                ctl.columns("FullName").visible = False
                 ctl.columns("Vol").readonly = True
                 ctl.columns("Approx").readonly = True
                 ctl.columns("ProcName").readonly = True
@@ -261,42 +306,8 @@ Public Class Form1
                 ctl.columns("EndFull").HeaderText = "Finish"
                 ctl.columns("Approx").HeaderText = "Timepoint"
                 ctl.columns("ProcName").HeaderText = "Procedure"
-                ctl.columns("Vol").HeaderText = "Volunteer"
-                ctl.columns("CalcDate").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
-                ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
-                Dim cmb As New DataGridViewComboBoxColumn
-                cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF ORDER BY FName ASC")
-                ctl.columns.add(cmb)
-                cmb.HeaderText = "Staff Member"
-                cmb.ValueMember = "StaffID"
-                cmb.DisplayMember = "Fullname"
-                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
-                cmb.Name = "PICK"
-                Dim cmb2 As New DataGridViewImageColumn
-                cmb2.HeaderText = "Delete Procedure"
-                cmb2.Image = My.Resources.Remove
-                cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
-                ctl.columns.add(cmb2)
-                cmb2.Name = "DeleteButton"
-
-            Case "DataGridView4"
-                If IsNothing(Me.ComboBox16.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT * FROM Reassign WHERE CohortID=" & Me.ComboBox16.SelectedValue.ToString & _
-                    " ORDER BY CalcDate ASC"
-                OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
-                ctl.AllowUserToAddRows = False
-                ctl.columns("VolunteerScheduleID").visible = False
-                ctl.columns("StaffID").visible = False
-                ctl.columns("CohortId").visible = False
-                ctl.columns("Vol").readonly = True
-                ctl.columns("Approx").readonly = True
-                ctl.columns("ProcName").readonly = True
-                ctl.columns("CalcDate").readonly = True
-                ctl.columns("CalcDate").HeaderText = "Start"
-                ctl.columns("EndFull").HeaderText = "Finish"
-                ctl.columns("Approx").HeaderText = "Timepoint"
-                ctl.columns("ProcName").HeaderText = "Procedure"
+                ctl.columns("StudyCode").HeaderText = "Study Code"
+                ctl.columns("CohortName").HeaderText = "Cohort"
                 ctl.columns("Vol").HeaderText = "Volunteer"
                 ctl.columns("CalcDate").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
@@ -523,14 +534,15 @@ Public Class Form1
         Select Case e.TabPageIndex
 
             Case 0
+                Call Specifics(Me.DataGridView11)
                 StartCombo(Me.ComboBox14)
                 StartCombo(Me.ComboBox15)
+                StartCombo(Me.ComboBox19)
+                StartCombo(Me.ComboBox20)
+                StartCombo(Me.ComboBox23)
+                StartCombo(Me.ComboBox24)
 
             Case 1
-                StartCombo(Me.ComboBox1)
-                StartCombo(Me.ComboBox16)
-
-            Case 2
                 ctl = Me.DataGridView12
                 SQLCode = "SELECT StaffProcID, StaffID, ProcID, ProcDateTime " & _
                     "FROM StaffProc " & _
@@ -545,12 +557,6 @@ Public Class Form1
     End Sub
 
     Private Sub DataGridView11_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView11.CellBeginEdit
-
-        LastValue = sender.rows(e.RowIndex).cells("StaffID").value
-
-    End Sub
-
-    Private Sub DataGridView4_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView4.CellBeginEdit
 
         LastValue = sender.rows(e.RowIndex).cells("StaffID").value
 
@@ -587,27 +593,6 @@ Public Class Form1
                         sender.rows(e.RowIndex).cells("CalcDate").value, _
                         DateAdd(DateInterval.Minute, sender.rows(e.RowIndex).cells("MinsTaken").FormattedValue, sender.rows(e.RowIndex).cells("CalcDate").value), _
                         sender, e.RowIndex)
-
-        If returner <> vbNullString Then
-            If MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner & vbNewLine & vbNewLine & _
-                   "Do you want to continue?", MsgBoxStyle.YesNo) = vbNo Then
-                sender.rows(e.RowIndex).cells("StaffID").value = LastValue
-            End If
-        End If
-
-    End Sub
-
-    Private Sub DataGridView4_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellEndEdit
-
-        Dim returner As String = vbNullString
-
-        If IsDBNull(sender.rows(e.RowIndex).cells("StaffID").value) Or _
-            IsNothing(sender.rows(e.RowIndex).cells("StaffID").value) Then Exit Sub
-        If e.ColumnIndex <> sender.Columns("Pick").Index Then Exit Sub
-
-
-        returner = CheckVolunteerOverlap(sender.rows(e.RowIndex).cells("StaffID").value, sender.rows(e.RowIndex).cells("VolunteerScheduleID").value, _
-                              sender.rows(e.RowIndex).cells("CalcDate").value, sender.rows(e.RowIndex).cells("EndFull").value, sender, True)
 
         If returner <> vbNullString Then
             If MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner & vbNewLine & vbNewLine & _
@@ -890,11 +875,31 @@ Public Class Form1
 
     Private Sub DataGridView9_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView9.CellContentClick
 
-        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
+        If e.ColumnIndex = sender.columns("DeleteButton").index Then
+            If MsgBox("Are you sure you want to delete?" & vbNewLine & "Table must be saved to commit delete", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Dim row As DataGridViewRow
+                row = sender.rows(e.RowIndex)
+                sender.rows.remove(row)
+            End If
+        End If
 
-        Dim row As DataGridViewRow
-        row = sender.rows(e.RowIndex)
-        sender.rows.remove(row)
+        If e.ColumnIndex = sender.columns("Timepoints").index Then
+            Dim dt = OverClass.TempDataTable("SELECT TimepointName, TimepointDateTime " & _
+                                             "FROM VolunteerTimepoint a INNER JOIN StudyTimepoint b ON a.StudyTimepointID=b.StudyTimepointID " & _
+                                             "WHERE VolID=" & sender.item(sender.Columns("VolID").Index, e.RowIndex).value & _
+                                             " ORDER BY TimepointDateTime ASC")
+
+            Dim msg As String = vbNullString
+
+            For Each row In dt.Rows
+                msg = row.Item("TimepointName").ToString & " - " & row.Item("TimepointDateTime").ToString
+                msg = msg & vbNewLine
+            Next
+
+            MsgBox(msg)
+
+        End If
+
 
     End Sub
 
@@ -902,9 +907,11 @@ Public Class Form1
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
 
-        Dim row As DataGridViewRow
-        row = sender.rows(e.RowIndex)
-        sender.rows.remove(row)
+        If MsgBox("Are you sure you want to delete?" & vbNewLine & "Table must be saved to commit delete", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Dim row As DataGridViewRow
+            row = sender.rows(e.RowIndex)
+            sender.rows.remove(row)
+        End If
 
     End Sub
 
@@ -912,19 +919,11 @@ Public Class Form1
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
 
-        Dim row As DataGridViewRow
-        row = sender.rows(e.RowIndex)
-        sender.rows.remove(row)
-
-    End Sub
-
-    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
-
-        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-
-        Dim row As DataGridViewRow
-        row = sender.rows(e.RowIndex)
-        sender.rows.remove(row)
+        If MsgBox("Are you sure you want to delete?" & vbNewLine & "Table must be saved to commit delete", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Dim row As DataGridViewRow
+            row = sender.rows(e.RowIndex)
+            sender.rows.remove(row)
+        End If
 
     End Sub
 
@@ -932,9 +931,11 @@ Public Class Form1
 
         If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
 
-        Dim row As DataGridViewRow
-        row = sender.rows(e.RowIndex)
-        sender.rows.remove(row)
+        If MsgBox("Are you sure you want to delete?" & vbNewLine & "Table must be saved to commit delete", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Dim row As DataGridViewRow
+            row = sender.rows(e.RowIndex)
+            sender.rows.remove(row)
+        End If
 
     End Sub
 
@@ -954,6 +955,12 @@ Public Class Form1
 
         End If
 
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If OverClass.UnloadData() = True Then Exit Sub
+        OverClass.ResetCollection()
+        Call SubCombo(Me.ComboBox19)
     End Sub
 End Class
 
