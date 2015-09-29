@@ -120,6 +120,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ButtonModule.vb" />
+    <Compile Include="ChooseStaff.Designer.vb">
+      <DependentUpon>ChooseStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ComboModule.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -157,6 +163,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddVol.resx">
       <DependentUpon>AddVol.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseStaff.resx">
+      <DependentUpon>ChooseStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
