@@ -16,12 +16,16 @@
         If OnlyFrontEnd <> True Then
             'Vol Procedures
 
-            Returner = OverClass.CreateCSVString("SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " & _
+            Dim SqlString As String
+
+            SqlString = "SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " & _
             "& ' - ' & ProcName as Overlap " & _
             "FROM [CheckStaffOverlap] WHERE " & _
-            "(([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd & ")" & _
-            " AND ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND " & CDateStart & "<[EndFull]))" & _
-            " OR (([StartFull]=" & CDateStart & ") AND ([EndFull]=" & CDateEnd & "))")
+            "([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd & _
+            " AND " & CDateStart & "<[EndFull])" & _
+            " OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]=" & CDateStart & " AND [EndFull]=" & CDateEnd & ")"
+
+            Returner = OverClass.CreateCSVString(SqlString)
 
         End If
 
@@ -71,13 +75,17 @@
 
         'Vol Procedures
 
-        Returner = OverClass.CreateCSVString("SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " & _
-            "& ' - ' & ProcName as Overlap " & _
-            "FROM [CheckStaffOverlap] WHERE " & _
-            "(([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd & ")" & _
-            " AND ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND " & CDateStart & "<[EndFull]))" & _
-            " OR (([StartFull]=" & CDateStart & ") AND ([EndFull]=" & CDateEnd & "))")
+        Dim SqlString As String
 
+        SqlString = "SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " & _
+        "& ' - ' & ProcName as Overlap " & _
+        "FROM [CheckStaffOverlap] WHERE " & _
+        "([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd & _
+        " AND " & CDateStart & "<[EndFull])" & _
+        " OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]=" & CDateStart & " AND [EndFull]=" & CDateEnd & ")"
+
+
+        Returner = OverClass.CreateCSVString(SqlString)
 
         For Each Row In Grid.Rows
 
@@ -118,47 +126,42 @@
     End Function
 
     Public Function ScheduleOverlap(Grid As DataGridView, PassedRowIndex As Long, _
-                            NumDays As Long, NumHours As Long, NumMins As Long, NumTaken As Long) As String
+                            NumDays As Long, ProcTime As Date, NumTaken As Long) As String
 
         Dim chk As String = vbNullString
+        Dim DefaultTime As Date = "#12:00#"
         Dim CalculationDate As Date = "#01/01/2000#"
         Dim StartFull, EndFull As Date
 
-        StartFull = DateAdd(DateInterval.Minute, NumMins, _
-                                   (DateAdd(DateInterval.Hour, NumHours, _
-                                   DateAdd(DateInterval.Day, NumDays, CalculationDate))))
+        StartFull = DateAdd(DateInterval.Minute, _
+                    DateDiff(DateInterval.Minute, TimeValue(DefaultTime), TimeValue(ProcTime)), _
+                    DateAdd(DateInterval.Day, NumDays, CalculationDate))
+
         EndFull = DateAdd(DateInterval.Minute, NumTaken, StartFull)
+
 
 
         For Each Row In Grid.Rows
 
-            If IsDBNull(Row.Cells("ProcID").Value) _
-                Or IsNothing(Row.Cells("ProcID").Value) Then Continue For
             If PassedRowIndex = Row.index Then Continue For
-            If IsDBNull(Row.Cells("MinsTaken").Value) _
-                Or IsNothing(Row.Cells("MinsTaken").Value) Then Continue For
-            If IsDBNull(Row.Cells("ProcID").Value) _
-                Or IsNothing(Row.Cells("ProcID").Value) Then Continue For
-            If IsDBNull(Row.Cells("DaysPost").Value) _
-                Or IsNothing(Row.Cells("DaysPost").Value) Then Continue For
-            If IsDBNull(Row.Cells("HoursPost").Value) _
-                Or IsNothing(Row.Cells("HoursPost").Value) Then Continue For
-            If IsDBNull(Row.Cells("MinsPost").Value) _
-                Or IsNothing(Row.Cells("MinsPost").Value) Then Continue For
-            If IsDBNull(Row.Cells("Approx").Value) Then Continue For
+            If IsDBNull(Row.Cells("MinsTaken").Value) Then Continue For
+            If IsDBNull(Row.Cells("DaysPost").Value) Then Continue For
+            If IsDBNull(Row.Cells("ProcTime").Value) Then Continue For
             If Row.Cells("Approx").Value = "Set Time" Then Continue For
 
 
             Dim RowEndFull, RowStartFull As Date
-            Dim MinsPost, HoursPost, DaysPost, MinsTaken As Long
-            MinsPost = Row.Cells("MinsPost").Value
-            HoursPost = Row.Cells("HoursPost").Value
+            Dim DaysPost, MinsTaken As Long
+            Dim RowTime As Date
+            RowTime = TimeValue(CDate(Row.Cells("ProcTime").Value))
             DaysPost = Row.Cells("DaysPost").Value
-            MinsTaken = Row.Cells("MinsTaken").FormattedValue
+            MinsTaken = Row.Cells("MinsTaken").value
 
-            RowStartFull = DateAdd(DateInterval.Minute, MinsPost, _
-                                   (DateAdd(DateInterval.Hour, HoursPost, _
-                                   DateAdd(DateInterval.Day, DaysPost, CalculationDate))))
+            RowStartFull = DateAdd(DateInterval.Minute, _
+                    DateDiff(DateInterval.Minute, TimeValue(DefaultTime), TimeValue(RowTime)), _
+                    DateAdd(DateInterval.Day, DaysPost, CalculationDate))
+
+
             RowEndFull = DateAdd(DateInterval.Minute, MinsTaken, RowStartFull)
 
 

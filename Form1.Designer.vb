@@ -27,8 +27,6 @@ Partial Class Form1
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -37,6 +35,8 @@ Partial Class Form1
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -72,7 +72,6 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.SplitContainer7 = New System.Windows.Forms.SplitContainer()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -159,6 +158,10 @@ Partial Class Form1
         Me.DataGridView13 = New System.Windows.Forms.DataGridView()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.SplitContainer16 = New System.Windows.Forms.SplitContainer()
+        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -195,7 +198,6 @@ Partial Class Form1
         Me.SplitContainer6.Panel1.SuspendLayout()
         Me.SplitContainer6.Panel2.SuspendLayout()
         Me.SplitContainer6.SuspendLayout()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage14.SuspendLayout()
         CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer7.Panel1.SuspendLayout()
@@ -257,6 +259,11 @@ Partial Class Form1
         Me.TabPage11.SuspendLayout()
         CType(Me.DataGridView13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SplitContainer16, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer16.Panel1.SuspendLayout()
+        Me.SplitContainer16.Panel2.SuspendLayout()
+        Me.SplitContainer16.SuspendLayout()
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage1
@@ -651,9 +658,9 @@ Partial Class Form1
         '
         'SplitContainer6.Panel2
         '
-        Me.SplitContainer6.Panel2.Controls.Add(Me.DataGridView6)
+        Me.SplitContainer6.Panel2.Controls.Add(Me.SplitContainer16)
         Me.SplitContainer6.Size = New System.Drawing.Size(1054, 354)
-        Me.SplitContainer6.SplitterDistance = 27
+        Me.SplitContainer6.SplitterDistance = 25
         Me.SplitContainer6.TabIndex = 10
         '
         'Button20
@@ -665,7 +672,7 @@ Partial Class Form1
         Me.Button20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button20.Location = New System.Drawing.Point(130, 0)
         Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(130, 27)
+        Me.Button20.Size = New System.Drawing.Size(130, 25)
         Me.Button20.TabIndex = 16
         Me.Button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button20.UseVisualStyleBackColor = True
@@ -725,35 +732,10 @@ Partial Class Form1
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button7.Location = New System.Drawing.Point(0, 0)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(130, 27)
+        Me.Button7.Size = New System.Drawing.Size(130, 25)
         Me.Button7.TabIndex = 11
         Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button7.UseVisualStyleBackColor = True
-        '
-        'DataGridView6
-        '
-        Me.DataGridView6.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView6.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView6.DefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridView6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView6.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
-        Me.DataGridView6.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.RowHeadersVisible = False
-        Me.DataGridView6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView6.Size = New System.Drawing.Size(1054, 323)
-        Me.DataGridView6.TabIndex = 2
         '
         'TabPage14
         '
@@ -1902,6 +1884,69 @@ Partial Class Form1
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'SplitContainer16
+        '
+        Me.SplitContainer16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer16.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer16.Name = "SplitContainer16"
+        Me.SplitContainer16.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer16.Panel1
+        '
+        Me.SplitContainer16.Panel1.Controls.Add(Me.Label17)
+        Me.SplitContainer16.Panel1.Controls.Add(Me.TextBox1)
+        '
+        'SplitContainer16.Panel2
+        '
+        Me.SplitContainer16.Panel2.Controls.Add(Me.DataGridView6)
+        Me.SplitContainer16.Size = New System.Drawing.Size(1054, 325)
+        Me.SplitContainer16.SplitterDistance = 25
+        Me.SplitContainer16.TabIndex = 0
+        '
+        'DataGridView6
+        '
+        Me.DataGridView6.AllowUserToDeleteRows = False
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridView6.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView6.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridView6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView6.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DataGridView6.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView6.Name = "DataGridView6"
+        Me.DataGridView6.RowHeadersVisible = False
+        Me.DataGridView6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView6.Size = New System.Drawing.Size(1054, 296)
+        Me.DataGridView6.TabIndex = 3
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(821, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(103, 20)
+        Me.Label17.TabIndex = 16
+        Me.Label17.Text = "Default Time:"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TextBox1.Location = New System.Drawing.Point(924, 0)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(130, 20)
+        Me.TextBox1.TabIndex = 17
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1950,7 +1995,6 @@ Partial Class Form1
         Me.SplitContainer6.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer6.ResumeLayout(False)
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage14.ResumeLayout(False)
         Me.SplitContainer7.Panel1.ResumeLayout(False)
         Me.SplitContainer7.Panel1.PerformLayout()
@@ -2020,6 +2064,12 @@ Partial Class Form1
         Me.TabPage11.ResumeLayout(False)
         CType(Me.DataGridView13, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer16.Panel1.ResumeLayout(False)
+        Me.SplitContainer16.Panel1.PerformLayout()
+        Me.SplitContainer16.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer16, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer16.ResumeLayout(False)
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2062,7 +2112,6 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView6 As System.Windows.Forms.DataGridView
     Friend WithEvents SplitContainer7 As System.Windows.Forms.SplitContainer
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
@@ -2144,5 +2193,9 @@ Partial Class Form1
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents ComboBox20 As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView11 As System.Windows.Forms.DataGridView
+    Friend WithEvents SplitContainer16 As System.Windows.Forms.SplitContainer
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents DataGridView6 As System.Windows.Forms.DataGridView
 
 End Class

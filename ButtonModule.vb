@@ -218,9 +218,13 @@ Module ButtonModule
                     TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
                     StudyCode = b.Field(Of String)("StudyCode"), ProcName = b.Field(Of String)("ProcName"),
                     CalcDate = If(b.Field(Of String)("Approx") = "Set Time",
-                CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("SetTime"))),
-                DateAdd("n", b.Field(Of Int16)("MinsPost"), DateAdd("h", b.Field(Of Int16)("HoursPost"),
-                DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime")))))
+                CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("ProcTime"))),
+                DateAdd("n", DateDiff("n", TimeValue(b.Field(Of Date)("DefaultTime")), TimeValue(b.Field(Of Date)("ProcTime"))),
+                DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))))
+
+
+                'DateAdd("n", b.Field(Of Int16)("MinsPost"), DateAdd("h", b.Field(Of Int16)("HoursPost"),
+                'DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime")))))
 
 
                 Dim OK As New ReportDisplay
@@ -309,10 +313,13 @@ Module ButtonModule
                     TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
                     StudyCode = b.Field(Of String)("StudyCode"), ProcName = b.Field(Of String)("ProcName"),
                     CalcDate = If(b.Field(Of String)("Approx") = "Set Time",
-                CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("SetTime"))),
-                DateAdd("n", b.Field(Of Int16)("MinsPost"), DateAdd("h", b.Field(Of Int16)("HoursPost"),
-                DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime")))))
+                CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("ProcTime"))),
+                DateAdd("n", DateDiff("n", TimeValue(b.Field(Of Date)("DefaultTime")), TimeValue(b.Field(Of Date)("ProcTime"))),
+                DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))))
 
+
+                'DateAdd("n", b.Field(Of Int16)("MinsPost"), DateAdd("h", b.Field(Of Int16)("HoursPost"),
+                'DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime")))))
 
                 Dim OK As New ReportDisplay
 

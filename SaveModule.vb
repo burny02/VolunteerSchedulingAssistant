@@ -39,10 +39,34 @@
 
             Case "DataGridView6"
 
+                If IsDBNull(Form1.TextBox1.Text) Then
+                    MsgBox("Default Time Missing")
+                    OverClass.CmdList.Clear()
+                    Exit Sub
+                End If
+
+                If Form1.TextBox1.Text = vbNullString Then
+                    MsgBox("Default Time Missing")
+                    OverClass.CmdList.Clear()
+                    Exit Sub
+                End If
+
+                Try
+                    OverClass.ExecuteSQL("UPDATE StudyTimepoint " & _
+                                         "SET DefaultTime=#" & Form1.TextBox1.Text & "#" & _
+                                         " WHERE StudyTimepointID=" & Form1.ComboBox3.SelectedValue.ToString)
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    Exit Sub
+                End Try
+
+
                 Dim PKey As Double = Form1.ComboBox3.SelectedValue.ToString
                 DisplayMessage = False
 
-                Dim ProcID, DaysPost, HoursPost, MinsPost, SetTime As Object
+                Dim ProcID, DaysPost As Double
+                Dim TempDate As Date
+                Dim ProcTime As String = vbNullString
                 Dim Approx As String = vbNullString
                 Dim Combine As String = vbNullString
                 Dim PassNumber As Long = 0
@@ -87,19 +111,27 @@
                             Exit Sub
                         End If
 
-                        If (IsDBNull(row.item("SetTime")) And row.item("Approx") = "Set Time") _
-                            Or (Not IsDBNull(row.item("SetTime")) And row.item("Approx") <> "Set Time") Then
-                            MsgBox("Set Time OR Hours/Mins - Not Both")
+                        If IsDBNull(row.item("ProcTime")) Then
+                            MsgBox("Time missing")
                             OverClass.CmdList.Clear()
                             Exit Sub
                         End If
 
-                        If (Not IsDBNull(row.item("SetTime")) And (Not IsDBNull(row.item("MinsPost")) Or Not IsDBNull(row.item("HoursPost")))) _
-                            Or (IsDBNull(row.item("SetTime")) And (IsDBNull(row.item("MinsPost")) Or IsDBNull(row.item("HoursPost")))) Then
-                            MsgBox("Set Time OR Hours/Mins - Not Both")
+                        Try
+                            TempDate = CDate(row.item("ProcTime"))
+                        Catch ex As Exception
+                            MsgBox("Incorrect Time")
                             OverClass.CmdList.Clear()
                             Exit Sub
-                        End If
+                        End Try
+
+                        Try
+                            row.item("ProcTime") = Format(row.item("ProcTime"), "HH:mm")
+                        Catch ex As Exception
+                            MsgBox("Incorrect Time")
+                            OverClass.CmdList.Clear()
+                            Exit Sub
+                        End Try
 
                         If rowIndex Mod 2 = 0 Then
                             Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = OrigColour
@@ -116,24 +148,7 @@
                         ProcID = CDbl(row.item("ProcID"))
                         DaysPost = CDbl(row.item("DaysPost"))
                         Approx = "'" & row.item("Approx") & "'"
-
-                        If IsDBNull(row.item("HoursPost")) Then
-                            HoursPost = "Null"
-                        Else
-                            HoursPost = CDbl(row.item("HoursPost"))
-                        End If
-
-                        If IsDBNull(row.item("MinsPost")) Then
-                            MinsPost = "Null"
-                        Else
-                            MinsPost = CDbl(row.item("MinsPost"))
-                        End If
-
-                        If IsDBNull(row.item("SetTime")) Then
-                            SetTime = "Null"
-                        Else
-                            SetTime = OverClass.SQLDate(CDate(row.item("SetTime")))
-                        End If
+                        ProcTime = "#" & row.item("ProcTime") & "#"
 
 
                         PassNumber = PassNumber + 1
@@ -152,9 +167,9 @@
                         Try
                             'INSERT TO SCHEDULE TABLE
                             Combine = "INSERT INTO StudySchedule " & _
-                                         "(StudyScheduleID, StudyTimepointID, ProcID, DaysPost, HoursPost, MinsPost, Approx, SetTime) " & _
-                                     "VALUES (" & SchedID & ", " & PKey & ", " & ProcID & ", " & DaysPost & ", " & HoursPost & _
-                                ", " & MinsPost & ", " & Approx & ", " & SetTime & ")"
+                                         "(StudyScheduleID, StudyTimepointID, ProcID, DaysPost, Approx, ProcTime) " & _
+                                     "VALUES (" & SchedID & ", " & PKey & ", " & ProcID & ", " & DaysPost & ", " & Approx & _
+                                     ", " & ProcTime & ")"
 
 
                             cmdInsert = New OleDb.OleDbCommand(Combine)

@@ -999,6 +999,9 @@
                 <SortExpression>
                   <Value>=Fields!VolID.Value</Value>
                 </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!StudyDay.Value</Value>
+                </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>0.07938cm</Size>
@@ -1032,6 +1035,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
