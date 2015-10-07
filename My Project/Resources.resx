@@ -133,10 +133,13 @@
   <data name="hVIVO_screensaver_two" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hVIVO_screensaver_two.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Previewer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Previewer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SAVER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SAVER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Previewer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Previewer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Assign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

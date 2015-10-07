@@ -74,6 +74,7 @@ Public Class Form1
                 ctl.columns(1).headertext = "Procedure"
                 ctl.columns(2).headertext = "Minutes Taken"
                 ctl.columns(3).headertext = "Order"
+                ctl.columns("ProcOrd").DefaultCellStyle.NullValue = "10"
 
             Case "DataGridView2"
                 ctl.Columns(0).Visible = False
@@ -298,12 +299,17 @@ Public Class Form1
                 ctl.columns("CohortID").visible = False
                 ctl.columns("ProcOrd").visible = False
                 ctl.columns("FullName").visible = False
+                ctl.columns("CalcDate").visible = False
+                ctl.columns("EndFull").visible = False
+                ctl.columns("CohortName").visible = False
+                ctl.columns("StudyCode").visible = False
+                ctl.columns("Approx").visible = False
                 ctl.columns("Vol").readonly = True
                 ctl.columns("Approx").readonly = True
                 ctl.columns("ProcName").readonly = True
                 ctl.columns("CalcDate").readonly = True
-                ctl.columns("CalcDate").HeaderText = "Start"
-                ctl.columns("EndFull").HeaderText = "Finish"
+                ctl.columns("DispTime").HeaderText = "Date/Time"
+                ctl.columns("DispStudy").HeaderText = "Study/Cohort"
                 ctl.columns("Approx").HeaderText = "Timepoint"
                 ctl.columns("ProcName").HeaderText = "Procedure"
                 ctl.columns("StudyCode").HeaderText = "Study Code"
@@ -312,8 +318,8 @@ Public Class Form1
                 ctl.columns("CalcDate").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
-                cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF ORDER BY FName ASC")
+                cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname, StaffID " & _
+                                                         "FROM STAFF WHERE Hidden=False ORDER BY FName ASC")
                 ctl.columns.add(cmb)
                 cmb.HeaderText = "Staff Member"
                 cmb.ValueMember = "StaffID"
@@ -326,6 +332,7 @@ Public Class Form1
                 cmb2.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb2)
                 cmb2.Name = "DeleteButton"
+                cmb2.Width = 60
 
             Case "DataGridView12"
                 ctl.columns("StaffProcID").visible = False
@@ -335,7 +342,7 @@ Public Class Form1
                 ctl.columns("ProcDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
                 cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                         "FROM STAFF ORDER BY FName ASC")
+                                                         "FROM STAFF WHERE Hidden=False ORDER BY FName ASC")
                 ctl.columns.add(cmb)
                 cmb.Name = "Pick"
                 cmb.HeaderText = "Staff Member"
@@ -367,6 +374,7 @@ Public Class Form1
                 cmb4.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb4)
                 cmb4.Name = "DeleteButton"
+                cmb4.Width = 60
 
             Case "DataGridView13"
                 SQLCode = "SELECT * FROM ReportArchive ORDER BY ArchiveID DESC, ArchiveDate DESC"
@@ -409,7 +417,7 @@ Public Class Form1
 
             Case 1
                 ctl = Me.DataGridView2
-                SQLCode = "SELECT StaffID, FName, SName FROM Staff ORDER BY FName ASC"
+                SQLCode = "SELECT StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
@@ -957,7 +965,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs)
         If OverClass.UnloadData() = True Then Exit Sub
         OverClass.ResetCollection()
         Call SubCombo(Me.ComboBox19)

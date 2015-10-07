@@ -32,6 +32,9 @@ Module ButtonModule
                 Call Saver(Form1.DataGridView11)
             Case "Button14"
                 Call Saver(Form1.DataGridView12)
+                Call Saver(Form1.DataGridView12)
+                Call Saver(Form1.DataGridView12)
+                Call Saver(Form1.DataGridView12)
             Case "Button15"
                 Dim OK As New ReportDisplay
                 If CheckDates() = True Then
@@ -345,7 +348,12 @@ Module ButtonModule
                 OK.Visible = True
                 OK.ReportViewer1.Visible = True
 
+            Case "Button5"
 
+                Dim AssAll As New ChooseStaff
+
+                AssAll.ShowDialog()
+                
 
         End Select
 

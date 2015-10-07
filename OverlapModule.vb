@@ -145,6 +145,7 @@
                 Or IsNothing(Row.Cells("HoursPost").Value) Then Continue For
             If IsDBNull(Row.Cells("MinsPost").Value) _
                 Or IsNothing(Row.Cells("MinsPost").Value) Then Continue For
+            If IsDBNull(Row.Cells("Approx").Value) Then Continue For
             If Row.Cells("Approx").Value = "Set Time" Then Continue For
 
 

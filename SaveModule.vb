@@ -42,42 +42,76 @@
                 Dim PKey As Double = Form1.ComboBox3.SelectedValue.ToString
                 DisplayMessage = False
 
-                Dim ProcID, DaysPost, HoursPost, MinsPost As Object
-                Dim Approx As String
-                Dim SetTime As Object
+                Dim ProcID, DaysPost, HoursPost, MinsPost, SetTime As Object
+                Dim Approx As String = vbNullString
                 Dim Combine As String = vbNullString
+                Dim PassNumber As Long = 0
+                Dim DeleteNumber As Long = 0
 
                 For Each row In OverClass.CurrentDataSet.Tables(0).Rows
 
-                    If row.RowState = DataRowState.Added Then
+                    If row.RowState = DataRowState.Deleted Then
+
+                        DeleteNumber = DeleteNumber + 1
+
+                    End If
+                Next
+
+                For Each row In OverClass.CurrentDataSet.Tables(0).Rows
+
+                    Dim rowIndex As Long = OverClass.CurrentDataSet.Tables(0).Rows.IndexOf(row)
+                    If row.RowState = DataRowState.Added Then rowIndex = rowIndex - DeleteNumber
+
+                    Dim OrigColour As Color = Color.White
+                    Dim OrigAltColour As Color = Color.Gainsboro
+
+                    If row.RowState = DataRowState.Added Or row.RowState = DataRowState.Modified Then
+
+                        Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = Color.Red
 
                         If IsDBNull(row.item("ProcID")) Then
                             MsgBox("Procedure missing")
+                            OverClass.CmdList.Clear()
                             Exit Sub
                         End If
 
                         If IsDBNull(row.item("DaysPost")) Then
                             MsgBox("Days missing")
+                            OverClass.CmdList.Clear()
                             Exit Sub
                         End If
 
                         If IsDBNull(row.item("Approx")) Then
                             MsgBox("Timepoint missing")
+                            OverClass.CmdList.Clear()
                             Exit Sub
                         End If
 
                         If (IsDBNull(row.item("SetTime")) And row.item("Approx") = "Set Time") _
                             Or (Not IsDBNull(row.item("SetTime")) And row.item("Approx") <> "Set Time") Then
                             MsgBox("Set Time OR Hours/Mins - Not Both")
+                            OverClass.CmdList.Clear()
                             Exit Sub
                         End If
 
                         If (Not IsDBNull(row.item("SetTime")) And (Not IsDBNull(row.item("MinsPost")) Or Not IsDBNull(row.item("HoursPost")))) _
                             Or (IsDBNull(row.item("SetTime")) And (IsDBNull(row.item("MinsPost")) Or IsDBNull(row.item("HoursPost")))) Then
                             MsgBox("Set Time OR Hours/Mins - Not Both")
+                            OverClass.CmdList.Clear()
                             Exit Sub
                         End If
 
+                        If rowIndex Mod 2 = 0 Then
+                            Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = OrigColour
+                        Else
+                            Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = OrigAltColour
+                        End If
+
+                    End If
+
+
+
+                    If row.RowState = DataRowState.Added Then
 
                         ProcID = CDbl(row.item("ProcID"))
                         DaysPost = CDbl(row.item("DaysPost"))
@@ -101,11 +135,14 @@
                             SetTime = OverClass.SQLDate(CDate(row.item("SetTime")))
                         End If
 
+
+                        PassNumber = PassNumber + 1
+
                         Dim cmdInsert As OleDb.OleDbCommand = Nothing
                         Dim SchedID As Long = 0
 
                         Try
-                            SchedID = (OverClass.TempDataTable("SELECT Max(StudyScheduleID) FROM StudySchedule").Rows(0).Item(0)) + 1
+                            SchedID = (OverClass.TempDataTable("SELECT Max(StudyScheduleID) FROM StudySchedule").Rows(0).Item(0)) + PassNumber
 
                         Catch ex As Exception
                             SchedID = 1
@@ -122,7 +159,7 @@
 
                             cmdInsert = New OleDb.OleDbCommand(Combine)
 
-                            OverClass.ExecuteSQL(cmdInsert)
+                            OverClass.AddToMassSQL(cmdInsert)
 
                         Catch ex As Exception
                             MsgBox(ex.Message)
@@ -142,17 +179,23 @@
 
                         OverClass.AddToMassSQL(cmdInsert)
 
-                        row.acceptchanges()
-
-
-
-
                     End If
-
 
                 Next
 
-                OverClass.ExecuteMassSQL()
+                Try
+                    OverClass.ExecuteMassSQL()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    Exit Sub
+                End Try
+
+                For Each row In OverClass.CurrentDataSet.Tables(0).Rows
+
+                    If row.RowState = DataRowState.Added Then row.acceptchanges()
+
+                Next
+
 
             Case "DataGridView7"
 
