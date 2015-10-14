@@ -166,6 +166,77 @@ Module ButtonModule
 
             Case "Button18"
 
+                If CheckDates() = True Then
+
+
+                    Dim OK As New SOAForm
+
+                    Dim SQLString As String = "TRANSFORM First(Format(IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))),'dd-MMM') " & _
+    "& Chr(13) & Chr(10) & Format(IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))),'HH:mm') " & _
+    "& Chr(13) & Chr(10) & Left([FName],1) & '-' & Left([SName],1)) AS CalcDate " & _
+    "SELECT StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " & _
+    "FROM ((Study INNER JOIN (Cohort INNER JOIN Volunteer AS d ON Cohort.CohortID = d.CohortID) ON Study.StudyID = Cohort.StudyID) INNER JOIN StudyTimepoint ON Study.StudyID = StudyTimepoint.StudyID) INNER JOIN ((ProcTask AS e INNER JOIN (StudySchedule AS a INNER JOIN VolunteerTimepoint AS f ON a.StudyTimepointID = f.StudyTimepointID) ON e.ProcID = a.ProcID) " & _
+    "INNER JOIN (VolunteerSchedule AS c LEFT JOIN Staff ON c.StaffID = Staff.StaffID) ON a.StudyScheduleID = c.StudyScheduleID) ON (d.VolID = f.VolID) AND (d.VolID = c.VolID) AND (StudyTimepoint.StudyTimepointID = a.StudyTimepointID) " & _
+    "WHERE (((StudyTimepoint.StudyID)=" & Form1.ComboBox17.SelectedValue.ToString & ") " & _
+    "AND ((IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime])))) " & _
+    "BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
+    " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value) & ")) " & _
+    "GROUP BY StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " & _
+    "ORDER BY a.DaysPost, a.ProcTime, e.ProcOrd, 'Room ' & [RoomNo] & Chr(13) & Chr(10) & [Initials] & Chr(13) & Chr(10) & [RVLNo] " & _
+    "PIVOT 'Room ' & [RoomNo] & Chr(13) & Chr(10) & [Initials] & Chr(13) & Chr(10) & [RVLNo]"
+
+
+
+                    OverClass.CreateDataSet(SQLString, OK.BindingSource1, OK.DataGridView1)
+                    OK.DataGridView1.Columns("StudyID").Visible = False
+                    OK.DataGridView1.Columns("StudyScheduleID").Visible = False
+                    OK.DataGridView1.Columns("DaysPost").Visible = False
+                    OK.DataGridView1.Columns("ProcTime").Visible = False
+                    OK.DataGridView1.Columns("ProcOrd").Visible = False
+                    OK.DataGridView1.Columns("ProcName").DisplayIndex = 0
+                    OK.DataGridView1.Columns("ProcName").HeaderText = "Procedure"
+                    OK.DataGridView1.Columns("ProcName").AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    OK.DataGridView1.Columns("ProcName").Width = 200
+
+                    For Each column In OK.DataGridView1.Columns
+                        column.SortMode = DataGridViewColumnSortMode.NotSortable
+                    Next
+
+                    Dim i As Long = 0
+                    Dim RoomNo As Long = 0
+                    Dim DisplayNumber As Long = 1
+
+                    Do While i < 200
+
+                        For Each column In OK.DataGridView1.Columns
+
+                            If column.headertext Like "Room*" Then
+
+                                RoomNo = CInt(Trim(Replace(Left(column.headertext, InStr(column.headertext, vbNewLine)), "Room ", vbNullString)))
+
+                                If i = RoomNo Then
+                                    column.displayindex = DisplayNumber
+                                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+                                    DisplayNumber = DisplayNumber + 1
+                                End If
+
+                            Else
+
+                                Continue For
+
+                            End If
+
+                        Next
+                        i = i + 1
+
+                    Loop
+
+
+                    OK.ShowDialog()
+
+                End If
+
             Case "Button19"
 
                 Dim dt As DataTable
@@ -262,6 +333,7 @@ Module ButtonModule
                 OK.ReportViewer1.Visible = True
 
             Case "Button20"
+
                 MsgBox("Please ensure to save changes to see up to date report")
                 Dim dt As DataTable
                 dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " & _
@@ -360,7 +432,7 @@ Module ButtonModule
                 Dim AssAll As New ChooseStaff
 
                 AssAll.ShowDialog()
-                
+
 
         End Select
 

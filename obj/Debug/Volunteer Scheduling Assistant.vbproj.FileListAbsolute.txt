@@ -21,3 +21,4 @@ C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assis
 C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\obj\Debug\Volunteer Scheduling Assistant.vbprojResolveAssemblyReference.cache
 C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\bin\Debug\TemplateDB.xml
 C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\obj\Debug\VolunteerSchedulingAssistant.ChooseStaff.resources
+C:\OK\Databases\Backup\Volunteer Scheduling Assistant\Volunteer Scheduling Assistant\obj\Debug\VolunteerSchedulingAssistant.SOAForm.resources

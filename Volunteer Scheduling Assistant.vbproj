@@ -158,6 +158,12 @@
     </Compile>
     <Compile Include="SaveModule.vb" />
     <Compile Include="ScheduleGenerator.vb" />
+    <Compile Include="SOAForm.Designer.vb">
+      <DependentUpon>SOAForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SOAForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Variables.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterReport.rdlc" />
     <EmbeddedResource Include="SchedulePreview.rdlc" />
+    <EmbeddedResource Include="SOAForm.resx">
+      <DependentUpon>SOAForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffReport.rdlc" />
     <EmbeddedResource Include="VolunteerReport.rdlc" />
   </ItemGroup>
