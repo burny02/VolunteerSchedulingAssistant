@@ -19,6 +19,10 @@ VolunteerSchedulingAssistant
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:VolunteerSchedulingAssistant.My.Resources.Resources.button">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:VolunteerSchedulingAssistant.My.Resources.Resources.calendar">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -36,6 +40,10 @@ VolunteerSchedulingAssistant
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:VolunteerSchedulingAssistant.My.Resources.Resources.Previewer">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:VolunteerSchedulingAssistant.My.Resources.Resources.PrintSOA">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

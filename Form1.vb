@@ -74,7 +74,6 @@ Public Class Form1
                 ctl.columns(1).headertext = "Procedure"
                 ctl.columns(2).headertext = "Minutes Taken"
                 ctl.columns(3).headertext = "Order"
-                ctl.columns("ProcOrd").DefaultCellStyle.NullValue = "10"
 
             Case "DataGridView2"
                 ctl.Columns(0).Visible = False
@@ -966,7 +965,7 @@ Public Class Form1
 
         Returner = ScheduleOverlap(sender, e.RowIndex, sender.rows(e.RowIndex).cells("Dayspost").value, _
                               sender.rows(e.RowIndex).cells("ProcTime").value, _
-                              sender.rows(e.RowIndex).cells("MinsTaken").Value)
+                              sender.rows(e.RowIndex).cells("MinsTaken").formattedvalue)
 
         If Returner <> vbNullString Then MsgBox("Overlap found - " & vbNewLine & vbNewLine & Returner)
 

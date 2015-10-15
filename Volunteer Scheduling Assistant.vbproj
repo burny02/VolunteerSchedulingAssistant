@@ -26,7 +26,7 @@
     <InstallUrl>\\retroscreen.com\dfsroot\clinical\VOLUNTEER SCREENING SERVICES\DavidBurnside\Scheduler\</InstallUrl>
     <ProductName>Volunteer Scheduling Assistant</ProductName>
     <PublisherName>David Burnside</PublisherName>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>6.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,6 +83,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Users\d.burnside\Desktop\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
@@ -211,6 +214,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hvivo_logo1_8dY_icon.ico" />
+    <None Include="Resources\PrintSOA.png" />
+    <None Include="Resources\button.png" />
     <None Include="Resources\Assign.png" />
     <None Include="Resources\Previewer.png" />
     <None Include="Resources\Plus.gif" />
@@ -241,6 +246,26 @@
     <Folder Include="My Project\DataSources\" />
   </ItemGroup>
   <ItemGroup>
+    <PublishFile Include="hvivo_logo1_8dY_icon.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="itextsharp">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.Common">
       <Visible>False</Visible>
       <Group>
