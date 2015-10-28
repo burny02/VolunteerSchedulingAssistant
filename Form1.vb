@@ -102,15 +102,21 @@ Public Class Form1
                 If IsNothing(Me.ComboBox3.SelectedValue) Then Exit Sub
                 If IsNothing(Me.ComboBox4.SelectedValue) Then Exit Sub
                 Me.TextBox1.Clear()
+
                 Dim dt As DataTable = OverClass.TempDataTable("SELECT DefaultTime FROM StudyTimepoint " & _
                                                               "WHERE StudyTimepointID=" & Me.ComboBox3.SelectedValue.ToString)
 
                 If Not IsDBNull(dt.Rows(0).Item(0)) Then Me.TextBox1.Text = Format(dt.Rows(0).Item(0), "HH:mm")
 
                 ctl.autogeneratecolumns = True
-                    SQLCode = "SELECT StudyScheduleID, ProcID, DaysPost, Approx, ProcTime" & _
-                        " FROM StudySchedule WHERE StudyTimepointID=" & Me.ComboBox3.SelectedValue.ToString & _
-                        " ORDER BY DaysPost ASC, cdate(format(ProcTime,'HH:mm')) ASC"
+
+                Dim ProcCrit As String = "'%'"
+                If Me.ComboBox1.SelectedValue <> "" Then ProcCrit = Me.ComboBox1.SelectedValue
+
+                SQLCode = "SELECT StudyScheduleID, ProcID, DaysPost, Approx, ProcTime" & _
+                    " FROM StudySchedule WHERE StudyTimepointID=" & Me.ComboBox3.SelectedValue.ToString & _
+                    " AND ProcID LIKE " & ProcCrit & _
+                    " ORDER BY DaysPost ASC, cdate(format(ProcTime,'HH:mm')) ASC"
                     OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
 
                     ctl.Columns(0).visible = False
@@ -338,46 +344,62 @@ Public Class Form1
                     cmb2.Width = 60
 
             Case "DataGridView12"
-                    ctl.columns("StaffProcID").visible = False
-                    ctl.columns("StaffID").visible = False
-                    ctl.columns("ProcID").visible = False
-                    ctl.columns("ProcDateTime").HeaderText = "Date/Time"
-                    ctl.columns("ProcDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
-                    Dim cmb As New DataGridViewComboBoxColumn
-                    cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
-                                                             "FROM STAFF WHERE Hidden=False ORDER BY FName ASC")
-                    ctl.columns.add(cmb)
-                    cmb.Name = "Pick"
-                    cmb.HeaderText = "Staff Member"
-                    cmb.ValueMember = "StaffID"
-                    cmb.DisplayMember = "Fullname"
-                    cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
-                    Dim cmb2 As New DataGridViewComboBoxColumn
-                    cmb2.DataSource = OverClass.TempDataTable("SELECT ProcID, ProcName " & _
-                                                             "FROM ProcTask ORDER BY ProcName ASC")
-                    ctl.columns.add(cmb2)
-                    cmb2.HeaderText = "Procedure"
-                    cmb2.ValueMember = "ProcID"
-                    cmb2.DisplayMember = "ProcName"
-                    cmb2.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("ProcID").ToString
-                    Dim cmb3 As New DataGridViewComboBoxColumn
-                    cmb3.DataSource = OverClass.TempDataTable("SELECT ProcID, MinsTaken " & _
-                                                              "FROM ProcTask")
-                    cmb3.ValueMember = "ProcID"
-                    cmb3.DisplayMember = "MinsTaken"
-                    cmb3.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("ProcID").ToString
-                    cmb3.Name = "MinsTaken"
-                    cmb2.Name = "ProcPick"
-                    ctl.columns.add(cmb3)
-                    ctl.columns("ProcDateTime").name = "CalcDate"
-                    cmb3.Visible = False
-                    Dim cmb4 As New DataGridViewImageColumn
-                    cmb4.HeaderText = "Delete Procedure"
-                    cmb4.Image = My.Resources.Remove
-                    cmb4.ImageLayout = DataGridViewImageCellLayout.Zoom
-                    ctl.columns.add(cmb4)
-                    cmb4.Name = "DeleteButton"
-                    cmb4.Width = 60
+
+                Dim ProcCrit As String = "'%'"
+                Dim StafCrit As String = "'%'"
+
+                If Me.ComboBox21.SelectedValue <> "" Then ProcCrit = "'" & Me.ComboBox21.SelectedValue & "'"
+                If Me.ComboBox16.SelectedValue <> "" Then StafCrit = "'" & Me.ComboBox16.SelectedValue & "'"
+
+
+                SQLCode = "SELECT StaffProcID, StaffID, ProcID, ProcDateTime " & _
+                    "FROM StaffProc " & _
+                    "WHERE ProcDateTime > Now() " & _
+                    "AND ProcID LIKE " & ProcCrit & _
+                    " AND StaffID LIKE " & StafCrit & _
+                    " ORDER BY ProcDateTime ASC"
+                OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+
+                ctl.columns("StaffProcID").visible = False
+                ctl.columns("StaffID").visible = False
+                ctl.columns("ProcID").visible = False
+                ctl.columns("ProcDateTime").HeaderText = "Date/Time"
+                ctl.columns("ProcDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
+                Dim cmb As New DataGridViewComboBoxColumn
+                cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " & _
+                                                         "FROM STAFF WHERE Hidden=False ORDER BY FName ASC")
+                ctl.columns.add(cmb)
+                cmb.Name = "Pick"
+                cmb.HeaderText = "Staff Member"
+                cmb.ValueMember = "StaffID"
+                cmb.DisplayMember = "Fullname"
+                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
+                Dim cmb2 As New DataGridViewComboBoxColumn
+                cmb2.DataSource = OverClass.TempDataTable("SELECT ProcID, ProcName " & _
+                                                         "FROM ProcTask ORDER BY ProcName ASC")
+                ctl.columns.add(cmb2)
+                cmb2.HeaderText = "Procedure"
+                cmb2.ValueMember = "ProcID"
+                cmb2.DisplayMember = "ProcName"
+                cmb2.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("ProcID").ToString
+                Dim cmb3 As New DataGridViewComboBoxColumn
+                cmb3.DataSource = OverClass.TempDataTable("SELECT ProcID, MinsTaken " & _
+                                                          "FROM ProcTask")
+                cmb3.ValueMember = "ProcID"
+                cmb3.DisplayMember = "MinsTaken"
+                cmb3.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("ProcID").ToString
+                cmb3.Name = "MinsTaken"
+                cmb2.Name = "ProcPick"
+                ctl.columns.add(cmb3)
+                ctl.columns("ProcDateTime").name = "CalcDate"
+                cmb3.Visible = False
+                Dim cmb4 As New DataGridViewImageColumn
+                cmb4.HeaderText = "Delete Procedure"
+                cmb4.Image = My.Resources.Remove
+                cmb4.ImageLayout = DataGridViewImageCellLayout.Zoom
+                ctl.columns.add(cmb4)
+                cmb4.Name = "DeleteButton"
+                cmb4.Width = 60
 
             Case "DataGridView13"
                     SQLCode = "SELECT * FROM ReportArchive ORDER BY ArchiveID DESC, ArchiveDate DESC"
@@ -393,6 +415,8 @@ Public Class Form1
                     ctl.Columns("ArchiveCriteria").DefaultCellStyle.WrapMode = DataGridViewTriState.True
                     ctl.Columns("ArchiveType").DefaultCellStyle.Font = New Font("Arial", 10, FontStyle.Underline)
                     ctl.Columns("ArchiveType").DefaultCellStyle.ForeColor = Color.Blue
+
+
 
         End Select
 
@@ -456,6 +480,7 @@ Public Class Form1
             Case 2
                 StartCombo(Me.ComboBox4)
                 StartCombo(Me.ComboBox3)
+                StartCombo(Me.ComboBox1)
 
             Case 3
                 StartCombo(Me.ComboBox5)
@@ -554,11 +579,10 @@ Public Class Form1
                 StartCombo(Me.ComboBox24)
 
             Case 1
-                ctl = Me.DataGridView12
-                SQLCode = "SELECT StaffProcID, StaffID, ProcID, ProcDateTime " & _
-                    "FROM StaffProc " & _
-                    "WHERE ProcDateTime > Now() ORDER BY ProcDateTime ASC"
-                OverClass.CreateDataSet(SQLCode, Bind, ctl)
+                Call Specifics(Me.DataGridView12)
+                StartCombo(Me.ComboBox16)
+                StartCombo(Me.ComboBox21)
+                
 
 
         End Select

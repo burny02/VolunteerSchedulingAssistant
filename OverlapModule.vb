@@ -148,6 +148,7 @@
             If IsDBNull(Row.Cells("DaysPost").Value) Then Continue For
             If IsDBNull(Row.Cells("ProcTime").Value) Then Continue For
             If Row.Cells("Approx").Value = "Set Time" Then Continue For
+            If Row.Cells("MinsTaken").formattedvalue = vbNullString Then Continue For
 
 
             Dim RowEndFull, RowStartFull As Date
@@ -155,7 +156,7 @@
             Dim RowTime As Date
             RowTime = TimeValue(CDate(Row.Cells("ProcTime").Value))
             DaysPost = Row.Cells("DaysPost").Value
-            MinsTaken = Row.Cells("MinsTaken").value
+            MinsTaken = Row.Cells("MinsTaken").formattedvalue
 
             RowStartFull = DateAdd(DateInterval.Minute, _
                     DateDiff(DateInterval.Minute, TimeValue(DefaultTime), TimeValue(RowTime)), _
@@ -163,7 +164,6 @@
 
 
             RowEndFull = DateAdd(DateInterval.Minute, MinsTaken, RowStartFull)
-
 
             If ((RowStartFull < EndFull) _
                 And (StartFull < RowEndFull)) _

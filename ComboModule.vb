@@ -41,6 +41,11 @@
                 StartCombo(Form1.ComboBox23)
                 StartCombo(Form1.ComboBox24)
 
+            Case "ComboBox16", "ComboBox21"
+                Form1.Specifics(Form1.DataGridView12)
+                StartCombo(Form1.ComboBox16)
+                StartCombo(Form1.ComboBox21)
+
 
             Case Else
                 ComboRefreshData(sender)
@@ -332,6 +337,60 @@
                 ctl.DisplayMember = Fielder
                 ctl.ValueMember = Fielder
 
+            Case "ComboBox1"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+
+                Dim dt As DataTable = OverClass.TempDataTable("SELECT DISTINCT * FROM ( " & _
+                                                              "SELECT '' AS ProcID, '' AS ProcName FROM ProcTask " & _
+                                                              "UNION ALL " & _
+                                                              "SELECT ProcID, ProcName " & _
+                                                                "FROM ProcTask WHERE ProcID IN ( SELECT ProcID FROM ( " _
+                                                                & OverClass.CurrentDataAdapter.SelectCommand.CommandText & _
+                                                                "))) ORDER BY ProcName ASC")
+
+
+
+                ctl.DataSource = dt
+                ctl.DisplayMember = "ProcName"
+                ctl.ValueMember = "ProcID"
+
+
+            Case "ComboBox21"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+
+                Dim dt As DataTable = OverClass.TempDataTable("SELECT DISTINCT * FROM ( " & _
+                                                              "SELECT '' AS ProcID, '' AS ProcName FROM ProcTask " & _
+                                                              "UNION ALL " & _
+                                                              "SELECT ProcID, ProcName " & _
+                                                                "FROM ProcTask WHERE ProcID IN ( SELECT ProcID FROM ( " _
+                                                                & OverClass.CurrentDataAdapter.SelectCommand.CommandText & _
+                                                                "))) ORDER BY ProcName ASC")
+
+
+
+                ctl.DataSource = dt
+                ctl.DisplayMember = "ProcName"
+                ctl.ValueMember = "ProcID"
+
+            Case "ComboBox16"
+
+                If ctl.SelectedValue <> "" Then Exit Sub
+
+                Dim dt As DataTable = OverClass.TempDataTable("SELECT DISTINCT * FROM ( " & _
+                                                              "SELECT '' AS StaffID, '' AS FullName FROM Staff " & _
+                                                              "UNION ALL " & _
+                                                              "SELECT StaffID, FName & ' ' & SName AS Fullname " & _
+                                                                "FROM Staff WHERE StaffID IN ( SELECT StaffID FROM ( " _
+                                                                & OverClass.CurrentDataAdapter.SelectCommand.CommandText & _
+                                                                "))) ORDER BY FullName ASC")
+
+
+
+                ctl.DataSource = dt
+                ctl.DisplayMember = "FullName"
+                ctl.ValueMember = "StaffID"
 
         End Select
 
@@ -362,6 +421,9 @@
 
             Case "ComboBox2"
                 Grid = Form1.DataGridView5
+
+            Case "ComboBox1"
+                Grid = Form1.DataGridView6
 
 
         End Select
