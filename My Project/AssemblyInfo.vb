@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Volunteer Scheduling Assistant")> 
+<Assembly: AssemblyTitle("Resource_Scheduling_System")>
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Volunteer Scheduling Assistant")> 
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("Resource_Scheduling_System")>
 <Assembly: AssemblyCopyright("Copyright ©  2015")> 
 <Assembly: AssemblyTrademark("")> 
 

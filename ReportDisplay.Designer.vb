@@ -32,7 +32,7 @@ Partial Class ReportDisplay
         '
         'ReportDisplayBindingSource
         '
-        Me.ReportDisplayBindingSource.DataSource = GetType(VolunteerSchedulingAssistant.ReportDisplay)
+        Me.ReportDisplayBindingSource.DataSource = GetType(Resource_Scheduling_System.ReportDisplay)
         '
         'ReportViewer1
         '

@@ -58,7 +58,7 @@ Partial Class SOAForm
         '
         'Button7
         '
-        Me.Button7.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.PrintSOA
+        Me.Button7.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.PrintSOA
         Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button7.FlatAppearance.BorderColor = System.Drawing.Color.Black

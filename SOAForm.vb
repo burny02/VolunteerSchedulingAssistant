@@ -3,8 +3,6 @@ Imports iTextSharp.text.pdf
 Imports iTextSharp.text
 Imports System.IO
 
-
-
 Public Class SOAForm
 
     Dim YRange As Long = 15
@@ -142,7 +140,7 @@ Public Class SOAForm
 
         'Adding DataRow
 
-        For Each row As DataGridViewRow In dataGridView1.Rows
+        For Each row As DataGridViewRow In DataGridView1.Rows
 
             For Each cell As DataGridViewCell In row.Cells
 

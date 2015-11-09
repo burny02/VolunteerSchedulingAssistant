@@ -39,11 +39,11 @@ Module ButtonModule
                 Dim OK As New ReportDisplay
                 If CheckDates() = True Then
                     OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.VolunteerReport.rdlc"
-                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                                OverClass.TempDataTable("SELECT * FROM VolReport " & _
-                                                                                        "WHERE CohortID=" & Form1.ComboBox18.SelectedValue & _
-                                                                                        " AND CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
+                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.VolunteerReport.rdlc"
+                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
+                                                                OverClass.TempDataTable("SELECT * FROM VolReport " &
+                                                                                        "WHERE CohortID=" & Form1.ComboBox18.SelectedValue &
+                                                                                        " AND CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
                                                                                             " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
 
                     OK.ReportViewer1.RefreshReport()
@@ -68,7 +68,7 @@ Module ButtonModule
                     pdfFile.Write(pdfContent, 0, pdfContent.Length)
                     pdfFile.Close()
 
-                    OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " & _
+                    OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " &
                                          "VALUES (" & NextID & ", '" & pdfPath & "', '" & OverClass.GetUserName & "', '" & ArchiveType & "', '" _
                                          & Criteria & "')")
 
@@ -84,11 +84,11 @@ Module ButtonModule
                     Dim OK As New ReportDisplay
 
                     OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.StaffReport.rdlc"
-                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                                OverClass.TempDataTable("SELECT * FROM StaffReport " & _
-                                                                                        "WHERE CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
-                                                                                        " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
+                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.StaffReport.rdlc"
+                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
+                                                                OverClass.TempDataTable("SELECT * FROM StaffReport " &
+                                                                                        "WHERE CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
+                                                                                       " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
                     OK.ReportViewer1.RefreshReport()
 
                     'Create PDF file on disk
@@ -111,7 +111,7 @@ Module ButtonModule
                     pdfFile.Write(pdfContent, 0, pdfContent.Length)
                     pdfFile.Close()
 
-                    OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " & _
+                    OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " &
                                      "VALUES (" & NextID & ", '" & pdfPath & "', '" & OverClass.GetUserName & "', '" & ArchiveType & "', '" _
                                      & Criteria & "')")
 
@@ -128,10 +128,10 @@ Module ButtonModule
                     Dim OK As New ReportDisplay
 
                     OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.MasterReport.rdlc"
-                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                                OverClass.TempDataTable("SELECT * FROM StaffReport " & _
-                                                                                        "WHERE CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
+                    OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.MasterReport.rdlc"
+                    OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
+                                                                OverClass.TempDataTable("SELECT * FROM StaffReport " &
+                                                                                        "WHERE CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
                                                                                         " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
 
                     OK.ReportViewer1.RefreshReport()
@@ -153,7 +153,7 @@ Module ButtonModule
                     pdfFile.Write(pdfContent, 0, pdfContent.Length)
                     pdfFile.Close()
 
-                    OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " & _
+                    OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " &
                                      "VALUES (" & NextID & ", '" & pdfPath & "', '" & OverClass.GetUserName & "', '" & ArchiveType & "', '" _
                                      & Criteria & "')")
 
@@ -171,18 +171,18 @@ Module ButtonModule
 
                     Dim OK As New SOAForm
 
-                    Dim SQLString As String = "TRANSFORM First(Format(IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))),'dd-MMM') " & _
-    "& Chr(13) & Chr(10) & Format(IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))),'HH:mm') " & _
-    "& Chr(13) & Chr(10) & Left([FName],1) & '-' & Left([SName],1)) AS CalcDate " & _
-    "SELECT StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " & _
-    "FROM ((Study INNER JOIN (Cohort INNER JOIN Volunteer AS d ON Cohort.CohortID = d.CohortID) ON Study.StudyID = Cohort.StudyID) INNER JOIN StudyTimepoint ON Study.StudyID = StudyTimepoint.StudyID) INNER JOIN ((ProcTask AS e INNER JOIN (StudySchedule AS a INNER JOIN VolunteerTimepoint AS f ON a.StudyTimepointID = f.StudyTimepointID) ON e.ProcID = a.ProcID) " & _
-    "INNER JOIN (VolunteerSchedule AS c LEFT JOIN Staff ON c.StaffID = Staff.StaffID) ON a.StudyScheduleID = c.StudyScheduleID) ON (d.VolID = f.VolID) AND (d.VolID = c.VolID) AND (StudyTimepoint.StudyTimepointID = a.StudyTimepointID) " & _
-    "WHERE (((StudyTimepoint.StudyID)=" & Form1.ComboBox17.SelectedValue.ToString & ") " & _
-    "AND ((IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime])))) " & _
-    "BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) & _
-    " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value) & ")) " & _
-    "GROUP BY StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " & _
-    "ORDER BY a.DaysPost, a.ProcTime, e.ProcOrd, 'Room ' & [RoomNo] & Chr(13) & Chr(10) & [Initials] & Chr(13) & Chr(10) & [RVLNo] " & _
+                    Dim SQLString As String = "TRANSFORM First(Format(DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime])))),'dd-MMM') " &
+    "& Chr(13) & Chr(10) & Format(DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime])))),'HH:mm') " &
+    "& Chr(13) & Chr(10) & Left([FName],1) & '-' & Left([SName],1)) AS CalcDate " &
+    "SELECT StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " &
+    "FROM ((Study INNER JOIN (Cohort INNER JOIN Volunteer AS d ON Cohort.CohortID = d.CohortID) ON Study.StudyID = Cohort.StudyID) INNER JOIN StudyTimepoint ON Study.StudyID = StudyTimepoint.StudyID) INNER JOIN ((ProcTask AS e INNER JOIN (StudySchedule AS a INNER JOIN VolunteerTimepoint AS f ON a.StudyTimepointID = f.StudyTimepointID) ON e.ProcID = a.ProcID) " &
+    "INNER JOIN (VolunteerSchedule AS c LEFT JOIN Staff ON c.StaffID = Staff.StaffID) ON a.StudyScheduleID = c.StudyScheduleID) ON (d.VolID = f.VolID) AND (d.VolID = c.VolID) AND (StudyTimepoint.StudyTimepointID = a.StudyTimepointID) " &
+    "WHERE (((StudyTimepoint.StudyID)=" & Form1.ComboBox17.SelectedValue.ToString & ") " &
+    "AND ((DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))))) " &
+    "BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
+    " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value) & ")) " &
+    "GROUP BY StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " &
+    "ORDER BY a.DaysPost, a.ProcTime, e.ProcOrd, 'Room ' & [RoomNo] & Chr(13) & Chr(10) & [Initials] & Chr(13) & Chr(10) & [RVLNo] " &
     "PIVOT 'Room ' & [RoomNo] & Chr(13) & Chr(10) & [Initials] & Chr(13) & Chr(10) & [RVLNo]"
 
 
@@ -240,7 +240,7 @@ Module ButtonModule
             Case "Button19"
 
                 Dim dt As DataTable
-                dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " & _
+                dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
                                              "FROM StudyTimepoint WHERE StudyID=" & Form1.ComboBox17.SelectedValue.ToString)
                 dt.Columns.Add("TimepointDateTime", System.Type.GetType("System.DateTime"))
 
@@ -276,7 +276,7 @@ Module ButtonModule
                 Next
 
                 Dim dt2 As DataTable
-                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " & _
+                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " &
                                               "WHERE StudyID=" & Form1.ComboBox17.SelectedValue.ToString)
 
 
@@ -301,8 +301,8 @@ Module ButtonModule
                 Dim OK As New ReportDisplay
 
                 OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.SchedulePreview.rdlc"
-                OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
+                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.SchedulePreview.rdlc"
+                OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
                                                             ReportData))
 
                 OK.ReportViewer1.RefreshReport()
@@ -323,7 +323,7 @@ Module ButtonModule
                 pdfFile.Write(pdfContent, 0, pdfContent.Length)
                 pdfFile.Close()
 
-                OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " & _
+                OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " &
                 "VALUES (" & NextID & ", '" & pdfPath & "', '" & OverClass.GetUserName & "', '" & ArchiveType & "', '" _
                 & Criteria & "')")
 
@@ -336,7 +336,7 @@ Module ButtonModule
 
                 MsgBox("Please ensure to save changes to see up to date report")
                 Dim dt As DataTable
-                dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " & _
+                dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
                                              "FROM StudyTimepoint WHERE StudyID=" & Form1.ComboBox4.SelectedValue.ToString)
                 dt.Columns.Add("TimepointDateTime", System.Type.GetType("System.DateTime"))
 
@@ -372,7 +372,7 @@ Module ButtonModule
                 Next
 
                 Dim dt2 As DataTable
-                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " & _
+                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " &
                                               "WHERE StudyID=" & Form1.ComboBox4.SelectedValue.ToString)
 
 
@@ -396,7 +396,7 @@ Module ButtonModule
                 Dim OK As New ReportDisplay
 
                 OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "VolunteerSchedulingAssistant.SchedulePreview.rdlc"
+                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.SchedulePreview.rdlc"
                 OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
                                                             ReportData))
 

@@ -2,16 +2,16 @@
 
 Module Variables
     Public OverClass As OverClass
-    Public Const ReportPath As String = "M:\VOLUNTEER SCREENING SERVICES\DavidBurnside\Scheduler\Reports\"
-    Private Const TablePath As String = "M:\VOLUNTEER SCREENING SERVICES\DavidBurnside\Scheduler\Backend2.accdb"
-    Private Const PWord As String = "Crypto*Dave02"
+    Public Const ReportPath As String = "M:\VOLUNTEER SCREENING SERVICES\Systems\Resource_Scheduling_System\Reports\"
+    Private Const TablePath As String = "M:\VOLUNTEER SCREENING SERVICES\Systems\Resource_Scheduling_System\Backend.accdb"
+    Private Const PWord As String = "RetroRetro*1"
     Private Const Connect2 As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & TablePath & ";Jet OLEDB:Database Password=" & PWord
     Private Const UserTable As String = "[Users]"
     Private Const UserField As String = "Username"
     Private Const LockTable As String = "[Locker]"
     Private Const ActiveUsersTable As String = "[ActiveUsers]"
     Private Contact As String = "Michael Gray"
-    Public Const SolutionName As String = "Volunteer Scheduling Assistant"
+    Public Const SolutionName As String = "Resource Scheduling System"
     Public PickCohort As Long
 
     Public Function GetTheConnection() As String

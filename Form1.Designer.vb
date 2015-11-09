@@ -66,6 +66,8 @@ Partial Class Form1
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.SplitContainer6 = New System.Windows.Forms.SplitContainer()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
@@ -141,6 +143,10 @@ Partial Class Form1
         Me.DataGridView11 = New System.Windows.Forms.DataGridView()
         Me.TabPage20 = New System.Windows.Forms.TabPage()
         Me.SplitContainer13 = New System.Windows.Forms.SplitContainer()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.ComboBox21 = New System.Windows.Forms.ComboBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.ComboBox16 = New System.Windows.Forms.ComboBox()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.DataGridView12 = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
@@ -162,12 +168,6 @@ Partial Class Form1
         Me.DataGridView13 = New System.Windows.Forms.DataGridView()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.ComboBox16 = New System.Windows.Forms.ComboBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.ComboBox21 = New System.Windows.Forms.ComboBox()
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -299,7 +299,7 @@ Partial Class Form1
         'PictureBox4
         '
         Me.PictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox4.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.hVIVO_screensaver_two
+        Me.PictureBox4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.hVIVO_screensaver_two
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PictureBox4.Location = New System.Drawing.Point(296, 8)
@@ -377,7 +377,7 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button1.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button1.FlatAppearance.BorderSize = 0
@@ -437,7 +437,7 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button3.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button3.FlatAppearance.BorderSize = 0
@@ -521,7 +521,7 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button4.FlatAppearance.BorderSize = 0
@@ -606,7 +606,7 @@ Partial Class Form1
         '
         'Button6
         '
-        Me.Button6.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button6.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button6.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button6.FlatAppearance.BorderSize = 0
@@ -671,9 +671,32 @@ Partial Class Form1
         Me.SplitContainer6.SplitterDistance = 25
         Me.SplitContainer6.TabIndex = 10
         '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(315, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(82, 20)
+        Me.Label18.TabIndex = 39
+        Me.Label18.Text = "Procedure"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(397, 0)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ComboBox1.Size = New System.Drawing.Size(236, 24)
+        Me.ComboBox1.TabIndex = 38
+        '
         'Button20
         '
-        Me.Button20.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.Previewer
+        Me.Button20.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Previewer
         Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button20.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button20.FlatAppearance.BorderSize = 0
@@ -733,7 +756,7 @@ Partial Class Form1
         '
         'Button7
         '
-        Me.Button7.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button7.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button7.FlatAppearance.BorderSize = 0
@@ -865,7 +888,7 @@ Partial Class Form1
         '
         'Button8
         '
-        Me.Button8.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button8.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button8.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button8.FlatAppearance.BorderSize = 0
@@ -997,7 +1020,7 @@ Partial Class Form1
         '
         'Button9
         '
-        Me.Button9.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button9.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button9.FlatAppearance.BorderSize = 0
@@ -1059,7 +1082,7 @@ Partial Class Form1
         '
         'Button10
         '
-        Me.Button10.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.calendar
+        Me.Button10.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.calendar
         Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button10.FlatAppearance.BorderSize = 0
@@ -1079,7 +1102,7 @@ Partial Class Form1
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(300, 26)
         Me.Label10.TabIndex = 16
-        Me.Label10.Text = "Please ensure that all cohort timepoints have been completed " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "prior to generatin" & _
+        Me.Label10.Text = "Please ensure that all cohort timepoints have been completed " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "prior to generatin" &
     "g a schedule"
         '
         'Label8
@@ -1186,7 +1209,7 @@ Partial Class Form1
         '
         'Button11
         '
-        Me.Button11.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button11.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button11.FlatAppearance.BorderSize = 0
@@ -1321,7 +1344,7 @@ Partial Class Form1
         '
         'Button12
         '
-        Me.Button12.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button12.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button12.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button12.FlatAppearance.BorderSize = 0
@@ -1421,7 +1444,7 @@ Partial Class Form1
         '
         'Button5
         '
-        Me.Button5.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.Assign
+        Me.Button5.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Assign
         Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button5.FlatAppearance.BorderSize = 0
@@ -1435,7 +1458,7 @@ Partial Class Form1
         '
         'Button13
         '
-        Me.Button13.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button13.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button13.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button13.FlatAppearance.BorderSize = 0
@@ -1702,9 +1725,55 @@ Partial Class Form1
         Me.SplitContainer13.SplitterDistance = 27
         Me.SplitContainer13.TabIndex = 13
         '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(534, 0)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(82, 20)
+        Me.Label26.TabIndex = 43
+        Me.Label26.Text = "Procedure"
+        '
+        'ComboBox21
+        '
+        Me.ComboBox21.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ComboBox21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox21.FormattingEnabled = True
+        Me.ComboBox21.Location = New System.Drawing.Point(616, 0)
+        Me.ComboBox21.Name = "ComboBox21"
+        Me.ComboBox21.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ComboBox21.Size = New System.Drawing.Size(236, 24)
+        Me.ComboBox21.TabIndex = 42
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(852, 0)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(44, 20)
+        Me.Label25.TabIndex = 41
+        Me.Label25.Text = "Staff"
+        '
+        'ComboBox16
+        '
+        Me.ComboBox16.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ComboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox16.FormattingEnabled = True
+        Me.ComboBox16.Location = New System.Drawing.Point(896, 0)
+        Me.ComboBox16.Name = "ComboBox16"
+        Me.ComboBox16.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ComboBox16.Size = New System.Drawing.Size(158, 24)
+        Me.ComboBox16.TabIndex = 40
+        '
         'Button14
         '
-        Me.Button14.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button14.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button14.FlatAppearance.BorderSize = 0
@@ -1948,7 +2017,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.BackgroundImage = Global.VolunteerSchedulingAssistant.My.Resources.Resources.SAVER
+        Me.Button2.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button2.FlatAppearance.BorderSize = 0
@@ -1959,75 +2028,6 @@ Partial Class Form1
         Me.Button2.TabIndex = 10
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(315, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(82, 20)
-        Me.Label18.TabIndex = 39
-        Me.Label18.Text = "Procedure"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(397, 0)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox1.Size = New System.Drawing.Size(236, 24)
-        Me.ComboBox1.TabIndex = 38
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(852, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(44, 20)
-        Me.Label25.TabIndex = 41
-        Me.Label25.Text = "Staff"
-        '
-        'ComboBox16
-        '
-        Me.ComboBox16.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ComboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox16.FormattingEnabled = True
-        Me.ComboBox16.Location = New System.Drawing.Point(896, 0)
-        Me.ComboBox16.Name = "ComboBox16"
-        Me.ComboBox16.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox16.Size = New System.Drawing.Size(158, 24)
-        Me.ComboBox16.TabIndex = 40
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(534, 0)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(82, 20)
-        Me.Label26.TabIndex = 43
-        Me.Label26.Text = "Procedure"
-        '
-        'ComboBox21
-        '
-        Me.ComboBox21.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ComboBox21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox21.FormattingEnabled = True
-        Me.ComboBox21.Location = New System.Drawing.Point(616, 0)
-        Me.ComboBox21.Name = "ComboBox21"
-        Me.ComboBox21.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox21.Size = New System.Drawing.Size(236, 24)
-        Me.ComboBox21.TabIndex = 42
         '
         'Form1
         '
