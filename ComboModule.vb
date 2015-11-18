@@ -46,6 +46,9 @@
                 StartCombo(Form1.ComboBox16)
                 StartCombo(Form1.ComboBox21)
 
+            Case "ComboBox1"
+                Form1.Specifics(Form1.DataGridView6)
+
 
             Case Else
                 ComboRefreshData(sender)
@@ -422,8 +425,6 @@
             Case "ComboBox2"
                 Grid = Form1.DataGridView5
 
-            Case "ComboBox1"
-                Grid = Form1.DataGridView6
 
 
         End Select

@@ -964,22 +964,8 @@
         Call SubCombo(Me.ComboBox19)
     End Sub
 
-    Private Sub DataGridView6_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
 
-
-        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
-
-        If MsgBox("Are you sure you want To delete?" & vbNewLine & "Table must be saved To commit delete", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            Dim row As DataGridViewRow
-            row = sender.rows(e.RowIndex)
-            sender.rows.remove(row)
-        End If
-
-
-    End Sub
-
-    Private Sub DataGridView6_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellEndEdit
-
+    Private Sub DataGridView6_CellEndEdit_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellEndEdit
         Dim Returner As String = vbNullString
 
         If IsDBNull(sender.rows(e.RowIndex).cells("ProcTime").value) Or
@@ -993,6 +979,18 @@
 
         If Returner <> vbNullString Then MsgBox("Overlap found - " & vbNewLine & vbNewLine & Returner)
 
+
+    End Sub
+
+    Private Sub DataGridView6_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
+
+        If e.ColumnIndex <> sender.columns("DeleteButton").index Then Exit Sub
+
+        If MsgBox("Are you sure you want To delete?" & vbNewLine & "Table must be saved To commit delete", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            Dim row As DataGridViewRow
+            row = sender.rows(e.RowIndex)
+            sender.rows.remove(row)
+        End If
 
     End Sub
 End Class

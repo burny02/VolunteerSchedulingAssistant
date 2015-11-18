@@ -2,7 +2,6 @@ C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin
 C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\Resource_Scheduling_System.exe.manifest
 C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\Resource_Scheduling_System.application
 C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\Resource_Scheduling_System.exe
-C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\itextsharp.dll
 C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\Microsoft.ReportViewer.WinForms.dll
 C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\TemplateDB.dll
 C:\OK\Databases\Backup\Resource_Scheduling_System\Resource_Scheduling_System\bin\Release\Microsoft.SqlServer.Types.dll
