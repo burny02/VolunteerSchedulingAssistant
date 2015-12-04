@@ -277,11 +277,10 @@ Partial Class Form1
         Me.TabPage1.BackColor = System.Drawing.Color.DarkGray
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.PictureBox4)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage1.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage1.Size = New System.Drawing.Size(1020, 392)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Menu"
         '
@@ -291,10 +290,9 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.White
         Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(441, 370)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(304, 301)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 20)
+        Me.Label2.Size = New System.Drawing.Size(48, 15)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Version"
         '
@@ -304,10 +302,9 @@ Partial Class Form1
         Me.PictureBox4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.hVIVO_screensaver_two
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox4.Location = New System.Drawing.Point(395, 10)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox4.Location = New System.Drawing.Point(269, 8)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(581, 464)
+        Me.PictureBox4.Size = New System.Drawing.Size(437, 378)
         Me.PictureBox4.TabIndex = 12
         Me.PictureBox4.TabStop = False
         '
@@ -322,20 +319,18 @@ Partial Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage11)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1443, 514)
+        Me.TabControl1.Size = New System.Drawing.Size(1028, 418)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.TabControl2)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage2.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage2.Size = New System.Drawing.Size(1074, 392)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Set Up"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -345,21 +340,19 @@ Partial Class Form1
         Me.TabControl2.Controls.Add(Me.TabPage3)
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl2.Location = New System.Drawing.Point(4, 4)
-        Me.TabControl2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabControl2.Location = New System.Drawing.Point(3, 3)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(1427, 477)
+        Me.TabControl2.Size = New System.Drawing.Size(1068, 386)
         Me.TabControl2.TabIndex = 0
         '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.SplitContainer1)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage3.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage3.Size = New System.Drawing.Size(1060, 360)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Procedures"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -367,8 +360,7 @@ Partial Class Form1
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -379,9 +371,8 @@ Partial Class Form1
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer1.SplitterDistance = 33
-        Me.SplitContainer1.SplitterWidth = 5
+        Me.SplitContainer1.Size = New System.Drawing.Size(1054, 354)
+        Me.SplitContainer1.SplitterDistance = 26
         Me.SplitContainer1.TabIndex = 6
         '
         'Button1
@@ -392,9 +383,8 @@ Partial Class Form1
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(173, 33)
+        Me.Button1.Size = New System.Drawing.Size(130, 26)
         Me.Button1.TabIndex = 11
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.UseVisualStyleBackColor = True
@@ -409,22 +399,20 @@ Partial Class Form1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView1.Size = New System.Drawing.Size(1054, 324)
         Me.DataGridView1.TabIndex = 2
         '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.SplitContainer2)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage4.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage4.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Staff"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -432,8 +420,7 @@ Partial Class Form1
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer2.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -444,9 +431,8 @@ Partial Class Form1
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridView2)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer2.SplitterDistance = 33
-        Me.SplitContainer2.SplitterWidth = 5
+        Me.SplitContainer2.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer2.SplitterDistance = 26
         Me.SplitContainer2.TabIndex = 7
         '
         'Button3
@@ -457,9 +443,8 @@ Partial Class Form1
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.Location = New System.Drawing.Point(0, 0)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(173, 33)
+        Me.Button3.Size = New System.Drawing.Size(130, 26)
         Me.Button3.TabIndex = 11
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.UseVisualStyleBackColor = True
@@ -474,22 +459,20 @@ Partial Class Form1
         Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView2.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView2.Size = New System.Drawing.Size(1056, 326)
         Me.DataGridView2.TabIndex = 2
         '
         'TabPage5
         '
         Me.TabPage5.Controls.Add(Me.TabControl3)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage5.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage5.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage5.Size = New System.Drawing.Size(1074, 392)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Studies"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -501,21 +484,19 @@ Partial Class Form1
         Me.TabControl3.Controls.Add(Me.TabPage13)
         Me.TabControl3.Controls.Add(Me.TabPage14)
         Me.TabControl3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl3.Location = New System.Drawing.Point(4, 4)
-        Me.TabControl3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabControl3.Location = New System.Drawing.Point(3, 3)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(1427, 477)
+        Me.TabControl3.Size = New System.Drawing.Size(1068, 386)
         Me.TabControl3.TabIndex = 0
         '
         'TabPage10
         '
         Me.TabPage10.Controls.Add(Me.SplitContainer3)
-        Me.TabPage10.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage10.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage10.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage10.Size = New System.Drawing.Size(1060, 360)
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "StudyCodes"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -523,8 +504,7 @@ Partial Class Form1
         'SplitContainer3
         '
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer3.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer3.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer3.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer3.Name = "SplitContainer3"
         Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -535,9 +515,8 @@ Partial Class Form1
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.DataGridView3)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer3.SplitterDistance = 33
-        Me.SplitContainer3.SplitterWidth = 5
+        Me.SplitContainer3.Size = New System.Drawing.Size(1054, 354)
+        Me.SplitContainer3.SplitterDistance = 26
         Me.SplitContainer3.TabIndex = 7
         '
         'Button4
@@ -548,9 +527,8 @@ Partial Class Form1
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button4.Location = New System.Drawing.Point(0, 0)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(173, 33)
+        Me.Button4.Size = New System.Drawing.Size(130, 26)
         Me.Button4.TabIndex = 11
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button4.UseVisualStyleBackColor = True
@@ -565,22 +543,20 @@ Partial Class Form1
         Me.DataGridView3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView3.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView3.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.RowHeadersVisible = False
         Me.DataGridView3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView3.Size = New System.Drawing.Size(1054, 324)
         Me.DataGridView3.TabIndex = 2
         '
         'TabPage12
         '
         Me.TabPage12.Controls.Add(Me.SplitContainer5)
-        Me.TabPage12.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage12.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage12.Location = New System.Drawing.Point(4, 22)
         Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage12.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage12.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage12.TabIndex = 2
         Me.TabPage12.Text = "Timepoints"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -588,8 +564,7 @@ Partial Class Form1
         'SplitContainer5
         '
         Me.SplitContainer5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer5.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer5.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer5.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer5.Name = "SplitContainer5"
         Me.SplitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -602,9 +577,8 @@ Partial Class Form1
         'SplitContainer5.Panel2
         '
         Me.SplitContainer5.Panel2.Controls.Add(Me.DataGridView5)
-        Me.SplitContainer5.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer5.SplitterDistance = 33
-        Me.SplitContainer5.SplitterWidth = 5
+        Me.SplitContainer5.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer5.SplitterDistance = 26
         Me.SplitContainer5.TabIndex = 9
         '
         'Label1
@@ -612,10 +586,9 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1129, 0)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(841, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 25)
+        Me.Label1.Size = New System.Drawing.Size(54, 20)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Study:"
         '
@@ -625,11 +598,10 @@ Partial Class Form1
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(1198, 0)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox2.Location = New System.Drawing.Point(895, 0)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox2.Size = New System.Drawing.Size(213, 25)
+        Me.ComboBox2.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox2.TabIndex = 12
         '
         'Button6
@@ -640,9 +612,8 @@ Partial Class Form1
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button6.Location = New System.Drawing.Point(0, 0)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(173, 33)
+        Me.Button6.Size = New System.Drawing.Size(130, 26)
         Me.Button6.TabIndex = 11
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button6.UseVisualStyleBackColor = True
@@ -657,22 +628,20 @@ Partial Class Form1
         Me.DataGridView5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView5.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView5.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView5.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView5.Name = "DataGridView5"
         Me.DataGridView5.RowHeadersVisible = False
         Me.DataGridView5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView5.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView5.Size = New System.Drawing.Size(1056, 326)
         Me.DataGridView5.TabIndex = 2
         '
         'TabPage13
         '
         Me.TabPage13.Controls.Add(Me.SplitContainer6)
-        Me.TabPage13.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage13.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage13.Location = New System.Drawing.Point(4, 22)
         Me.TabPage13.Name = "TabPage13"
-        Me.TabPage13.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage13.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage13.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage13.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage13.TabIndex = 3
         Me.TabPage13.Text = "Schedules"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -682,8 +651,7 @@ Partial Class Form1
         Me.SplitContainer6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer6.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer6.IsSplitterFixed = True
-        Me.SplitContainer6.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer6.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer6.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer6.Name = "SplitContainer6"
         Me.SplitContainer6.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -696,9 +664,8 @@ Partial Class Form1
         'SplitContainer6.Panel2
         '
         Me.SplitContainer6.Panel2.Controls.Add(Me.DataGridView6)
-        Me.SplitContainer6.Size = New System.Drawing.Size(1411, 440)
+        Me.SplitContainer6.Size = New System.Drawing.Size(1056, 356)
         Me.SplitContainer6.SplitterDistance = 60
-        Me.SplitContainer6.SplitterWidth = 5
         Me.SplitContainer6.TabIndex = 10
         '
         'SplitContainer16
@@ -706,7 +673,8 @@ Partial Class Form1
         Me.SplitContainer16.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer16.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer16.IsSplitterFixed = True
-        Me.SplitContainer16.Location = New System.Drawing.Point(346, 0)
+        Me.SplitContainer16.Location = New System.Drawing.Point(260, 0)
+        Me.SplitContainer16.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SplitContainer16.Name = "SplitContainer16"
         Me.SplitContainer16.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -723,8 +691,9 @@ Partial Class Form1
         Me.SplitContainer16.Panel2.Controls.Add(Me.ComboBox1)
         Me.SplitContainer16.Panel2.Controls.Add(Me.Label17)
         Me.SplitContainer16.Panel2.Controls.Add(Me.TextBox1)
-        Me.SplitContainer16.Size = New System.Drawing.Size(1065, 60)
+        Me.SplitContainer16.Size = New System.Drawing.Size(796, 60)
         Me.SplitContainer16.SplitterDistance = 27
+        Me.SplitContainer16.SplitterWidth = 3
         Me.SplitContainer16.TabIndex = 42
         '
         'Label4
@@ -732,10 +701,9 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(516, 0)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(375, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 25)
+        Me.Label4.Size = New System.Drawing.Size(54, 20)
         Me.Label4.TabIndex = 45
         Me.Label4.Text = "Study:"
         '
@@ -745,11 +713,10 @@ Partial Class Form1
         Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(585, 0)
-        Me.ComboBox4.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox4.Location = New System.Drawing.Point(429, 0)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox4.Size = New System.Drawing.Size(213, 25)
+        Me.ComboBox4.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox4.TabIndex = 44
         '
         'Label3
@@ -757,10 +724,9 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(798, 0)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(590, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(98, 25)
+        Me.Label3.Size = New System.Drawing.Size(78, 20)
         Me.Label3.TabIndex = 43
         Me.Label3.Text = "Timepoint"
         '
@@ -770,11 +736,10 @@ Partial Class Form1
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(896, 0)
-        Me.ComboBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox3.Location = New System.Drawing.Point(668, 0)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox3.Size = New System.Drawing.Size(169, 25)
+        Me.ComboBox3.Size = New System.Drawing.Size(128, 21)
         Me.ComboBox3.TabIndex = 42
         '
         'Label18
@@ -782,10 +747,9 @@ Partial Class Form1
         Me.Label18.AutoSize = True
         Me.Label18.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(350, 0)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label18.Location = New System.Drawing.Point(245, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(102, 25)
+        Me.Label18.Size = New System.Drawing.Size(82, 20)
         Me.Label18.TabIndex = 49
         Me.Label18.Text = "Procedure"
         '
@@ -795,11 +759,10 @@ Partial Class Form1
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(452, 0)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox1.Location = New System.Drawing.Point(327, 0)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox1.Size = New System.Drawing.Size(313, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(236, 24)
         Me.ComboBox1.TabIndex = 48
         '
         'Label17
@@ -807,20 +770,18 @@ Partial Class Form1
         Me.Label17.AutoSize = True
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(765, 0)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Location = New System.Drawing.Point(563, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(128, 25)
+        Me.Label17.Size = New System.Drawing.Size(103, 20)
         Me.Label17.TabIndex = 50
         Me.Label17.Text = "Default Time:"
         '
         'TextBox1
         '
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TextBox1.Location = New System.Drawing.Point(893, 0)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Location = New System.Drawing.Point(666, 0)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(172, 22)
+        Me.TextBox1.Size = New System.Drawing.Size(130, 20)
         Me.TextBox1.TabIndex = 51
         '
         'Button20
@@ -830,10 +791,9 @@ Partial Class Form1
         Me.Button20.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button20.FlatAppearance.BorderSize = 0
         Me.Button20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button20.Location = New System.Drawing.Point(173, 0)
-        Me.Button20.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button20.Location = New System.Drawing.Point(130, 0)
         Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(173, 60)
+        Me.Button20.Size = New System.Drawing.Size(130, 60)
         Me.Button20.TabIndex = 16
         Me.Button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button20.UseVisualStyleBackColor = True
@@ -846,9 +806,8 @@ Partial Class Form1
         Me.Button7.FlatAppearance.BorderSize = 0
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button7.Location = New System.Drawing.Point(0, 0)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(173, 60)
+        Me.Button7.Size = New System.Drawing.Size(130, 60)
         Me.Button7.TabIndex = 11
         Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button7.UseVisualStyleBackColor = True
@@ -871,23 +830,21 @@ Partial Class Form1
         Me.DataGridView6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView6.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView6.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView6.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView6.Name = "DataGridView6"
         Me.DataGridView6.RowHeadersVisible = False
         Me.DataGridView6.RowTemplate.Height = 35
         Me.DataGridView6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView6.Size = New System.Drawing.Size(1411, 375)
+        Me.DataGridView6.Size = New System.Drawing.Size(1056, 292)
         Me.DataGridView6.TabIndex = 4
         '
         'TabPage14
         '
         Me.TabPage14.Controls.Add(Me.SplitContainer7)
-        Me.TabPage14.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage14.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage14.Location = New System.Drawing.Point(4, 22)
         Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage14.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage14.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage14.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage14.TabIndex = 4
         Me.TabPage14.Text = "Cohorts"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -895,8 +852,7 @@ Partial Class Form1
         'SplitContainer7
         '
         Me.SplitContainer7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer7.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer7.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer7.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer7.Name = "SplitContainer7"
         Me.SplitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -909,9 +865,8 @@ Partial Class Form1
         'SplitContainer7.Panel2
         '
         Me.SplitContainer7.Panel2.Controls.Add(Me.DataGridView7)
-        Me.SplitContainer7.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer7.SplitterDistance = 33
-        Me.SplitContainer7.SplitterWidth = 5
+        Me.SplitContainer7.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer7.SplitterDistance = 26
         Me.SplitContainer7.TabIndex = 10
         '
         'Label5
@@ -919,10 +874,9 @@ Partial Class Form1
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(1129, 0)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(841, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(69, 25)
+        Me.Label5.Size = New System.Drawing.Size(54, 20)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Study:"
         '
@@ -932,11 +886,10 @@ Partial Class Form1
         Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(1198, 0)
-        Me.ComboBox5.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox5.Location = New System.Drawing.Point(895, 0)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox5.Size = New System.Drawing.Size(213, 25)
+        Me.ComboBox5.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox5.TabIndex = 12
         '
         'Button8
@@ -947,9 +900,8 @@ Partial Class Form1
         Me.Button8.FlatAppearance.BorderSize = 0
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button8.Location = New System.Drawing.Point(0, 0)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(4)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(173, 33)
+        Me.Button8.Size = New System.Drawing.Size(130, 26)
         Me.Button8.TabIndex = 11
         Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button8.UseVisualStyleBackColor = True
@@ -962,22 +914,20 @@ Partial Class Form1
         Me.DataGridView7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView7.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView7.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView7.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView7.Name = "DataGridView7"
         Me.DataGridView7.RowHeadersVisible = False
         Me.DataGridView7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView7.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView7.Size = New System.Drawing.Size(1056, 326)
         Me.DataGridView7.TabIndex = 3
         '
         'TabPage6
         '
         Me.TabPage6.Controls.Add(Me.TabControl4)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage6.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage6.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage6.Size = New System.Drawing.Size(1074, 392)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Cohorts"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -989,21 +939,19 @@ Partial Class Form1
         Me.TabControl4.Controls.Add(Me.TabPage7)
         Me.TabControl4.Controls.Add(Me.TabPage17)
         Me.TabControl4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl4.Location = New System.Drawing.Point(4, 4)
-        Me.TabControl4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabControl4.Location = New System.Drawing.Point(3, 3)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(1427, 477)
+        Me.TabControl4.Size = New System.Drawing.Size(1068, 386)
         Me.TabControl4.TabIndex = 0
         '
         'TabPage15
         '
         Me.TabPage15.Controls.Add(Me.SplitContainer8)
-        Me.TabPage15.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage15.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage15.Location = New System.Drawing.Point(4, 22)
         Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage15.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage15.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage15.Size = New System.Drawing.Size(1060, 360)
         Me.TabPage15.TabIndex = 0
         Me.TabPage15.Text = "Cohort Timepoints"
         Me.TabPage15.UseVisualStyleBackColor = True
@@ -1011,8 +959,7 @@ Partial Class Form1
         'SplitContainer8
         '
         Me.SplitContainer8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer8.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer8.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer8.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer8.Name = "SplitContainer8"
         Me.SplitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1027,9 +974,8 @@ Partial Class Form1
         'SplitContainer8.Panel2
         '
         Me.SplitContainer8.Panel2.Controls.Add(Me.DataGridView8)
-        Me.SplitContainer8.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer8.SplitterDistance = 33
-        Me.SplitContainer8.SplitterWidth = 5
+        Me.SplitContainer8.Size = New System.Drawing.Size(1054, 354)
+        Me.SplitContainer8.SplitterDistance = 26
         Me.SplitContainer8.TabIndex = 11
         '
         'Label6
@@ -1037,10 +983,9 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(921, 0)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(679, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 25)
+        Me.Label6.Size = New System.Drawing.Size(54, 20)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "Study:"
         '
@@ -1050,11 +995,10 @@ Partial Class Form1
         Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(990, 0)
-        Me.ComboBox6.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox6.Location = New System.Drawing.Point(733, 0)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox6.Size = New System.Drawing.Size(213, 25)
+        Me.ComboBox6.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox6.TabIndex = 14
         '
         'Label7
@@ -1062,10 +1006,9 @@ Partial Class Form1
         Me.Label7.AutoSize = True
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1203, 0)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(894, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(77, 25)
+        Me.Label7.Size = New System.Drawing.Size(61, 20)
         Me.Label7.TabIndex = 13
         Me.Label7.Text = "Cohort:"
         '
@@ -1075,11 +1018,10 @@ Partial Class Form1
         Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(1280, 0)
-        Me.ComboBox7.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox7.Location = New System.Drawing.Point(955, 0)
         Me.ComboBox7.Name = "ComboBox7"
         Me.ComboBox7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox7.Size = New System.Drawing.Size(131, 25)
+        Me.ComboBox7.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox7.TabIndex = 12
         '
         'Button9
@@ -1090,9 +1032,8 @@ Partial Class Form1
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button9.Location = New System.Drawing.Point(0, 0)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(173, 33)
+        Me.Button9.Size = New System.Drawing.Size(130, 26)
         Me.Button9.TabIndex = 11
         Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button9.UseVisualStyleBackColor = True
@@ -1107,22 +1048,20 @@ Partial Class Form1
         Me.DataGridView8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView8.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView8.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView8.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView8.Name = "DataGridView8"
         Me.DataGridView8.RowHeadersVisible = False
         Me.DataGridView8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView8.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView8.Size = New System.Drawing.Size(1054, 324)
         Me.DataGridView8.TabIndex = 2
         '
         'TabPage16
         '
         Me.TabPage16.Controls.Add(Me.SplitContainer9)
-        Me.TabPage16.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage16.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
-        Me.TabPage16.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage16.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage16.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage16.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage16.TabIndex = 1
         Me.TabPage16.Text = "Generate Schedule"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -1130,8 +1069,7 @@ Partial Class Form1
         'SplitContainer9
         '
         Me.SplitContainer9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer9.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer9.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer9.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer9.Name = "SplitContainer9"
         Me.SplitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1144,9 +1082,8 @@ Partial Class Form1
         Me.SplitContainer9.Panel2.Controls.Add(Me.Label10)
         Me.SplitContainer9.Panel2.Controls.Add(Me.Label8)
         Me.SplitContainer9.Panel2.Controls.Add(Me.ComboBox8)
-        Me.SplitContainer9.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer9.SplitterDistance = 33
-        Me.SplitContainer9.SplitterWidth = 5
+        Me.SplitContainer9.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer9.SplitterDistance = 26
         Me.SplitContainer9.TabIndex = 12
         '
         'Button10
@@ -1157,9 +1094,8 @@ Partial Class Form1
         Me.Button10.FlatAppearance.BorderSize = 0
         Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button10.Location = New System.Drawing.Point(0, 0)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(4)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(173, 33)
+        Me.Button10.Size = New System.Drawing.Size(130, 26)
         Me.Button10.TabIndex = 11
         Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button10.UseVisualStyleBackColor = True
@@ -1168,10 +1104,9 @@ Partial Class Form1
         '
         Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(503, 98)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(376, 79)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(401, 34)
+        Me.Label10.Size = New System.Drawing.Size(300, 26)
         Me.Label10.TabIndex = 16
         Me.Label10.Text = "Please ensure that all cohort timepoints have been completed " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "prior to generatin" &
     "g a schedule"
@@ -1181,10 +1116,9 @@ Partial Class Form1
         Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(502, 191)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(375, 155)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(69, 25)
+        Me.Label8.Size = New System.Drawing.Size(54, 20)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Study:"
         '
@@ -1194,21 +1128,19 @@ Partial Class Form1
         Me.ComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(592, 190)
-        Me.ComboBox8.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox8.Location = New System.Drawing.Point(443, 154)
         Me.ComboBox8.Name = "ComboBox8"
         Me.ComboBox8.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox8.Size = New System.Drawing.Size(281, 25)
+        Me.ComboBox8.Size = New System.Drawing.Size(212, 21)
         Me.ComboBox8.TabIndex = 14
         '
         'TabPage7
         '
         Me.TabPage7.Controls.Add(Me.SplitContainer10)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage7.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage7.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage7.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage7.TabIndex = 2
         Me.TabPage7.Text = "Volunteers"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -1216,8 +1148,7 @@ Partial Class Form1
         'SplitContainer10
         '
         Me.SplitContainer10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer10.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer10.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer10.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer10.Name = "SplitContainer10"
         Me.SplitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1232,9 +1163,8 @@ Partial Class Form1
         'SplitContainer10.Panel2
         '
         Me.SplitContainer10.Panel2.Controls.Add(Me.DataGridView9)
-        Me.SplitContainer10.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer10.SplitterDistance = 33
-        Me.SplitContainer10.SplitterWidth = 5
+        Me.SplitContainer10.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer10.SplitterDistance = 26
         Me.SplitContainer10.TabIndex = 12
         '
         'Label9
@@ -1242,10 +1172,9 @@ Partial Class Form1
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(921, 0)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(681, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(69, 25)
+        Me.Label9.Size = New System.Drawing.Size(54, 20)
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "Study:"
         '
@@ -1255,11 +1184,10 @@ Partial Class Form1
         Me.ComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox9.FormattingEnabled = True
-        Me.ComboBox9.Location = New System.Drawing.Point(990, 0)
-        Me.ComboBox9.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox9.Location = New System.Drawing.Point(735, 0)
         Me.ComboBox9.Name = "ComboBox9"
         Me.ComboBox9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox9.Size = New System.Drawing.Size(213, 25)
+        Me.ComboBox9.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox9.TabIndex = 14
         '
         'Label11
@@ -1267,10 +1195,9 @@ Partial Class Form1
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(1203, 0)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(896, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(77, 25)
+        Me.Label11.Size = New System.Drawing.Size(61, 20)
         Me.Label11.TabIndex = 13
         Me.Label11.Text = "Cohort:"
         '
@@ -1280,11 +1207,10 @@ Partial Class Form1
         Me.ComboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox10.FormattingEnabled = True
-        Me.ComboBox10.Location = New System.Drawing.Point(1280, 0)
-        Me.ComboBox10.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox10.Location = New System.Drawing.Point(957, 0)
         Me.ComboBox10.Name = "ComboBox10"
         Me.ComboBox10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox10.Size = New System.Drawing.Size(131, 25)
+        Me.ComboBox10.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox10.TabIndex = 12
         '
         'Button11
@@ -1295,9 +1221,8 @@ Partial Class Form1
         Me.Button11.FlatAppearance.BorderSize = 0
         Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button11.Location = New System.Drawing.Point(0, 0)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(4)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(173, 33)
+        Me.Button11.Size = New System.Drawing.Size(130, 26)
         Me.Button11.TabIndex = 11
         Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button11.UseVisualStyleBackColor = True
@@ -1312,22 +1237,20 @@ Partial Class Form1
         Me.DataGridView9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView9.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView9.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView9.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView9.Name = "DataGridView9"
         Me.DataGridView9.RowHeadersVisible = False
         Me.DataGridView9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView9.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView9.Size = New System.Drawing.Size(1056, 326)
         Me.DataGridView9.TabIndex = 2
         '
         'TabPage17
         '
         Me.TabPage17.Controls.Add(Me.SplitContainer11)
-        Me.TabPage17.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage17.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage17.Location = New System.Drawing.Point(4, 22)
         Me.TabPage17.Name = "TabPage17"
-        Me.TabPage17.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage17.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage17.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage17.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage17.TabIndex = 3
         Me.TabPage17.Text = "Volunteer Timepoints"
         Me.TabPage17.UseVisualStyleBackColor = True
@@ -1335,8 +1258,7 @@ Partial Class Form1
         'SplitContainer11
         '
         Me.SplitContainer11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer11.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer11.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer11.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer11.Name = "SplitContainer11"
         Me.SplitContainer11.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1353,9 +1275,8 @@ Partial Class Form1
         'SplitContainer11.Panel2
         '
         Me.SplitContainer11.Panel2.Controls.Add(Me.DataGridView10)
-        Me.SplitContainer11.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer11.SplitterDistance = 33
-        Me.SplitContainer11.SplitterWidth = 5
+        Me.SplitContainer11.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer11.SplitterDistance = 26
         Me.SplitContainer11.TabIndex = 13
         '
         'Label12
@@ -1363,10 +1284,9 @@ Partial Class Form1
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(688, 0)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(500, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(69, 25)
+        Me.Label12.Size = New System.Drawing.Size(54, 20)
         Me.Label12.TabIndex = 23
         Me.Label12.Text = "Study:"
         '
@@ -1376,11 +1296,10 @@ Partial Class Form1
         Me.ComboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox11.FormattingEnabled = True
-        Me.ComboBox11.Location = New System.Drawing.Point(757, 0)
-        Me.ComboBox11.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox11.Location = New System.Drawing.Point(554, 0)
         Me.ComboBox11.Name = "ComboBox11"
         Me.ComboBox11.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox11.Size = New System.Drawing.Size(213, 25)
+        Me.ComboBox11.Size = New System.Drawing.Size(161, 21)
         Me.ComboBox11.TabIndex = 22
         '
         'Label13
@@ -1388,10 +1307,9 @@ Partial Class Form1
         Me.Label13.AutoSize = True
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(970, 0)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(715, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(77, 25)
+        Me.Label13.Size = New System.Drawing.Size(61, 20)
         Me.Label13.TabIndex = 21
         Me.Label13.Text = "Cohort:"
         '
@@ -1401,11 +1319,10 @@ Partial Class Form1
         Me.ComboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox12.FormattingEnabled = True
-        Me.ComboBox12.Location = New System.Drawing.Point(1047, 0)
-        Me.ComboBox12.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox12.Location = New System.Drawing.Point(776, 0)
         Me.ComboBox12.Name = "ComboBox12"
         Me.ComboBox12.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox12.Size = New System.Drawing.Size(131, 25)
+        Me.ComboBox12.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox12.TabIndex = 20
         '
         'Label14
@@ -1413,10 +1330,9 @@ Partial Class Form1
         Me.Label14.AutoSize = True
         Me.Label14.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(1178, 0)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(875, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(102, 25)
+        Me.Label14.Size = New System.Drawing.Size(82, 20)
         Me.Label14.TabIndex = 17
         Me.Label14.Text = "Volunteer:"
         '
@@ -1426,11 +1342,10 @@ Partial Class Form1
         Me.ComboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox13.FormattingEnabled = True
-        Me.ComboBox13.Location = New System.Drawing.Point(1280, 0)
-        Me.ComboBox13.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox13.Location = New System.Drawing.Point(957, 0)
         Me.ComboBox13.Name = "ComboBox13"
         Me.ComboBox13.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox13.Size = New System.Drawing.Size(131, 25)
+        Me.ComboBox13.Size = New System.Drawing.Size(99, 21)
         Me.ComboBox13.TabIndex = 16
         '
         'Button12
@@ -1441,9 +1356,8 @@ Partial Class Form1
         Me.Button12.FlatAppearance.BorderSize = 0
         Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button12.Location = New System.Drawing.Point(0, 0)
-        Me.Button12.Margin = New System.Windows.Forms.Padding(4)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(173, 33)
+        Me.Button12.Size = New System.Drawing.Size(130, 26)
         Me.Button12.TabIndex = 11
         Me.Button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button12.UseVisualStyleBackColor = True
@@ -1458,22 +1372,20 @@ Partial Class Form1
         Me.DataGridView10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView10.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView10.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView10.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView10.Name = "DataGridView10"
         Me.DataGridView10.RowHeadersVisible = False
         Me.DataGridView10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView10.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView10.Size = New System.Drawing.Size(1056, 326)
         Me.DataGridView10.TabIndex = 2
         '
         'TabPage8
         '
         Me.TabPage8.Controls.Add(Me.TabControl5)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage8.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage8.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage8.Size = New System.Drawing.Size(1020, 392)
         Me.TabPage8.TabIndex = 5
         Me.TabPage8.Text = "Staffing"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -1483,21 +1395,19 @@ Partial Class Form1
         Me.TabControl5.Controls.Add(Me.TabPage18)
         Me.TabControl5.Controls.Add(Me.TabPage20)
         Me.TabControl5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl5.Location = New System.Drawing.Point(4, 4)
-        Me.TabControl5.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabControl5.Location = New System.Drawing.Point(3, 3)
         Me.TabControl5.Name = "TabControl5"
         Me.TabControl5.SelectedIndex = 0
-        Me.TabControl5.Size = New System.Drawing.Size(1427, 477)
+        Me.TabControl5.Size = New System.Drawing.Size(1014, 386)
         Me.TabControl5.TabIndex = 0
         '
         'TabPage18
         '
         Me.TabPage18.Controls.Add(Me.SplitContainer12)
-        Me.TabPage18.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage18.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage18.Location = New System.Drawing.Point(4, 22)
         Me.TabPage18.Name = "TabPage18"
-        Me.TabPage18.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage18.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage18.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage18.Size = New System.Drawing.Size(1006, 360)
         Me.TabPage18.TabIndex = 0
         Me.TabPage18.Text = "Volunteer Assign"
         Me.TabPage18.UseVisualStyleBackColor = True
@@ -1505,8 +1415,7 @@ Partial Class Form1
         'SplitContainer12
         '
         Me.SplitContainer12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer12.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer12.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer12.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer12.Name = "SplitContainer12"
         Me.SplitContainer12.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1517,16 +1426,14 @@ Partial Class Form1
         'SplitContainer12.Panel2
         '
         Me.SplitContainer12.Panel2.Controls.Add(Me.DataGridView11)
-        Me.SplitContainer12.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer12.SplitterDistance = 43
-        Me.SplitContainer12.SplitterWidth = 5
+        Me.SplitContainer12.Size = New System.Drawing.Size(1000, 354)
+        Me.SplitContainer12.SplitterDistance = 34
         Me.SplitContainer12.TabIndex = 12
         '
         'SplitContainer4
         '
         Me.SplitContainer4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer4.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer4.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer4.Name = "SplitContainer4"
         '
         'SplitContainer4.Panel1
@@ -1537,9 +1444,8 @@ Partial Class Form1
         'SplitContainer4.Panel2
         '
         Me.SplitContainer4.Panel2.Controls.Add(Me.SplitContainer15)
-        Me.SplitContainer4.Size = New System.Drawing.Size(1411, 43)
-        Me.SplitContainer4.SplitterDistance = 356
-        Me.SplitContainer4.SplitterWidth = 5
+        Me.SplitContainer4.Size = New System.Drawing.Size(1000, 34)
+        Me.SplitContainer4.SplitterDistance = 252
         Me.SplitContainer4.TabIndex = 0
         '
         'Button5
@@ -1549,10 +1455,9 @@ Partial Class Form1
         Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
         Me.Button5.FlatAppearance.BorderSize = 0
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(173, 0)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button5.Location = New System.Drawing.Point(130, 0)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(173, 43)
+        Me.Button5.Size = New System.Drawing.Size(130, 34)
         Me.Button5.TabIndex = 54
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.UseVisualStyleBackColor = True
@@ -1565,9 +1470,8 @@ Partial Class Form1
         Me.Button13.FlatAppearance.BorderSize = 0
         Me.Button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button13.Location = New System.Drawing.Point(0, 0)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(4)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(173, 43)
+        Me.Button13.Size = New System.Drawing.Size(130, 34)
         Me.Button13.TabIndex = 53
         Me.Button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button13.UseVisualStyleBackColor = True
@@ -1576,7 +1480,6 @@ Partial Class Form1
         '
         Me.SplitContainer15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer15.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer15.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer15.Name = "SplitContainer15"
         Me.SplitContainer15.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1601,9 +1504,8 @@ Partial Class Form1
         Me.SplitContainer15.Panel2.Controls.Add(Me.Label24)
         Me.SplitContainer15.Panel2.Controls.Add(Me.ComboBox20)
         Me.SplitContainer15.Panel2MinSize = 0
-        Me.SplitContainer15.Size = New System.Drawing.Size(1050, 43)
-        Me.SplitContainer15.SplitterDistance = 19
-        Me.SplitContainer15.SplitterWidth = 5
+        Me.SplitContainer15.Size = New System.Drawing.Size(744, 34)
+        Me.SplitContainer15.SplitterDistance = 15
         Me.SplitContainer15.TabIndex = 33
         '
         'Label29
@@ -1611,10 +1513,9 @@ Partial Class Form1
         Me.Label29.AutoSize = True
         Me.Label29.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(10, 0)
-        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label29.Location = New System.Drawing.Point(-57, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(52, 25)
+        Me.Label29.Size = New System.Drawing.Size(44, 20)
         Me.Label29.TabIndex = 39
         Me.Label29.Text = "Staff"
         '
@@ -1624,11 +1525,10 @@ Partial Class Form1
         Me.ComboBox24.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox24.FormattingEnabled = True
-        Me.ComboBox24.Location = New System.Drawing.Point(62, 0)
-        Me.ComboBox24.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox24.Location = New System.Drawing.Point(-13, 0)
         Me.ComboBox24.Name = "ComboBox24"
         Me.ComboBox24.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox24.Size = New System.Drawing.Size(209, 28)
+        Me.ComboBox24.Size = New System.Drawing.Size(158, 24)
         Me.ComboBox24.TabIndex = 38
         '
         'Label23
@@ -1636,10 +1536,9 @@ Partial Class Form1
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(271, 0)
-        Me.Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label23.Location = New System.Drawing.Point(145, 0)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(102, 25)
+        Me.Label23.Size = New System.Drawing.Size(82, 20)
         Me.Label23.TabIndex = 37
         Me.Label23.Text = "Procedure"
         '
@@ -1649,11 +1548,10 @@ Partial Class Form1
         Me.ComboBox19.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox19.FormattingEnabled = True
-        Me.ComboBox19.Location = New System.Drawing.Point(373, 0)
-        Me.ComboBox19.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox19.Location = New System.Drawing.Point(227, 0)
         Me.ComboBox19.Name = "ComboBox19"
         Me.ComboBox19.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox19.Size = New System.Drawing.Size(313, 28)
+        Me.ComboBox19.Size = New System.Drawing.Size(236, 24)
         Me.ComboBox19.TabIndex = 36
         '
         'Label15
@@ -1661,10 +1559,9 @@ Partial Class Form1
         Me.Label15.AutoSize = True
         Me.Label15.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(686, 0)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Location = New System.Drawing.Point(463, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(63, 25)
+        Me.Label15.Size = New System.Drawing.Size(50, 20)
         Me.Label15.TabIndex = 35
         Me.Label15.Text = "Study"
         '
@@ -1674,11 +1571,10 @@ Partial Class Form1
         Me.ComboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox14.FormattingEnabled = True
-        Me.ComboBox14.Location = New System.Drawing.Point(749, 0)
-        Me.ComboBox14.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox14.Location = New System.Drawing.Point(513, 0)
         Me.ComboBox14.Name = "ComboBox14"
         Me.ComboBox14.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox14.Size = New System.Drawing.Size(159, 28)
+        Me.ComboBox14.Size = New System.Drawing.Size(120, 24)
         Me.ComboBox14.TabIndex = 34
         '
         'Label16
@@ -1686,10 +1582,9 @@ Partial Class Form1
         Me.Label16.AutoSize = True
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(908, 0)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Location = New System.Drawing.Point(633, 0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(71, 25)
+        Me.Label16.Size = New System.Drawing.Size(57, 20)
         Me.Label16.TabIndex = 33
         Me.Label16.Text = "Cohort"
         '
@@ -1699,11 +1594,10 @@ Partial Class Form1
         Me.ComboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Location = New System.Drawing.Point(979, 0)
-        Me.ComboBox15.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox15.Location = New System.Drawing.Point(690, 0)
         Me.ComboBox15.Name = "ComboBox15"
         Me.ComboBox15.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox15.Size = New System.Drawing.Size(71, 28)
+        Me.ComboBox15.Size = New System.Drawing.Size(54, 24)
         Me.ComboBox15.TabIndex = 32
         '
         'Label28
@@ -1711,10 +1605,9 @@ Partial Class Form1
         Me.Label28.AutoSize = True
         Me.Label28.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(349, 0)
-        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label28.Location = New System.Drawing.Point(199, 0)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(118, 25)
+        Me.Label28.Size = New System.Drawing.Size(94, 20)
         Me.Label28.TabIndex = 49
         Me.Label28.Text = "1st Proc/Vol"
         '
@@ -1725,11 +1618,10 @@ Partial Class Form1
         Me.CheckBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ImageAlign = System.Drawing.ContentAlignment.TopRight
-        Me.CheckBox1.Location = New System.Drawing.Point(467, 0)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.CheckBox1.Location = New System.Drawing.Point(293, 0)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.CheckBox1.Size = New System.Drawing.Size(18, 19)
+        Me.CheckBox1.Size = New System.Drawing.Size(15, 15)
         Me.CheckBox1.TabIndex = 48
         Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.TopRight
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -1739,10 +1631,9 @@ Partial Class Form1
         Me.Label27.AutoSize = True
         Me.Label27.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(485, 0)
-        Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label27.Location = New System.Drawing.Point(308, 0)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(53, 25)
+        Me.Label27.Size = New System.Drawing.Size(44, 20)
         Me.Label27.TabIndex = 47
         Me.Label27.Text = "Date"
         '
@@ -1752,11 +1643,10 @@ Partial Class Form1
         Me.ComboBox23.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox23.FormattingEnabled = True
-        Me.ComboBox23.Location = New System.Drawing.Point(538, 0)
-        Me.ComboBox23.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox23.Location = New System.Drawing.Point(352, 0)
         Me.ComboBox23.Name = "ComboBox23"
         Me.ComboBox23.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox23.Size = New System.Drawing.Size(133, 28)
+        Me.ComboBox23.Size = New System.Drawing.Size(101, 24)
         Me.ComboBox23.TabIndex = 46
         '
         'Label24
@@ -1764,10 +1654,9 @@ Partial Class Form1
         Me.Label24.AutoSize = True
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(671, 0)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label24.Location = New System.Drawing.Point(453, 0)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(96, 25)
+        Me.Label24.Size = New System.Drawing.Size(78, 20)
         Me.Label24.TabIndex = 45
         Me.Label24.Text = "Volunteer"
         '
@@ -1777,11 +1666,10 @@ Partial Class Form1
         Me.ComboBox20.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox20.FormattingEnabled = True
-        Me.ComboBox20.Location = New System.Drawing.Point(767, 0)
-        Me.ComboBox20.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox20.Location = New System.Drawing.Point(531, 0)
         Me.ComboBox20.Name = "ComboBox20"
         Me.ComboBox20.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox20.Size = New System.Drawing.Size(283, 28)
+        Me.ComboBox20.Size = New System.Drawing.Size(213, 24)
         Me.ComboBox20.TabIndex = 44
         '
         'DataGridView11
@@ -1802,23 +1690,21 @@ Partial Class Form1
         Me.DataGridView11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView11.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView11.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView11.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView11.Name = "DataGridView11"
         Me.DataGridView11.RowHeadersVisible = False
         Me.DataGridView11.RowTemplate.Height = 40
         Me.DataGridView11.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView11.Size = New System.Drawing.Size(1411, 392)
+        Me.DataGridView11.Size = New System.Drawing.Size(1000, 316)
         Me.DataGridView11.TabIndex = 2
         '
         'TabPage20
         '
         Me.TabPage20.Controls.Add(Me.SplitContainer13)
-        Me.TabPage20.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage20.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage20.Location = New System.Drawing.Point(4, 22)
         Me.TabPage20.Name = "TabPage20"
-        Me.TabPage20.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage20.Size = New System.Drawing.Size(1419, 448)
+        Me.TabPage20.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage20.Size = New System.Drawing.Size(1062, 362)
         Me.TabPage20.TabIndex = 2
         Me.TabPage20.Text = "Staff Procedures"
         Me.TabPage20.UseVisualStyleBackColor = True
@@ -1826,8 +1712,7 @@ Partial Class Form1
         'SplitContainer13
         '
         Me.SplitContainer13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer13.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer13.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer13.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer13.Name = "SplitContainer13"
         Me.SplitContainer13.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -1842,9 +1727,8 @@ Partial Class Form1
         'SplitContainer13.Panel2
         '
         Me.SplitContainer13.Panel2.Controls.Add(Me.DataGridView12)
-        Me.SplitContainer13.Size = New System.Drawing.Size(1411, 440)
-        Me.SplitContainer13.SplitterDistance = 33
-        Me.SplitContainer13.SplitterWidth = 5
+        Me.SplitContainer13.Size = New System.Drawing.Size(1056, 356)
+        Me.SplitContainer13.SplitterDistance = 26
         Me.SplitContainer13.TabIndex = 13
         '
         'Label26
@@ -1852,10 +1736,9 @@ Partial Class Form1
         Me.Label26.AutoSize = True
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(735, 0)
-        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label26.Location = New System.Drawing.Point(536, 0)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(102, 25)
+        Me.Label26.Size = New System.Drawing.Size(82, 20)
         Me.Label26.TabIndex = 43
         Me.Label26.Text = "Procedure"
         '
@@ -1865,11 +1748,10 @@ Partial Class Form1
         Me.ComboBox21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox21.FormattingEnabled = True
-        Me.ComboBox21.Location = New System.Drawing.Point(837, 0)
-        Me.ComboBox21.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox21.Location = New System.Drawing.Point(618, 0)
         Me.ComboBox21.Name = "ComboBox21"
         Me.ComboBox21.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox21.Size = New System.Drawing.Size(313, 28)
+        Me.ComboBox21.Size = New System.Drawing.Size(236, 24)
         Me.ComboBox21.TabIndex = 42
         '
         'Label25
@@ -1877,10 +1759,9 @@ Partial Class Form1
         Me.Label25.AutoSize = True
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(1150, 0)
-        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label25.Location = New System.Drawing.Point(854, 0)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(52, 25)
+        Me.Label25.Size = New System.Drawing.Size(44, 20)
         Me.Label25.TabIndex = 41
         Me.Label25.Text = "Staff"
         '
@@ -1890,11 +1771,10 @@ Partial Class Form1
         Me.ComboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox16.FormattingEnabled = True
-        Me.ComboBox16.Location = New System.Drawing.Point(1202, 0)
-        Me.ComboBox16.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox16.Location = New System.Drawing.Point(898, 0)
         Me.ComboBox16.Name = "ComboBox16"
         Me.ComboBox16.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ComboBox16.Size = New System.Drawing.Size(209, 28)
+        Me.ComboBox16.Size = New System.Drawing.Size(158, 24)
         Me.ComboBox16.TabIndex = 40
         '
         'Button14
@@ -1905,9 +1785,8 @@ Partial Class Form1
         Me.Button14.FlatAppearance.BorderSize = 0
         Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button14.Location = New System.Drawing.Point(0, 0)
-        Me.Button14.Margin = New System.Windows.Forms.Padding(4)
         Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(173, 33)
+        Me.Button14.Size = New System.Drawing.Size(130, 26)
         Me.Button14.TabIndex = 11
         Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button14.UseVisualStyleBackColor = True
@@ -1930,23 +1809,21 @@ Partial Class Form1
         Me.DataGridView12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView12.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView12.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView12.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView12.Name = "DataGridView12"
         Me.DataGridView12.RowHeadersVisible = False
         Me.DataGridView12.RowTemplate.Height = 40
         Me.DataGridView12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView12.Size = New System.Drawing.Size(1411, 402)
+        Me.DataGridView12.Size = New System.Drawing.Size(1056, 326)
         Me.DataGridView12.TabIndex = 2
         '
         'TabPage9
         '
         Me.TabPage9.Controls.Add(Me.SplitContainer14)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage9.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage9.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage9.Size = New System.Drawing.Size(1020, 392)
         Me.TabPage9.TabIndex = 6
         Me.TabPage9.Text = "Reports"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1954,8 +1831,7 @@ Partial Class Form1
         'SplitContainer14
         '
         Me.SplitContainer14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer14.Location = New System.Drawing.Point(4, 4)
-        Me.SplitContainer14.Margin = New System.Windows.Forms.Padding(4)
+        Me.SplitContainer14.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer14.Name = "SplitContainer14"
         '
         'SplitContainer14.Panel1
@@ -1976,9 +1852,8 @@ Partial Class Form1
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button17)
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button16)
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button15)
-        Me.SplitContainer14.Size = New System.Drawing.Size(1427, 477)
-        Me.SplitContainer14.SplitterDistance = 786
-        Me.SplitContainer14.SplitterWidth = 5
+        Me.SplitContainer14.Size = New System.Drawing.Size(1014, 386)
+        Me.SplitContainer14.SplitterDistance = 558
         Me.SplitContainer14.TabIndex = 0
         '
         'DateTimePicker2
@@ -1986,11 +1861,10 @@ Partial Class Form1
         Me.DateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.DateTimePicker2.CustomFormat = "dd-MMM-yyyy HH:mm"
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker2.Location = New System.Drawing.Point(213, 226)
-        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(144, 183)
         Me.DateTimePicker2.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(201, 22)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(152, 20)
         Me.DateTimePicker2.TabIndex = 9
         '
         'DateTimePicker1
@@ -1998,21 +1872,19 @@ Partial Class Form1
         Me.DateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.DateTimePicker1.CustomFormat = "dd-MMM-yyyy HH:mm"
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(213, 171)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(144, 138)
         Me.DateTimePicker1.MinDate = New Date(2015, 1, 1, 0, 0, 0, 0)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(201, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 20)
         Me.DateTimePicker1.TabIndex = 8
         '
         'Label22
         '
         Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(121, 337)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label22.Location = New System.Drawing.Point(75, 273)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(54, 17)
+        Me.Label22.Size = New System.Drawing.Size(41, 13)
         Me.Label22.TabIndex = 7
         Me.Label22.Text = "Cohort:"
         '
@@ -2020,10 +1892,9 @@ Partial Class Form1
         '
         Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(121, 282)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label21.Location = New System.Drawing.Point(75, 228)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(48, 17)
+        Me.Label21.Size = New System.Drawing.Size(37, 13)
         Me.Label21.TabIndex = 6
         Me.Label21.Text = "Study:"
         '
@@ -2031,30 +1902,27 @@ Partial Class Form1
         '
         Me.ComboBox18.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBox18.FormattingEnabled = True
-        Me.ComboBox18.Location = New System.Drawing.Point(213, 337)
-        Me.ComboBox18.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox18.Location = New System.Drawing.Point(144, 273)
         Me.ComboBox18.Name = "ComboBox18"
-        Me.ComboBox18.Size = New System.Drawing.Size(201, 24)
+        Me.ComboBox18.Size = New System.Drawing.Size(152, 21)
         Me.ComboBox18.TabIndex = 5
         '
         'ComboBox17
         '
         Me.ComboBox17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBox17.FormattingEnabled = True
-        Me.ComboBox17.Location = New System.Drawing.Point(213, 282)
-        Me.ComboBox17.Margin = New System.Windows.Forms.Padding(4)
+        Me.ComboBox17.Location = New System.Drawing.Point(144, 228)
         Me.ComboBox17.Name = "ComboBox17"
-        Me.ComboBox17.Size = New System.Drawing.Size(201, 24)
+        Me.ComboBox17.Size = New System.Drawing.Size(152, 21)
         Me.ComboBox17.TabIndex = 4
         '
         'Label20
         '
         Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(121, 230)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20.Location = New System.Drawing.Point(75, 186)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(63, 17)
+        Me.Label20.Size = New System.Drawing.Size(49, 13)
         Me.Label20.TabIndex = 3
         Me.Label20.Text = "Date To:"
         '
@@ -2062,20 +1930,18 @@ Partial Class Form1
         '
         Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(121, 171)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Location = New System.Drawing.Point(75, 138)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(78, 17)
+        Me.Label19.Size = New System.Drawing.Size(59, 13)
         Me.Label19.TabIndex = 2
         Me.Label19.Text = "Date From:"
         '
         'Button19
         '
         Me.Button19.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button19.Location = New System.Drawing.Point(213, 141)
-        Me.Button19.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button19.Location = New System.Drawing.Point(148, 114)
         Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(237, 28)
+        Me.Button19.Size = New System.Drawing.Size(178, 23)
         Me.Button19.TabIndex = 4
         Me.Button19.Text = "Schedule Sign-Off"
         Me.Button19.UseVisualStyleBackColor = True
@@ -2083,10 +1949,9 @@ Partial Class Form1
         'Button18
         '
         Me.Button18.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button18.Location = New System.Drawing.Point(213, 352)
-        Me.Button18.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button18.Location = New System.Drawing.Point(148, 285)
         Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(237, 28)
+        Me.Button18.Size = New System.Drawing.Size(178, 23)
         Me.Button18.TabIndex = 3
         Me.Button18.Text = "SOA Report"
         Me.Button18.UseVisualStyleBackColor = True
@@ -2094,10 +1959,9 @@ Partial Class Form1
         'Button17
         '
         Me.Button17.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button17.Location = New System.Drawing.Point(213, 298)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button17.Location = New System.Drawing.Point(148, 241)
         Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(237, 28)
+        Me.Button17.Size = New System.Drawing.Size(178, 23)
         Me.Button17.TabIndex = 2
         Me.Button17.Text = "Master Report"
         Me.Button17.UseVisualStyleBackColor = True
@@ -2105,10 +1969,9 @@ Partial Class Form1
         'Button16
         '
         Me.Button16.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button16.Location = New System.Drawing.Point(213, 245)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button16.Location = New System.Drawing.Point(148, 198)
         Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(237, 28)
+        Me.Button16.Size = New System.Drawing.Size(178, 23)
         Me.Button16.TabIndex = 1
         Me.Button16.Text = "Staff Report"
         Me.Button16.UseVisualStyleBackColor = True
@@ -2116,10 +1979,9 @@ Partial Class Form1
         'Button15
         '
         Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button15.Location = New System.Drawing.Point(213, 192)
-        Me.Button15.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button15.Location = New System.Drawing.Point(148, 155)
         Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(237, 28)
+        Me.Button15.Size = New System.Drawing.Size(178, 23)
         Me.Button15.TabIndex = 0
         Me.Button15.Text = "Volunteer Report"
         Me.Button15.UseVisualStyleBackColor = True
@@ -2127,11 +1989,10 @@ Partial Class Form1
         'TabPage11
         '
         Me.TabPage11.Controls.Add(Me.DataGridView13)
-        Me.TabPage11.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage11.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage11.Size = New System.Drawing.Size(1435, 485)
+        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage11.Size = New System.Drawing.Size(1074, 392)
         Me.TabPage11.TabIndex = 7
         Me.TabPage11.Text = "Report Archive"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -2147,14 +2008,13 @@ Partial Class Form1
         Me.DataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView13.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
-        Me.DataGridView13.Location = New System.Drawing.Point(4, 4)
-        Me.DataGridView13.Margin = New System.Windows.Forms.Padding(4)
+        Me.DataGridView13.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView13.Name = "DataGridView13"
         Me.DataGridView13.ReadOnly = True
         Me.DataGridView13.RowHeadersVisible = False
         Me.DataGridView13.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView13.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView13.Size = New System.Drawing.Size(1427, 477)
+        Me.DataGridView13.Size = New System.Drawing.Size(1068, 386)
         Me.DataGridView13.TabIndex = 3
         '
         'BindingSource1
@@ -2177,12 +2037,11 @@ Partial Class Form1
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1443, 514)
+        Me.ClientSize = New System.Drawing.Size(1028, 418)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.TabPage1.ResumeLayout(False)
