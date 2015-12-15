@@ -1035,7 +1035,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -1064,7 +1063,7 @@
                   <Group Name="Details" />
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=format(Fields!CalcDate.Value,"HH:mm")</Value>
+                      <Value>=Fields!CalcDate.Value</Value>
                     </SortExpression>
                     <SortExpression>
                       <Value>=Fields!ProcOrd.Value</Value>

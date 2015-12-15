@@ -40,8 +40,6 @@ Module Variables
                 Dim Com As ComboBox = ctl
                 AddHandler Com.SelectionChangeCommitted, AddressOf GenericCombo
             End If
-        Next
-        For Each ctl In OverClass.DataItemCollection
             If (TypeOf ctl Is Button) Then
                 Dim But As Button = ctl
                 AddHandler But.Click, AddressOf ButtonSpecifics
