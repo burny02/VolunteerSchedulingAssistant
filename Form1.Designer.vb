@@ -2081,7 +2081,7 @@ Partial Class Form1
         'Button19
         '
         Me.Button19.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button19.Location = New System.Drawing.Point(259, 141)
+        Me.Button19.Location = New System.Drawing.Point(257, 141)
         Me.Button19.Margin = New System.Windows.Forms.Padding(4)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(237, 28)
@@ -2092,7 +2092,7 @@ Partial Class Form1
         'Button18
         '
         Me.Button18.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button18.Location = New System.Drawing.Point(259, 352)
+        Me.Button18.Location = New System.Drawing.Point(257, 352)
         Me.Button18.Margin = New System.Windows.Forms.Padding(4)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(237, 28)
@@ -2103,7 +2103,7 @@ Partial Class Form1
         'Button17
         '
         Me.Button17.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button17.Location = New System.Drawing.Point(259, 298)
+        Me.Button17.Location = New System.Drawing.Point(257, 298)
         Me.Button17.Margin = New System.Windows.Forms.Padding(4)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(237, 28)
@@ -2114,7 +2114,7 @@ Partial Class Form1
         'Button16
         '
         Me.Button16.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button16.Location = New System.Drawing.Point(259, 245)
+        Me.Button16.Location = New System.Drawing.Point(257, 245)
         Me.Button16.Margin = New System.Windows.Forms.Padding(4)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(237, 28)
@@ -2125,7 +2125,7 @@ Partial Class Form1
         'Button15
         '
         Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button15.Location = New System.Drawing.Point(259, 192)
+        Me.Button15.Location = New System.Drawing.Point(257, 192)
         Me.Button15.Margin = New System.Windows.Forms.Padding(4)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(237, 28)

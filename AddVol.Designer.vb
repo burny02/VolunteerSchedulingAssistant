@@ -242,6 +242,35 @@ Partial Class AddVol
             RVLNo = sender.item("RVLNO", e.RowIndex).value
             Initials = sender.item("Initials", e.RowIndex).value
 
+            Dim InsertString, TimepointName As String
+            Dim cmdInsert As OleDb.OleDbCommand
+
+            'GET A NEW VOL ID
+            Try
+                NewVolID = (OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0)) + 1
+            Catch ex As Exception
+                NewVolID = 1
+            End Try
+
+
+            'TRY AND INSERT VOLUNTEER (WITH NEW VOLID AND COHORTID)
+            Try
+                InsertString = "INSERT INTO Volunteer " &
+                                         "(VolID, RVLNo, Initials, CohortID, RoomNo) " &
+                                     "SELECT " & NewVolID & ", RVLNo, Initials, " & PickCohort & ", RoomNo FROM Volunteer " &
+                                     "WHERE VolID=" & VolID
+
+
+                cmdInsert = New OleDb.OleDbCommand(InsertString)
+
+                OverClass.ExecuteSQL(cmdInsert)
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Exit Sub
+
+            End Try
+
 
             For Each row In OverClass.TempDataTable("SELECT TimepointName, StudyTimepointID FROM ((StudyTimepoint a " & _
                                                         "INNER JOIN Study b ON a.StudyID=b.StudyID) " & _
@@ -249,8 +278,7 @@ Partial Class AddVol
                                                         "WHERE CohortID=" & PickCohort & _
                                                         " GROUP BY TimepointName, StudyTimepointID").Rows
                 Accepted = False
-                Dim InsertString, TimepointName As String
-                Dim cmdInsert As OleDb.OleDbCommand
+
                 Dim StudyTimepointID, OldStudyTimepointID As Long
 
                 Dim dt As DataTable
@@ -258,33 +286,6 @@ Partial Class AddVol
                 TimepointName = row.item("TimepointName")
                 StudyTimepointID = row.item("StudyTimepointID")
 
-                
-
-                'GET A NEW VOL ID
-                Try
-                    NewVolID = (OverClass.TempDataTable("SELECT Max(VolID) FROM Volunteer").Rows(0).Item(0)) + 1
-                Catch ex As Exception
-                    NewVolID = 1
-                End Try
-
-
-                'TRY AND INSERT VOLUNTEER (WITH NEW VOLID AND COHORTID)
-                Try
-                    InsertString = "INSERT INTO Volunteer " & _
-                                         "(VolID, RVLNo, Initials, CohortID, RoomNo) " & _
-                                     "SELECT " & NewVolID & ", RVLNo, Initials, " & PickCohort & ", RoomNo FROM Volunteer " & _
-                                     "WHERE VolID=" & VolID
-
-
-                    cmdInsert = New OleDb.OleDbCommand(InsertString)
-
-                    OverClass.ExecuteSQL(cmdInsert)
-
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                    Exit Sub
-
-                End Try
 
 
                 'DOES THE TIMEPOINT EXIST ALREADY IN OLD STUDY?
@@ -312,16 +313,38 @@ Partial Class AddVol
 
                         End Try
                         Accepted = True
-                        Continue For
-
+                        Continue Do
                     Loop
 
                 Else
                     'If is same timepoint name in old study
                     OldStudyTimepointID = dt.Rows(0).Item(0)
-                    TempDate = OverClass.TempDataTable("SELECT TimepointDateTime FROM VolunteerTimepoint " & _
-                                                               "WHERE StudyTimepointID=" & OldStudyTimepointID & _
-                                                               " AND VolID=" & VolID).Rows(0).Item(0)
+                    Dim TempTbl As DataTable = OverClass.TempDataTable("SELECT TimepointDateTime FROM VolunteerTimepoint " &
+                                                               "WHERE StudyTimepointID=" & OldStudyTimepointID &
+                                                               " AND VolID=" & VolID)
+                    If TempTbl.Rows.Count = 0 Then
+                        Do While Accepted = False
+
+                            Temp = InputBox("Input " & Initials & "(" & RVLNo & ") " & TimepointName & " Date/Time",
+                                            TimepointName & " Date", "01-Jan-2010 10:00")
+
+                            Try
+                                TempDate = CDate(Temp)
+                                If Format(TempDate, "HH:mm") = "00:00" Then Throw New System.Exception
+
+                            Catch ex As Exception
+                                MsgBox("Must enter a valid Date/Time to continue")
+                                Continue Do
+
+                            End Try
+                            Accepted = True
+                            Continue Do
+
+                        Loop
+                    Else
+                        TempDate = TempTbl.Rows(0).Item(0)
+                    End If
+
 
                 End If
 
@@ -357,13 +380,6 @@ Partial Class AddVol
 
 
             OverClass.ExecuteMassSQL()
-
-
-            'DELETE PROCEDURES FROM OLD STUDY
-            OverClass.ExecuteSQL("DELETE a.* FROM VolunteerSchedule a INNER JOIN (SELECT VolunteerScheduleID FROM CleanUP " & _
-                                 "WHERE VolID=" & VolID & ") b ON a.VolunteerScheduleID=b.VolunteerScheduleID")
-
-
 
 
             'UPDATE COHORT TO GENERATED
