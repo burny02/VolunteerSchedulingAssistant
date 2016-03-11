@@ -32,9 +32,6 @@ Module ButtonModule
                 Call Saver(Form1.DataGridView11)
             Case "Button14"
                 Call Saver(Form1.DataGridView12)
-                Call Saver(Form1.DataGridView12)
-                Call Saver(Form1.DataGridView12)
-                Call Saver(Form1.DataGridView12)
             Case "Button15"
                 Dim OK As New ReportDisplay
                 If CheckDates() = True Then
@@ -42,7 +39,7 @@ Module ButtonModule
                     OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.VolunteerReport.rdlc"
                     OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
                                                                 OverClass.TempDataTable("SELECT * FROM VolReport " &
-                                                                                        "WHERE CohortID=" & Form1.ComboBox18.SelectedValue &
+                                                                                        "WHERE CohortID=" & Form1.FilterCombo2.SelectedValue &
                                                                                         " AND CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
                                                                                             " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
 
@@ -59,8 +56,8 @@ Module ButtonModule
                     Dim ArchiveType As String = "VolunteerReport"
                     Dim Criteria As String = "Dates: " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HH:mm") _
                                              & " -> " & Format(Form1.DateTimePicker2.Value, "dd-MMM-yyyy HH:mm") _
-                                             & vbNewLine & "Study: " & Form1.ComboBox17.Text _
-                                             & vbNewLine & "Cohort: " & Form1.ComboBox18.Text
+                                             & vbNewLine & "Study: " & Form1.FilterCombo1.Text _
+                                             & vbNewLine & "Cohort: " & Form1.FilterCombo2.Text
 
                     Dim pdfContent As Byte() = OK.ReportViewer1.LocalReport.Render("PDF", Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                     Dim pdfPath As String = ReportPath & NextID & ".pdf"
@@ -177,7 +174,7 @@ Module ButtonModule
     "SELECT StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " &
     "FROM ((Study INNER JOIN (Cohort INNER JOIN Volunteer AS d ON Cohort.CohortID = d.CohortID) ON Study.StudyID = Cohort.StudyID) INNER JOIN StudyTimepoint ON Study.StudyID = StudyTimepoint.StudyID) INNER JOIN ((ProcTask AS e INNER JOIN (StudySchedule AS a INNER JOIN VolunteerTimepoint AS f ON a.StudyTimepointID = f.StudyTimepointID) ON e.ProcID = a.ProcID) " &
     "INNER JOIN (VolunteerSchedule AS c LEFT JOIN Staff ON c.StaffID = Staff.StaffID) ON a.StudyScheduleID = c.StudyScheduleID) ON (d.VolID = f.VolID) AND (d.VolID = c.VolID) AND (StudyTimepoint.StudyTimepointID = a.StudyTimepointID) " &
-    "WHERE (((StudyTimepoint.StudyID)=" & Form1.ComboBox17.SelectedValue.ToString & ") " &
+    "WHERE (((StudyTimepoint.StudyID)=" & Form1.FilterCombo1.SelectedValue.ToString & ") " &
     "AND ((DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))))) " &
     "BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
     " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value) & ")) " &
@@ -237,73 +234,56 @@ Module ButtonModule
 
                 End If
 
-            Case "Button19"
 
-                Dim dt As DataTable
-                dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
-                                             "FROM StudyTimepoint WHERE StudyID=" & Form1.ComboBox17.SelectedValue.ToString)
-                dt.Columns.Add("TimepointDateTime", System.Type.GetType("System.DateTime"))
+            Case "Button20"
+
+                MsgBox("Please ensure to save changes to see up to date report")
+                'Dim dt As DataTable
+                'dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
+                '                             "FROM StudyTimepoint WHERE StudyID=" & Form1.FilterCombo22.SelectedValue.ToString)
+                'dt.Columns.Add("TimepointDateTime", System.Type.GetType("System.DateTime"))
 
 
-                Dim Accepted As Boolean = False
-                Dim Temp As String
-                Dim TempDate As Date
+                'Dim Accepted As Boolean = False
+                'Dim Temp As String
+                'Dim TempDate As Date
 
-                For Each row In dt.Rows
+                'For Each row In dt.Rows
 
-                    Accepted = False
-                    Dim TimepointName As String = row.item("TimepointName")
+                'Accepted = False
+                'Dim TimepointName As String = row.item("TimepointName")
 
-                    Do While Accepted = False
+                'Do While Accepted = False
 
-                        Temp = InputBox("Input " & TimepointName & " Date", , "01-Jan-2010 10:00")
+                'Temp = InputBox("Input " & TimepointName & " Date", , "01-Jan-2010 10:00")
 
-                        Try
-                            TempDate = CDate(Temp)
-                            If Format(TempDate, "HH:mm") = "00:00" Then Throw New System.Exception
-                            row.item("TimepointDateTime") = TempDate
+                'Try
+                'TempDate = CDate(Temp)
+                'If Format(TempDate, "HH:mm") = "00:00" Then Throw New System.Exception
+                'row.item("TimepointDateTime") = TempDate
 
-                        Catch ex As Exception
-                            MsgBox("Must enter a valid Date/Time to continue")
-                            Continue Do
+                'Catch ex As Exception
+                'MsgBox("Must enter a valid Date/Time to continue")
+                'Continue Do
 
-                        End Try
+                'End Try
 
-                        Accepted = True
+                'Accepted = True
 
-                    Loop
+                'Loop
 
-                Next
+                'Next
 
                 Dim dt2 As DataTable
                 dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " &
-                                              "WHERE StudyID=" & Form1.ComboBox17.SelectedValue.ToString)
-
-
-                Dim ReportData =
-                    From a In dt.AsEnumerable()
-                    Join b In dt2.AsEnumerable()
-                    On
-                       a.Field(Of Int32)("StudyTimepointID") Equals b.Field(Of Int32)("StudyTimepointID")
-                    Select Order = b.Field(Of Int32)("ProcOrd"), TimepointName = a.Field(Of String)("TimepointName"),
-                    TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
-                    StudyCode = b.Field(Of String)("StudyCode"), ProcName = b.Field(Of String)("ProcName"),
-                    CalcDate = If(b.Field(Of String)("Approx") = "Set Time",
-                CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("ProcTime"))),
-                DateAdd("n", DateDiff("n", TimeValue(b.Field(Of Date)("DefaultTime")), TimeValue(b.Field(Of Date)("ProcTime"))),
-                DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))))
-
-
-                'DateAdd("n", b.Field(Of Int16)("MinsPost"), DateAdd("h", b.Field(Of Int16)("HoursPost"),
-                'DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime")))))
-
+                                              "WHERE StudyID=" & Form1.FilterCombo22.SelectedValue.ToString)
 
                 Dim OK As New ReportDisplay
 
                 OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
                 OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.SchedulePreview.rdlc"
                 OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
-                                                            ReportData))
+                                                            dt2))
 
                 OK.ReportViewer1.RefreshReport()
 
@@ -315,102 +295,7 @@ Module ButtonModule
                 End Try
 
                 Dim ArchiveType As String = "SchedulePreview"
-                Dim Criteria As String = "Study: " & Form1.ComboBox17.Text
-
-                Dim pdfContent As Byte() = OK.ReportViewer1.LocalReport.Render("PDF", Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                Dim pdfPath As String = ReportPath & NextID & ".pdf"
-                Dim pdfFile As New System.IO.FileStream(pdfPath, System.IO.FileMode.Create)
-                pdfFile.Write(pdfContent, 0, pdfContent.Length)
-                pdfFile.Close()
-
-                OverClass.ExecuteSQL("INSERT INTO ReportArchive (ArchiveID, ArchivePath, ArchiveUser, ArchiveType, ArchiveCriteria) " &
-                "VALUES (" & NextID & ", '" & pdfPath & "', '" & OverClass.GetUserName & "', '" & ArchiveType & "', '" _
-                & Criteria & "')")
-
-
-
-                OK.Visible = True
-                OK.ReportViewer1.Visible = True
-
-            Case "Button20"
-
-                MsgBox("Please ensure to save changes to see up to date report")
-                Dim dt As DataTable
-                dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
-                                             "FROM StudyTimepoint WHERE StudyID=" & Form1.ComboBox4.SelectedValue.ToString)
-                dt.Columns.Add("TimepointDateTime", System.Type.GetType("System.DateTime"))
-
-
-                Dim Accepted As Boolean = False
-                Dim Temp As String
-                Dim TempDate As Date
-
-                For Each row In dt.Rows
-
-                    Accepted = False
-                    Dim TimepointName As String = row.item("TimepointName")
-
-                    Do While Accepted = False
-
-                        Temp = InputBox("Input " & TimepointName & " Date", , "01-Jan-2010 10:00")
-
-                        Try
-                            TempDate = CDate(Temp)
-                            If Format(TempDate, "HH:mm") = "00:00" Then Throw New System.Exception
-                            row.item("TimepointDateTime") = TempDate
-
-                        Catch ex As Exception
-                            MsgBox("Must enter a valid Date/Time to continue")
-                            Continue Do
-
-                        End Try
-
-                        Accepted = True
-
-                    Loop
-
-                Next
-
-                Dim dt2 As DataTable
-                dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " &
-                                              "WHERE StudyID=" & Form1.ComboBox4.SelectedValue.ToString)
-
-
-                Dim ReportData =
-                    From a In dt.AsEnumerable()
-                    Join b In dt2.AsEnumerable()
-                    On
-                       a.Field(Of Int32)("StudyTimepointID") Equals b.Field(Of Int32)("StudyTimepointID")
-                    Select Order = b.Field(Of Int32)("ProcOrd"), TimepointName = a.Field(Of String)("TimepointName"),
-                    TimepointDateTime = a.Field(Of Date)("TimepointDateTime"),
-                    StudyCode = b.Field(Of String)("StudyCode"), ProcName = b.Field(Of String)("ProcName"),
-                    CalcDate = If(b.Field(Of String)("Approx") = "Set Time",
-                CDate(DateValue(DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))) + " " + TimeValue(b.Field(Of Date)("ProcTime"))),
-                DateAdd("n", DateDiff("n", TimeValue(b.Field(Of Date)("DefaultTime")), TimeValue(b.Field(Of Date)("ProcTime"))),
-                DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime"))))
-
-
-                'DateAdd("n", b.Field(Of Int16)("MinsPost"), DateAdd("h", b.Field(Of Int16)("HoursPost"),
-                'DateAdd("d", b.Field(Of Int32)("DaysPost"), a.Field(Of Date)("TimepointDateTime")))))
-
-                Dim OK As New ReportDisplay
-
-                OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
-                OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.SchedulePreview.rdlc"
-                OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet", _
-                                                            ReportData))
-
-                OK.ReportViewer1.RefreshReport()
-
-                Dim NextID As Long
-                Try
-                    NextID = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
-                Catch ex As Exception
-                    NextID = 1
-                End Try
-
-                Dim ArchiveType As String = "SchedulePreview"
-                Dim Criteria As String = "Study: " & Form1.ComboBox4.Text
+                Dim Criteria As String = "Study: " & Form1.FilterCombo22.Text
 
                 Dim pdfContent As Byte() = OK.ReportViewer1.LocalReport.Render("PDF", Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                 Dim pdfPath As String = ReportPath & NextID & ".pdf"
@@ -433,6 +318,18 @@ Module ButtonModule
 
                 AssAll.ShowDialog()
 
+            Case "Button21"
+
+                Dim Dt As DataTable = OverClass.TempDataTable("SELECT DefaultTime FROM StudyTimepoint WHERE StudyTimepointID=" &
+                                                              Form1.FilterCombo21.SelectedValue)
+                Dim TempTime As String = ""
+
+                Try
+                    TempTime = Dt.Rows(0).Item(0).ToString
+                Catch ex As Exception
+                End Try
+
+                InputBox("Default Time:", "Default Time", TempTime)
 
         End Select
 

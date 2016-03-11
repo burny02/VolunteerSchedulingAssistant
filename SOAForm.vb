@@ -164,7 +164,7 @@ Public Class SOAForm
         Dim ArchiveType As String = "SchedulePreview"
         Dim Criteria As String = "Dates: " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HH:mm") _
                                              & " -> " & Format(Form1.DateTimePicker2.Value, "dd-MMM-yyyy HH:mm") _
-                                             & vbNewLine & "Study: " & Form1.ComboBox17.Text
+                                             & vbNewLine & "Study: " & Form1.FilterCombo1.Text
 
         Dim pdfPath As String = ReportPath & NextID & ".pdf"
 

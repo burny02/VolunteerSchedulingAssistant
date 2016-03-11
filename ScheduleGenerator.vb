@@ -1,7 +1,7 @@
 ﻿Module ScheduleGenerator
     Public Sub Generator()
 
-        If IsNothing(Form1.ComboBox8.SelectedValue) Then Exit Sub
+        If IsNothing(Form1.FilterCombo13.SelectedValue) Then Exit Sub
 
         Dim DtSchedule As DataTable
         Dim DtCohortTimepoint As DataTable
@@ -13,25 +13,25 @@
         Dim NumSchedule As Long = 0
 
         'Upload into Volunteers Table
-        DtNumVolunteers = OverClass.TempDataTable("SELECT NumVols FROM Cohort WHERE CohortID=" & Form1.ComboBox8.SelectedValue.ToString)
+        DtNumVolunteers = OverClass.TempDataTable("SELECT NumVols FROM Cohort WHERE CohortID=" & Form1.FilterCombo13.SelectedValue.ToString)
 
         NumVols = DtNumVolunteers.Rows(0).Item(0)
         DtNumVolunteers = Nothing
 
         Do While i < NumVols
-            OverClass.AddToMassSQL("INSERT INTO Volunteer (CohortID) VALUES (" & Form1.ComboBox8.SelectedValue.ToString & ")")
+            OverClass.AddToMassSQL("INSERT INTO Volunteer (CohortID) VALUES (" & Form1.FilterCombo13.SelectedValue.ToString & ")")
             i = i + 1
         Loop
         OverClass.ExecuteMassSQL()
         i = 0
 
-       
+
         'Insert volunteers timepoints into Volunteer Timepoints Table
-        DtVolunteers = OverClass.TempDataTable("SELECT VolID FROM Volunteer WHERE CohortID=" & Form1.ComboBox8.SelectedValue.ToString)
+        DtVolunteers = OverClass.TempDataTable("SELECT VolID FROM Volunteer WHERE CohortID=" & Form1.FilterCombo13.SelectedValue.ToString)
 
 
-        DtCohortTimepoint = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointDateTime, VolGap FROM CohortTimepoint " & _
-                                              "WHERE CohortID=" & Form1.ComboBox8.SelectedValue.ToString)
+        DtCohortTimepoint = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointDateTime, VolGap FROM CohortTimepoint " &
+                                              "WHERE CohortID=" & Form1.FilterCombo13.SelectedValue.ToString)
 
         Do While i < NumVols
             Do While j < DtCohortTimepoint.Rows.Count
@@ -51,11 +51,11 @@
 
         'Insert Schedule into Volunteer Schedule Table
 
-        DtSchedule = OverClass.TempDataTable("SELECT d.StudyScheduleID " & _
-                                             "FROM ((Cohort a INNER JOIN Study b ON a.StudyID=b.StudyID) " & _
-                                             "INNER JOIN StudyTimepoint c ON b.StudyID=c.StudyID) " & _
-                                             "INNER JOIN StudySchedule d ON c.StudyTimepointID=d.StudyTimepointID " & _
-                                             "WHERE a.CohortID=" & Form1.ComboBox8.SelectedValue.ToString)
+        DtSchedule = OverClass.TempDataTable("SELECT d.StudyScheduleID " &
+                                             "FROM ((Cohort a INNER JOIN Study b ON a.StudyID=b.StudyID) " &
+                                             "INNER JOIN StudyTimepoint c ON b.StudyID=c.StudyID) " &
+                                             "INNER JOIN StudySchedule d ON c.StudyTimepointID=d.StudyTimepointID " &
+                                             "WHERE a.CohortID=" & Form1.FilterCombo13.SelectedValue.ToString)
         NumSchedule = DtSchedule.Rows.Count
 
         Do While j < NumVols
@@ -72,25 +72,26 @@
         OverClass.ExecuteMassSQL()
 
         'Update to say Cohort Generated
-        OverClass.ExecuteSQL("UPDATE Cohort SET Generated=true WHERE CohortID=" & Form1.ComboBox8.SelectedValue.ToString)
+        OverClass.ExecuteSQL("UPDATE Cohort SET Generated=true WHERE CohortID=" & Form1.FilterCombo13.SelectedValue.ToString)
 
-        Form1.ComboBox8.DataSource = OverClass.TempDataTable("SELECT a.CohortID, StudyCode & ' - ' & CohortName AS Display " & _
-                                                              "FROM (SELECT StudyCode, CohortName, CohortID, " & _
-                                                              "Count(StudyTimepointID) as NumTimepoint " & _
-                                                              "FROM (Study a INNER JOIN StudyTimePoint b " & _
-                                                              "ON a.StudyID=b.StudyID) " & _
-                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " & _
-                                                              "GROUP BY StudyCode, CohortName, CohortID) as a " & _
-                                                              "INNER JOIN " & _
-                                                              "(SELECT c.CohortID, Count(CohortTimepointID) as NumTimepoint " & _
-                                                              "FROM CohortTimepoint c INNER JOIN Cohort d " & _
-                                                              "ON c.CohortID=d.CohortID WHERE Generated=False " & _
-                                                              "GROUP BY c.CohortID) as b " & _
+        Form1.FilterCombo13.DataSource = OverClass.TempDataTable("SELECT a.CohortID, StudyCode & ' - ' & CohortName AS Display " &
+                                                              "FROM (SELECT StudyCode, CohortName, CohortID, " &
+                                                              "Count(StudyTimepointID) as NumTimepoint " &
+                                                              "FROM (Study a INNER JOIN StudyTimePoint b " &
+                                                              "ON a.StudyID=b.StudyID) " &
+                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " &
+                                                              "GROUP BY StudyCode, CohortName, CohortID) as a " &
+                                                              "INNER JOIN " &
+                                                              "(SELECT c.CohortID, Count(CohortTimepointID) as NumTimepoint " &
+                                                              "FROM CohortTimepoint c INNER JOIN Cohort d " &
+                                                              "ON c.CohortID=d.CohortID WHERE Generated=False " &
+                                                              "GROUP BY c.CohortID) as b " &
                                                               "ON a.CohortID=b.CohortID AND a.NumTimepoint=b.NumTimepoint")
-        Form1.ComboBox8.ValueMember = "CohortID"
-        Form1.ComboBox8.DisplayMember = "Display"
+        Form1.FilterCombo13.ValueMember = "CohortID"
+        Form1.FilterCombo13.DisplayMember = "Display"
 
         MsgBox("Schedule Generated")
+        Form1.FilterCombo13.RefreshCombo()
 
     End Sub
 End Module

@@ -26,19 +26,30 @@
 
             Case "DataGridView5"
 
-                Dim PKey As Double = Form1.ComboBox2.SelectedValue.ToString
-
-                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO StudyTimepoint " & _
-                                                                          "(TimepointName, StudyID) " & _
-                                                                          "VALUES (@P1, " & PKey & ")")
+                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO StudyTimepoint " &
+                                                                          "(TimepointName, StudyID) " &
+                                                                          "VALUES (@P1,@P2)")
 
 
                 With OverClass.CurrentDataAdapter.InsertCommand.Parameters
                     .Add("@P1", OleDb.OleDbType.VarChar, 255, "TimepointName")
+                    .Add("@P2", OleDb.OleDbType.Double, 255, "StudyID")
                 End With
 
             Case "DataGridView6"
 
+                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE StudySchedule " &
+                                                                          "SET ProcTime=@P1, Approx=@P2, DaysPost=@P3, ProcID=@P4 " &
+                                                                        "WHERE StudyScheduleID=@P5")
+
+                With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
+                    .Add("@P1", OleDb.OleDbType.DBTimeStamp, 255, "ProcTime")
+                    .Add("@P2", OleDb.OleDbType.VarChar, 255, "Approx")
+                    .Add("@P3", OleDb.OleDbType.Double, 255, "DaysPost")
+                    .Add("@P4", OleDb.OleDbType.Double, 255, "ProcID")
+                    .Add("@P5", OleDb.OleDbType.Double, 255, "StudyScheduleID")
+
+                End With
                 If IsDBNull(Form1.TextBox1.Text) Then
                     MsgBox("Default Time Missing")
                     OverClass.CmdList.Clear()
@@ -52,19 +63,19 @@
                 End If
 
                 Try
-                    OverClass.ExecuteSQL("UPDATE StudyTimepoint " & _
-                                         "SET DefaultTime=#" & Form1.TextBox1.Text & "#" & _
-                                         " WHERE StudyTimepointID=" & Form1.ComboBox3.SelectedValue.ToString)
+                    OverClass.ExecuteSQL("UPDATE StudyTimepoint " &
+                                         "SET DefaultTime=#" & Form1.TextBox1.Text & "#" &
+                                         " WHERE StudyTimepointID=" & Form1.FilterCombo21.SelectedValue.ToString)
                 Catch ex As Exception
                     MsgBox(ex.Message)
                     Exit Sub
                 End Try
 
 
-                Dim PKey As Double = Form1.ComboBox3.SelectedValue.ToString
+
                 DisplayMessage = False
 
-                Dim ProcID, DaysPost As Double
+                Dim PKey, ProcID, DaysPost As Double
                 Dim TempDate As Date
                 Dim ProcTime As String = vbNullString
                 Dim Approx As String = vbNullString
@@ -86,12 +97,7 @@
                     Dim rowIndex As Long = OverClass.CurrentDataSet.Tables(0).Rows.IndexOf(row)
                     If row.RowState = DataRowState.Added Then rowIndex = rowIndex - DeleteNumber
 
-                    Dim OrigColour As Color = Color.White
-                    Dim OrigAltColour As Color = Color.Gainsboro
-
                     If row.RowState = DataRowState.Added Or row.RowState = DataRowState.Modified Then
-
-                        Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = Color.Red
 
                         If IsDBNull(row.item("ProcID")) Then
                             MsgBox("Procedure missing")
@@ -133,12 +139,6 @@
                             Exit Sub
                         End Try
 
-                        If rowIndex Mod 2 = 0 Then
-                            Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = OrigColour
-                        Else
-                            Form1.DataGridView6.Rows(rowIndex).DefaultCellStyle.BackColor = OrigAltColour
-                        End If
-
                     End If
 
 
@@ -149,6 +149,7 @@
                         DaysPost = CDbl(row.item("DaysPost"))
                         Approx = "'" & row.item("Approx") & "'"
                         ProcTime = "#" & row.item("ProcTime") & "#"
+                        PKey = CDbl(row.item("StudyTimepointID"))
 
 
                         PassNumber = PassNumber + 1
@@ -214,27 +215,27 @@
 
             Case "DataGridView7"
 
-                Dim PKey As Double = Form1.ComboBox5.SelectedValue.ToString
 
-                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO Cohort " & _
-                                                                          "(StudyID, CohortName, NumVols) " & _
-                                                                          "VALUES (" & PKey & ", @P1, @P2)")
+                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO Cohort " &
+                                                                          "(StudyID, CohortName, NumVols) " &
+                                                                          "VALUES (@P0, @P1, @P2)")
 
 
                 With OverClass.CurrentDataAdapter.InsertCommand.Parameters
+                    .Add("@P0", OleDb.OleDbType.Double, 255, "StudyID")
                     .Add("@P1", OleDb.OleDbType.VarChar, 255, "CohortName")
                     .Add("@P2", OleDb.OleDbType.Integer, 255, "NumVols")
                 End With
 
             Case "DataGridView8"
 
-                Dim PKey As Double = Form1.ComboBox7.SelectedValue.ToString
 
-                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO CohortTimepoint " & _
-                                                                          "(CohortID, StudyTimepointID, TimepointDateTime, VolGap) " & _
-                                                                          "VALUES (" & PKey & ", @P1, @P2, @P3)")
+                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO CohortTimepoint " &
+                                                                          "(CohortID, StudyTimepointID, TimepointDateTime, VolGap) " &
+                                                                          "VALUES (@P0, @P1, @P2, @P3)")
 
                 With OverClass.CurrentDataAdapter.InsertCommand.Parameters
+                    .Add("@P0", OleDb.OleDbType.Double, 255, "CohortID")
                     .Add("@P1", OleDb.OleDbType.Double, 255, "StudyTimePointID")
                     .Add("@P2", OleDb.OleDbType.DBTimeStamp, 255, "TimepointDateTime")
                     .Add("@P3", OleDb.OleDbType.Double, 255, "VolGap")
@@ -249,6 +250,20 @@
                     .Add("@P2", OleDb.OleDbType.Double, 255, "StudyTimePointID")
                     .Add("@P3", OleDb.OleDbType.Double, 255, "VolGap")
                     .Add("@P4", OleDb.OleDbType.Double, 255, "CohortTimepointID")
+
+                End With
+
+            Case "DataGridView9"
+
+                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE Volunteer " &
+                                                                          "SET RVLNo=@P1, Initials=@P2, RoomNo=@P3 " &
+                                                                        "WHERE VolID=@P4")
+
+                With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
+                    .Add("@P1", OleDb.OleDbType.Double, 255, "RVLNo")
+                    .Add("@P2", OleDb.OleDbType.LongVarChar, 255, "Initials")
+                    .Add("@P3", OleDb.OleDbType.Double, 255, "RoomNo")
+                    .Add("@P4", OleDb.OleDbType.Double, 255, "VolID")
 
                 End With
 

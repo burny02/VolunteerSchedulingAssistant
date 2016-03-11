@@ -1,5 +1,4 @@
 ﻿Public Class Form1
-    Private LastValue As Object
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -46,8 +45,14 @@
                 Me.TabControl5.SelectedIndex = 0
                 Me.TabControl5_Selecting(Me.TabControl5, New TabControlCancelEventArgs(TabPage18, 0, False, TabControlAction.Selecting))
             Case 5
-                StartCombo(Me.ComboBox17)
-                StartCombo(Me.ComboBox18)
+                FilterCombo1.AllowBlanks = False
+                FilterCombo2.AllowBlanks = False
+                FilterCombo1.SetAsExternalSource("StudyID", "StudyCode",
+                                                 "SELECT StudyID, StudyCode FROM Study", OverClass)
+                FilterCombo2.SetAsExternalSource("CohortID", "CohortName",
+                                                 "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" &
+                                                FilterCombo2.SetCmbPointer(FilterCombo1), OverClass)
+
             Case 6
                 ctl = Me.DataGridView13
 
@@ -89,36 +94,52 @@
                 ctl.columns.add(cmb)
 
             Case "DataGridView5"
-                If IsNothing(Me.ComboBox2.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT StudyTimepointID, TimepointName FROM StudyTimepoint WHERE StudyID=" _
-                    & Me.ComboBox2.SelectedValue.ToString & " ORDER BY TimepointName ASC"
+
+                SQLCode = "SELECT StudyID, StudyTimepointID, TimepointName FROM StudyTimepoint ORDER BY TimepointName ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
-                ctl.Columns(0).visible = False
-                ctl.columns(1).headertext = "Timepoint Name"
+
+                FilterCombo19.AllowBlanks = False
+                FilterCombo19.SetAsExternalSource("StudyID", "StudyCode",
+                           "SELECT StudyID, StudyCode FROM Study", OverClass)
+                FilterCombo19.SetDGVDefault(ctl, "StudyID")
+
+                ctl.Columns("StudyTimepointID").visible = False
+                ctl.Columns("StudyID").visible = False
+                ctl.columns("TimepointName").headertext = "Timepoint Name"
 
             Case "DataGridView6"
-                If IsNothing(Me.ComboBox3.SelectedValue) Then Exit Sub
-                If IsNothing(Me.ComboBox4.SelectedValue) Then Exit Sub
-                Me.TextBox1.Clear()
-
-                Dim dt As DataTable = OverClass.TempDataTable("SELECT DefaultTime FROM StudyTimepoint " &
-                                                              "WHERE StudyTimepointID=" & Me.ComboBox3.SelectedValue.ToString)
-
-                If Not IsDBNull(dt.Rows(0).Item(0)) Then Me.TextBox1.Text = Format(dt.Rows(0).Item(0), "HH:mm")
 
                 ctl.autogeneratecolumns = True
 
-                Dim ProcCrit As String = "'%'"
-                If Me.ComboBox1.SelectedValue <> "" Then ProcCrit = Me.ComboBox1.SelectedValue
 
-                SQLCode = "SELECT StudyScheduleID, ProcID, DaysPost, Approx, ProcTime" &
-                    " FROM StudySchedule WHERE StudyTimepointID=" & Me.ComboBox3.SelectedValue.ToString &
-                    " AND ProcID LIKE " & ProcCrit &
-                    " ORDER BY DaysPost ASC, cdate(format(ProcTime,'HH:mm')) ASC"
+                SQLCode = "Select StudyID, a.StudyTimepointID, StudyScheduleID, ProcID, DaysPost, Approx, ProcTime " &
+                    "FROM StudySchedule a INNER JOIN StudyTimepoint b On a.StudyTimepointID= b.StudyTimepointID " &
+                    "ORDER BY DaysPost ASC, CDate(format(ProcTime,'HH:mm')) ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
 
-                ctl.Columns(0).visible = False
-                ctl.columns(1).visible = False
+                FilterCombo22.AllowBlanks = False
+                FilterCombo22.SetAsExternalSource("StudyID", "StudyCode",
+                           "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN StudyTimepoint b " &
+                           "ON a.studyid=b.studyid", OverClass)
+                FilterCombo22.SetDGVDefault(ctl, "StudyID")
+
+                FilterCombo21.AllowBlanks = False
+                FilterCombo21.SetAsExternalSource("StudyTimepointID", "TimepointName",
+                           "SELECT StudyTimepointID, TimepointName FROM StudyTimepoint WHERE StudyID=" &
+                           FilterCombo21.SetCmbPointer(FilterCombo22), OverClass)
+                FilterCombo21.SetDGVDefault(ctl, "StudyTimepointID")
+
+
+                FilterCombo23.SetAsExternalSource("ProcID", "ProcName",
+                          "SELECT ProcID, ProcName FROM ProcTask WHERE ProcID IN (" &
+                FilterCombo23.SetCmbPointer(OverClass.CurrentDataSet.Tables(0).Columns("ProcID")) & ")", OverClass)
+
+
+
+                ctl.Columns("StudyTimepointID").visible = False
+                ctl.Columns("StudyID").visible = False
+                ctl.Columns("StudyScheduleID").visible = False
+                ctl.columns("ProcID").visible = False
                 Dim cmb As New DataGridViewComboBoxColumn
                 cmb.HeaderText = "Procedure"
                 cmb.DataSource = OverClass.TempDataTable("SELECT ProcID, ProcName" &
@@ -134,16 +155,9 @@
                 cmb.Name = "PickProc"
                 Dim cmb2 As New DataGridViewComboBoxColumn
                 cmb2.HeaderText = "Timepoint"
-                cmb2.DataSource = OverClass.TempDataTable("SELECT Display FROM (SELECT 'Approx' As Display " &
-                                                     " FROM StudyTimepoint WHERE StudyID=" & Me.ComboBox4.SelectedValue.ToString &
-                                                     " UNION ALL " &
-                                                     " SELECT 'Timed' As Display " &
-                                                     " FROM StudyTimepoint WHERE StudyID=" & Me.ComboBox4.SelectedValue.ToString &
-                                                     " UNION ALL " &
-                                                     " SELECT 'Set Time' AS Display FROM StudyTimepoint) " &
-                                                     "GROUP BY Display ORDER BY Display ASC")
-                cmb2.ValueMember = "Display"
-                cmb2.DisplayMember = "Display"
+                cmb2.Items.Add("Approx")
+                cmb2.Items.Add("Set Time")
+                cmb2.Items.Add("Timed")
                 cmb2.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("Approx").ToString
                 ctl.columns.add(cmb2)
                 ctl.columns("Approx").visible = False
@@ -170,12 +184,17 @@
 
 
             Case "DataGridView7"
-                If IsNothing(Me.ComboBox5.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT CohortID, CohortName, NumVols, Generated" &
-                    " FROM Cohort WHERE StudyID=" & Me.ComboBox5.SelectedValue.ToString &
-                    " ORDER BY CohortName ASC"
+                SQLCode = "SELECT StudyID, CohortID, CohortName, NumVols, Generated" &
+                    " FROM Cohort ORDER BY CohortName ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+
+                FilterCombo20.AllowBlanks = False
+                FilterCombo20.SetAsExternalSource("StudyID", "StudyCode",
+                           "SELECT StudyID, StudyCode FROM Study", OverClass)
+                FilterCombo20.SetDGVDefault(ctl, "StudyID")
+
                 ctl.Columns("CohortID").visible = False
+                ctl.Columns("StudyID").visible = False
                 ctl.Columns("Generated").readonly = True
                 ctl.Columns("Generated").HeaderText = "Schedule Generated"
                 ctl.columns("NumVols").HeaderText = "Number of volunteers"
@@ -195,39 +214,53 @@
 
 
             Case "DataGridView8"
-                If IsNothing(Me.ComboBox7.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT CohortTimePointID, StudyTimepointID, VolGap, TimepointDateTime" &
-                    " FROM CohortTimepoint " &
-                    " WHERE CohortID=" & Me.ComboBox7.SelectedValue.ToString &
-                    " ORDER BY TimepointDateTime ASC"
+
+                SQLCode = "SELECT StudyID, CohortName, a.CohortID, CohortTimePointID, StudyTimepointID, VolGap, TimepointDateTime " &
+                    "FROM CohortTimepoint a INNER JOIN Cohort b ON a.CohortID=b.CohortID " &
+                    "ORDER BY a.CohortID, TimepointDateTime ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
+
+                FilterCombo11.AllowBlanks = False
+                FilterCombo11.SetAsExternalSource("StudyID", "StudyCode",
+                "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b ON a.StudyID=b.StudyID", OverClass)
+                FilterCombo11.SetDGVDefault(ctl, "StudyID")
+                FilterCombo12.AllowBlanks = False
+                FilterCombo12.SetAsExternalSource("CohortID", "CohortName",
+                "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo12.SetCmbPointer(FilterCombo11), OverClass)
+                FilterCombo12.SetDGVDefault(ctl, "CohortID")
+
+
                 ctl.Columns("CohortTimePointID").visible = False
                 ctl.Columns("StudyTimePointID").visible = False
+                ctl.Columns("CohortID").visible = False
+                ctl.Columns("StudyID").visible = False
+                ctl.Columns("CohortName").visible = False
                 ctl.columns("TimepointDateTime").HeaderText = "Date/Time"
                 ctl.columns("VolGap").HeaderText = "Interval (Minutes)"
-                Dim cmb As New DataGridViewComboBoxColumn
-                cmb.HeaderText = "Timepoint"
-                cmb.DataSource = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
+
+
+                Dim cmb As TemplateDB.MyCmbColumn = OverClass.SetUpNewComboColumn("Select StudyTimepointID, TimepointName " &
                                                     "FROM StudyTimepoint " &
-                                                    "WHERE StudyID=" & Me.ComboBox6.SelectedValue.ToString)
-                cmb.ValueMember = "StudyTimepointID"
-                cmb.DisplayMember = "TimepointName"
-                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StudyTimepointID").ToString
-                ctl.columns.add(cmb)
-                cmb.DisplayIndex = 0
+                                                    "WHERE CStr(StudyID)= ", FilterCombo11, "StudyTimepointID",
+                                                    "TimepointName", "StudyTimepointID", "Timepoint", DataGridView8, "clm1")
+
+                cmb.DisplayIndex = 1
+
                 ctl.columns("TimepointDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
 
+
+
             Case "DataGridView9"
-                If IsNothing(Me.ComboBox10.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT a.VolID, RVLNo, Initials, RoomNo, min(TimepointDateTime) as FirstDate " &
-                    "FROM Volunteer a INNER JOIN VolunteerTimepoint b ON a.VolID=b.VolID " &
-                    "WHERE CohortID=" & Me.ComboBox10.SelectedValue.ToString &
-                    " GROUP BY a.VolID, RVLNo, Initials, RoomNo " &
+
+                SQLCode = "SELECT CohortID, a.VolID, RVLNo, Initials, RoomNo, min(TimepointDateTime) as FirstDate " &
+                    "FROM (Volunteer a INNER JOIN VolunteerTimepoint b ON a.VolID=b.VolID) " &
+                    "GROUP BY CohortID, a.VolID, RVLNo, Initials, RoomNo " &
                     "ORDER BY min(TimepointDateTime) ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolID").visible = False
                 ctl.columns("FirstDate").visible = False
+                ctl.columns("CohortID").visible = False
                 ctl.columns("RVLNo").HeaderText = "RVL Number"
                 ctl.columns("RoomNo").HeaderText = "Room Number"
                 Dim cmb2 As New DataGridViewImageColumn
@@ -243,55 +276,65 @@
                 ctl.columns.add(cmb)
                 cmb.Name = "DeleteButton"
 
+                FilterCombo14.AllowBlanks = False
+                FilterCombo14.SetUpFilter(False, Nothing)
+                FilterCombo14.SetAsExternalSource("StudyID", "StudyCode",
+                "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b ON a.StudyID=b.StudyID", OverClass)
 
+                FilterCombo15.AllowBlanks = False
+                FilterCombo15.SetAsExternalSource("CohortID", "CohortName",
+                "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo15.SetCmbPointer(FilterCombo14), OverClass)
+
+                ctl.columns("CohortID").visible = False
 
             Case "DataGridView10"
-                If IsNothing(Me.ComboBox13.SelectedValue) Then Exit Sub
-                SQLCode = "SELECT VolunteerTimepointID, TimepointName, TimepointDateTime, DayNumber " &
-                    "FROM VolunteerTimepoint a INNER JOIN StudyTimepoint b " &
-                    "ON a.StudyTimepointID=b.StudyTimepointID " &
-                    "WHERE VolID=" & Me.ComboBox13.SelectedValue.ToString &
-                    " ORDER BY TimepointDateTime ASC"
+
+                OverClass.ResetCollection()
+
+                SQLCode = "SELECT CohortID, RVLNo, a.VolID, StudyID, VolunteerTimepointID, TimepointName, TimepointDateTime, DayNumber " &
+                    "FROM (VolunteerTimepoint a INNER JOIN StudyTimepoint b " &
+                    "ON a.StudyTimepointID=b.StudyTimepointID) INNER JOIN Volunteer c ON a.VolID=c.VolID " &
+                    "ORDER BY TimepointDateTime ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolunteerTimepointID").visible = False
                 ctl.columns("TimepointName").Readonly = True
+                ctl.columns("RVLNo").Readonly = True
+                ctl.columns("StudyID").visible = False
+                ctl.columns("VolID").visible = False
+                ctl.columns("CohortID").visible = False
                 ctl.columns("TimepointName").HeaderText = "Timepoint Name"
                 ctl.columns("DayNumber").HeaderText = "Day Number"
                 ctl.columns("TimepointDateTime").HeaderText = "Date/Time"
                 ctl.columns("TimepointDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
 
+                FilterCombo16.AllowBlanks = False
+                FilterCombo16.SetAsExternalSource("StudyID", "StudyCode",
+                "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b ON a.StudyID=b.StudyID", OverClass)
+
+                FilterCombo17.AllowBlanks = False
+                FilterCombo17.SetAsExternalSource("CohortID", "CohortName",
+                "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo17.SetCmbPointer(FilterCombo16), OverClass)
+
+                FilterCombo18.AllowBlanks = False
+                FilterCombo18.SetAsExternalSource("VolID", "Vol",
+                "SELECT VolID, RVLNo & ' ' & Initials AS Vol FROM Volunteer " &
+                "WHERE CohortID=" & FilterCombo18.SetCmbPointer(FilterCombo17), OverClass)
+
+
+                ctl.columns("VolID").visible = False
+
             Case "DataGridView11"
 
-                Dim DayCrit As String = "%"
-                Dim VolCrit As String = "%"
-                Dim ProCrit As String = "%"
-                Dim StuCrit As String = "%"
-                Dim CohCrit As String = "%"
-                Dim StaCrit As String = "LIKE '%'"
+                OverClass.ResetCollection()
 
-                If Me.ComboBox19.SelectedValue <> "" Then ProCrit = Me.ComboBox19.SelectedValue
-                If Me.ComboBox20.SelectedValue <> "" Then VolCrit = Me.ComboBox20.SelectedValue
-                If Me.ComboBox14.SelectedValue <> "" Then StuCrit = Me.ComboBox14.SelectedValue
-                If Me.ComboBox15.SelectedValue <> "" Then CohCrit = Me.ComboBox15.SelectedValue
-                If Me.ComboBox23.SelectedValue <> "" Then DayCrit = Me.ComboBox23.SelectedValue
-                If Me.ComboBox24.SelectedValue = "UnAssigned" Then StaCrit = "=''"
-                If Me.ComboBox24.SelectedValue <> "" And Me.ComboBox24.SelectedValue <> "UnAssigned" Then _
-                    StaCrit = "LIKE '" & Me.ComboBox24.SelectedValue & "'"
-
-                SQLCode = "SELECT * FROM Assign " &
-                            "WHERE format(CalcDate,'dd-MMM-yyyy') LIKE '" & DayCrit & "' AND " &
-                            "VOL LIKE '" & VolCrit & "' AND " &
-                            "ProcName LIKE '" & ProCrit & "' AND " &
-                            "StudyCode LIKE '" & StuCrit & "' AND " &
-                            "FullName " & StaCrit & " AND " &
-                            "CohortName LIKE '" & CohCrit & "' " &
+                SQLCode = "Select * FROM Assign " &
                             "ORDER BY CalcDate ASC, ProcOrd ASC"
 
                 If Me.CheckBox1.Checked = True Then
-                    SQLCode = "SELECT * FROM Assign WHERE VolunteerScheduleID IN " &
-                        "(SELECT ID FROM " &
-                        "(SELECT First(VolunteerScheduleID) AS ID,  Min(CalcDate) " &
+                    SQLCode = "Select * FROM Assign WHERE VolunteerScheduleID In " &
+                        "(Select ID FROM " &
+                        "(Select First(VolunteerScheduleID) As ID,  Min(CalcDate) " &
                         "FROM(" & SQLCode & ")" &
                         "GROUP BY ProcName, VOL)) " &
                         "ORDER BY CalcDate ASC, ProcOrd ASC"
@@ -310,6 +353,7 @@
                 ctl.columns("EndFull").visible = False
                 ctl.columns("CohortName").visible = False
                 ctl.columns("StudyCode").visible = False
+                ctl.columns("WhichDay").visible = False
                 ctl.columns("Approx").visible = False
                 ctl.columns("Vol").readonly = True
                 ctl.columns("Approx").readonly = True
@@ -341,20 +385,20 @@
                 cmb2.Name = "DeleteButton"
                 cmb2.Width = 60
 
+                FilterCombo5.SetAsInternalSource("StudyCode", "StudyCode", OverClass)
+                FilterCombo10.SetAsInternalSource("CohortName", "CohortName", OverClass)
+                FilterCombo7.SetAsInternalSource("ProcName", "ProcName", OverClass)
+                FilterCombo9.SetAsInternalSource("Vol", "Vol", OverClass)
+                FilterCombo8.SetAsInternalSource("WhichDay", "WhichDay", OverClass)
+                FilterCombo6.SetAsInternalSource("FullName", "FullName", OverClass)
+
+
+
             Case "DataGridView12"
-
-                Dim ProcCrit As String = "'%'"
-                Dim StafCrit As String = "'%'"
-
-                If Me.ComboBox21.SelectedValue <> "" Then ProcCrit = "'" & Me.ComboBox21.SelectedValue & "'"
-                If Me.ComboBox16.SelectedValue <> "" Then StafCrit = "'" & Me.ComboBox16.SelectedValue & "'"
-
 
                 SQLCode = "SELECT StaffProcID, StaffID, ProcID, ProcDateTime " &
                     "FROM StaffProc " &
                     "WHERE ProcDateTime > Now() " &
-                    "AND ProcID LIKE " & ProcCrit &
-                    " AND StaffID LIKE " & StafCrit &
                     " ORDER BY ProcDateTime ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
 
@@ -398,6 +442,16 @@
                 ctl.columns.add(cmb4)
                 cmb4.Name = "DeleteButton"
                 cmb4.Width = 60
+
+                FilterCombo4.SetAsExternalSource("ProcID", "ProcName",
+                           "SELECT ProcID, ProcName FROM ProcTask " &
+                          "WHERE ProcID IN (" &
+                FilterCombo4.SetCmbPointer(OverClass.CurrentDataSet.Tables(0).Columns("ProcID")) & ")", OverClass)
+
+                FilterCombo3.SetAsExternalSource("StaffID", "FullName",
+                           "SELECT StaffID, FName & ' ' & SName AS FullName FROM Staff " &
+                          "WHERE StaffID IN (" &
+                FilterCombo3.SetCmbPointer(OverClass.CurrentDataSet.Tables(0).Columns("StaffID")) & ")", OverClass)
 
             Case "DataGridView13"
                 SQLCode = "SELECT * FROM ReportArchive ORDER BY ArchiveID DESC, ArchiveDate DESC"
@@ -473,20 +527,15 @@
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
             Case 1
-                StartCombo(Me.ComboBox2)
+                Call Specifics(DataGridView5)
 
             Case 2
-                StartCombo(Me.ComboBox4)
-                StartCombo(Me.ComboBox3)
-                StartCombo(Me.ComboBox1)
+                Call Specifics(DataGridView6)
 
             Case 3
-                StartCombo(Me.ComboBox5)
+                Call Specifics(DataGridView7)
 
         End Select
-
-
-        If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
 
@@ -529,25 +578,31 @@
         Select Case e.TabPageIndex
 
             Case 0
-                StartCombo(Me.ComboBox6)
-                StartCombo(Me.ComboBox7)
+                Specifics(DataGridView8)
 
             Case 1
-                StartCombo(Me.ComboBox8)
+                Dim ComboString As String = "SELECT a.CohortID AS ID, StudyCode & ' - ' & CohortName AS Display " &
+                                                              "FROM (SELECT StudyCode, CohortName, CohortID, " &
+                                                              "Count(StudyTimepointID) as NumTimepoint " &
+                                                              "FROM (Study a INNER JOIN StudyTimePoint b " &
+                                                              "ON a.StudyID=b.StudyID) " &
+                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " &
+                                                              "GROUP BY StudyCode, CohortName, CohortID) as a " &
+                                                              "INNER JOIN " &
+                                                              "(SELECT c.CohortID, Count(CohortTimepointID) as NumTimepoint " &
+                                                              "FROM CohortTimepoint c INNER JOIN Cohort d " &
+                                                              "ON c.CohortID=d.CohortID WHERE Generated=False " &
+                                                              "GROUP BY c.CohortID) as b " &
+                                                              "ON a.CohortID=b.CohortID AND a.NumTimepoint=b.NumTimepoint"
+                FilterCombo13.SetAsExternalSource("ID", "Display", ComboString, OverClass)
 
             Case 2
-                StartCombo(Me.ComboBox9)
-                StartCombo(Me.ComboBox10)
+                Specifics(DataGridView9)
 
             Case 3
-                StartCombo(Me.ComboBox11)
-                StartCombo(Me.ComboBox12)
-                StartCombo(Me.ComboBox13)
+                Specifics(DataGridView10)
 
         End Select
-
-
-        If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
 
@@ -569,70 +624,11 @@
 
             Case 0
                 Call Specifics(Me.DataGridView11)
-                StartCombo(Me.ComboBox14)
-                StartCombo(Me.ComboBox15)
-                StartCombo(Me.ComboBox19)
-                StartCombo(Me.ComboBox20)
-                StartCombo(Me.ComboBox23)
-                StartCombo(Me.ComboBox24)
 
             Case 1
                 Call Specifics(Me.DataGridView12)
-                StartCombo(Me.ComboBox16)
-                StartCombo(Me.ComboBox21)
-
-
 
         End Select
-
-        If Not IsNothing(ctl) Then Call Specifics(ctl)
-
-    End Sub
-
-    Private Sub DataGridView11_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView11.CellBeginEdit
-
-        LastValue = sender.rows(e.RowIndex).cells("StaffID").value
-
-    End Sub
-
-    Private Sub DataGridView12_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView12.CellBeginEdit
-
-        If e.ColumnIndex = sender.Columns("Pick").Index Then
-            LastValue = sender.rows(e.RowIndex).cells("StaffID").value
-        End If
-
-    End Sub
-
-    Private Sub DataGridView12_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView12.CellEndEdit
-        Dim returner As String = vbNullString
-
-        If IsDBNull(sender.rows(e.RowIndex).cells("StaffID").value) Or
-            IsNothing(sender.rows(e.RowIndex).cells("StaffID").value) Or
-            IsDBNull(sender.rows(e.RowIndex).cells("ProcID").value) Or
-            IsNothing(sender.rows(e.RowIndex).cells("ProcID").value) Or
-            IsDBNull(sender.rows(e.RowIndex).cells("CalcDate").value) Or
-            IsNothing(sender.rows(e.RowIndex).cells("CalcDate").value) Then Exit Sub
-
-
-        Dim Identifier As Long
-        If IsDBNull(sender.rows(e.RowIndex).cells("StaffProcID").value) Or
-            IsNothing(sender.rows(e.RowIndex).cells("StaffProcID").value) Then
-            Identifier = 0
-        Else
-            Identifier = sender.rows(e.RowIndex).cells("StaffProcID").value
-        End If
-
-        returner = CheckExtraOverlap(sender.rows(e.RowIndex).cells("StaffID").value, Identifier,
-                        sender.rows(e.RowIndex).cells("CalcDate").value,
-                        DateAdd(DateInterval.Minute, sender.rows(e.RowIndex).cells("MinsTaken").FormattedValue, sender.rows(e.RowIndex).cells("CalcDate").value),
-                        sender, e.RowIndex)
-
-        If returner <> vbNullString Then
-            If MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner & vbNewLine & vbNewLine &
-                   "Do you want to continue?", MsgBoxStyle.YesNo) = vbNo Then
-                sender.rows(e.RowIndex).cells("StaffID").value = LastValue
-            End If
-        End If
 
     End Sub
 
@@ -649,10 +645,7 @@
                               sender.rows(e.RowIndex).cells("CalcDate").value, sender.rows(e.RowIndex).cells("EndFull").value, sender)
 
         If returner <> vbNullString Then
-            If MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner & vbNewLine & vbNewLine &
-                   "Do you want to continue?", MsgBoxStyle.YesNo) = vbNo Then
-                sender.rows(e.RowIndex).cells("StaffID").value = LastValue
-            End If
+            MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner)
         End If
 
     End Sub
@@ -680,9 +673,9 @@
             Me.ValidateChildren()
             If OverClass.UnloadData() = True Then Exit Sub
 
-            Dim Response As Integer = MsgBox("Do you want to transfer the volunteer from another study?" _
+            Dim Response As Integer = MsgBox("Do you want To transfer the volunteer from another study?" _
                                              & vbNewLine & vbNewLine _
-                                             & "Timepoints of EXACTLY the same name will be transfered across", MsgBoxStyle.YesNoCancel)
+                                             & "Timepoints Of EXACTLY the same name will be transfered across", MsgBoxStyle.YesNoCancel)
             If Response = vbCancel Then Exit Sub
 
 
@@ -720,11 +713,11 @@
                     Initials = InputBox("Input Volunteer Initials", "Volunteer Initials", "AAA")
                     If Initials = "" Then Exit Sub
                     If Len(Initials) <> 3 Then
-                        MsgBox("Initials must be 3 characters long")
+                        MsgBox("Initials must be 3 characters Long")
                         Continue Do
                     End If
                     If Not Initials Like "[A-Z][A-Z][A-Z]" Then
-                        MsgBox("Initials must be 3 text characters such as 'AAA'")
+                        MsgBox("Initials must be 3 text characters such As 'AAA'")
                         Continue Do
                     End If
                     Accepted = True
@@ -958,20 +951,28 @@
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs)
-        If OverClass.UnloadData() = True Then Exit Sub
-        OverClass.ResetCollection()
-        Call SubCombo(Me.ComboBox19)
-    End Sub
-
-
     Private Sub DataGridView6_CellEndEdit_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellEndEdit
         Dim Returner As String = vbNullString
 
-        If IsDBNull(sender.rows(e.RowIndex).cells("ProcTime").value) Or
-            IsDBNull(sender.rows(e.RowIndex).cells("MinsTaken").value) Or
-            IsDBNull(sender.rows(e.RowIndex).cells("DaysPost").value) Then Exit Sub
+        Dim DaysPost As Long
+        Dim ProcTime As Date
+        Dim MinsTaken As Long
 
+        Try
+            DaysPost = CLng(sender.rows(e.RowIndex).cells("Dayspost").value)
+        Catch ex As Exception
+            Exit Sub
+        End Try
+        Try
+            ProcTime = CDate(sender.rows(e.RowIndex).cells("ProcTime").value)
+        Catch ex As Exception
+            Exit Sub
+        End Try
+        Try
+            MinsTaken = CLng(sender.rows(e.RowIndex).cells("MinsTaken").formattedvalue)
+        Catch ex As Exception
+            Exit Sub
+        End Try
 
         Returner = ScheduleOverlap(sender, e.RowIndex, sender.rows(e.RowIndex).cells("Dayspost").value,
                               sender.rows(e.RowIndex).cells("ProcTime").value,
@@ -993,5 +994,68 @@
         End If
 
     End Sub
+
+    Private Sub DataGridView12_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView12.CellEndEdit
+
+        Dim returner As String = vbNullString
+
+        Dim StaffID As Long = 0
+        Dim ProcID As Long = 0
+        Dim CalcDate As Date = "01/01/2000"
+        Dim Identifier As Long = 0
+        Try
+            StaffID = sender.rows(e.RowIndex).cells("StaffID").value
+        Catch ex As Exception
+        End Try
+        Try
+            ProcID = sender.rows(e.RowIndex).cells("ProcID").value
+        Catch ex As Exception
+        End Try
+        Try
+            CalcDate = sender.rows(e.RowIndex).cells("CalcDate").value
+        Catch ex As Exception
+        End Try
+        Try
+            Identifier = sender.rows(e.RowIndex).cells("StaffProcID").value
+        Catch ex As Exception
+        End Try
+
+        If StaffID = 0 Or ProcID = 0 Or CalcDate = "01/01/2000" Then Exit Sub
+
+        returner = CheckExtraOverlap(StaffID, Identifier,
+                        CalcDate,
+                        DateAdd(DateInterval.Minute, sender.rows(e.RowIndex).cells("MinsTaken").FormattedValue, CalcDate),
+                        sender, e.RowIndex)
+
+        If returner <> vbNullString Then
+            MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner)
+        End If
+
+    End Sub
+
+    Private Sub CheckBox1_Click(sender As Object, e As EventArgs) Handles CheckBox1.Click
+        If OverClass.UnloadData() = True Then
+            RemoveHandler CheckBox1.Click, AddressOf CheckBox1_Click
+            CheckBox1.Checked = Not CheckBox1.Checked
+            AddHandler CheckBox1.Click, AddressOf CheckBox1_Click
+            Exit Sub
+        End If
+        Call Specifics(DataGridView11)
+    End Sub
+
+    Private Sub FilterCombo21_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FilterCombo21.SelectedIndexChanged
+
+        Try
+            Me.TextBox1.Clear()
+            Dim dt As DataTable = OverClass.TempDataTable("SELECT DefaultTime FROM StudyTimepoint " &
+                                                     "WHERE StudyTimepointID=" & Me.FilterCombo21.SelectedValue.ToString)
+
+            If Not IsDBNull(dt.Rows(0).Item(0)) Then Me.TextBox1.Text = Format(dt.Rows(0).Item(0), "HH:mm")
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+
 End Class
 
