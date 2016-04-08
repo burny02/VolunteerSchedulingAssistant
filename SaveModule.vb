@@ -38,6 +38,15 @@
 
             Case "DataGridView6"
 
+                OverClass.CurrentDataAdapter.DeleteCommand = New OleDb.OleDbCommand("DELETE FROM StudySchedule " &
+                                                                        "WHERE StudyScheduleID=@P5")
+
+                With OverClass.CurrentDataAdapter.DeleteCommand.Parameters
+
+                    .Add("@P5", OleDb.OleDbType.Double, 255, "StudyScheduleID")
+
+                End With
+
                 OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE StudySchedule " &
                                                                           "SET ProcTime=@P1, Approx=@P2, DaysPost=@P3, ProcID=@P4 " &
                                                                         "WHERE StudyScheduleID=@P5")
@@ -83,19 +92,19 @@
                 Dim PassNumber As Long = 0
                 Dim DeleteNumber As Long = 0
 
+                'For Each row In OverClass.CurrentDataSet.Tables(0).Rows
+
+                'If row.RowState = DataRowState.Deleted Then
+
+                'DeleteNumber = DeleteNumber + 1
+
+                '   End If
+                'Next
+
                 For Each row In OverClass.CurrentDataSet.Tables(0).Rows
 
-                    If row.RowState = DataRowState.Deleted Then
-
-                        DeleteNumber = DeleteNumber + 1
-
-                    End If
-                Next
-
-                For Each row In OverClass.CurrentDataSet.Tables(0).Rows
-
-                    Dim rowIndex As Long = OverClass.CurrentDataSet.Tables(0).Rows.IndexOf(row)
-                    If row.RowState = DataRowState.Added Then rowIndex = rowIndex - DeleteNumber
+                    'Dim rowIndex As Long = OverClass.CurrentDataSet.Tables(0).Rows.IndexOf(row)
+                    'If row.RowState = DataRowState.Added Then rowIndex = rowIndex - DeleteNumber
 
                     If row.RowState = DataRowState.Added Or row.RowState = DataRowState.Modified Then
 
@@ -167,9 +176,9 @@
 
                         Try
                             'INSERT TO SCHEDULE TABLE
-                            Combine = "INSERT INTO StudySchedule " & _
-                                         "(StudyScheduleID, StudyTimepointID, ProcID, DaysPost, Approx, ProcTime) " & _
-                                     "VALUES (" & SchedID & ", " & PKey & ", " & ProcID & ", " & DaysPost & ", " & Approx & _
+                            Combine = "INSERT INTO StudySchedule " &
+                                         "(StudyScheduleID, StudyTimepointID, ProcID, DaysPost, Approx, ProcTime) " &
+                                     "VALUES (" & SchedID & ", " & PKey & ", " & ProcID & ", " & DaysPost & ", " & Approx &
                                      ", " & ProcTime & ")"
 
 
@@ -185,9 +194,9 @@
 
 
                         'INSERT TO VOL SCHEDULE TABLE
-                        Combine = "INSERT INTO VolunteerSchedule " & _
-                                     "(StudyScheduleID, VolID) " & _
-                                 "SELECT " & SchedID & ", VolID " & _
+                        Combine = "INSERT INTO VolunteerSchedule " &
+                                     "(StudyScheduleID, VolID) " &
+                                 "SELECT " & SchedID & ", VolID " &
                             "FROM VolunteerTimepoint WHERE StudyTimepointID=" & PKey
 
 

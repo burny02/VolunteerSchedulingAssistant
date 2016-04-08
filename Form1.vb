@@ -30,32 +30,35 @@
 
         OverClass.ResetCollection()
 
-        Select Case e.TabPageIndex
+        Select Case e.TabPage.Text
 
-            Case 1
+            Case "Set Up"
                 Me.TabControl2.SelectedIndex = 0
                 Me.TabControl2_Selecting(Me.TabControl2, New TabControlCancelEventArgs(TabPage3, 0, False, TabControlAction.Selecting))
-            Case 2
+            Case "Studies"
                 Me.TabControl3.SelectedIndex = 0
-                Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage5, 0, False, TabControlAction.Selecting))
-            Case 3
+                Me.TabControl3_Selecting(Me.TabControl3, New TabControlCancelEventArgs(TabPage10, 0, False, TabControlAction.Selecting))
+            Case "Volunteers"
                 Me.TabControl4.SelectedIndex = 0
-                Me.TabControl4_Selecting(Me.TabControl4, New TabControlCancelEventArgs(TabPage15, 0, False, TabControlAction.Selecting))
-            Case 4
+                Me.TabControl4_Selecting(Me.TabControl4, New TabControlCancelEventArgs(TabPage7, 0, False, TabControlAction.Selecting))
+            Case "Staffing"
                 Me.TabControl5.SelectedIndex = 0
                 Me.TabControl5_Selecting(Me.TabControl5, New TabControlCancelEventArgs(TabPage18, 0, False, TabControlAction.Selecting))
-            Case 5
+            Case "Reports"
                 FilterCombo1.AllowBlanks = False
                 FilterCombo2.AllowBlanks = False
                 FilterCombo1.SetAsExternalSource("StudyID", "StudyCode",
-                                                 "SELECT StudyID, StudyCode FROM Study", OverClass)
+                                                 "Select StudyID, StudyCode FROM Study", OverClass)
                 FilterCombo2.SetAsExternalSource("CohortID", "CohortName",
-                                                 "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" &
+                                                 "Select CohortID, CohortName FROM Cohort WHERE StudyID=" &
                                                 FilterCombo2.SetCmbPointer(FilterCombo1), OverClass)
 
-            Case 6
+            Case "Report Archive"
                 ctl = Me.DataGridView13
 
+            Case "Offsets"
+                Me.TabControl6.SelectedIndex = 0
+                Me.TabControl6_Selecting(Me.TabControl6, New TabControlCancelEventArgs(TabPage15, 0, False, TabControlAction.Selecting))
 
         End Select
 
@@ -95,12 +98,12 @@
 
             Case "DataGridView5"
 
-                SQLCode = "SELECT StudyID, StudyTimepointID, TimepointName FROM StudyTimepoint ORDER BY TimepointName ASC"
+                SQLCode = "Select StudyID, StudyTimepointID, TimepointName FROM StudyTimepoint ORDER BY TimepointName ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
 
                 FilterCombo19.AllowBlanks = False
                 FilterCombo19.SetAsExternalSource("StudyID", "StudyCode",
-                           "SELECT StudyID, StudyCode FROM Study", OverClass)
+                           "Select StudyID, StudyCode FROM Study", OverClass)
                 FilterCombo19.SetDGVDefault(ctl, "StudyID")
 
                 ctl.Columns("StudyTimepointID").visible = False
@@ -184,6 +187,9 @@
 
 
             Case "DataGridView7"
+
+                OverClass.ResetCollection()
+
                 SQLCode = "SELECT StudyID, CohortID, CohortName, NumVols, Generated" &
                     " FROM Cohort ORDER BY CohortName ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
@@ -205,6 +211,15 @@
                 cmb.ImageLayout = DataGridViewImageCellLayout.Zoom
                 ctl.columns.add(cmb)
                 cmb.Name = "AddVolButton"
+
+                Dim clm As New DataGridViewImageColumn
+                clm.HeaderText = "Schedule/Re-Schedule"
+                clm.Image = My.Resources.Calendar_icon
+                clm.ImageLayout = DataGridViewImageCellLayout.Zoom
+                clm.Name = "GenerateSchedule"
+                ctl.columns.add(clm)
+
+
                 Dim cmb2 As New DataGridViewImageColumn
                 cmb2.HeaderText = "Delete Cohort"
                 cmb2.Image = My.Resources.Remove
@@ -212,48 +227,37 @@
                 ctl.columns.add(cmb2)
                 cmb2.Name = "DeleteButton"
 
-
             Case "DataGridView8"
 
-                SQLCode = "SELECT StudyID, CohortName, a.CohortID, CohortTimePointID, StudyTimepointID, VolGap, TimepointDateTime " &
-                    "FROM CohortTimepoint a INNER JOIN Cohort b ON a.CohortID=b.CohortID " &
-                    "ORDER BY a.CohortID, TimepointDateTime ASC"
+                OverClass.ResetCollection()
+
+                SQLCode = "SELECT * FROM AlterOffset ORDER BY CalcDate ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
 
-                FilterCombo11.AllowBlanks = False
-                FilterCombo11.SetAsExternalSource("StudyID", "StudyCode",
-                "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b ON a.StudyID=b.StudyID", OverClass)
-                FilterCombo11.SetDGVDefault(ctl, "StudyID")
-                FilterCombo12.AllowBlanks = False
-                FilterCombo12.SetAsExternalSource("CohortID", "CohortName",
-                "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo12.SetCmbPointer(FilterCombo11), OverClass)
-                FilterCombo12.SetDGVDefault(ctl, "CohortID")
+                With DataGridView8
+                    .Columns("VolunteerScheduleID").Visible = False
+                    .Columns("StudyID").Visible = False
+                    .Columns("VolID").Visible = False
+                    .Columns("CohortID").Visible = False
+                    .Columns("CalcDate").Visible = False
+                    .Columns("ProcName").ReadOnly = True
+                    .Columns("ProcName").HeaderText = "Procedure"
+                    .Columns("ProcOffSet").HeaderText = "Offset"
+                End With
 
+                Dim clm As New DataGridViewTextBoxColumn
+                clm.HeaderText = "Calculated Time"
+                clm.ReadOnly = True
+                DataGridView8.Columns.Add(clm)
 
-                ctl.Columns("CohortTimePointID").visible = False
-                ctl.Columns("StudyTimePointID").visible = False
-                ctl.Columns("CohortID").visible = False
-                ctl.Columns("StudyID").visible = False
-                ctl.Columns("CohortName").visible = False
-                ctl.columns("TimepointDateTime").HeaderText = "Date/Time"
-                ctl.columns("VolGap").HeaderText = "Interval (Minutes)"
-
-
-                Dim cmb As TemplateDB.MyCmbColumn = OverClass.SetUpNewComboColumn("Select StudyTimepointID, TimepointName " &
-                                                    "FROM StudyTimepoint " &
-                                                    "WHERE CStr(StudyID)= ", FilterCombo11, "StudyTimepointID",
-                                                    "TimepointName", "StudyTimepointID", "Timepoint", DataGridView8, "clm1")
-
-                cmb.DisplayIndex = 1
-
-                ctl.columns("TimepointDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
+                DataGridView8.Columns("ProcOffSet").DisplayIndex = DataGridView8.Columns.Count - 1
 
 
 
             Case "DataGridView9"
 
-                SQLCode = "SELECT CohortID, a.VolID, RVLNo, Initials, RoomNo, min(TimepointDateTime) as FirstDate " &
-                    "FROM (Volunteer a INNER JOIN VolunteerTimepoint b ON a.VolID=b.VolID) " &
+                SQLCode = "Select CohortID, a.VolID, RVLNo, Initials, RoomNo, min(TimepointDateTime) As FirstDate " &
+                    "FROM (Volunteer a INNER JOIN VolunteerTimepoint b On a.VolID=b.VolID) " &
                     "GROUP BY CohortID, a.VolID, RVLNo, Initials, RoomNo " &
                     "ORDER BY min(TimepointDateTime) ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
@@ -279,11 +283,11 @@
                 FilterCombo14.AllowBlanks = False
                 FilterCombo14.SetUpFilter(False, Nothing)
                 FilterCombo14.SetAsExternalSource("StudyID", "StudyCode",
-                "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b ON a.StudyID=b.StudyID", OverClass)
+                "Select b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b On a.StudyID=b.StudyID", OverClass)
 
                 FilterCombo15.AllowBlanks = False
                 FilterCombo15.SetAsExternalSource("CohortID", "CohortName",
-                "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo15.SetCmbPointer(FilterCombo14), OverClass)
+                "Select CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo15.SetCmbPointer(FilterCombo14), OverClass)
 
                 ctl.columns("CohortID").visible = False
 
@@ -291,9 +295,9 @@
 
                 OverClass.ResetCollection()
 
-                SQLCode = "SELECT CohortID, RVLNo, a.VolID, StudyID, VolunteerTimepointID, TimepointName, TimepointDateTime, DayNumber " &
+                SQLCode = "Select CohortID, RVLNo, a.VolID, StudyID, VolunteerTimepointID, TimepointName, TimepointDateTime, DayNumber " &
                     "FROM (VolunteerTimepoint a INNER JOIN StudyTimepoint b " &
-                    "ON a.StudyTimepointID=b.StudyTimepointID) INNER JOIN Volunteer c ON a.VolID=c.VolID " &
+                    "On a.StudyTimepointID=b.StudyTimepointID) INNER JOIN Volunteer c On a.VolID=c.VolID " &
                     "ORDER BY TimepointDateTime ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
@@ -359,6 +363,8 @@
                 ctl.columns("Approx").readonly = True
                 ctl.columns("ProcName").readonly = True
                 ctl.columns("CalcDate").readonly = True
+                ctl.columns("DispTime").readonly = True
+                ctl.columns("DispStudy").readonly = True
                 ctl.columns("DispTime").HeaderText = "Date/Time"
                 ctl.columns("DispStudy").HeaderText = "Study/Cohort"
                 ctl.columns("Approx").HeaderText = "Timepoint"
@@ -487,14 +493,14 @@
 
         OverClass.ResetCollection()
 
-        Select Case e.TabPageIndex
+        Select Case e.TabPage.Text
 
-            Case 0
+            Case "Procedures"
                 ctl = Me.DataGridView1
                 SQLCode = "SELECT ProcID, ProcName, MinsTaken, ProcOrd FROM ProcTask ORDER BY ProcName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
-            Case 1
+            Case "Staff"
                 ctl = Me.DataGridView2
                 SQLCode = "SELECT StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
@@ -519,20 +525,20 @@
 
         OverClass.ResetCollection()
 
-        Select Case e.TabPageIndex
+        Select Case e.TabPage.Text
 
-            Case 0
+            Case "StudyCodes"
                 ctl = Me.DataGridView3
                 SQLCode = "SELECT StudyID, StudyCode, Colour FROM Study ORDER BY StudyCode ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
-            Case 1
+            Case "Timepoints"
                 Call Specifics(DataGridView5)
 
-            Case 2
+            Case "Schedules"
                 Call Specifics(DataGridView6)
 
-            Case 3
+            Case "Cohorts"
                 Call Specifics(DataGridView7)
 
         End Select
@@ -575,31 +581,12 @@
 
         OverClass.ResetCollection()
 
-        Select Case e.TabPageIndex
+        Select Case e.TabPage.Text
 
-            Case 0
-                Specifics(DataGridView8)
-
-            Case 1
-                Dim ComboString As String = "SELECT a.CohortID AS ID, StudyCode & ' - ' & CohortName AS Display " &
-                                                              "FROM (SELECT StudyCode, CohortName, CohortID, " &
-                                                              "Count(StudyTimepointID) as NumTimepoint " &
-                                                              "FROM (Study a INNER JOIN StudyTimePoint b " &
-                                                              "ON a.StudyID=b.StudyID) " &
-                                                              "INNER JOIN Cohort c ON a.StudyID=c.StudyID " &
-                                                              "GROUP BY StudyCode, CohortName, CohortID) as a " &
-                                                              "INNER JOIN " &
-                                                              "(SELECT c.CohortID, Count(CohortTimepointID) as NumTimepoint " &
-                                                              "FROM CohortTimepoint c INNER JOIN Cohort d " &
-                                                              "ON c.CohortID=d.CohortID WHERE Generated=False " &
-                                                              "GROUP BY c.CohortID) as b " &
-                                                              "ON a.CohortID=b.CohortID AND a.NumTimepoint=b.NumTimepoint"
-                FilterCombo13.SetAsExternalSource("ID", "Display", ComboString, OverClass)
-
-            Case 2
+            Case "Details"
                 Specifics(DataGridView9)
 
-            Case 3
+            Case "Timepoints"
                 Specifics(DataGridView10)
 
         End Select
@@ -620,12 +607,12 @@
 
         OverClass.ResetCollection()
 
-        Select Case e.TabPageIndex
+        Select Case e.TabPage.Text
 
-            Case 0
+            Case "Volunteer Assign"
                 Call Specifics(Me.DataGridView11)
 
-            Case 1
+            Case "Staff Procedures"
                 Call Specifics(Me.DataGridView12)
 
         End Select
@@ -660,6 +647,16 @@
     Private Sub DataGridView7_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView7.CellContentClick
 
         If IsDBNull(sender.item("CohortID", e.RowIndex).value) Then Exit Sub
+
+
+        If e.ColumnIndex = sender.columns("GenerateSchedule").index Then
+            If sender.item("Generated", e.RowIndex).value = False Then
+                Call Generator(sender.item("CohortID", e.RowIndex).value)
+            Else
+                Call ReSchedule(sender.item("CohortID", e.RowIndex).value, sender.item("StudyID", e.RowIndex).value,
+                                sender.item("CohortName", e.RowIndex).value, sender.item("NumVols", e.RowIndex).value)
+            End If
+        End If
 
         If e.ColumnIndex = sender.columns("DeleteButton").index Then
             Dim row As DataGridViewRow
@@ -1056,6 +1053,33 @@
 
     End Sub
 
+    Private Sub TabControl6_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles TabControl6.Selecting
 
+        Dim SQLCode As String = vbNullString
+        Dim Bind As BindingSource = BindingSource1
+        Dim ctl As Object = Nothing
+
+        If OverClass.UnloadData() = True Then
+            e.Cancel = True
+            Exit Sub
+        End If
+
+        OverClass.ResetCollection()
+
+        Select Case e.TabPage.Text
+
+            Case "Bulk"
+
+            Case "Individual"
+                ctl = Me.DataGridView8
+                SQLCode = "SELECT StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
+                OverClass.CreateDataSet(SQLCode, Bind, ctl)
+
+        End Select
+
+
+        If Not IsNothing(ctl) Then Call Specifics(ctl)
+
+    End Sub
 End Class
 

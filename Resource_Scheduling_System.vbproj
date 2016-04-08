@@ -27,7 +27,7 @@
     <InstallUrl>\\retroscreen.com\dfsroot\clinical\VOLUNTEER SCREENING SERVICES\Systems\Resource_Scheduling_System\</InstallUrl>
     <ProductName>Resource_Scheduling_System</ProductName>
     <PublisherName>David Burnside</PublisherName>
-    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>6.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -61,6 +61,7 @@
     <WarningsAsErrors>
     </WarningsAsErrors>
     <DebugSymbols>true</DebugSymbols>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -215,6 +216,12 @@
     <Compile Include="ReportDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RotaForm.Designer.vb">
+      <DependentUpon>RotaForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RotaForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SaveModule.vb" />
     <Compile Include="ScheduleGenerator.vb" />
     <Compile Include="SOAForm.Designer.vb">
@@ -245,6 +252,9 @@
       <DependentUpon>ReportDisplay.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterReport.rdlc" />
+    <EmbeddedResource Include="RotaForm.resx">
+      <DependentUpon>RotaForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SchedulePreview.rdlc" />
     <EmbeddedResource Include="SOAForm.resx">
       <DependentUpon>SOAForm.vb</DependentUpon>
@@ -269,6 +279,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hvivo_logo1_8dY_icon.ico" />
+    <None Include="Resources\Calendar-icon.png" />
+    <None Include="Resources\Right.png" />
+    <None Include="Resources\Left.png" />
+    <None Include="Resources\Rota.png" />
     <None Include="Resources\DefaultTime.png" />
     <None Include="packages.config" />
     <None Include="Resources\PrintSOA.png" />
@@ -518,11 +532,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <Target Name="AfterClean">
+    <RemoveDir Directories="$(OUTDIR)" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

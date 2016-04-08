@@ -31,105 +31,101 @@ Partial Class Form1
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
         Me.SplitContainer5 = New System.Windows.Forms.SplitContainer()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.FilterCombo19 = New TemplateDB.FilterCombo()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.SplitContainer6 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer16 = New System.Windows.Forms.SplitContainer()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.FilterCombo22 = New TemplateDB.FilterCombo()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.FilterCombo21 = New TemplateDB.FilterCombo()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.FilterCombo23 = New TemplateDB.FilterCombo()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.SplitContainer7 = New System.Windows.Forms.SplitContainer()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.FilterCombo20 = New TemplateDB.FilterCombo()
         Me.DataGridView7 = New System.Windows.Forms.DataGridView()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TabControl4 = New System.Windows.Forms.TabControl()
-        Me.TabPage15 = New System.Windows.Forms.TabPage()
-        Me.SplitContainer8 = New System.Windows.Forms.SplitContainer()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.DataGridView8 = New System.Windows.Forms.DataGridView()
-        Me.TabPage16 = New System.Windows.Forms.TabPage()
-        Me.SplitContainer9 = New System.Windows.Forms.SplitContainer()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.SplitContainer10 = New System.Windows.Forms.SplitContainer()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.FilterCombo14 = New TemplateDB.FilterCombo()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.FilterCombo15 = New TemplateDB.FilterCombo()
         Me.DataGridView9 = New System.Windows.Forms.DataGridView()
         Me.TabPage17 = New System.Windows.Forms.TabPage()
         Me.SplitContainer11 = New System.Windows.Forms.SplitContainer()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.FilterCombo16 = New TemplateDB.FilterCombo()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.FilterCombo17 = New TemplateDB.FilterCombo()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Button12 = New System.Windows.Forms.Button()
+        Me.FilterCombo18 = New TemplateDB.FilterCombo()
         Me.DataGridView10 = New System.Windows.Forms.DataGridView()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.TabControl5 = New System.Windows.Forms.TabControl()
         Me.TabPage18 = New System.Windows.Forms.TabPage()
         Me.SplitContainer12 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer4 = New System.Windows.Forms.SplitContainer()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
         Me.SplitContainer15 = New System.Windows.Forms.SplitContainer()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.FilterCombo6 = New TemplateDB.FilterCombo()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.FilterCombo5 = New TemplateDB.FilterCombo()
         Me.Label23 = New System.Windows.Forms.Label()
+        Me.FilterCombo7 = New TemplateDB.FilterCombo()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.FilterCombo10 = New TemplateDB.FilterCombo()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.FilterCombo9 = New TemplateDB.FilterCombo()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.FilterCombo8 = New TemplateDB.FilterCombo()
         Me.DataGridView11 = New System.Windows.Forms.DataGridView()
         Me.TabPage20 = New System.Windows.Forms.TabPage()
         Me.SplitContainer13 = New System.Windows.Forms.SplitContainer()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.FilterCombo3 = New TemplateDB.FilterCombo()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.Button14 = New System.Windows.Forms.Button()
+        Me.FilterCombo4 = New TemplateDB.FilterCombo()
         Me.DataGridView12 = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.SplitContainer14 = New System.Windows.Forms.SplitContainer()
+        Me.FilterCombo2 = New TemplateDB.FilterCombo()
+        Me.FilterCombo1 = New TemplateDB.FilterCombo()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -142,33 +138,36 @@ Partial Class Form1
         Me.Button15 = New System.Windows.Forms.Button()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.DataGridView13 = New System.Windows.Forms.DataGridView()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.FilterCombo19 = New TemplateDB.FilterCombo()
-        Me.FilterCombo22 = New TemplateDB.FilterCombo()
-        Me.FilterCombo21 = New TemplateDB.FilterCombo()
-        Me.FilterCombo23 = New TemplateDB.FilterCombo()
-        Me.FilterCombo20 = New TemplateDB.FilterCombo()
-        Me.FilterCombo11 = New TemplateDB.FilterCombo()
-        Me.FilterCombo12 = New TemplateDB.FilterCombo()
+        Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.TabControl6 = New System.Windows.Forms.TabControl()
+        Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.TabPage19 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer9 = New System.Windows.Forms.SplitContainer()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.FilterCombo13 = New TemplateDB.FilterCombo()
-        Me.FilterCombo14 = New TemplateDB.FilterCombo()
-        Me.FilterCombo15 = New TemplateDB.FilterCombo()
-        Me.FilterCombo16 = New TemplateDB.FilterCombo()
-        Me.FilterCombo17 = New TemplateDB.FilterCombo()
-        Me.FilterCombo18 = New TemplateDB.FilterCombo()
-        Me.FilterCombo6 = New TemplateDB.FilterCombo()
-        Me.FilterCombo5 = New TemplateDB.FilterCombo()
-        Me.FilterCombo7 = New TemplateDB.FilterCombo()
-        Me.FilterCombo10 = New TemplateDB.FilterCombo()
-        Me.FilterCombo9 = New TemplateDB.FilterCombo()
-        Me.FilterCombo8 = New TemplateDB.FilterCombo()
-        Me.FilterCombo3 = New TemplateDB.FilterCombo()
-        Me.FilterCombo4 = New TemplateDB.FilterCombo()
-        Me.FilterCombo2 = New TemplateDB.FilterCombo()
-        Me.FilterCombo1 = New TemplateDB.FilterCombo()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.FilterCombo24 = New TemplateDB.FilterCombo()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.FilterCombo25 = New TemplateDB.FilterCombo()
+        Me.DataGridView8 = New System.Windows.Forms.DataGridView()
         Me.TabPage1.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -216,17 +215,6 @@ Partial Class Form1
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage6.SuspendLayout()
         Me.TabControl4.SuspendLayout()
-        Me.TabPage15.SuspendLayout()
-        CType(Me.SplitContainer8, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer8.Panel1.SuspendLayout()
-        Me.SplitContainer8.Panel2.SuspendLayout()
-        Me.SplitContainer8.SuspendLayout()
-        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage16.SuspendLayout()
-        CType(Me.SplitContainer9, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer9.Panel1.SuspendLayout()
-        Me.SplitContainer9.Panel2.SuspendLayout()
-        Me.SplitContainer9.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         CType(Me.SplitContainer10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer10.Panel1.SuspendLayout()
@@ -268,7 +256,16 @@ Partial Class Form1
         Me.SplitContainer14.SuspendLayout()
         Me.TabPage11.SuspendLayout()
         CType(Me.DataGridView13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage15.SuspendLayout()
+        Me.TabControl6.SuspendLayout()
+        Me.TabPage19.SuspendLayout()
+        CType(Me.SplitContainer9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer9.Panel1.SuspendLayout()
+        Me.SplitContainer9.Panel2.SuspendLayout()
+        Me.SplitContainer9.SuspendLayout()
+        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage1
@@ -279,7 +276,7 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage1.Size = New System.Drawing.Size(819, 392)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Menu"
         '
@@ -289,23 +286,11 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.White
         Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(268, 301)
+        Me.Label2.Location = New System.Drawing.Point(203, 301)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(48, 15)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Version"
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.hVIVO_screensaver_two
-        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox4.Location = New System.Drawing.Point(233, 8)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(437, 378)
-        Me.PictureBox4.TabIndex = 12
-        Me.PictureBox4.TabStop = False
         '
         'TabControl1
         '
@@ -313,6 +298,7 @@ Partial Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.TabPage15)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Controls.Add(Me.TabPage11)
@@ -320,7 +306,7 @@ Partial Class Form1
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(957, 418)
+        Me.TabControl1.Size = New System.Drawing.Size(827, 418)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage2
@@ -329,7 +315,7 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage2.Size = New System.Drawing.Size(819, 392)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Set Up"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -342,7 +328,7 @@ Partial Class Form1
         Me.TabControl2.Location = New System.Drawing.Point(3, 3)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(943, 386)
+        Me.TabControl2.Size = New System.Drawing.Size(813, 386)
         Me.TabControl2.TabIndex = 0
         '
         'TabPage3
@@ -351,7 +337,7 @@ Partial Class Form1
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage3.Size = New System.Drawing.Size(805, 360)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Procedures"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -370,23 +356,9 @@ Partial Class Form1
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer1.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer1.SplitterDistance = 25
         Me.SplitContainer1.TabIndex = 6
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(130, 25)
-        Me.Button1.TabIndex = 11
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -402,7 +374,7 @@ Partial Class Form1
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView1.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView1.TabIndex = 2
         '
         'TabPage4
@@ -411,7 +383,7 @@ Partial Class Form1
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage4.Size = New System.Drawing.Size(805, 360)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Staff"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -425,28 +397,15 @@ Partial Class Form1
         '
         'SplitContainer2.Panel1
         '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Button19)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Button3)
         '
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridView2)
-        Me.SplitContainer2.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer2.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer2.SplitterDistance = 25
         Me.SplitContainer2.TabIndex = 7
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(0, 0)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(130, 25)
-        Me.Button3.TabIndex = 11
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'DataGridView2
         '
@@ -462,7 +421,7 @@ Partial Class Form1
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView2.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView2.TabIndex = 2
         '
         'TabPage5
@@ -471,7 +430,7 @@ Partial Class Form1
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage5.Size = New System.Drawing.Size(819, 392)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Studies"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -486,7 +445,7 @@ Partial Class Form1
         Me.TabControl3.Location = New System.Drawing.Point(3, 3)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(943, 386)
+        Me.TabControl3.Size = New System.Drawing.Size(813, 386)
         Me.TabControl3.TabIndex = 0
         '
         'TabPage10
@@ -495,7 +454,7 @@ Partial Class Form1
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage10.Size = New System.Drawing.Size(805, 360)
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "StudyCodes"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -514,23 +473,9 @@ Partial Class Form1
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.DataGridView3)
-        Me.SplitContainer3.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer3.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer3.SplitterDistance = 25
         Me.SplitContainer3.TabIndex = 7
-        '
-        'Button4
-        '
-        Me.Button4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(0, 0)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(130, 25)
-        Me.Button4.TabIndex = 11
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.UseVisualStyleBackColor = True
         '
         'DataGridView3
         '
@@ -546,7 +491,7 @@ Partial Class Form1
         Me.DataGridView3.RowHeadersVisible = False
         Me.DataGridView3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView3.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView3.TabIndex = 2
         '
         'TabPage12
@@ -555,7 +500,7 @@ Partial Class Form1
         Me.TabPage12.Location = New System.Drawing.Point(4, 22)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage12.Size = New System.Drawing.Size(805, 360)
         Me.TabPage12.TabIndex = 2
         Me.TabPage12.Text = "Timepoints"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -576,7 +521,7 @@ Partial Class Form1
         'SplitContainer5.Panel2
         '
         Me.SplitContainer5.Panel2.Controls.Add(Me.DataGridView5)
-        Me.SplitContainer5.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer5.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer5.SplitterDistance = 25
         Me.SplitContainer5.TabIndex = 9
         '
@@ -585,25 +530,21 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(699, 0)
+        Me.Label1.Location = New System.Drawing.Point(569, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 20)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Study:"
         '
-        'Button6
+        'FilterCombo19
         '
-        Me.Button6.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button6.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(0, 0)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(130, 25)
-        Me.Button6.TabIndex = 11
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.FilterCombo19.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo19.FormattingEnabled = True
+        Me.FilterCombo19.Location = New System.Drawing.Point(623, 0)
+        Me.FilterCombo19.Name = "FilterCombo19"
+        Me.FilterCombo19.Size = New System.Drawing.Size(176, 24)
+        Me.FilterCombo19.TabIndex = 47
         '
         'DataGridView5
         '
@@ -619,7 +560,7 @@ Partial Class Form1
         Me.DataGridView5.RowHeadersVisible = False
         Me.DataGridView5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView5.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView5.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView5.TabIndex = 2
         '
         'TabPage13
@@ -628,7 +569,7 @@ Partial Class Form1
         Me.TabPage13.Location = New System.Drawing.Point(4, 22)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage13.Size = New System.Drawing.Size(805, 360)
         Me.TabPage13.TabIndex = 3
         Me.TabPage13.Text = "Schedules"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -651,7 +592,7 @@ Partial Class Form1
         'SplitContainer6.Panel2
         '
         Me.SplitContainer6.Panel2.Controls.Add(Me.DataGridView6)
-        Me.SplitContainer6.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer6.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer6.SplitterDistance = 60
         Me.SplitContainer6.TabIndex = 10
         '
@@ -678,7 +619,7 @@ Partial Class Form1
         Me.SplitContainer16.Panel2.Controls.Add(Me.FilterCombo23)
         Me.SplitContainer16.Panel2.Controls.Add(Me.Label12)
         Me.SplitContainer16.Panel2.Controls.Add(Me.TextBox1)
-        Me.SplitContainer16.Size = New System.Drawing.Size(669, 60)
+        Me.SplitContainer16.Size = New System.Drawing.Size(539, 60)
         Me.SplitContainer16.SplitterDistance = 27
         Me.SplitContainer16.SplitterWidth = 3
         Me.SplitContainer16.TabIndex = 42
@@ -688,40 +629,70 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(231, 0)
+        Me.Label4.Location = New System.Drawing.Point(101, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(54, 20)
         Me.Label4.TabIndex = 45
         Me.Label4.Text = "Study:"
+        '
+        'FilterCombo22
+        '
+        Me.FilterCombo22.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo22.FormattingEnabled = True
+        Me.FilterCombo22.Location = New System.Drawing.Point(155, 0)
+        Me.FilterCombo22.Name = "FilterCombo22"
+        Me.FilterCombo22.Size = New System.Drawing.Size(176, 24)
+        Me.FilterCombo22.TabIndex = 50
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(461, 0)
+        Me.Label3.Location = New System.Drawing.Point(331, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(78, 20)
         Me.Label3.TabIndex = 43
         Me.Label3.Text = "Timepoint"
+        '
+        'FilterCombo21
+        '
+        Me.FilterCombo21.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo21.FormattingEnabled = True
+        Me.FilterCombo21.Location = New System.Drawing.Point(409, 0)
+        Me.FilterCombo21.Name = "FilterCombo21"
+        Me.FilterCombo21.Size = New System.Drawing.Size(130, 24)
+        Me.FilterCombo21.TabIndex = 49
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(105, 0)
+        Me.Label18.Location = New System.Drawing.Point(-25, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(82, 20)
         Me.Label18.TabIndex = 49
         Me.Label18.Text = "Procedure"
+        '
+        'FilterCombo23
+        '
+        Me.FilterCombo23.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo23.FormattingEnabled = True
+        Me.FilterCombo23.Location = New System.Drawing.Point(57, 0)
+        Me.FilterCombo23.Name = "FilterCombo23"
+        Me.FilterCombo23.Size = New System.Drawing.Size(263, 24)
+        Me.FilterCombo23.TabIndex = 52
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(450, 0)
+        Me.Label12.Location = New System.Drawing.Point(320, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(103, 20)
         Me.Label12.TabIndex = 53
@@ -731,39 +702,11 @@ Partial Class Form1
         '
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(553, 0)
+        Me.TextBox1.Location = New System.Drawing.Point(423, 0)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(116, 23)
         Me.TextBox1.TabIndex = 54
-        '
-        'Button20
-        '
-        Me.Button20.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Previewer
-        Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button20.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button20.FlatAppearance.BorderSize = 0
-        Me.Button20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button20.Location = New System.Drawing.Point(130, 0)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(130, 60)
-        Me.Button20.TabIndex = 16
-        Me.Button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button20.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.Location = New System.Drawing.Point(0, 0)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(130, 60)
-        Me.Button7.TabIndex = 11
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.UseVisualStyleBackColor = True
         '
         'DataGridView6
         '
@@ -788,7 +731,7 @@ Partial Class Form1
         Me.DataGridView6.RowTemplate.Height = 35
         Me.DataGridView6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView6.Size = New System.Drawing.Size(929, 290)
+        Me.DataGridView6.Size = New System.Drawing.Size(799, 290)
         Me.DataGridView6.TabIndex = 4
         '
         'TabPage14
@@ -797,7 +740,7 @@ Partial Class Form1
         Me.TabPage14.Location = New System.Drawing.Point(4, 22)
         Me.TabPage14.Name = "TabPage14"
         Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage14.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage14.Size = New System.Drawing.Size(805, 360)
         Me.TabPage14.TabIndex = 4
         Me.TabPage14.Text = "Cohorts"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -818,7 +761,7 @@ Partial Class Form1
         'SplitContainer7.Panel2
         '
         Me.SplitContainer7.Panel2.Controls.Add(Me.DataGridView7)
-        Me.SplitContainer7.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer7.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer7.SplitterDistance = 25
         Me.SplitContainer7.TabIndex = 10
         '
@@ -827,25 +770,21 @@ Partial Class Form1
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(699, 0)
+        Me.Label5.Location = New System.Drawing.Point(569, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 20)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Study:"
         '
-        'Button8
+        'FilterCombo20
         '
-        Me.Button8.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button8.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button8.FlatAppearance.BorderSize = 0
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(0, 0)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(130, 25)
-        Me.Button8.TabIndex = 11
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.FilterCombo20.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo20.FormattingEnabled = True
+        Me.FilterCombo20.Location = New System.Drawing.Point(623, 0)
+        Me.FilterCombo20.Name = "FilterCombo20"
+        Me.FilterCombo20.Size = New System.Drawing.Size(176, 24)
+        Me.FilterCombo20.TabIndex = 48
         '
         'DataGridView7
         '
@@ -859,7 +798,7 @@ Partial Class Form1
         Me.DataGridView7.RowHeadersVisible = False
         Me.DataGridView7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView7.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView7.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView7.TabIndex = 3
         '
         'TabPage6
@@ -868,176 +807,21 @@ Partial Class Form1
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage6.Size = New System.Drawing.Size(819, 392)
         Me.TabPage6.TabIndex = 3
-        Me.TabPage6.Text = "Cohorts"
+        Me.TabPage6.Text = "Volunteers"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
         'TabControl4
         '
-        Me.TabControl4.Controls.Add(Me.TabPage15)
-        Me.TabControl4.Controls.Add(Me.TabPage16)
         Me.TabControl4.Controls.Add(Me.TabPage7)
         Me.TabControl4.Controls.Add(Me.TabPage17)
         Me.TabControl4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl4.Location = New System.Drawing.Point(3, 3)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(943, 386)
+        Me.TabControl4.Size = New System.Drawing.Size(813, 386)
         Me.TabControl4.TabIndex = 0
-        '
-        'TabPage15
-        '
-        Me.TabPage15.Controls.Add(Me.SplitContainer8)
-        Me.TabPage15.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage15.Size = New System.Drawing.Size(935, 360)
-        Me.TabPage15.TabIndex = 0
-        Me.TabPage15.Text = "Cohort Timepoints"
-        Me.TabPage15.UseVisualStyleBackColor = True
-        '
-        'SplitContainer8
-        '
-        Me.SplitContainer8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer8.Location = New System.Drawing.Point(3, 3)
-        Me.SplitContainer8.Name = "SplitContainer8"
-        Me.SplitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'SplitContainer8.Panel1
-        '
-        Me.SplitContainer8.Panel1.Controls.Add(Me.Label6)
-        Me.SplitContainer8.Panel1.Controls.Add(Me.Button9)
-        Me.SplitContainer8.Panel1.Controls.Add(Me.FilterCombo11)
-        Me.SplitContainer8.Panel1.Controls.Add(Me.Label7)
-        Me.SplitContainer8.Panel1.Controls.Add(Me.FilterCombo12)
-        '
-        'SplitContainer8.Panel2
-        '
-        Me.SplitContainer8.Panel2.Controls.Add(Me.DataGridView8)
-        Me.SplitContainer8.Size = New System.Drawing.Size(929, 354)
-        Me.SplitContainer8.SplitterDistance = 25
-        Me.SplitContainer8.TabIndex = 11
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(558, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(54, 20)
-        Me.Label6.TabIndex = 15
-        Me.Label6.Text = "Study:"
-        '
-        'Button9
-        '
-        Me.Button9.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button9.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.Location = New System.Drawing.Point(0, 0)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(130, 25)
-        Me.Button9.TabIndex = 11
-        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(788, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(61, 20)
-        Me.Label7.TabIndex = 42
-        Me.Label7.Text = "Cohort:"
-        '
-        'DataGridView8
-        '
-        Me.DataGridView8.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView8.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView8.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
-        Me.DataGridView8.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView8.Name = "DataGridView8"
-        Me.DataGridView8.RowHeadersVisible = False
-        Me.DataGridView8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView8.Size = New System.Drawing.Size(929, 325)
-        Me.DataGridView8.TabIndex = 2
-        '
-        'TabPage16
-        '
-        Me.TabPage16.Controls.Add(Me.SplitContainer9)
-        Me.TabPage16.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage16.Name = "TabPage16"
-        Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(935, 360)
-        Me.TabPage16.TabIndex = 1
-        Me.TabPage16.Text = "Generate Schedule"
-        Me.TabPage16.UseVisualStyleBackColor = True
-        '
-        'SplitContainer9
-        '
-        Me.SplitContainer9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer9.Location = New System.Drawing.Point(3, 3)
-        Me.SplitContainer9.Name = "SplitContainer9"
-        Me.SplitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'SplitContainer9.Panel1
-        '
-        Me.SplitContainer9.Panel1.Controls.Add(Me.Button10)
-        '
-        'SplitContainer9.Panel2
-        '
-        Me.SplitContainer9.Panel2.Controls.Add(Me.FilterCombo13)
-        Me.SplitContainer9.Panel2.Controls.Add(Me.Label10)
-        Me.SplitContainer9.Panel2.Controls.Add(Me.Label8)
-        Me.SplitContainer9.Size = New System.Drawing.Size(929, 354)
-        Me.SplitContainer9.SplitterDistance = 25
-        Me.SplitContainer9.TabIndex = 12
-        '
-        'Button10
-        '
-        Me.Button10.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.calendar
-        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.Location = New System.Drawing.Point(0, 0)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(130, 25)
-        Me.Button10.TabIndex = 11
-        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Label10
-        '
-        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(298, 107)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(300, 26)
-        Me.Label10.TabIndex = 16
-        Me.Label10.Text = "Please ensure that all cohort timepoints have been completed " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "prior to generatin" &
-    "g a schedule"
-        '
-        'Label8
-        '
-        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(298, 183)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(54, 20)
-        Me.Label8.TabIndex = 15
-        Me.Label8.Text = "Study:"
         '
         'TabPage7
         '
@@ -1045,9 +829,9 @@ Partial Class Form1
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage7.Size = New System.Drawing.Size(805, 360)
         Me.TabPage7.TabIndex = 2
-        Me.TabPage7.Text = "Volunteers"
+        Me.TabPage7.Text = "Details"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
         'SplitContainer10
@@ -1068,7 +852,7 @@ Partial Class Form1
         'SplitContainer10.Panel2
         '
         Me.SplitContainer10.Panel2.Controls.Add(Me.DataGridView9)
-        Me.SplitContainer10.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer10.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer10.SplitterDistance = 25
         Me.SplitContainer10.TabIndex = 12
         '
@@ -1077,42 +861,48 @@ Partial Class Form1
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(540, 0)
+        Me.Label9.Location = New System.Drawing.Point(410, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 20)
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "Study:"
+        '
+        'FilterCombo14
+        '
+        Me.FilterCombo14.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo14.FormattingEnabled = True
+        Me.FilterCombo14.Location = New System.Drawing.Point(464, 0)
+        Me.FilterCombo14.Name = "FilterCombo14"
+        Me.FilterCombo14.Size = New System.Drawing.Size(176, 24)
+        Me.FilterCombo14.TabIndex = 42
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(770, 0)
+        Me.Label11.Location = New System.Drawing.Point(640, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(61, 20)
         Me.Label11.TabIndex = 13
         Me.Label11.Text = "Cohort:"
         '
-        'Button11
+        'FilterCombo15
         '
-        Me.Button11.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button11.Location = New System.Drawing.Point(0, 0)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(130, 25)
-        Me.Button11.TabIndex = 11
-        Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.FilterCombo15.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo15.FormattingEnabled = True
+        Me.FilterCombo15.Location = New System.Drawing.Point(701, 0)
+        Me.FilterCombo15.Name = "FilterCombo15"
+        Me.FilterCombo15.Size = New System.Drawing.Size(98, 24)
+        Me.FilterCombo15.TabIndex = 43
         '
         'DataGridView9
         '
         Me.DataGridView9.AllowUserToDeleteRows = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView9.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridView9.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView9.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView9.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1122,7 +912,7 @@ Partial Class Form1
         Me.DataGridView9.RowHeadersVisible = False
         Me.DataGridView9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView9.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView9.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView9.TabIndex = 2
         '
         'TabPage17
@@ -1131,9 +921,9 @@ Partial Class Form1
         Me.TabPage17.Location = New System.Drawing.Point(4, 22)
         Me.TabPage17.Name = "TabPage17"
         Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage17.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage17.Size = New System.Drawing.Size(805, 360)
         Me.TabPage17.TabIndex = 3
-        Me.TabPage17.Text = "Volunteer Timepoints"
+        Me.TabPage17.Text = "Timepoints"
         Me.TabPage17.UseVisualStyleBackColor = True
         '
         'SplitContainer11
@@ -1156,7 +946,7 @@ Partial Class Form1
         'SplitContainer11.Panel2
         '
         Me.SplitContainer11.Panel2.Controls.Add(Me.DataGridView10)
-        Me.SplitContainer11.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer11.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer11.SplitterDistance = 25
         Me.SplitContainer11.TabIndex = 13
         '
@@ -1165,53 +955,69 @@ Partial Class Form1
         Me.Label13.AutoSize = True
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(360, 0)
+        Me.Label13.Location = New System.Drawing.Point(230, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(54, 20)
         Me.Label13.TabIndex = 45
         Me.Label13.Text = "Study:"
+        '
+        'FilterCombo16
+        '
+        Me.FilterCombo16.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo16.FormattingEnabled = True
+        Me.FilterCombo16.Location = New System.Drawing.Point(284, 0)
+        Me.FilterCombo16.Name = "FilterCombo16"
+        Me.FilterCombo16.Size = New System.Drawing.Size(176, 24)
+        Me.FilterCombo16.TabIndex = 46
         '
         'Label30
         '
         Me.Label30.AutoSize = True
         Me.Label30.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(590, 0)
+        Me.Label30.Location = New System.Drawing.Point(460, 0)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(61, 20)
         Me.Label30.TabIndex = 44
         Me.Label30.Text = "Cohort:"
+        '
+        'FilterCombo17
+        '
+        Me.FilterCombo17.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo17.FormattingEnabled = True
+        Me.FilterCombo17.Location = New System.Drawing.Point(521, 0)
+        Me.FilterCombo17.Name = "FilterCombo17"
+        Me.FilterCombo17.Size = New System.Drawing.Size(98, 24)
+        Me.FilterCombo17.TabIndex = 47
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(749, 0)
+        Me.Label14.Location = New System.Drawing.Point(619, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(82, 20)
         Me.Label14.TabIndex = 17
         Me.Label14.Text = "Volunteer:"
         '
-        'Button12
+        'FilterCombo18
         '
-        Me.Button12.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button12.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button12.FlatAppearance.BorderSize = 0
-        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button12.Location = New System.Drawing.Point(0, 0)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(130, 25)
-        Me.Button12.TabIndex = 11
-        Me.Button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button12.UseVisualStyleBackColor = True
+        Me.FilterCombo18.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo18.FormattingEnabled = True
+        Me.FilterCombo18.Location = New System.Drawing.Point(701, 0)
+        Me.FilterCombo18.Name = "FilterCombo18"
+        Me.FilterCombo18.Size = New System.Drawing.Size(98, 24)
+        Me.FilterCombo18.TabIndex = 48
         '
         'DataGridView10
         '
         Me.DataGridView10.AllowUserToDeleteRows = False
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridView10.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridView10.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView10.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView10.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1221,7 +1027,7 @@ Partial Class Form1
         Me.DataGridView10.RowHeadersVisible = False
         Me.DataGridView10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView10.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView10.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView10.TabIndex = 2
         '
         'TabPage8
@@ -1230,7 +1036,7 @@ Partial Class Form1
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage8.Size = New System.Drawing.Size(819, 392)
         Me.TabPage8.TabIndex = 5
         Me.TabPage8.Text = "Staffing"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -1243,7 +1049,7 @@ Partial Class Form1
         Me.TabControl5.Location = New System.Drawing.Point(3, 3)
         Me.TabControl5.Name = "TabControl5"
         Me.TabControl5.SelectedIndex = 0
-        Me.TabControl5.Size = New System.Drawing.Size(943, 386)
+        Me.TabControl5.Size = New System.Drawing.Size(813, 386)
         Me.TabControl5.TabIndex = 0
         '
         'TabPage18
@@ -1252,7 +1058,7 @@ Partial Class Form1
         Me.TabPage18.Location = New System.Drawing.Point(4, 22)
         Me.TabPage18.Name = "TabPage18"
         Me.TabPage18.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage18.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage18.Size = New System.Drawing.Size(805, 360)
         Me.TabPage18.TabIndex = 0
         Me.TabPage18.Text = "Volunteer Assign"
         Me.TabPage18.UseVisualStyleBackColor = True
@@ -1273,7 +1079,7 @@ Partial Class Form1
         'SplitContainer12.Panel2
         '
         Me.SplitContainer12.Panel2.Controls.Add(Me.DataGridView11)
-        Me.SplitContainer12.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer12.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer12.SplitterDistance = 60
         Me.SplitContainer12.TabIndex = 12
         '
@@ -1293,37 +1099,9 @@ Partial Class Form1
         'SplitContainer4.Panel2
         '
         Me.SplitContainer4.Panel2.Controls.Add(Me.SplitContainer15)
-        Me.SplitContainer4.Size = New System.Drawing.Size(929, 60)
+        Me.SplitContainer4.Size = New System.Drawing.Size(799, 60)
         Me.SplitContainer4.SplitterDistance = 270
         Me.SplitContainer4.TabIndex = 0
-        '
-        'Button5
-        '
-        Me.Button5.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Assign
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(130, 0)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(130, 60)
-        Me.Button5.TabIndex = 54
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button13
-        '
-        Me.Button13.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button13.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button13.FlatAppearance.BorderSize = 0
-        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button13.Location = New System.Drawing.Point(0, 0)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(130, 60)
-        Me.Button13.TabIndex = 53
-        Me.Button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button13.UseVisualStyleBackColor = True
         '
         'SplitContainer15
         '
@@ -1355,7 +1133,7 @@ Partial Class Form1
         Me.SplitContainer15.Panel2.Controls.Add(Me.Label27)
         Me.SplitContainer15.Panel2.Controls.Add(Me.FilterCombo8)
         Me.SplitContainer15.Panel2MinSize = 0
-        Me.SplitContainer15.Size = New System.Drawing.Size(655, 60)
+        Me.SplitContainer15.Size = New System.Drawing.Size(525, 60)
         Me.SplitContainer15.SplitterDistance = 30
         Me.SplitContainer15.TabIndex = 33
         '
@@ -1364,40 +1142,70 @@ Partial Class Form1
         Me.Label29.AutoSize = True
         Me.Label29.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(-5, 0)
+        Me.Label29.Location = New System.Drawing.Point(-135, 0)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(44, 20)
         Me.Label29.TabIndex = 39
         Me.Label29.Text = "Staff"
+        '
+        'FilterCombo6
+        '
+        Me.FilterCombo6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo6.FormattingEnabled = True
+        Me.FilterCombo6.Location = New System.Drawing.Point(-91, 0)
+        Me.FilterCombo6.Name = "FilterCombo6"
+        Me.FilterCombo6.Size = New System.Drawing.Size(120, 24)
+        Me.FilterCombo6.TabIndex = 41
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(159, 0)
+        Me.Label15.Location = New System.Drawing.Point(29, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(50, 20)
         Me.Label15.TabIndex = 35
         Me.Label15.Text = "Study"
+        '
+        'FilterCombo5
+        '
+        Me.FilterCombo5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo5.FormattingEnabled = True
+        Me.FilterCombo5.Location = New System.Drawing.Point(79, 0)
+        Me.FilterCombo5.Name = "FilterCombo5"
+        Me.FilterCombo5.Size = New System.Drawing.Size(126, 24)
+        Me.FilterCombo5.TabIndex = 40
         '
         'Label23
         '
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(335, 0)
+        Me.Label23.Location = New System.Drawing.Point(205, 0)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(82, 20)
         Me.Label23.TabIndex = 37
         Me.Label23.Text = "Procedure"
+        '
+        'FilterCombo7
+        '
+        Me.FilterCombo7.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo7.FormattingEnabled = True
+        Me.FilterCombo7.Location = New System.Drawing.Point(287, 0)
+        Me.FilterCombo7.Name = "FilterCombo7"
+        Me.FilterCombo7.Size = New System.Drawing.Size(238, 24)
+        Me.FilterCombo7.TabIndex = 42
         '
         'Label28
         '
         Me.Label28.AutoSize = True
         Me.Label28.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(14, 0)
+        Me.Label28.Location = New System.Drawing.Point(-116, 0)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(94, 20)
         Me.Label28.TabIndex = 49
@@ -1410,7 +1218,7 @@ Partial Class Form1
         Me.CheckBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ImageAlign = System.Drawing.ContentAlignment.TopRight
-        Me.CheckBox1.Location = New System.Drawing.Point(108, 0)
+        Me.CheckBox1.Location = New System.Drawing.Point(-22, 0)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.CheckBox1.Size = New System.Drawing.Size(15, 26)
@@ -1423,33 +1231,63 @@ Partial Class Form1
         Me.Label16.AutoSize = True
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(123, 0)
+        Me.Label16.Location = New System.Drawing.Point(-7, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(57, 20)
         Me.Label16.TabIndex = 51
         Me.Label16.Text = "Cohort"
+        '
+        'FilterCombo10
+        '
+        Me.FilterCombo10.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo10.FormattingEnabled = True
+        Me.FilterCombo10.Location = New System.Drawing.Point(50, 0)
+        Me.FilterCombo10.Name = "FilterCombo10"
+        Me.FilterCombo10.Size = New System.Drawing.Size(87, 24)
+        Me.FilterCombo10.TabIndex = 54
         '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(267, 0)
+        Me.Label24.Location = New System.Drawing.Point(137, 0)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(78, 20)
         Me.Label24.TabIndex = 45
         Me.Label24.Text = "Volunteer"
+        '
+        'FilterCombo9
+        '
+        Me.FilterCombo9.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo9.FormattingEnabled = True
+        Me.FilterCombo9.Location = New System.Drawing.Point(215, 0)
+        Me.FilterCombo9.Name = "FilterCombo9"
+        Me.FilterCombo9.Size = New System.Drawing.Size(164, 24)
+        Me.FilterCombo9.TabIndex = 53
         '
         'Label27
         '
         Me.Label27.AutoSize = True
         Me.Label27.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(509, 0)
+        Me.Label27.Location = New System.Drawing.Point(379, 0)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(44, 20)
         Me.Label27.TabIndex = 47
         Me.Label27.Text = "Date"
+        '
+        'FilterCombo8
+        '
+        Me.FilterCombo8.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo8.FormattingEnabled = True
+        Me.FilterCombo8.Location = New System.Drawing.Point(423, 0)
+        Me.FilterCombo8.Name = "FilterCombo8"
+        Me.FilterCombo8.Size = New System.Drawing.Size(102, 24)
+        Me.FilterCombo8.TabIndex = 52
         '
         'DataGridView11
         '
@@ -1474,7 +1312,7 @@ Partial Class Form1
         Me.DataGridView11.RowTemplate.Height = 40
         Me.DataGridView11.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView11.Size = New System.Drawing.Size(929, 290)
+        Me.DataGridView11.Size = New System.Drawing.Size(799, 290)
         Me.DataGridView11.TabIndex = 2
         '
         'TabPage20
@@ -1483,7 +1321,7 @@ Partial Class Form1
         Me.TabPage20.Location = New System.Drawing.Point(4, 22)
         Me.TabPage20.Name = "TabPage20"
         Me.TabPage20.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage20.Size = New System.Drawing.Size(935, 360)
+        Me.TabPage20.Size = New System.Drawing.Size(805, 360)
         Me.TabPage20.TabIndex = 2
         Me.TabPage20.Text = "Staff Procedures"
         Me.TabPage20.UseVisualStyleBackColor = True
@@ -1506,7 +1344,7 @@ Partial Class Form1
         'SplitContainer13.Panel2
         '
         Me.SplitContainer13.Panel2.Controls.Add(Me.DataGridView12)
-        Me.SplitContainer13.Size = New System.Drawing.Size(929, 354)
+        Me.SplitContainer13.Size = New System.Drawing.Size(799, 354)
         Me.SplitContainer13.SplitterDistance = 25
         Me.SplitContainer13.TabIndex = 13
         '
@@ -1515,36 +1353,42 @@ Partial Class Form1
         Me.Label25.AutoSize = True
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(349, 0)
+        Me.Label25.Location = New System.Drawing.Point(219, 0)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(44, 20)
         Me.Label25.TabIndex = 41
         Me.Label25.Text = "Staff"
+        '
+        'FilterCombo3
+        '
+        Me.FilterCombo3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo3.FormattingEnabled = True
+        Me.FilterCombo3.Location = New System.Drawing.Point(263, 0)
+        Me.FilterCombo3.Name = "FilterCombo3"
+        Me.FilterCombo3.Size = New System.Drawing.Size(171, 24)
+        Me.FilterCombo3.TabIndex = 44
         '
         'Label26
         '
         Me.Label26.AutoSize = True
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(564, 0)
+        Me.Label26.Location = New System.Drawing.Point(434, 0)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(82, 20)
         Me.Label26.TabIndex = 43
         Me.Label26.Text = "Procedure"
         '
-        'Button14
+        'FilterCombo4
         '
-        Me.Button14.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
-        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.Location = New System.Drawing.Point(0, 0)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(130, 25)
-        Me.Button14.TabIndex = 11
-        Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.UseVisualStyleBackColor = True
+        Me.FilterCombo4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo4.FormattingEnabled = True
+        Me.FilterCombo4.Location = New System.Drawing.Point(516, 0)
+        Me.FilterCombo4.Name = "FilterCombo4"
+        Me.FilterCombo4.Size = New System.Drawing.Size(283, 24)
+        Me.FilterCombo4.TabIndex = 45
         '
         'DataGridView12
         '
@@ -1569,7 +1413,7 @@ Partial Class Form1
         Me.DataGridView12.RowTemplate.Height = 40
         Me.DataGridView12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView12.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView12.Size = New System.Drawing.Size(929, 325)
+        Me.DataGridView12.Size = New System.Drawing.Size(799, 325)
         Me.DataGridView12.TabIndex = 2
         '
         'TabPage9
@@ -1578,7 +1422,7 @@ Partial Class Form1
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage9.Size = New System.Drawing.Size(819, 392)
         Me.TabPage9.TabIndex = 6
         Me.TabPage9.Text = "Reports"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1608,9 +1452,27 @@ Partial Class Form1
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button17)
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button16)
         Me.SplitContainer14.Panel2.Controls.Add(Me.Button15)
-        Me.SplitContainer14.Size = New System.Drawing.Size(943, 386)
+        Me.SplitContainer14.Size = New System.Drawing.Size(813, 386)
         Me.SplitContainer14.SplitterDistance = 621
         Me.SplitContainer14.TabIndex = 0
+        '
+        'FilterCombo2
+        '
+        Me.FilterCombo2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.FilterCombo2.FormattingEnabled = True
+        Me.FilterCombo2.Location = New System.Drawing.Point(173, 273)
+        Me.FilterCombo2.Name = "FilterCombo2"
+        Me.FilterCombo2.Size = New System.Drawing.Size(152, 21)
+        Me.FilterCombo2.TabIndex = 15
+        '
+        'FilterCombo1
+        '
+        Me.FilterCombo1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.FilterCombo1.FormattingEnabled = True
+        Me.FilterCombo1.Location = New System.Drawing.Point(173, 228)
+        Me.FilterCombo1.Name = "FilterCombo1"
+        Me.FilterCombo1.Size = New System.Drawing.Size(152, 21)
+        Me.FilterCombo1.TabIndex = 14
         '
         'DateTimePicker2
         '
@@ -1677,7 +1539,7 @@ Partial Class Form1
         'Button18
         '
         Me.Button18.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button18.Location = New System.Drawing.Point(70, 271)
+        Me.Button18.Location = New System.Drawing.Point(5, 271)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(178, 23)
         Me.Button18.TabIndex = 3
@@ -1687,7 +1549,7 @@ Partial Class Form1
         'Button17
         '
         Me.Button17.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button17.Location = New System.Drawing.Point(70, 227)
+        Me.Button17.Location = New System.Drawing.Point(5, 227)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(178, 23)
         Me.Button17.TabIndex = 2
@@ -1697,7 +1559,7 @@ Partial Class Form1
         'Button16
         '
         Me.Button16.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button16.Location = New System.Drawing.Point(70, 184)
+        Me.Button16.Location = New System.Drawing.Point(5, 184)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(178, 23)
         Me.Button16.TabIndex = 1
@@ -1707,7 +1569,7 @@ Partial Class Form1
         'Button15
         '
         Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button15.Location = New System.Drawing.Point(70, 141)
+        Me.Button15.Location = New System.Drawing.Point(5, 141)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(178, 23)
         Me.Button15.TabIndex = 0
@@ -1720,7 +1582,7 @@ Partial Class Form1
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(949, 392)
+        Me.TabPage11.Size = New System.Drawing.Size(819, 392)
         Me.TabPage11.TabIndex = 7
         Me.TabPage11.Text = "Report Archive"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -1742,8 +1604,203 @@ Partial Class Form1
         Me.DataGridView13.RowHeadersVisible = False
         Me.DataGridView13.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView13.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DataGridView13.Size = New System.Drawing.Size(943, 386)
+        Me.DataGridView13.Size = New System.Drawing.Size(813, 386)
         Me.DataGridView13.TabIndex = 3
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.hVIVO_screensaver_two
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox4.Location = New System.Drawing.Point(168, 8)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(437, 378)
+        Me.PictureBox4.TabIndex = 12
+        Me.PictureBox4.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(0, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(130, 25)
+        Me.Button1.TabIndex = 11
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button19
+        '
+        Me.Button19.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Rota
+        Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button19.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button19.FlatAppearance.BorderSize = 0
+        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button19.Location = New System.Drawing.Point(130, 0)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(162, 25)
+        Me.Button19.TabIndex = 12
+        Me.Button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button19.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(0, 0)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(130, 25)
+        Me.Button3.TabIndex = 11
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.Location = New System.Drawing.Point(0, 0)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(130, 25)
+        Me.Button4.TabIndex = 11
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(0, 0)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(130, 25)
+        Me.Button6.TabIndex = 11
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button20
+        '
+        Me.Button20.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Previewer
+        Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button20.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button20.FlatAppearance.BorderSize = 0
+        Me.Button20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button20.Location = New System.Drawing.Point(130, 0)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(130, 60)
+        Me.Button20.TabIndex = 16
+        Me.Button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button20.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.Location = New System.Drawing.Point(0, 0)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(130, 60)
+        Me.Button7.TabIndex = 11
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.Location = New System.Drawing.Point(0, 0)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(130, 25)
+        Me.Button8.TabIndex = 11
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button11.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button11.FlatAppearance.BorderSize = 0
+        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button11.Location = New System.Drawing.Point(0, 0)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(130, 25)
+        Me.Button11.TabIndex = 11
+        Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button12.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button12.FlatAppearance.BorderSize = 0
+        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button12.Location = New System.Drawing.Point(0, 0)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(130, 25)
+        Me.Button12.TabIndex = 11
+        Me.Button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.Assign
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(130, 0)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(130, 60)
+        Me.Button5.TabIndex = 54
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button13.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button13.FlatAppearance.BorderSize = 0
+        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button13.Location = New System.Drawing.Point(0, 0)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(130, 60)
+        Me.Button13.TabIndex = 53
+        Me.Button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button14.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button14.FlatAppearance.BorderSize = 0
+        Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button14.Location = New System.Drawing.Point(0, 0)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(130, 25)
+        Me.Button14.TabIndex = 11
+        Me.Button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button14.UseVisualStyleBackColor = True
         '
         'BindingSource1
         '
@@ -1763,245 +1820,178 @@ Partial Class Form1
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'FilterCombo19
+        'TabPage15
         '
-        Me.FilterCombo19.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo19.FormattingEnabled = True
-        Me.FilterCombo19.Location = New System.Drawing.Point(753, 0)
-        Me.FilterCombo19.Name = "FilterCombo19"
-        Me.FilterCombo19.Size = New System.Drawing.Size(176, 24)
-        Me.FilterCombo19.TabIndex = 47
+        Me.TabPage15.Controls.Add(Me.TabControl6)
+        Me.TabPage15.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage15.Name = "TabPage15"
+        Me.TabPage15.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage15.Size = New System.Drawing.Size(819, 392)
+        Me.TabPage15.TabIndex = 8
+        Me.TabPage15.Text = "Offsets"
+        Me.TabPage15.UseVisualStyleBackColor = True
         '
-        'FilterCombo22
+        'TabControl6
         '
-        Me.FilterCombo22.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo22.FormattingEnabled = True
-        Me.FilterCombo22.Location = New System.Drawing.Point(285, 0)
-        Me.FilterCombo22.Name = "FilterCombo22"
-        Me.FilterCombo22.Size = New System.Drawing.Size(176, 24)
-        Me.FilterCombo22.TabIndex = 50
+        Me.TabControl6.Controls.Add(Me.TabPage16)
+        Me.TabControl6.Controls.Add(Me.TabPage19)
+        Me.TabControl6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl6.Location = New System.Drawing.Point(3, 3)
+        Me.TabControl6.Name = "TabControl6"
+        Me.TabControl6.SelectedIndex = 0
+        Me.TabControl6.Size = New System.Drawing.Size(813, 386)
+        Me.TabControl6.TabIndex = 1
         '
-        'FilterCombo21
+        'TabPage16
         '
-        Me.FilterCombo21.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo21.FormattingEnabled = True
-        Me.FilterCombo21.Location = New System.Drawing.Point(539, 0)
-        Me.FilterCombo21.Name = "FilterCombo21"
-        Me.FilterCombo21.Size = New System.Drawing.Size(130, 24)
-        Me.FilterCombo21.TabIndex = 49
+        Me.TabPage16.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage16.Name = "TabPage16"
+        Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage16.Size = New System.Drawing.Size(805, 360)
+        Me.TabPage16.TabIndex = 2
+        Me.TabPage16.Text = "Bulk"
+        Me.TabPage16.UseVisualStyleBackColor = True
         '
-        'FilterCombo23
+        'TabPage19
         '
-        Me.FilterCombo23.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo23.FormattingEnabled = True
-        Me.FilterCombo23.Location = New System.Drawing.Point(187, 0)
-        Me.FilterCombo23.Name = "FilterCombo23"
-        Me.FilterCombo23.Size = New System.Drawing.Size(263, 24)
-        Me.FilterCombo23.TabIndex = 52
+        Me.TabPage19.Controls.Add(Me.SplitContainer9)
+        Me.TabPage19.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage19.Name = "TabPage19"
+        Me.TabPage19.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage19.Size = New System.Drawing.Size(805, 360)
+        Me.TabPage19.TabIndex = 3
+        Me.TabPage19.Text = "Individual"
+        Me.TabPage19.UseVisualStyleBackColor = True
         '
-        'FilterCombo20
+        'SplitContainer9
         '
-        Me.FilterCombo20.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo20.FormattingEnabled = True
-        Me.FilterCombo20.Location = New System.Drawing.Point(753, 0)
-        Me.FilterCombo20.Name = "FilterCombo20"
-        Me.FilterCombo20.Size = New System.Drawing.Size(176, 24)
-        Me.FilterCombo20.TabIndex = 48
+        Me.SplitContainer9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer9.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer9.Name = "SplitContainer9"
+        Me.SplitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
-        'FilterCombo11
+        'SplitContainer9.Panel1
         '
-        Me.FilterCombo11.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo11.FormattingEnabled = True
-        Me.FilterCombo11.Location = New System.Drawing.Point(612, 0)
-        Me.FilterCombo11.Name = "FilterCombo11"
-        Me.FilterCombo11.Size = New System.Drawing.Size(176, 24)
-        Me.FilterCombo11.TabIndex = 41
+        Me.SplitContainer9.Panel1.Controls.Add(Me.Label8)
+        Me.SplitContainer9.Panel1.Controls.Add(Me.FilterCombo13)
+        Me.SplitContainer9.Panel1.Controls.Add(Me.Label10)
+        Me.SplitContainer9.Panel1.Controls.Add(Me.FilterCombo24)
+        Me.SplitContainer9.Panel1.Controls.Add(Me.Label17)
+        Me.SplitContainer9.Panel1.Controls.Add(Me.Button10)
+        Me.SplitContainer9.Panel1.Controls.Add(Me.FilterCombo25)
         '
-        'FilterCombo12
+        'SplitContainer9.Panel2
         '
-        Me.FilterCombo12.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo12.FormattingEnabled = True
-        Me.FilterCombo12.Location = New System.Drawing.Point(849, 0)
-        Me.FilterCombo12.Name = "FilterCombo12"
-        Me.FilterCombo12.Size = New System.Drawing.Size(80, 24)
-        Me.FilterCombo12.TabIndex = 43
+        Me.SplitContainer9.Panel2.Controls.Add(Me.DataGridView8)
+        Me.SplitContainer9.Size = New System.Drawing.Size(799, 354)
+        Me.SplitContainer9.SplitterDistance = 25
+        Me.SplitContainer9.TabIndex = 13
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(230, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(54, 20)
+        Me.Label8.TabIndex = 45
+        Me.Label8.Text = "Study:"
         '
         'FilterCombo13
         '
-        Me.FilterCombo13.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.FilterCombo13.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FilterCombo13.FormattingEnabled = True
-        Me.FilterCombo13.Location = New System.Drawing.Point(366, 182)
+        Me.FilterCombo13.Location = New System.Drawing.Point(284, 0)
         Me.FilterCombo13.Name = "FilterCombo13"
-        Me.FilterCombo13.Size = New System.Drawing.Size(212, 21)
-        Me.FilterCombo13.TabIndex = 17
+        Me.FilterCombo13.Size = New System.Drawing.Size(176, 24)
+        Me.FilterCombo13.TabIndex = 46
         '
-        'FilterCombo14
+        'Label10
         '
-        Me.FilterCombo14.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo14.FormattingEnabled = True
-        Me.FilterCombo14.Location = New System.Drawing.Point(594, 0)
-        Me.FilterCombo14.Name = "FilterCombo14"
-        Me.FilterCombo14.Size = New System.Drawing.Size(176, 24)
-        Me.FilterCombo14.TabIndex = 42
+        Me.Label10.AutoSize = True
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(460, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(61, 20)
+        Me.Label10.TabIndex = 44
+        Me.Label10.Text = "Cohort:"
         '
-        'FilterCombo15
+        'FilterCombo24
         '
-        Me.FilterCombo15.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo15.FormattingEnabled = True
-        Me.FilterCombo15.Location = New System.Drawing.Point(831, 0)
-        Me.FilterCombo15.Name = "FilterCombo15"
-        Me.FilterCombo15.Size = New System.Drawing.Size(98, 24)
-        Me.FilterCombo15.TabIndex = 43
+        Me.FilterCombo24.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo24.FormattingEnabled = True
+        Me.FilterCombo24.Location = New System.Drawing.Point(521, 0)
+        Me.FilterCombo24.Name = "FilterCombo24"
+        Me.FilterCombo24.Size = New System.Drawing.Size(98, 24)
+        Me.FilterCombo24.TabIndex = 47
         '
-        'FilterCombo16
+        'Label17
         '
-        Me.FilterCombo16.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo16.FormattingEnabled = True
-        Me.FilterCombo16.Location = New System.Drawing.Point(414, 0)
-        Me.FilterCombo16.Name = "FilterCombo16"
-        Me.FilterCombo16.Size = New System.Drawing.Size(176, 24)
-        Me.FilterCombo16.TabIndex = 46
+        Me.Label17.AutoSize = True
+        Me.Label17.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(619, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(82, 20)
+        Me.Label17.TabIndex = 17
+        Me.Label17.Text = "Volunteer:"
         '
-        'FilterCombo17
+        'Button10
         '
-        Me.FilterCombo17.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo17.FormattingEnabled = True
-        Me.FilterCombo17.Location = New System.Drawing.Point(651, 0)
-        Me.FilterCombo17.Name = "FilterCombo17"
-        Me.FilterCombo17.Size = New System.Drawing.Size(98, 24)
-        Me.FilterCombo17.TabIndex = 47
+        Me.Button10.BackgroundImage = Global.Resource_Scheduling_System.My.Resources.Resources.SAVER
+        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button10.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button10.FlatAppearance.BorderSize = 0
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.Location = New System.Drawing.Point(0, 0)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(130, 25)
+        Me.Button10.TabIndex = 11
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button10.UseVisualStyleBackColor = True
         '
-        'FilterCombo18
+        'FilterCombo25
         '
-        Me.FilterCombo18.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo18.FormattingEnabled = True
-        Me.FilterCombo18.Location = New System.Drawing.Point(831, 0)
-        Me.FilterCombo18.Name = "FilterCombo18"
-        Me.FilterCombo18.Size = New System.Drawing.Size(98, 24)
-        Me.FilterCombo18.TabIndex = 48
+        Me.FilterCombo25.Dock = System.Windows.Forms.DockStyle.Right
+        Me.FilterCombo25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterCombo25.FormattingEnabled = True
+        Me.FilterCombo25.Location = New System.Drawing.Point(701, 0)
+        Me.FilterCombo25.Name = "FilterCombo25"
+        Me.FilterCombo25.Size = New System.Drawing.Size(98, 24)
+        Me.FilterCombo25.TabIndex = 48
         '
-        'FilterCombo6
+        'DataGridView8
         '
-        Me.FilterCombo6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo6.FormattingEnabled = True
-        Me.FilterCombo6.Location = New System.Drawing.Point(39, 0)
-        Me.FilterCombo6.Name = "FilterCombo6"
-        Me.FilterCombo6.Size = New System.Drawing.Size(120, 24)
-        Me.FilterCombo6.TabIndex = 41
-        '
-        'FilterCombo5
-        '
-        Me.FilterCombo5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo5.FormattingEnabled = True
-        Me.FilterCombo5.Location = New System.Drawing.Point(209, 0)
-        Me.FilterCombo5.Name = "FilterCombo5"
-        Me.FilterCombo5.Size = New System.Drawing.Size(126, 24)
-        Me.FilterCombo5.TabIndex = 40
-        '
-        'FilterCombo7
-        '
-        Me.FilterCombo7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo7.FormattingEnabled = True
-        Me.FilterCombo7.Location = New System.Drawing.Point(417, 0)
-        Me.FilterCombo7.Name = "FilterCombo7"
-        Me.FilterCombo7.Size = New System.Drawing.Size(238, 24)
-        Me.FilterCombo7.TabIndex = 42
-        '
-        'FilterCombo10
-        '
-        Me.FilterCombo10.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo10.FormattingEnabled = True
-        Me.FilterCombo10.Location = New System.Drawing.Point(180, 0)
-        Me.FilterCombo10.Name = "FilterCombo10"
-        Me.FilterCombo10.Size = New System.Drawing.Size(87, 24)
-        Me.FilterCombo10.TabIndex = 54
-        '
-        'FilterCombo9
-        '
-        Me.FilterCombo9.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo9.FormattingEnabled = True
-        Me.FilterCombo9.Location = New System.Drawing.Point(345, 0)
-        Me.FilterCombo9.Name = "FilterCombo9"
-        Me.FilterCombo9.Size = New System.Drawing.Size(164, 24)
-        Me.FilterCombo9.TabIndex = 53
-        '
-        'FilterCombo8
-        '
-        Me.FilterCombo8.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo8.FormattingEnabled = True
-        Me.FilterCombo8.Location = New System.Drawing.Point(553, 0)
-        Me.FilterCombo8.Name = "FilterCombo8"
-        Me.FilterCombo8.Size = New System.Drawing.Size(102, 24)
-        Me.FilterCombo8.TabIndex = 52
-        '
-        'FilterCombo3
-        '
-        Me.FilterCombo3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo3.FormattingEnabled = True
-        Me.FilterCombo3.Location = New System.Drawing.Point(393, 0)
-        Me.FilterCombo3.Name = "FilterCombo3"
-        Me.FilterCombo3.Size = New System.Drawing.Size(171, 24)
-        Me.FilterCombo3.TabIndex = 44
-        '
-        'FilterCombo4
-        '
-        Me.FilterCombo4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FilterCombo4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterCombo4.FormattingEnabled = True
-        Me.FilterCombo4.Location = New System.Drawing.Point(646, 0)
-        Me.FilterCombo4.Name = "FilterCombo4"
-        Me.FilterCombo4.Size = New System.Drawing.Size(283, 24)
-        Me.FilterCombo4.TabIndex = 45
-        '
-        'FilterCombo2
-        '
-        Me.FilterCombo2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.FilterCombo2.FormattingEnabled = True
-        Me.FilterCombo2.Location = New System.Drawing.Point(173, 273)
-        Me.FilterCombo2.Name = "FilterCombo2"
-        Me.FilterCombo2.Size = New System.Drawing.Size(152, 21)
-        Me.FilterCombo2.TabIndex = 15
-        '
-        'FilterCombo1
-        '
-        Me.FilterCombo1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.FilterCombo1.FormattingEnabled = True
-        Me.FilterCombo1.Location = New System.Drawing.Point(173, 228)
-        Me.FilterCombo1.Name = "FilterCombo1"
-        Me.FilterCombo1.Size = New System.Drawing.Size(152, 21)
-        Me.FilterCombo1.TabIndex = 14
+        Me.DataGridView8.AllowUserToDeleteRows = False
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridView8.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView8.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DataGridView8.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView8.Name = "DataGridView8"
+        Me.DataGridView8.RowHeadersVisible = False
+        Me.DataGridView8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView8.Size = New System.Drawing.Size(799, 325)
+        Me.DataGridView8.TabIndex = 2
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(957, 418)
+        Me.ClientSize = New System.Drawing.Size(827, 418)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
@@ -2053,19 +2043,6 @@ Partial Class Form1
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage6.ResumeLayout(False)
         Me.TabControl4.ResumeLayout(False)
-        Me.TabPage15.ResumeLayout(False)
-        Me.SplitContainer8.Panel1.ResumeLayout(False)
-        Me.SplitContainer8.Panel1.PerformLayout()
-        Me.SplitContainer8.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer8, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer8.ResumeLayout(False)
-        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage16.ResumeLayout(False)
-        Me.SplitContainer9.Panel1.ResumeLayout(False)
-        Me.SplitContainer9.Panel2.ResumeLayout(False)
-        Me.SplitContainer9.Panel2.PerformLayout()
-        CType(Me.SplitContainer9, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer9.ResumeLayout(False)
         Me.TabPage7.ResumeLayout(False)
         Me.SplitContainer10.Panel1.ResumeLayout(False)
         Me.SplitContainer10.Panel1.PerformLayout()
@@ -2113,7 +2090,17 @@ Partial Class Form1
         Me.SplitContainer14.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         CType(Me.DataGridView13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage15.ResumeLayout(False)
+        Me.TabControl6.ResumeLayout(False)
+        Me.TabPage19.ResumeLayout(False)
+        Me.SplitContainer9.Panel1.ResumeLayout(False)
+        Me.SplitContainer9.Panel1.PerformLayout()
+        Me.SplitContainer9.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer9.ResumeLayout(False)
+        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2129,10 +2116,6 @@ Partial Class Form1
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
     Friend WithEvents TabControl3 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
@@ -2165,16 +2148,6 @@ Partial Class Form1
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
     Friend WithEvents TabControl4 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage15 As System.Windows.Forms.TabPage
-    Friend WithEvents SplitContainer8 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Button9 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView8 As System.Windows.Forms.DataGridView
-    Friend WithEvents TabPage16 As System.Windows.Forms.TabPage
-    Friend WithEvents SplitContainer9 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Button10 As System.Windows.Forms.Button
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents SplitContainer10 As System.Windows.Forms.SplitContainer
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -2227,10 +2200,6 @@ Partial Class Form1
     Friend WithEvents FilterCombo10 As TemplateDB.FilterCombo
     Friend WithEvents FilterCombo9 As TemplateDB.FilterCombo
     Friend WithEvents FilterCombo8 As TemplateDB.FilterCombo
-    Friend WithEvents FilterCombo11 As TemplateDB.FilterCombo
-    Friend WithEvents Label7 As Label
-    Friend WithEvents FilterCombo12 As TemplateDB.FilterCombo
-    Friend WithEvents FilterCombo13 As TemplateDB.FilterCombo
     Friend WithEvents FilterCombo14 As TemplateDB.FilterCombo
     Friend WithEvents FilterCombo15 As TemplateDB.FilterCombo
     Friend WithEvents Label13 As Label
@@ -2246,4 +2215,22 @@ Partial Class Form1
     Friend WithEvents Button20 As Button
     Friend WithEvents Label12 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents SplitContainer2 As SplitContainer
+    Friend WithEvents Button19 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents TabPage15 As TabPage
+    Friend WithEvents TabControl6 As TabControl
+    Friend WithEvents TabPage16 As TabPage
+    Friend WithEvents TabPage19 As TabPage
+    Friend WithEvents SplitContainer9 As SplitContainer
+    Friend WithEvents Label8 As Label
+    Friend WithEvents FilterCombo13 As TemplateDB.FilterCombo
+    Friend WithEvents Label10 As Label
+    Friend WithEvents FilterCombo24 As TemplateDB.FilterCombo
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Button10 As Button
+    Friend WithEvents FilterCombo25 As TemplateDB.FilterCombo
+    Friend WithEvents DataGridView8 As DataGridView
 End Class

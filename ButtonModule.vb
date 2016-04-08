@@ -20,10 +20,6 @@ Module ButtonModule
                 Call Saver(Form1.DataGridView6)
             Case "Button8"
                 Call Saver(Form1.DataGridView7)
-            Case "Button9"
-                Call Saver(Form1.DataGridView8)
-            Case "Button10"
-                Call Generator()
             Case "Button11"
                 Call Saver(Form1.DataGridView9)
             Case "Button12"
@@ -238,41 +234,7 @@ Module ButtonModule
             Case "Button20"
 
                 MsgBox("Please ensure to save changes to see up to date report")
-                'Dim dt As DataTable
-                'dt = OverClass.TempDataTable("SELECT StudyTimepointID, TimepointName " &
-                '                             "FROM StudyTimepoint WHERE StudyID=" & Form1.FilterCombo22.SelectedValue.ToString)
-                'dt.Columns.Add("TimepointDateTime", System.Type.GetType("System.DateTime"))
 
-
-                'Dim Accepted As Boolean = False
-                'Dim Temp As String
-                'Dim TempDate As Date
-
-                'For Each row In dt.Rows
-
-                'Accepted = False
-                'Dim TimepointName As String = row.item("TimepointName")
-
-                'Do While Accepted = False
-
-                'Temp = InputBox("Input " & TimepointName & " Date", , "01-Jan-2010 10:00")
-
-                'Try
-                'TempDate = CDate(Temp)
-                'If Format(TempDate, "HH:mm") = "00:00" Then Throw New System.Exception
-                'row.item("TimepointDateTime") = TempDate
-
-                'Catch ex As Exception
-                'MsgBox("Must enter a valid Date/Time to continue")
-                'Continue Do
-
-                'End Try
-
-                'Accepted = True
-
-                'Loop
-
-                'Next
 
                 Dim dt2 As DataTable
                 dt2 = OverClass.TempDataTable("SELECT * FROM SchedulePreview " &
@@ -330,6 +292,11 @@ Module ButtonModule
                 End Try
 
                 InputBox("Default Time:", "Default Time", TempTime)
+
+            Case "Button19"
+
+                Dim Rota As New RotaForm
+                Rota.ShowDialog()
 
         End Select
 
