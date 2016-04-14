@@ -239,26 +239,12 @@
             Case "DataGridView8"
 
 
-                OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO CohortTimepoint " &
-                                                                          "(CohortID, StudyTimepointID, TimepointDateTime, VolGap) " &
-                                                                          "VALUES (@P0, @P1, @P2, @P3)")
-
-                With OverClass.CurrentDataAdapter.InsertCommand.Parameters
-                    .Add("@P0", OleDb.OleDbType.Double, 255, "CohortID")
-                    .Add("@P1", OleDb.OleDbType.Double, 255, "StudyTimePointID")
-                    .Add("@P2", OleDb.OleDbType.DBTimeStamp, 255, "TimepointDateTime")
-                    .Add("@P3", OleDb.OleDbType.Double, 255, "VolGap")
-                End With
-
-                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE CohortTimepoint " & _
-                                                                          "SET TimepointDateTime=@P1, StudyTimepointID=@P2, VolGap=@P3 " & _
-                                                                        "WHERE CohortTimepointID=@P4")
+                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE VolunteerSchedule " &
+                                                                          "SET ProcOffSet=@P1 WHERE VolunteerScheduleID=@P2")
 
                 With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
-                    .Add("@P1", OleDb.OleDbType.DBTimeStamp, 255, "TimepointDateTime")
-                    .Add("@P2", OleDb.OleDbType.Double, 255, "StudyTimePointID")
-                    .Add("@P3", OleDb.OleDbType.Double, 255, "VolGap")
-                    .Add("@P4", OleDb.OleDbType.Double, 255, "CohortTimepointID")
+                    .Add("@P1", OleDb.OleDbType.Double, 255, "ProcOffSet")
+                    .Add("@P2", OleDb.OleDbType.Double, 255, "VolunteerScheduleID")
 
                 End With
 

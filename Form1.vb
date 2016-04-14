@@ -58,7 +58,7 @@
 
             Case "Offsets"
                 Me.TabControl6.SelectedIndex = 0
-                Me.TabControl6_Selecting(Me.TabControl6, New TabControlCancelEventArgs(TabPage15, 0, False, TabControlAction.Selecting))
+                Me.TabControl6_Selecting(Me.TabControl6, New TabControlCancelEventArgs(TabPage16, 0, False, TabControlAction.Selecting))
 
         End Select
 
@@ -236,22 +236,41 @@
 
                 With DataGridView8
                     .Columns("VolunteerScheduleID").Visible = False
-                    .Columns("StudyID").Visible = False
-                    .Columns("VolID").Visible = False
-                    .Columns("CohortID").Visible = False
                     .Columns("CalcDate").Visible = False
+                    .Columns("CohortID").Visible = False
+                    .Columns("StudyID").Visible = False
+                    .Columns("StudyCode").Visible = False
+                    .Columns("VolID").Visible = False
                     .Columns("ProcName").ReadOnly = True
                     .Columns("ProcName").HeaderText = "Procedure"
-                    .Columns("ProcOffSet").HeaderText = "Offset"
+                    .Columns("ProcOffSet").HeaderText = "Offset in Minutes"
                 End With
 
                 Dim clm As New DataGridViewTextBoxColumn
                 clm.HeaderText = "Calculated Time"
                 clm.ReadOnly = True
                 DataGridView8.Columns.Add(clm)
+                clm.Name = "ReCalc"
+                clm.DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
 
                 DataGridView8.Columns("ProcOffSet").DisplayIndex = DataGridView8.Columns.Count - 1
 
+                FilterCombo11.SetAsInternalSource("ProcName", "ProcName", OverClass)
+
+                FilterCombo13.AllowBlanks = False
+                FilterCombo13.SetAsExternalSource("StudyID", "StudyCode",
+                "SELECT b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b ON a.StudyID=b.StudyID", OverClass)
+
+                FilterCombo24.AllowBlanks = False
+                FilterCombo24.SetAsExternalSource("CohortID", "CohortName",
+                "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" & FilterCombo24.SetCmbPointer(FilterCombo13), OverClass)
+
+                FilterCombo25.AllowBlanks = False
+                FilterCombo25.SetAsExternalSource("VolID", "Vol",
+                "SELECT VolID, RVLNo & ' ' & Initials AS Vol FROM Volunteer " &
+                "WHERE CohortID=" & FilterCombo25.SetCmbPointer(FilterCombo24), OverClass)
+
+                DataGridView8.Columns("VolunteerScheduleID").Visible = False
 
 
             Case "DataGridView9"
@@ -283,7 +302,7 @@
                 FilterCombo14.AllowBlanks = False
                 FilterCombo14.SetUpFilter(False, Nothing)
                 FilterCombo14.SetAsExternalSource("StudyID", "StudyCode",
-                "Select b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b On a.StudyID=b.StudyID", OverClass)
+                "Select b.StudyID, StudyCode FROM Study a INNER JOIN Cohort b On a.StudyID= b.StudyID", OverClass)
 
                 FilterCombo15.AllowBlanks = False
                 FilterCombo15.SetAsExternalSource("CohortID", "CohortName",
@@ -474,7 +493,31 @@
                 ctl.Columns("ArchiveType").DefaultCellStyle.Font = New Font("Arial", 10, FontStyle.Underline)
                 ctl.Columns("ArchiveType").DefaultCellStyle.ForeColor = Color.Blue
 
+            Case "FilterCombo12"
 
+                FilterCombo12.AllowBlanks = False
+                FilterCombo12.Filter = False
+                FilterCombo12.SetAsExternalSource("StudyID", "StudyCode", "SELECT StudyCode, StudyID FROM Study", OverClass)
+
+                FilterCombo26.Filter = False
+                FilterCombo26.SetAsExternalSource("CohortID", "CohortName", "SELECT CohortID, CohortName FROM Cohort WHERE StudyID=" &
+                                                  FilterCombo26.SetCmbPointer(FilterCombo12), OverClass)
+
+                FilterCombo27.Filter = False
+                FilterCombo27.SetAsExternalSource("VolID", "Vol",
+                "SELECT VolID, RVLNo & ' ' & Initials AS Vol FROM Volunteer " &
+                "WHERE CohortID=" & FilterCombo27.SetCmbPointer(FilterCombo26), OverClass)
+
+                FilterCombo28.Filter = False
+                FilterCombo28.SetAsExternalSource("ProcID", "ProcName", "SELECT ProcTask.ProcID, ProcTask.ProcName, Study.StudyID " &
+                "FROM (Study INNER JOIN StudyTimepoint On Study.StudyID = StudyTimepoint.StudyID) INNER JOIN " &
+                "(ProcTask INNER JOIN StudySchedule On ProcTask.ProcID = StudySchedule.ProcID) On StudyTimepoint.StudyTimepointID = StudySchedule.StudyTimepointID " &
+                " WHERE Study.StudyID=" & FilterCombo28.SetCmbPointer(FilterCombo12), OverClass)
+
+                FilterCombo29.Filter = False
+                FilterCombo29.SetAsExternalSource("DaysPost", "DaysPost", "SELECT DaysPost " &
+                "FROM StudyTimepoint INNER JOIN StudySchedule ON StudyTimepoint.StudyTimepointID = StudySchedule.StudyTimepointID " &
+                "WHERE StudyID=" & FilterCombo29.SetCmbPointer(FilterCombo12), OverClass)
 
         End Select
 
@@ -497,12 +540,12 @@
 
             Case "Procedures"
                 ctl = Me.DataGridView1
-                SQLCode = "SELECT ProcID, ProcName, MinsTaken, ProcOrd FROM ProcTask ORDER BY ProcName ASC"
+                SQLCode = "Select ProcID, ProcName, MinsTaken, ProcOrd FROM ProcTask ORDER BY ProcName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
             Case "Staff"
                 ctl = Me.DataGridView2
-                SQLCode = "SELECT StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
+                SQLCode = "Select StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
@@ -529,7 +572,7 @@
 
             Case "StudyCodes"
                 ctl = Me.DataGridView3
-                SQLCode = "SELECT StudyID, StudyCode, Colour FROM Study ORDER BY StudyCode ASC"
+                SQLCode = "Select StudyID, StudyCode, Colour FROM Study ORDER BY StudyCode ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
             Case "Timepoints"
@@ -715,7 +758,7 @@
                     End If
                     If Not Initials Like "[A-Z][A-Z][A-Z]" Then
                         MsgBox("Initials must be 3 text characters such As 'AAA'")
-                        Continue Do
+                Continue Do
                     End If
                     Accepted = True
                 Loop
@@ -1069,6 +1112,8 @@
         Select Case e.TabPage.Text
 
             Case "Bulk"
+                ctl = FilterCombo12
+
 
             Case "Individual"
                 ctl = Me.DataGridView8
@@ -1081,5 +1126,16 @@
         If Not IsNothing(ctl) Then Call Specifics(ctl)
 
     End Sub
+
+    Private Sub DataGridView8_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridView8.RowPrePaint
+
+        On Error Resume Next
+
+        Dim Offset As Long = DataGridView8.Item("ProcOffSet", e.RowIndex).Value
+        Dim CalcDate As Date = DataGridView8.Item("CalcDate", e.RowIndex).Value
+        DataGridView8.Item("ReCalc", e.RowIndex).Value = DateAdd(DateInterval.Minute, Offset, CalcDate)
+
+    End Sub
+
 End Class
 

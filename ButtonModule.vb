@@ -20,6 +20,71 @@ Module ButtonModule
                 Call Saver(Form1.DataGridView6)
             Case "Button8"
                 Call Saver(Form1.DataGridView7)
+            Case "Button9"
+                Dim StudyFilter As String = Form1.FilterCombo12.Text
+                Dim CohortFilter As String = Form1.FilterCombo26.Text
+                Dim Offset As Long
+                Dim VolFilter As String = Form1.FilterCombo27.Text
+                Dim ProcFilter As String = Form1.FilterCombo28.Text
+                Dim DayFilter As String = Form1.FilterCombo29.Text
+
+                Try
+                    Offset = Form1.TextBox2.Text
+                Catch ex As Exception
+                    MsgBox("Error occured. An offset must be a number")
+                    Exit Sub
+                End Try
+
+                Dim StudyCrit As String = ""
+                    Dim CohortCrit As String = ""
+                    Dim VolCrit As String = ""
+                Dim ProcCrit As String = ""
+                Dim DayCrit As String = ""
+
+
+                If StudyFilter <> "" Then StudyCrit = "Cohort.StudyID=" & Form1.FilterCombo12.SelectedValue & " AND "
+                If CohortFilter <> "" Then CohortCrit = "Cohort.CohortID=" & Form1.FilterCombo26.SelectedValue & " AND "
+                If VolFilter <> "" Then VolCrit = "Volunteer.VolID=" & Form1.FilterCombo27.SelectedValue & " AND "
+                If ProcFilter <> "" Then ProcCrit = "StudySchedule.ProcID=" & Form1.FilterCombo28.SelectedValue & " AND "
+                If DayFilter <> "" Then DayCrit = "StudySchedule.DaysPost=" & Form1.FilterCombo29.SelectedValue & " AND "
+
+                Dim Criteria As String = StudyCrit & CohortCrit & VolCrit & ProcCrit
+                    Criteria = Left(Criteria, Len(Criteria) - 5)
+                    Criteria = " WHERE " & Criteria
+
+                Dim NumAffected As Long = OverClass.SELECTCount("SELECT 1 FROM " &
+                "(((Cohort INNER JOIN StudyTimepoint ON Cohort.StudyID = StudyTimepoint.StudyID) " &
+                "INNER JOIN Volunteer On Cohort.CohortID = Volunteer.CohortID) " &
+                "INNER JOIN StudySchedule ON StudyTimepoint.StudyTimepointID = StudySchedule.StudyTimepointID) " &
+                "INNER JOIN VolunteerSchedule ON (Volunteer.VolID = VolunteerSchedule.VolID) " &
+                "And (StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " & Criteria)
+
+                Dim INList As String = OverClass.CreateCSVString("SELECT VolunteerScheduleID FROM " &
+                "(((Cohort INNER JOIN StudyTimepoint ON Cohort.StudyID = StudyTimepoint.StudyID) " &
+                "INNER JOIN Volunteer On Cohort.CohortID = Volunteer.CohortID) " &
+                "INNER JOIN StudySchedule ON StudyTimepoint.StudyTimepointID = StudySchedule.StudyTimepointID) " &
+                "INNER JOIN VolunteerSchedule ON (Volunteer.VolID = VolunteerSchedule.VolID) " &
+                "And (StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " & Criteria)
+
+                If MsgBox("The system will now set an offset of " & Offset & " minutes to all procedures with criteria..." & vbNewLine & vbNewLine &
+                          "Study:  " & StudyFilter & vbNewLine &
+                          IIf(CohortFilter = "", "", "Cohort: " & CohortFilter & vbNewLine) &
+                          IIf(VolFilter = "", "", "Vol: " & VolFilter & vbNewLine) &
+                          IIf(ProcFilter = "", "", "Procedure: " & ProcFilter & vbNewLine) &
+                          IIf(DayFilter = "", "", "Day: " & DayFilter & vbNewLine) &
+                          vbNewLine &
+                          NumAffected & " records will be affected. Do you want to proceed?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                    OverClass.ExecuteSQL("UPDATE VolunteerSchedule " &
+                    "SET ProcOffset=" & Offset & " WHERE VolunteerScheduleID IN (" & INList & ")")
+
+                    MsgBox("Offsets updated")
+
+
+                End If
+
+            Case "Button10"
+                Call Saver(Form1.DataGridView8)
             Case "Button11"
                 Call Saver(Form1.DataGridView9)
             Case "Button12"
@@ -34,26 +99,26 @@ Module ButtonModule
                     OK.ReportViewer1.ProcessingMode = ProcessingMode.Local
                     OK.ReportViewer1.LocalReport.ReportEmbeddedResource = "Resource_Scheduling_System.VolunteerReport.rdlc"
                     OK.ReportViewer1.LocalReport.DataSources.Add(New ReportDataSource("ReportDataSet",
-                                                                OverClass.TempDataTable("SELECT * FROM VolReport " &
+                                                                OverClass.TempDataTable("Select * FROM VolReport " &
                                                                                         "WHERE CohortID=" & Form1.FilterCombo2.SelectedValue &
-                                                                                        " AND CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
-                                                                                            " AND " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
+                                                                                        " And CalcDate BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &
+                                                                                            " And " & OverClass.SQLDate(Form1.DateTimePicker2.Value))))
 
                     OK.ReportViewer1.RefreshReport()
 
 
                     Dim NextID As Long
                     Try
-                        NextID = OverClass.TempDataTable("SELECT max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
+                        NextID = OverClass.TempDataTable("Select max(ArchiveID) FROM Reportarchive").Rows(0).Item(0) + 1
 
                     Catch ex As Exception
                         NextID = 1
                     End Try
                     Dim ArchiveType As String = "VolunteerReport"
-                    Dim Criteria As String = "Dates: " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HH:mm") _
+                    Dim Criteria As String = "Dates " & Format(Form1.DateTimePicker1.Value, "dd-MMM-yyyy HHmm") _
                                              & " -> " & Format(Form1.DateTimePicker2.Value, "dd-MMM-yyyy HH:mm") _
-                                             & vbNewLine & "Study: " & Form1.FilterCombo1.Text _
-                                             & vbNewLine & "Cohort: " & Form1.FilterCombo2.Text
+                                             & vbNewLine & "Study:   " & Form1.FilterCombo1.Text _
+                                             & vbNewLine & "Cohort " & Form1.FilterCombo2.Text
 
                     Dim pdfContent As Byte() = OK.ReportViewer1.LocalReport.Render("PDF", Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                     Dim pdfPath As String = ReportPath & NextID & ".pdf"

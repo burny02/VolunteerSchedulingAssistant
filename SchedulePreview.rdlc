@@ -1649,10 +1649,19 @@
                 <GroupExpressions>
                   <GroupExpression>=Fields!DaysPost.Value</GroupExpression>
                 </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
               </Group>
               <SortExpressions>
                 <SortExpression>
                   <Value>=Fields!DaysPost.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!ProcTime.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!ProcOrd.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
@@ -1692,6 +1701,9 @@
                   <SortExpressions>
                     <SortExpression>
                       <Value>=Fields!DaysPost.Value</Value>
+                    </SortExpression>
+                    <SortExpression>
+                      <Value>=cdate(format(Fields!ProcTime.Value,"HH:mm"))</Value>
                     </SortExpression>
                     <SortExpression>
                       <Value>=Fields!ProcOrd.Value</Value>
@@ -2232,6 +2244,17 @@
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>ReportDataSet</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!DaysPost.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!ProcTime.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!ProcOrd.Value</Value>
+          </SortExpression>
+        </SortExpressions>
         <Left>0.00001cm</Left>
         <Height>9.635cm</Height>
         <Width>19.33979cm</Width>
