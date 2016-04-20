@@ -48,23 +48,20 @@ Module ButtonModule
                 If ProcFilter <> "" Then ProcCrit = "StudySchedule.ProcID=" & Form1.FilterCombo28.SelectedValue & " AND "
                 If DayFilter <> "" Then DayCrit = "StudySchedule.DaysPost=" & Form1.FilterCombo29.SelectedValue & " AND "
 
-                Dim Criteria As String = StudyCrit & CohortCrit & VolCrit & ProcCrit
-                    Criteria = Left(Criteria, Len(Criteria) - 5)
+                Dim Criteria As String = StudyCrit & CohortCrit & VolCrit & ProcCrit & DayCrit
+                Criteria = Left(Criteria, Len(Criteria) - 5)
                     Criteria = " WHERE " & Criteria
 
                 Dim NumAffected As Long = OverClass.SELECTCount("SELECT 1 FROM " &
-                "(((Cohort INNER JOIN StudyTimepoint ON Cohort.StudyID = StudyTimepoint.StudyID) " &
-                "INNER JOIN Volunteer On Cohort.CohortID = Volunteer.CohortID) " &
-                "INNER JOIN StudySchedule ON StudyTimepoint.StudyTimepointID = StudySchedule.StudyTimepointID) " &
-                "INNER JOIN VolunteerSchedule ON (Volunteer.VolID = VolunteerSchedule.VolID) " &
-                "And (StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " & Criteria)
+                "(Cohort INNER JOIN Volunteer ON Cohort.CohortID = Volunteer.CohortID) INNER JOIN " &
+                "(StudySchedule INNER JOIN VolunteerSchedule ON StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " &
+                "ON Volunteer.VolID = VolunteerSchedule.VolID" & Criteria)
 
                 Dim INList As String = OverClass.CreateCSVString("SELECT VolunteerScheduleID FROM " &
-                "(((Cohort INNER JOIN StudyTimepoint ON Cohort.StudyID = StudyTimepoint.StudyID) " &
-                "INNER JOIN Volunteer On Cohort.CohortID = Volunteer.CohortID) " &
-                "INNER JOIN StudySchedule ON StudyTimepoint.StudyTimepointID = StudySchedule.StudyTimepointID) " &
-                "INNER JOIN VolunteerSchedule ON (Volunteer.VolID = VolunteerSchedule.VolID) " &
-                "And (StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " & Criteria)
+                "(Cohort INNER JOIN Volunteer ON Cohort.CohortID = Volunteer.CohortID) INNER JOIN " &
+                "(StudySchedule INNER JOIN VolunteerSchedule ON StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " &
+                "ON Volunteer.VolID = VolunteerSchedule.VolID" & Criteria)
+
 
                 If MsgBox("The system will now set an offset of " & Offset & " minutes to all procedures with criteria..." & vbNewLine & vbNewLine &
                           "Study:  " & StudyFilter & vbNewLine &

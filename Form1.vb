@@ -378,6 +378,7 @@
                 ctl.columns("StudyCode").visible = False
                 ctl.columns("WhichDay").visible = False
                 ctl.columns("Approx").visible = False
+                ctl.columns("Site").visible = False
                 ctl.columns("Vol").readonly = True
                 ctl.columns("Approx").readonly = True
                 ctl.columns("ProcName").readonly = True
@@ -416,7 +417,7 @@
                 FilterCombo9.SetAsInternalSource("Vol", "Vol", OverClass)
                 FilterCombo8.SetAsInternalSource("WhichDay", "WhichDay", OverClass)
                 FilterCombo6.SetAsInternalSource("FullName", "FullName", OverClass)
-
+                FilterCombo30.SetAsInternalSource("Site", "Site", OverClass)
 
 
             Case "DataGridView12"
@@ -495,6 +496,7 @@
 
             Case "FilterCombo12"
 
+                FilterCombo12.LiveData = False
                 FilterCombo12.AllowBlanks = False
                 FilterCombo12.Filter = False
                 FilterCombo12.SetAsExternalSource("StudyID", "StudyCode", "SELECT StudyCode, StudyID FROM Study", OverClass)
