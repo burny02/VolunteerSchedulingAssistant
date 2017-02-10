@@ -85,6 +85,17 @@
                 ctl.Columns(0).Visible = False
                 ctl.columns(1).headertext = "Name"
                 ctl.columns(2).headertext = "Surname"
+                ctl.columns("Role").visible = False
+                Dim cmb As New DataGridViewComboBoxColumn
+                ctl.columns.add(cmb)
+                cmb.HeaderText = "Role"
+                cmb.DataPropertyName = "Role"
+                cmb.Name = "PICK"
+                cmb.Items.Add("Physician")
+                cmb.Items.Add("Nurse")
+                cmb.Items.Add("CSS")
+                cmb.Items.Add("Other")
+                cmb.DisplayIndex = 3
 
             Case "DataGridView3"
                 ctl.Columns(0).visible = False
@@ -275,17 +286,24 @@
 
             Case "DataGridView9"
 
-                SQLCode = "Select CohortID, a.VolID, RVLNo, Initials, RoomNo, min(TimepointDateTime) As FirstDate " &
+                SQLCode = "Select CohortID, a.VolID, RVLNo, Initials, Sex, RoomNo, min(TimepointDateTime) As FirstDate " &
                     "FROM (Volunteer a INNER JOIN VolunteerTimepoint b On a.VolID=b.VolID) " &
-                    "GROUP BY CohortID, a.VolID, RVLNo, Initials, RoomNo " &
+                    "GROUP BY CohortID, a.VolID, RVLNo, Initials, RoomNo, Sex " &
                     "ORDER BY min(TimepointDateTime) ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolID").visible = False
                 ctl.columns("FirstDate").visible = False
                 ctl.columns("CohortID").visible = False
+                ctl.columns("Sex").visible = False
                 ctl.columns("RVLNo").HeaderText = "RVL Number"
                 ctl.columns("RoomNo").HeaderText = "Room Number"
+                Dim cmb3 As New DataGridViewComboBoxColumn
+                cmb3.Items.Add("Male")
+                cmb3.Items.Add("Female")
+                cmb3.DataPropertyName = "Sex"
+                cmb3.HeaderText = "Sex"
+                ctl.columns.add(cmb3)
                 Dim cmb2 As New DataGridViewImageColumn
                 cmb2.HeaderText = "View Timepoints"
                 cmb2.Image = My.Resources.Preview
@@ -354,16 +372,6 @@
                 SQLCode = "Select * FROM Assign " &
                             "ORDER BY CalcDate ASC, ProcOrd ASC"
 
-                If Me.CheckBox1.Checked = True Then
-                    SQLCode = "Select * FROM Assign WHERE VolunteerScheduleID In " &
-                        "(Select ID FROM " &
-                        "(Select First(VolunteerScheduleID) As ID,  Min(CalcDate) " &
-                        "FROM(" & SQLCode & ")" &
-                        "GROUP BY ProcName, VOL)) " &
-                        "ORDER BY CalcDate ASC, ProcOrd ASC"
-                End If
-
-
 
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
@@ -411,7 +419,8 @@
                 cmb2.Name = "DeleteButton"
                 cmb2.Width = 60
 
-                FilterCombo5.SetAsInternalSource("StudyCode", "StudyCode", OverClass)
+                FilterList1.SetAsInternalSource("StudyCode", "StudyCode", OverClass)
+                'FilterCombo5.SetAsInternalSource("StudyCode", "StudyCode", OverClass)
                 FilterCombo10.SetAsInternalSource("CohortName", "CohortName", OverClass)
                 FilterCombo7.SetAsInternalSource("ProcName", "ProcName", OverClass)
                 FilterCombo9.SetAsInternalSource("Vol", "Vol", OverClass)
@@ -547,7 +556,7 @@
 
             Case "Staff"
                 ctl = Me.DataGridView2
-                SQLCode = "Select StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
+                SQLCode = "Select StaffID, FName, SName, Role, SharepointID, Bank, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
@@ -674,7 +683,7 @@
 
 
         returner = CheckVolunteerOverlap(sender.rows(e.RowIndex).cells("StaffID").value, sender.rows(e.RowIndex).cells("VolunteerScheduleID").value,
-                              sender.rows(e.RowIndex).cells("CalcDate").value, sender.rows(e.RowIndex).cells("EndFull").value, sender)
+                              sender.rows(e.RowIndex).cells("CalcDate").value, sender.rows(e.RowIndex).cells("EndFull").value, OverClass.CurrentDataSet.Tables(0))
 
         If returner <> vbNullString Then
             MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner)
@@ -1073,16 +1082,6 @@
             MsgBox("Overlap found - " & vbNewLine & vbNewLine & returner)
         End If
 
-    End Sub
-
-    Private Sub CheckBox1_Click(sender As Object, e As EventArgs) Handles CheckBox1.Click
-        If OverClass.UnloadData() = True Then
-            RemoveHandler CheckBox1.Click, AddressOf CheckBox1_Click
-            CheckBox1.Checked = Not CheckBox1.Checked
-            AddHandler CheckBox1.Click, AddressOf CheckBox1_Click
-            Exit Sub
-        End If
-        Call Specifics(DataGridView11)
     End Sub
 
     Private Sub FilterCombo21_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FilterCombo21.SelectedIndexChanged

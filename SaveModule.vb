@@ -251,14 +251,15 @@
             Case "DataGridView9"
 
                 OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE Volunteer " &
-                                                                          "SET RVLNo=@P1, Initials=@P2, RoomNo=@P3 " &
-                                                                        "WHERE VolID=@P4")
+                                                                          "SET RVLNo=@P1, Initials=@P2, RoomNo=@P3, Sex=@P4 " &
+                                                                        "WHERE VolID=@P5")
 
                 With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
                     .Add("@P1", OleDb.OleDbType.Double, 255, "RVLNo")
                     .Add("@P2", OleDb.OleDbType.LongVarChar, 255, "Initials")
                     .Add("@P3", OleDb.OleDbType.Double, 255, "RoomNo")
-                    .Add("@P4", OleDb.OleDbType.Double, 255, "VolID")
+                    .Add("@P4", OleDb.OleDbType.LongVarChar, 255, "Sex")
+                    .Add("@P5", OleDb.OleDbType.Double, 255, "VolID")
 
                 End With
 

@@ -1,71 +1,7 @@
 ﻿Module OverlapModule
-    Public Function CheckVolunteerOverlap(StaffMember As String, ID As Long, StartFull As Date, EndFull As Date, _
-                                          Grid As DataGridView, Optional OnlyFrontEnd As Boolean = False) As String
+    Public Function CheckVolunteerOverlap(StaffMember As String, ID As Long, StartFull As Date, EndFull As Date,
+                                          DT As DataTable) As String
 
-        Try
-            Dim Returner As String = vbNullString
-
-
-            Dim CDateStart As String = vbNullString
-            Dim CDateEnd As String = vbNullString
-            Dim chk As String = vbNullString
-
-
-            CDateStart = OverClass.SQLDate(StartFull)
-            CDateEnd = OverClass.SQLDate(EndFull)
-
-            If OnlyFrontEnd <> True Then
-                'Vol Procedures
-
-                Dim SqlString As String
-
-                SqlString = "SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " &
-            "& ' - ' & ProcName as Overlap " &
-            "FROM [CheckStaffOverlap] WHERE " &
-            "([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd &
-            " AND " & CDateStart & "<[EndFull])" &
-            " OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]=" & CDateStart & " AND [EndFull]=" & CDateEnd & ")"
-
-                Returner = OverClass.CreateCSVString(SqlString)
-
-            End If
-
-            For Each row In Grid.Rows
-
-                If IsDBNull(row.cells("StaffID").value) _
-                Or IsNothing(row.cells("StaffID").value) Then Continue For
-                If (row.cells("StaffID").value) <> StaffMember Then Continue For
-                If (row.cells("VolunteerScheduleID").value) = ID Then Continue For
-
-                Dim RowEndFull, RowStartFull As Date
-                RowEndFull = row.cells("EndFull").value
-                RowStartFull = row.cells("CalcDate").value
-
-                If ((RowStartFull < EndFull) _
-                And (StartFull < RowEndFull)) _
-                Or ((RowStartFull = StartFull) _
-                And (RowEndFull = EndFull)) Then
-
-                    chk = chk & "Vol Procedure (" & Format(RowStartFull, "HH:mm") & "-" &
-                Format(RowEndFull, "HH:mm") & ")" & " - " & row.cells("ProcName").value & ","
-
-                End If
-
-            Next
-
-            If chk <> vbNullString Then chk = Left(chk, Len(chk) - 1)
-            If Returner <> vbNullString And chk <> vbNullString Then Returner = Returner & ","
-
-            CheckVolunteerOverlap = Returner & chk
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Throw
-        End Try
-
-    End Function
-
-    Public Function CheckExtraOverlap(StaffMember As String, ID As Long, StartFull As Date, EndFull As Date, _
-                                          Grid As DataGridView, PassedRowIndex As Long) As String
         Try
             Dim Returner As String = vbNullString
 
@@ -80,20 +16,49 @@
 
             'Vol Procedures
 
-            Dim SqlString As String
+            For Each row As DataRow In DT.Rows
 
-            SqlString = "SELECT ProcType & '(' & format(StartFull,'hh:nn') & '-' & format(EndFull,'hh:nn') & ')' " &
-        "& ' - ' & ProcName as Overlap " &
-        "FROM [CheckStaffOverlap] WHERE " &
-        "([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]<" & CDateEnd &
-        " AND " & CDateStart & "<[EndFull])" &
-        " OR ([ID]<>" & ID & " AND [StaffID]=" & StaffMember & " AND [StartFull]=" & CDateStart & " AND [EndFull]=" & CDateEnd & ")"
+                If row.RowState = DataRowState.Deleted Then Continue For
+                If IsDBNull(row.Item("StaffID")) _
+                Or IsNothing(row.Item("StaffID")) Then Continue For
+                If (row.Item("StaffID")) <> StaffMember Then Continue For
+                If (row.Item("VolunteerScheduleID")) = ID Then Continue For
 
+                Dim RowEndFull, RowStartFull As Date
+                RowEndFull = row.Item("EndFull")
+                RowStartFull = row.Item("CalcDate")
 
-            Returner = OverClass.CreateCSVString(SqlString)
+                If ((RowStartFull < EndFull) _
+                And (StartFull < RowEndFull)) _
+                Or ((RowStartFull = StartFull) _
+                And (RowEndFull = EndFull)) Then
 
+                    chk = chk & "Vol Procedure (" & Format(RowStartFull, "HH:mm") & "-" &
+                Format(RowEndFull, "HH:mm") & ")" & " - " & row.Item("ProcName") & ","
+
+                End If
+
+            Next
+
+            If chk <> vbNullString Then chk = Left(chk, Len(chk) - 1)
+            If Returner <> vbNullString And chk <> vbNullString Then Returner = Returner & ","
+
+            CheckVolunteerOverlap = Returner & chk
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Throw
+        End Try
+
+    End Function
+
+    Public Function CheckExtraOverlap(StaffMember As String, ID As Long, StartFull As Date, EndFull As Date,
+                                          Grid As DataGridView, PassedRowIndex As Long) As String
+        Try
+            Dim Returner As String = vbNullString
+            Dim chk As String = vbNullString
+
+            'Vol Procedures
             For Each Row In Grid.Rows
-
 
                 If IsDBNull(Row.Cells("StaffID").Value) _
                 Or IsNothing(Row.Cells("StaffID").Value) Then Continue For

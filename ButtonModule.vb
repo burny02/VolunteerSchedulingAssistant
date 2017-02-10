@@ -52,16 +52,19 @@ Module ButtonModule
                 Criteria = Left(Criteria, Len(Criteria) - 5)
                     Criteria = " WHERE " & Criteria
 
-                Dim NumAffected As Long = OverClass.SELECTCount("SELECT 1 FROM " &
-                "(Cohort INNER JOIN Volunteer ON Cohort.CohortID = Volunteer.CohortID) INNER JOIN " &
-                "(StudySchedule INNER JOIN VolunteerSchedule ON StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " &
-                "ON Volunteer.VolID = VolunteerSchedule.VolID" & Criteria)
+                Dim NumAffected As Long = 0
 
                 Dim INList As String = OverClass.CreateCSVString("SELECT VolunteerScheduleID FROM " &
                 "(Cohort INNER JOIN Volunteer ON Cohort.CohortID = Volunteer.CohortID) INNER JOIN " &
                 "(StudySchedule INNER JOIN VolunteerSchedule ON StudySchedule.StudyScheduleID = VolunteerSchedule.StudyScheduleID) " &
                 "ON Volunteer.VolID = VolunteerSchedule.VolID" & Criteria)
 
+                Dim Cnt As Long = 0
+                For Each c As Char In INList
+                    If c = "," Then cnt += 1
+                Next
+
+                NumAffected = Cnt
 
                 If MsgBox("The system will now set an offset of " & Offset & " minutes to all procedures with criteria..." & vbNewLine & vbNewLine &
                           "Study:  " & StudyFilter & vbNewLine &
@@ -354,11 +357,6 @@ Module ButtonModule
                 End Try
 
                 InputBox("Default Time:", "Default Time", TempTime)
-
-            Case "Button19"
-
-                Dim Rota As New RotaForm
-                Rota.ShowDialog()
 
         End Select
 
