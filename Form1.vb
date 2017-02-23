@@ -13,7 +13,7 @@
         End Try
 
         Me.Text = SolutionName
-
+        OverClass.ExecuteSQL("INSERT INTO StaffLink (SharepointID) SELECT ID FROM UserInfo WHERE ID NOT IN (SELECT SharepointID FROM StaffLink)")
 
     End Sub
 
@@ -82,6 +82,8 @@
                 ctl.columns(3).headertext = "Order"
 
             Case "DataGridView2"
+                DataGridView2.AllowUserToAddRows = False
+                DataGridView2.Columns("Name").ReadOnly = True
                 ctl.Columns(0).Visible = False
                 ctl.columns(1).headertext = "Name"
                 ctl.columns(2).headertext = "Surname"
@@ -556,7 +558,7 @@
 
             Case "Staff"
                 ctl = Me.DataGridView2
-                SQLCode = "Select StaffID, FName, SName, Role, SharepointID, Bank, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
+                SQLCode = "Select SharepointID, Name, Role, Bank, a.Hidden FROM StaffLink a INNER JOIN UserInfo b ON a.SharepointID=b.ID ORDER BY a.Hidden DESC, Name ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
