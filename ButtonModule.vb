@@ -231,10 +231,10 @@ Module ButtonModule
 
                     Dim SQLString As String = "TRANSFORM First(Format(DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime])))),'dd-MMM') " &
     "& Chr(13) & Chr(10) & Format(DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime])))),'HH:mm') " &
-    "& Chr(13) & Chr(10) & Left([FName],1) & '-' & Left([SName],1)) AS CalcDate " &
+    "& Chr(13) & Chr(10) & IIf(IsNull([FullName]),'',Left([FullName],1) & '-' & left(Right([FullName],Len([FullName])-InStr([FullName],' ')),1))) AS CalcDate " &
     "SELECT StudyTimepoint.StudyID, a.StudyScheduleID, e.ProcName, a.DaysPost, a.ProcTime, e.ProcOrd " &
     "FROM ((Study INNER JOIN (Cohort INNER JOIN Volunteer AS d ON Cohort.CohortID = d.CohortID) ON Study.StudyID = Cohort.StudyID) INNER JOIN StudyTimepoint ON Study.StudyID = StudyTimepoint.StudyID) INNER JOIN ((ProcTask AS e INNER JOIN (StudySchedule AS a INNER JOIN VolunteerTimepoint AS f ON a.StudyTimepointID = f.StudyTimepointID) ON e.ProcID = a.ProcID) " &
-    "INNER JOIN (VolunteerSchedule AS c LEFT JOIN Staff ON c.StaffID = Staff.StaffID) ON a.StudyScheduleID = c.StudyScheduleID) ON (d.VolID = f.VolID) AND (d.VolID = c.VolID) AND (StudyTimepoint.StudyTimepointID = a.StudyTimepointID) " &
+    "INNER JOIN (VolunteerSchedule AS c LEFT JOIN Staff ON c.SharepointID = Staff.SharepointID) ON a.StudyScheduleID = c.StudyScheduleID) ON (d.VolID = f.VolID) AND (d.VolID = c.VolID) AND (StudyTimepoint.StudyTimepointID = a.StudyTimepointID) " &
     "WHERE (((StudyTimepoint.StudyID)=" & Form1.FilterCombo1.SelectedValue.ToString & ") " &
     "AND ((DateAdd('n',IIF(ISNULL([ProcOffSet]),0,[ProcOffSet]),IIf([Approx]='Set Time',DateValue(DateAdd('d',[DaysPost],[TimepointDateTime]))+TimeValue([ProcTime]),DateAdd('n',DateDiff('n',TimeValue([DefaultTime]),TimeValue([ProcTime])),DateAdd('d',[DaysPost],[TimepointDateTime]))))) " &
     "BETWEEN " & OverClass.SQLDate(Form1.DateTimePicker1.Value) &

@@ -532,7 +532,7 @@
                           <Color>LightGrey</Color>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>=iif((fields!StaffID.Value&lt;&gt;previous(fields!StaffID.value)) OR (format(fields!CalcDate.Value,"dd-MMM-yyyy")&lt;&gt;format(previous(fields!CalcDate.Value),"dd-MMM-yyyy")) OR (fields!StudyCohort.Value&lt;&gt;previous(fields!StudyCohort.Value)),fields!Colour.Value,"")</BackgroundColor>
+                        <BackgroundColor>=iif((fields!SharepointID.Value&lt;&gt;previous(fields!SharepointID.value)) OR (format(fields!CalcDate.Value,"dd-MMM-yyyy")&lt;&gt;format(previous(fields!CalcDate.Value),"dd-MMM-yyyy")) OR (fields!StudyCohort.Value&lt;&gt;previous(fields!StudyCohort.Value)),fields!Colour.Value,"")</BackgroundColor>
                       </Style>
                     </Textbox>
                     <ColSpan>4</ColSpan>
@@ -654,9 +654,9 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="StaffID">
+              <Group Name="SharepointID">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!StaffID.Value</GroupExpression>
+                  <GroupExpression>=Fields!SharepointID.Value</GroupExpression>
                 </GroupExpressions>
                 <PageBreak>
                   <BreakLocation>Between</BreakLocation>
@@ -664,7 +664,7 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!StaffID.Value</Value>
+                  <Value>=Fields!SharepointID.Value</Value>
                 </SortExpression>
                 <SortExpression>
                   <Value>=Fields!CalcDate.Value</Value>
@@ -680,7 +680,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!StaffID.Value</Value>
+                            <Value>=Fields!SharepointID.Value</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -856,8 +856,8 @@
           <DataField>RoomNo</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
-        <Field Name="StaffID">
-          <DataField>StaffID</DataField>
+        <Field Name="SharepointID">
+          <DataField>SharepointID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Colour">

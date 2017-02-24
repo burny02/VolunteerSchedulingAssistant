@@ -19,9 +19,9 @@
             For Each row As DataRow In DT.Rows
 
                 If row.RowState = DataRowState.Deleted Then Continue For
-                If IsDBNull(row.Item("StaffID")) _
-                Or IsNothing(row.Item("StaffID")) Then Continue For
-                If (row.Item("StaffID")) <> StaffMember Then Continue For
+                If IsDBNull(row.Item("SharepointID")) _
+                Or IsNothing(row.Item("SharepointID")) Then Continue For
+                If (row.Item("SharepointID")) <> StaffMember Then Continue For
                 If (row.Item("VolunteerScheduleID")) = ID Then Continue For
 
                 Dim RowEndFull, RowStartFull As Date
@@ -60,9 +60,9 @@
             'Vol Procedures
             For Each Row In Grid.Rows
 
-                If IsDBNull(Row.Cells("StaffID").Value) _
-                Or IsNothing(Row.Cells("StaffID").Value) Then Continue For
-                If (Row.Cells("StaffID").Value) <> StaffMember Then Continue For
+                If IsDBNull(Row.Cells("SharepointID").Value) _
+                Or IsNothing(Row.Cells("SharepointID").Value) Then Continue For
+                If (Row.Cells("SharepointID").Value) <> StaffMember Then Continue For
                 If PassedRowIndex = Row.index Then Continue For
                 If IsDBNull(Row.Cells("CalcDate").Value) _
                 Or IsNothing(Row.Cells("CalcDate").Value) Then Continue For

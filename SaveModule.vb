@@ -23,21 +23,6 @@
         'Create and overwrite a custom one if needed (More than 1 table) ...OLEDB Parameters must be added in the order they are used
         Select Case ctl.name
 
-            Case "DataGridView2"
-
-                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE StaffLink " &
-                                                                          "SET Role=@P1, Bank=@P2, Hidden=@P3 " &
-                                                                          "WHERE SharepointID=@P4")
-
-
-                With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
-                    .Add("@P1", OleDb.OleDbType.VarChar, 255, "Role")
-                    .Add("@P2", OleDb.OleDbType.Boolean, 255, "Bank")
-                    .Add("@P3", OleDb.OleDbType.Boolean, 255, "Hidden")
-                    .Add("@P4", OleDb.OleDbType.Double, 255, "SharepointID")
-                End With
-
-
             Case "DataGridView5"
 
                 OverClass.CurrentDataAdapter.InsertCommand = New OleDb.OleDbCommand("INSERT INTO StudyTimepoint " &
@@ -295,12 +280,12 @@
             Case "DataGridView11"
 
 
-                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE VolunteerSchedule " & _
-                                                                          "SET StaffID=@P1 " & _
+                OverClass.CurrentDataAdapter.UpdateCommand = New OleDb.OleDbCommand("UPDATE VolunteerSchedule " &
+                                                                          "SET SharepointID=@P1 " &
                                                                         "WHERE VolunteerScheduleID=@P2")
 
                 With OverClass.CurrentDataAdapter.UpdateCommand.Parameters
-                    .Add("@P1", OleDb.OleDbType.Double, 255, "StaffID")
+                    .Add("@P1", OleDb.OleDbType.Double, 255, "SharepointID")
                     .Add("@P2", OleDb.OleDbType.Double, 255, "VolunteerScheduleID")
 
 

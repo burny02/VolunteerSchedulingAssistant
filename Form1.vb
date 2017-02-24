@@ -13,7 +13,6 @@
         End Try
 
         Me.Text = SolutionName
-        OverClass.ExecuteSQL("INSERT INTO StaffLink (SharepointID) SELECT ID FROM UserInfo WHERE ID NOT IN (SELECT SharepointID FROM StaffLink)")
 
     End Sub
 
@@ -83,10 +82,9 @@
 
             Case "DataGridView2"
                 DataGridView2.AllowUserToAddRows = False
-                DataGridView2.Columns("Name").ReadOnly = True
+                DataGridView2.Columns("FullName").ReadOnly = True
                 ctl.Columns(0).Visible = False
-                ctl.columns(1).headertext = "Name"
-                ctl.columns(2).headertext = "Surname"
+                ctl.columns(1).headertext = "FullName"
                 ctl.columns("Role").visible = False
                 Dim cmb As New DataGridViewComboBoxColumn
                 ctl.columns.add(cmb)
@@ -378,7 +376,7 @@
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
                 ctl.AllowUserToAddRows = False
                 ctl.columns("VolunteerScheduleID").visible = False
-                ctl.columns("StaffID").visible = False
+                ctl.columns("SharepointID").visible = False
                 ctl.columns("CohortID").visible = False
                 ctl.columns("ProcOrd").visible = False
                 ctl.columns("FullName").visible = False
@@ -405,13 +403,13 @@
                 ctl.columns("CalcDate").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 ctl.columns("EndFull").DefaultCellStyle.Format = "HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
-                cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname, StaffID " &
-                                                         "FROM STAFF WHERE Hidden=False ORDER BY FName ASC")
+                cmb.DataSource = OverClass.TempDataTable("SELECT SharepointID, Fullname " &
+                                                         "FROM STAFF WHERE Hidden=False ORDER BY FullName ASC")
                 ctl.columns.add(cmb)
                 cmb.HeaderText = "Staff Member"
-                cmb.ValueMember = "StaffID"
+                cmb.ValueMember = "SharepointID"
                 cmb.DisplayMember = "Fullname"
-                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
+                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("SharepointID").ToString
                 cmb.Name = "PICK"
                 Dim cmb2 As New DataGridViewImageColumn
                 cmb2.HeaderText = "Delete Procedure"
@@ -433,26 +431,26 @@
 
             Case "DataGridView12"
 
-                SQLCode = "SELECT StaffProcID, StaffID, ProcID, ProcDateTime " &
+                SQLCode = "SELECT StaffProcID, SharepointID, ProcID, ProcDateTime " &
                     "FROM StaffProc " &
                     "WHERE ProcDateTime > Now() " &
                     " ORDER BY ProcDateTime ASC"
                 OverClass.CreateDataSet(SQLCode, Me.BindingSource1, ctl)
 
                 ctl.columns("StaffProcID").visible = False
-                ctl.columns("StaffID").visible = False
+                ctl.columns("SharepointID").visible = False
                 ctl.columns("ProcID").visible = False
                 ctl.columns("ProcDateTime").HeaderText = "Date/Time"
                 ctl.columns("ProcDateTime").DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm"
                 Dim cmb As New DataGridViewComboBoxColumn
-                cmb.DataSource = OverClass.TempDataTable("SELECT StaffID, FName & ' ' & SName AS Fullname " &
-                                                         "FROM STAFF WHERE Hidden=False ORDER BY FName ASC")
+                cmb.DataSource = OverClass.TempDataTable("SELECT SharepointID, Fullname " &
+                                                         "FROM STAFF WHERE Hidden=False ORDER BY FullName ASC")
                 ctl.columns.add(cmb)
                 cmb.Name = "Pick"
                 cmb.HeaderText = "Staff Member"
-                cmb.ValueMember = "StaffID"
+                cmb.ValueMember = "SharepointID"
                 cmb.DisplayMember = "Fullname"
-                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("StaffID").ToString
+                cmb.DataPropertyName = OverClass.CurrentDataSet.Tables(0).Columns("SharepointID").ToString
                 Dim cmb2 As New DataGridViewComboBoxColumn
                 cmb2.DataSource = OverClass.TempDataTable("SELECT ProcID, ProcName " &
                                                          "FROM ProcTask ORDER BY ProcName ASC")
@@ -485,10 +483,10 @@
                           "WHERE ProcID IN (" &
                 FilterCombo4.SetCmbPointer(OverClass.CurrentDataSet.Tables(0).Columns("ProcID")) & ")", OverClass)
 
-                FilterCombo3.SetAsExternalSource("StaffID", "FullName",
-                           "SELECT StaffID, FName & ' ' & SName AS FullName FROM Staff " &
-                          "WHERE StaffID IN (" &
-                FilterCombo3.SetCmbPointer(OverClass.CurrentDataSet.Tables(0).Columns("StaffID")) & ")", OverClass)
+                FilterCombo3.SetAsExternalSource("SharepointID", "FullName",
+                           "SELECT SharepointID, FullName FROM Staff " &
+                          "WHERE SharepointID IN (" &
+                FilterCombo3.SetCmbPointer(OverClass.CurrentDataSet.Tables(0).Columns("SharepointID")) & ")", OverClass)
 
             Case "DataGridView13"
                 SQLCode = "SELECT * FROM ReportArchive ORDER BY ArchiveID DESC, ArchiveDate DESC"
@@ -558,7 +556,10 @@
 
             Case "Staff"
                 ctl = Me.DataGridView2
-                SQLCode = "Select SharepointID, Name, Role, Bank, a.Hidden FROM StaffLink a INNER JOIN UserInfo b ON a.SharepointID=b.ID ORDER BY a.Hidden DESC, Name ASC"
+                OverClass.AddToMassSQL("INSERT INTO Staff (SharepointID) SELECT ID FROM UserInfo WHERE ID NOT IN (SELECT SharepointID FROM Staff)", False)
+                OverClass.AddToMassSQL("UPDATE Staff a INNER JOIN UserInfo b ON a.SharepointID=b.ID SET a.FullName=left(b.Name,30)", False)
+                OverClass.ExecuteMassSQL()
+                SQLCode = "SELECT SharepointID, FullName, Role, Bank, Hidden FROM Staff ORDER BY Hidden DESC, FullName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
@@ -679,12 +680,12 @@
 
         Dim returner As String = vbNullString
 
-        If IsDBNull(sender.rows(e.RowIndex).cells("StaffID").value) Or
-            IsNothing(sender.rows(e.RowIndex).cells("StaffID").value) Then Exit Sub
+        If IsDBNull(sender.rows(e.RowIndex).cells("SharepointID").value) Or
+            IsNothing(sender.rows(e.RowIndex).cells("SharepointID").value) Then Exit Sub
         If e.ColumnIndex <> sender.Columns("Pick").Index Then Exit Sub
 
 
-        returner = CheckVolunteerOverlap(sender.rows(e.RowIndex).cells("StaffID").value, sender.rows(e.RowIndex).cells("VolunteerScheduleID").value,
+        returner = CheckVolunteerOverlap(sender.rows(e.RowIndex).cells("SharepointID").value, sender.rows(e.RowIndex).cells("VolunteerScheduleID").value,
                               sender.rows(e.RowIndex).cells("CalcDate").value, sender.rows(e.RowIndex).cells("EndFull").value, OverClass.CurrentDataSet.Tables(0))
 
         If returner <> vbNullString Then
@@ -771,7 +772,7 @@
                     End If
                     If Not Initials Like "[A-Z][A-Z][A-Z]" Then
                         MsgBox("Initials must be 3 text characters such As 'AAA'")
-                Continue Do
+                        Continue Do
                     End If
                     Accepted = True
                 Loop
@@ -1052,12 +1053,12 @@
 
         Dim returner As String = vbNullString
 
-        Dim StaffID As Long = 0
+        Dim SharepointID As Long = 0
         Dim ProcID As Long = 0
         Dim CalcDate As Date = "01/01/2000"
         Dim Identifier As Long = 0
         Try
-            StaffID = sender.rows(e.RowIndex).cells("StaffID").value
+            SharepointID = sender.rows(e.RowIndex).cells("SharepointID").value
         Catch ex As Exception
         End Try
         Try
@@ -1073,9 +1074,9 @@
         Catch ex As Exception
         End Try
 
-        If StaffID = 0 Or ProcID = 0 Or CalcDate = "01/01/2000" Then Exit Sub
+        If SharepointID = 0 Or ProcID = 0 Or CalcDate = "01/01/2000" Then Exit Sub
 
-        returner = CheckExtraOverlap(StaffID, Identifier,
+        returner = CheckExtraOverlap(SharepointID, Identifier,
                         CalcDate,
                         DateAdd(DateInterval.Minute, sender.rows(e.RowIndex).cells("MinsTaken").FormattedValue, CalcDate),
                         sender, e.RowIndex)
@@ -1120,7 +1121,7 @@
 
             Case "Individual"
                 ctl = Me.DataGridView8
-                SQLCode = "SELECT StaffID, FName, SName, Hidden FROM Staff ORDER BY Hidden DESC, FName ASC"
+                SQLCode = "SELECT SharepointID, FullName , Hidden FROM Staff ORDER BY Hidden DESC, FullName ASC"
                 OverClass.CreateDataSet(SQLCode, Bind, ctl)
 
         End Select
